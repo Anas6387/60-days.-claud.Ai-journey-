@@ -1,4 +1,4 @@
-# 60-days.-claud.Ai-journey-
+9# 60-days.-claud.Ai-journey-
 claud journey. with amazing. task 
 
 
@@ -87,4 +87,45 @@ h1{
 
         <div class="section">
             <h2>2. Strengths & Weaknesses</h2>
-            <p><b>Strengths:</b> Creativity, Cur
+            <p><b>Strengths:</b> Creativity, 
+
+DAY 2 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Engineering</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background:#f5efe6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container{
+    width:1080px;
+    height:1080px;
+    background:#f8f3ed;
+    padding:40px;
+    color:#3b2a20;
+}
+
+.challenge{
+    display:inline-block;
+    background:#5a3725;
+    color:white;
+    padding:15px 25px;
+    border-radius:15px;
+    font-size:28px;
+    margin-bottom
