@@ -129,3 +129,82 @@ body{
     border-radius:15px;
     font-size:28px;
     margin-bottom
+DAY 3
+
+Color Palette:
+- Dark Brown #4A2E1F
+- Beige #EADCC8
+- Cream #F8F4ED
+- Warm Orange #C97A3D
+
+Style:
+- Modern AI-themed infographic
+- Professional LinkedIn carousel cover
+- Dynamic layout with floating AI elements
+- Minimal yet premium
+- Soft shadows and glassmorphism cards
+
+Main Title:
+"Role-Based Prompting"
+
+Subheading:
+"ABTalks 60-Day Claude AI Mastery Challenge"
+
+Tagline:
+"Turn Claude into Any Expert You Need"
+
+Right Side Hero Visual:
+- Futuristic AI head silhouette
+- Claude-inspired starburst icon inside brain
+- Connected nodes and chat bubbles
+- Analytics and growth icons
+
+Center Comparison Section:
+
+Left Card:
+WITHOUT ROLE PROMPT
+Generic Answer
+
+Prompt:
+"How can I improve user retention?"
+
+Response:
+"Improve customer support, add features, and gather feedback."
+
+Right Card:
+WITH ROLE PROMPT
+Expert-Level Answer
+
+Prompt:
+"You are a Product Manager. How can I improve user retention?"
+
+Response:
+"Focus on onboarding, activation, cohort analysis, A/B testing, and habit-forming features."
+
+Bottom Persona Cards:
+1. Developer
+2. Product Manager
+3. HR Manager
+4. Founder
+5. Marketer
+
+Benefits Section:
+1. More Relevant Responses
+2. Better Quality & Depth
+3. Saves Time
+
+Footer:
+ABTalks 60-Day Claude AI Mastery Challenge
+Day 04
+#ABTalksClaudeChallenge
+
+Typography:
+Bold modern sans-serif
+Large high-contrast heading
+Clean spacing
+Premium LinkedIn content style
+
+Quality:
+Ultra-sharp
+Professional social media design
+High engagement layout
