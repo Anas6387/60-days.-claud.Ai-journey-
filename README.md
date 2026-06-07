@@ -496,3 +496,70 @@ Professional icons
 High contrast
 Screenshot friendly
 2026 trending design
+ 
+------------------Day6-----------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LinkedIn Post</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{display:flex;justify-content:center;align-items:center;min-height:100vh;background:#f4f6fb;font-family:Arial,sans-serif}
+.poster{width:1080px;height:1080px;background:#fff;position:relative;overflow:hidden}
+.left{position:absolute;left:0;top:0;width:55%;height:100%;padding:40px}
+.right{position:absolute;right:0;top:0;width:45%;height:100%;background:linear-gradient(180deg,#071a4a,#0b2f8a)}
+.small{font-size:22px;font-weight:700;color:#0b1b47;line-height:1.3}
+.small span{color:#2563eb}
+.line{width:120px;height:4px;background:#2563eb;margin:20px 0}
+.title{font-size:90px;font-weight:900;line-height:.95;color:#08163f;margin-top:40px}
+.title span{color:#2563eb}
+.tech{display:inline-block;background:#08163f;color:#fff;padding:10px 25px;margin-top:10px}
+.desc{margin-top:30px;font-size:22px;line-height:1.4;color:#333;max-width:520px}
+.items{margin-top:40px}
+.item{display:flex;align-items:center;margin-bottom:28px}
+.icon{width:70px;height:70px;border-radius:50%;background:#2563eb;color:#fff;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:700}
+.text{margin-left:18px}
+.text h3{font-size:24px;color:#0b1b47}
+.text p{font-size:18px;color:#444}
+.quote{position:absolute;left:40px;bottom:170px;width:480px;background:#071a4a;color:#fff;padding:35px;border-radius:40px 40px 0 0}
+.quote h2{font-size:46px;color:#2563eb}
+.quote p{font-size:20px;line-height:1.4}
+.footer{position:absolute;bottom:0;left:0;width:100%;height:90px;background:#0b2f8a;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 40px;font-size:24px}
+.profile{position:absolute;right:0;top:80px;width:520px;height:760px;object-fit:cover}
+.badges{position:absolute;bottom:130px;right:40px;display:flex;gap:50px;color:#2563eb;font-size:22px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="poster">
+<div class="left">
+<div class="small">LEARNING TODAY<br>LEADING <span>TOMORROW</span></div>
+<div class="line"></div>
+<div class="title">BUILDING<br><span>MY FUTURE</span><br><div class="tech">IN TECH</div></div>
+<div class="desc">I’m on a journey of continuous learning, building real skills, and preparing for impactful opportunities in the tech industry.</div>
+<div class="items">
+<div class="item"><div class="icon">📘</div><div class="text"><h3>LEARN</h3><p>Exploring new concepts every day</p></div></div>
+<div class="item"><div class="icon">💻</div><div class="text"><h3>BUILD</h3><p>Working on projects that create value</p></div></div>
+<div class="item"><div class="icon">📈</div><div class="text"><h3>GROW</h3><p>Improving 1% every single day</p></div></div>
+<div class="item"><div class="icon">🎯</div><div class="text"><h3>FOCUS</h3><p>Consistent efforts towards big goals</p></div></div>
+</div>
+</div>
+<div class="right"></div>
+<img class="profile" src="49886.png" alt="">
+<div class="quote">
+<h2>“</h2>
+<p>The secret of getting ahead is getting started.</p>
+</div>
+<div class="badges">
+<div>Stay Curious</div>
+<div>Keep Building</div>
+<div>Achieve Greatness</div>
+</div>
+<div class="footer">
+<div>Open to Opportunities | Let's Connect!</div>
+<div>#LearningJourney #TechEnthusiast #FutureReady</div>
+</div>
+</div>
+</body>
+</html>
