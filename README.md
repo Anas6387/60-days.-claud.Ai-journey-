@@ -2,7 +2,7 @@
 claud journey. with amazing. task 
 
 
-Day 1 
+----------------------Day 1--------------------
 
 <!DOCTYPE html>
 <html>
@@ -89,7 +89,7 @@ h1{
             <h2>2. Strengths & Weaknesses</h2>
             <p><b>Strengths:</b> Creativity, 
 
-DAY 2 
+--------------------DAY 2 --------------------
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,7 +129,7 @@ body{
     border-radius:15px;
     font-size:28px;
     margin-bottom
-DAY 3
+---------+--------------DAY 3-----------------
 
 Color Palette:
 - Dark Brown #4A2E1F
@@ -209,8 +209,8 @@ Ultra-sharp
 Professional social media design
 High engagement layout
 
-Day 4 
-Create a premium A4 portrait AI Career Roadmap infographic.
+---------------------Day 4 --------------------
+
 
 Style:
 - Modern consulting report design
@@ -253,9 +253,6 @@ Table with:
 - Portfolio Projects
 - Communication Skills
 
-Show current level and target level using star ratings.
-
-RECOMMENDED LEARNING PLAN
 
 Phase 1: Foundation (Months 1-3)
 - Python
@@ -325,9 +322,9 @@ Design Requirements:
 - No text overlap
 - LinkedIn share ready
 - Premium visual quality
-Day 5 
+------
 
-
+------_---------------Day 5 -------------------
 
 Canvas:
 
