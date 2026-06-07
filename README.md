@@ -325,3 +325,177 @@ Design Requirements:
 - No text overlap
 - LinkedIn share ready
 - Premium visual quality
+Day 5 
+
+
+
+Canvas:
+
+- 16:9 landscape infographic
+- Ultra HD
+- Clean modern layout
+- Premium LinkedIn carousel style
+- White and dark navy split design
+- Blue, purple, gold gradient accents
+- Professional icons
+- Rounded cards
+- Visual hierarchy
+- High readability
+- No text overlap
+
+LEFT PANEL
+
+Header:
+PROMPT A (WITHOUT CONTEXT)
+
+Main Title:
+30-DAY LEARNING ROADMAP
+
+Subtitle:
+Beginner Friendly Plan
+
+Sections:
+
+Duration:
+30 Days
+
+Focus:
+Build Strong Foundation
+
+Goal:
+New Skills + Practical Knowledge
+
+Time:
+1–2 Hours/Day
+
+Weekly Milestones:
+
+Week 1
+Foundation
+Days 1–7
+
+Week 2
+Build Skills
+Days 8–14
+
+Week 3
+Create Project
+Days 15–21
+
+Week 4
+Refine & Present
+Days 22–30
+
+Daily Tasks:
+• Watch Videos
+• Take Notes
+• Practice
+• Solve Problems
+• Review
+
+Resources:
+• YouTube
+• Khan Academy
+• MDN
+• LeetCode
+• GitHub
+• ChatGPT
+
+Projects:
+• Mini Project 1
+• Mini Project 2
+• Main Project
+• Final Project
+
+Final Outcome:
+Gain solid knowledge and complete projects
+
+RIGHT PANEL
+
+Header:
+PROMPT B (WITH CONTEXT)
+
+Main Title:
+30-DAY LEARNING ROADMAP
+
+Context Bar:
+Current Situation: Student
+Current Skills: Python, Basic C++
+Goal: Become Python Developer
+Time: 2 Hours/Day
+Level: Beginner
+Learning Style: Projects + Videos
+
+Weekly Milestones:
+
+Week 1
+Python Basics
+
+Week 2
+Core Concepts
+
+Week 3
+Practice & Build
+
+Week 4
+Project & Deploy
+
+Daily Tasks Flow:
+Watch Tutorial
+→ Take Notes
+→ Practice Code
+→ Solve Problems
+→ Build Project
+→ Review
+
+Resources:
+• YouTube
+• freeCodeCamp
+• W3Schools
+• LeetCode
+• GitHub
+• ChatGPT
+
+Projects:
+• Calculator App
+• To-Do List App
+• Notes App
+
+Final Outcome:
+Ready for internships and junior developer roles
+
+BOTTOM SECTION
+
+Comparison & Insights
+
+Question 1:
+Which roadmap feels more personalized?
+
+Answer:
+Prompt B because it includes goals, skills, time availability, and learning style.
+
+Question 2:
+Which roadmap would you actually follow?
+
+Answer:
+Prompt B because it is aligned with real-world needs and personal goals.
+
+Question 3:
+Role of Context
+
+Answer:
+Context transforms generic information into actionable guidance.
+
+Quote Section:
+“Context is the difference between information and transformation.”
+
+Style:
+Modern AI-themed infographic
+LinkedIn viral post design
+Premium consulting report aesthetic
+Blue-purple gradients
+Sharp typography
+Professional icons
+High contrast
+Screenshot friendly
+2026 trending design
