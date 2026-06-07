@@ -208,3 +208,120 @@ Quality:
 Ultra-sharp
 Professional social media design
 High engagement layout
+
+Day 4 
+Create a premium A4 portrait AI Career Roadmap infographic.
+
+Style:
+- Modern consulting report design
+- White background
+- Navy blue, royal blue, and purple gradient accents
+- Professional LinkedIn-ready layout
+- Clean typography
+- High-end corporate presentation style
+- Visual hierarchy with cards, icons, dividers, timelines, and tables
+
+Include a professional portrait photo on the top-left section.
+
+Main Title:
+AI CAREER ROADMAP
+
+Subtitle:
+A Strategic 12-Month Plan to Build Skills, Projects, and a High-Growth Tech Career
+
+Sections:
+
+CURRENT POSITION
+- Aspiring Tech Professional
+- Strong motivation to build a career in AI & Software Development
+- Growth mindset
+- Consistent learner
+
+TARGET ROLE
+- AI Engineer
+- Software Engineer
+- ML Engineer
+
+SKILL GAP ANALYSIS
+Table with:
+- Python
+- Data Structures & Algorithms
+- Machine Learning
+- Deep Learning
+- SQL
+- Data Analysis
+- Portfolio Projects
+- Communication Skills
+
+Show current level and target level using star ratings.
+
+RECOMMENDED LEARNING PLAN
+
+Phase 1: Foundation (Months 1-3)
+- Python
+- SQL
+- DSA
+- Problem Solving
+
+Phase 2: Core Building (Months 4-6)
+- Machine Learning
+- Data Analysis
+- Statistics
+- Build Projects
+
+Phase 3: Advanced Skills (Months 7-9)
+- Deep Learning
+- NLP or Computer Vision
+- Deployment
+
+Phase 4: Career Preparation (Months 10-12)
+- Resume Optimization
+- LinkedIn Branding
+- Mock Interviews
+- Job Applications
+
+ SUGGESTED PROJECTS
+1. Movie Recommendation System
+2. House Price Prediction
+3. Image Classification App
+4. Resume Screener
+5. AI Chatbot
+
+NETWORKING STRATEGY
+- Optimize LinkedIn
+- Share Learning Publicly
+- Join Communities
+- Connect with Professionals
+- Attend Events
+
+ 12-MONTH MILESTONES
+Month 1-2
+Month 3-4
+Month 5-6
+Month 7-8
+Month 9-10
+Month 11-12
+
+IMMEDIATE NEXT ACTIONS
+- Create GitHub Profile
+- Solve DSA Daily
+- Learn New Concepts Daily
+- Build Mini Project
+- Post on LinkedIn
+
+Bottom Section:
+Success Formula:
+Focus + Skills + Action + Consistency = Success
+
+Footer:
+Generated using Chain-of-Thought Reasoning
+
+Design Requirements:
+- Ultra-sharp
+- 300 DPI
+- Professional infographic
+- Corporate consulting style
+- Balanced spacing
+- No text overlap
+- LinkedIn share ready
+- Premium visual quality
