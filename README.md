@@ -563,3 +563,190 @@ body{display:flex;justify-content:center;align-items:center;min-height:100vh;bac
 </div>
 </body>
 </html>
+
+----------------------Day 7-------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Usage Strategy</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f7fb;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:1080px;
+    margin:auto;
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.header{
+    text-align:center;
+    background:#1b1464;
+    color:white;
+    padding:20px;
+    border-radius:15px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    margin-top:20px;
+}
+
+.card{
+    border:1px solid #ddd;
+    border-radius:15px;
+    padding:20px;
+}
+
+.card h3{
+    margin-top:0;
+    color:#1b1464;
+}
+
+.model{
+    background:#6c2bd9;
+    color:white;
+    padding:12px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+.table th{
+    background:#1b1464;
+    color:white;
+    padding:12px;
+}
+
+.table td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+.footer{
+    margin-top:25px;
+    background:#eef3ff;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>🚀 MY CLAUDE USAGE STRATEGY</h1>
+<p>Personalized Claude AI Model Recommendation Framework</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>🏆 Recommended Primary Model</h3>
+<div class="model">Claude Sonnet</div>
+<p>Best balance of intelligence, speed, and cost.</p>
+</div>
+
+<div class="card">
+<h3>⭐ Why This Model Fits Me</h3>
+<ul>
+<li>Handles learning tasks</li>
+<li>Great for research</li>
+<li>Excellent writing quality</li>
+<li>Fast responses</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>⚡ When to Use Haiku</h3>
+<ul>
+<li>Quick answers</li>
+<li>Summaries</li>
+<li>Brainstorming</li>
+<li>Low-cost tasks</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>🧠 When to Use Opus</h3>
+<ul>
+<li>Deep research</li>
+<li>Business strategy</li>
+<li>Complex planning</li>
+<li>High-stakes decisions</li>
+</ul>
+</div>
+
+</div>
+
+<h2>📊 Personalized Workflow</h2>
+
+<table class="table">
+<tr>
+<th>Task</th>
+<th>Best Model</th>
+<th>Best Effort</th>
+<th>Reason</th>
+</tr>
+
+<tr>
+<td>Learning</td>
+<td>Sonnet</td>
+<td>Standard</td>
+<td>Balanced performance</td>
+</tr>
+
+<tr>
+<td>Coding</td>
+<td>Sonnet</td>
+<td>High</td>
+<td>Better debugging</td>
+</tr>
+
+<tr>
+<td>Research</td>
+<td>Opus</td>
+<td>High</td>
+<td>Deep analysis</td>
+</tr>
+
+<tr>
+<td>Quick Questions</td>
+<td>Haiku</td>
+<td>Low</td>
+<td>Fastest response</td>
+</tr>
+
+</table>
+
+<div class="footer">
+💡 Default Recommendation: Sonnet + Standard Effort
+</div>
+
+</div>
+
+</body>
+</html>
