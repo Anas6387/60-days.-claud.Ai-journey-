@@ -1,4 +1,4 @@
-9# 60-days.-claud.Ai-journey-
+# 60-days.-claud.Ai-journey-
 claud journey. with amazing. task 
 
 
@@ -750,3 +750,49 @@ body{
 
 </body>
 </html>
+
+------------------DAY 8________________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Personal Environmental Health Analyzer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#030712;
+color:white;
+display:flex;
+min-height:100vh;
+}
+
+.sidebar{
+width:260px;
+background:#071224;
+padding:20px;
+border-right:1px solid #1e293b;
+}
+
+.logo{
+font-size:24px;
+font-weight:700;
+margin-bottom:30px;
+}
+
+.menu{
+display:flex;
+flex-direction:column;
+gap:12
