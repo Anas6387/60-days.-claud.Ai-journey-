@@ -565,6 +565,7 @@ body{display:flex;justify-content:center;align-items:center;min-height:100vh;bac
 </html>
 
 ----------------------Day 7-------------------
+   HTML
 
 <!DOCTYPE html>
 <html lang="en">
@@ -752,6 +753,7 @@ body{
 </html>
 
 ------------------DAY 8________________________
+    HTML
 
 <!DOCTYPE html>
 <html lang="en">
@@ -796,3 +798,95 @@ margin-bottom:30px;
 display:flex;
 flex-direction:column;
 gap:12
+
+CSA UI UX -------
+
+:root{
+--bg:#040b18;
+--card:#0b1220;
+--card2:#101827;
+--border:#1f2a44;
+--primary:#6366f1;
+--secondary:#8b5cf6;
+--green:#22c55e;
+--yellow:#facc15;
+--orange:#fb923c;
+--red:#ef4444;
+--text:#ffffff;
+--muted:#94a3b8;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:
+radial-gradient(circle at top left,#1e1b4b 0%,transparent 40%),
+radial-gradient(circle at top right,#312e81 0%,transparent 40%),
+#030712;
+color:var(--text);
+min-height:100vh;
+display:flex;
+overflow:hidden;
+}
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#374151;
+border-radius:20px;
+}
+
+.sidebar{
+width:260px;
+height:100vh;
+background:rgba(8,15,35,.9);
+backdrop-filter:blur(20px);
+border-right:1px solid rgba(255,255,255,.08);
+padding:20px;
+position:fixed;
+left:0;
+top:0;
+overflow-y:auto;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+line-height:1.3;
+margin-bottom:30px;
+}
+
+.logo span{
+color:#4ade80;
+font-size:14px;
+display:block;
+margin-top:10px;
+}
+
+.menu{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+.menu a{
+display:flex;
+align-items:center;
+gap:12px;
+padding:15px;
+text-decoration:none;
+color:#dbeafe;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.05);
+border-radius:14px;
+transition:.3s;
+}
+
+.menu
