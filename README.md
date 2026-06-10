@@ -752,7 +752,7 @@ body{
 </body>
 </html>
 
-------------------DAY 8________________________
+------------------DAY 8___________________
     HTML
 
 <!DOCTYPE html>
@@ -890,3 +890,985 @@ transition:.3s;
 }
 
 .menu
+---------------------DAY 9----------------
+  java script 
+  <script>
+
+// ==========================
+// FOOD DATABASE
+// ==========================
+
+const foodDatabase = {
+Rice:{calories:130,protein:2.7,carbs:28,fat:0.3},
+Dal:{calories:116,protein:9,carbs:20,fat:0.4},
+Paneer:{calories:265,protein:18,carbs:4,fat:20},
+Chicken:{calories:239,protein:27,carbs:0,fat:14},
+Egg:{calories:78,protein:6,carbs:0.6,fat:5},
+Milk:{calories:61,protein:3.2,carbs:5,fat:3.3},
+Banana:{calories:89,protein:1.1,carbs:23,fat:0.3},
+Apple:{calories:52,protein:0.3,carbs:14,fat:0.2},
+Curd:{calories:98,protein:11,carbs:3,fat:4},
+Roti:{calories:120,protein:4,carbs:24,fat:1}
+};
+
+let foods=[];
+
+// ==========================
+// ADD FOOD
+// ==========================
+
+document.querySelector("button").addEventListener("click",()=>{
+
+const food =
+document.querySelectorAll("select")[0].value;
+
+const qty =
+Number(document.querySelector("input").value);
+
+if(food==="Select Food" || qty<=0){
+alert("Enter valid food");
+return;
+}
+
+const item=foodDatabase[food];
+
+foods.push({
+food,
+qty,
+calories:item.calories*qty,
+protein:item.protein*qty,
+carbs:item.carbs*qty,
+fat:item.fat*qty
+});
+
+renderTable();
+updateCharts();
+});
+
+// ==========================
+// TABLE
+// ==========================
+
+function renderTable(){
+
+const tbody =
+document.getElementById("foodTable");
+
+tbody.innerHTML="";
+
+foods.forEach((item,index)=>{
+
+tbody.innerHTML+=`
+<tr>
+<td>${item.food}</td>
+<td>${item.qty}</td>
+<td>${item.calories.toFixed(0)}</td>
+<td>${item.protein.toFixed(1)}</td>
+<td>${item.carbs.toFixed(1)}</td>
+<td>${item.fat.toFixed(1)}</td>
+<td>
+<span class="action"
+onclick="removeFood(${index})">
+❌
+</span>
+</td>
+</tr>
+`;
+
+});
+
+updateSummary();
+}
+
+function removeFood(index){
+
+foods.splice(index,1);
+
+renderTable();
+
+updateCharts();
+}
+
+// ==========================
+// DAILY SUMMARY
+// ==========================
+
+function updateSummary(){
+
+let calories=0;
+let protein=0;
+let carbs=0;
+let fat=0;
+
+foods.forEach(f=>{
+
+calories+=f.calories;
+protein+=f.protein;
+carbs+=f.carbs;
+fat+=f.fat;
+
+});
+
+const energy =
+document.querySelector(".energy");
+
+energy.innerHTML=
+`${calories.toFixed(0)} kcal`;
+
+const progress=
+Math.min((calories/2300)*100,100);
+
+document.querySelector(".progress span")
+.style.width=progress+"%";
+
+updateMacroData(protein,carbs,fat);
+}
+
+// ==========================
+// CHARTS
+// ==========================
+
+const coverageChart =
+new Chart(
+document.getElementById("coverageChart"),
+{
+type:"doughnut",
+data:{
+labels:[
+"Covered",
+"Remaining"
+],
+datasets:[{
+data:[78,22]
+}]
+},
+options:{
+responsive:true,
+plugins:{
+legend:{
+labels:{
+color:"white"
+}
+}
+}
+}
+}
+);
+
+// ==========================
+// MACRO CHART
+// ==========================
+
+let macroChart=
+new Chart(
+document.getElementById("macroChart"),
+{
+type:"doughnut",
+data:{
+labels:[
+"Protein",
+"Carbs",
+"Fat"
+],
+datasets:[{
+data:[30,50,20]
+}]
+},
+options:{
+responsive:true,
+plugins:{
+legend:{
+labels:{
+color:"white"
+}
+}
+}
+}
+}
+);
+
+function updateMacroData(
+protein,
+carbs,
+fat
+){
+
+macroChart.data.datasets[0].data=[
+protein,
+carbs,
+fat
+];
+
+macroChart.update();
+}
+
+// ==========================
+// CALORIE TREND
+// ==========================
+
+const calorieChart=
+new Chart(
+document.getElementById("calorieChart"),
+{
+type:"line",
+data:{
+labels:[
+"Mon",
+"Tue",
+"Wed",
+"Thu",
+"Fri",
+"Sat",
+"Sun"
+],
+datasets:[{
+label:"Calories",
+data:[
+1200,
+1450,
+1600,
+1750,
+1900,
+1700,
+1500
+],
+borderWidth:3,
+tension:0.4
+}]
+},
+options:{
+responsive:true,
+plugins:{
+legend:{
+labels:{
+color:"white"
+}
+}
+},
+scales:{
+x:{
+ticks:{color:"white"}
+},
+y:{
+ticks:{color:"white"}
+}
+}
+}
+}
+);
+
+// ==========================
+// RECOMMENDATIONS
+// ==========================
+
+function getRecommendations(){
+
+let protein=0;
+
+foods.forEach(f=>{
+protein+=f.protein;
+});
+
+if(protein<70){
+
+alert(
+"Protein intake is low. Add Paneer, Eggs, Chicken or Dal."
+);
+
+}
+
+}
+
+// ==========================
+// CSV EXPORT
+// ==========================
+
+function exportCSV(){
+
+let csv=
+"Food,Qty,Calories,Protein,Carbs,Fat\n";
+
+foods.forEach(item=>{
+
+csv+=
+`${item.food},
+${item.qty},
+${item.calories},
+${item.protein},
+${item.carbs},
+${item.fat}\n`;
+
+});
+
+const blob=
+new Blob(
+[csv],
+{type:"text/csv"}
+);
+
+const a=
+document.createElement("a");
+
+a.href=
+URL.createObjectURL(blob);
+
+a.download=
+"nutriscope.csv";
+
+a.click();
+
+}
+
+// ==========================
+// CSV IMPORT
+// ==========================
+
+function importCSV(event){
+
+const file=
+event.target.files[0];
+
+if(!file) return;
+
+const reader=
+new FileReader();
+
+reader.onload=function(e){
+
+const rows=
+e.target.result.split("\n");
+
+foods=[];
+
+rows.slice(1).forEach(row=>{
+
+const cols=row.split(",");
+
+if(cols.length>5){
+
+foods.push({
+food:cols[0],
+qty:Number(cols[1]),
+calories:Number(cols[2]),
+protein:Number(cols[3]),
+carbs:Number(cols[4]),
+fat:Number(cols[5])
+});
+
+}
+
+});
+
+renderTable();
+updateCharts();
+
+};
+
+reader.readAsText(file);
+
+}
+
+// ==========================
+// UPDATE CHARTS
+// ==========================
+
+function updateCharts(){
+
+let protein=0;
+let carbs=0;
+let fat=0;
+
+foods.forEach(f=>{
+
+protein+=f.protein;
+carbs+=f.carbs;
+fat+=f.fat;
+
+});
+
+updateMacroData(
+protein,
+carbs,
+fat
+);
+
+getRecommendations();
+
+}
+
+// SAMPLE DATA
+
+foods.push(
+{
+food:"Rice",
+qty:2,
+calories:260,
+protein:5,
+carbs:56,
+fat:0.6
+}
+);
+
+foods.push(
+{
+food:"Dal",
+qty:1,
+calories:116,
+protein:9,
+carbs:20,
+fat:0.4
+}
+);
+
+renderTable();
+updateCharts();
+
+</script>
+----------------Html+css----------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NutriScope</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#030b1d;
+color:#fff;
+overflow-x:hidden;
+}
+
+.container{
+display:flex;
+min-height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:260px;
+background:#071327;
+padding:20px;
+border-right:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#55ff88;
+margin-bottom:30px;
+}
+
+.logo span{
+color:white;
+}
+
+.menu{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.menu a{
+text-decoration:none;
+color:#cbd5e1;
+padding:14px;
+border-radius:12px;
+transition:.3s;
+}
+
+.menu a:hover,
+.menu a.active{
+background:#0f2a4a;
+color:#55ff88;
+}
+
+/* MAIN */
+
+.main{
+flex:1;
+padding:20px;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.topbar h2{
+font-size:24px;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:10px;
+background:#1e9bff;
+color:white;
+cursor:pointer;
+}
+
+/* GRID */
+
+.grid{
+display:grid;
+gap:20px;
+}
+
+.grid-4{
+grid-template-columns:repeat(4,1fr);
+}
+
+.grid-3{
+grid-template-columns:repeat(3,1fr);
+}
+
+.card{
+background:rgba(10,20,40,.85);
+border:1px solid rgba(255,255,255,.05);
+border-radius:18px;
+padding:20px;
+box-shadow:
+0 0 20px rgba(0,255,170,.05);
+}
+
+.card-title{
+font-size:15px;
+margin-bottom:15px;
+color:#94a3b8;
+}
+
+/* PROFILE */
+
+.profile-row{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+/* SUMMARY */
+
+.energy{
+font-size:36px;
+font-weight:700;
+margin:10px 0;
+}
+
+.progress{
+height:10px;
+background:#16233d;
+border-radius:20px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.progress span{
+display:block;
+height:100%;
+background:linear-gradient(90deg,#32ff7e,#00d4ff);
+width:78%;
+}
+
+/* DEFICIENCIES */
+
+.def-list{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.def-item{
+display:flex;
+justify-content:space-between;
+padding-bottom:10px;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+.red{
+color:#ff5f5f;
+}
+
+/* FOOD LOG */
+
+.food-log{
+margin-top:20px;
+}
+
+.food-controls{
+display:flex;
+gap:10px;
+margin-bottom:15px;
+}
+
+.food-controls select,
+.food-controls input{
+flex:1;
+background:#091425;
+border:1px solid #1d3557;
+padding:12px;
+border-radius:10px;
+color:white;
+}
+
+.food-controls button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#32ff7e;
+font-weight:600;
+cursor:pointer;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+table th{
+background:#0b1930;
+padding:14px;
+text-align:left;
+}
+
+table td{
+padding:14px;
+border-top:1px solid rgba(255,255,255,.05);
+}
+
+.action{
+color:#ff5757;
+cursor:pointer;
+}
+
+/* NUTRIENT TABLE */
+
+.nutrient-table td{
+font-size:14px;
+}
+
+.bar{
+height:8px;
+background:#16233d;
+border-radius:20px;
+overflow:hidden;
+}
+
+.bar span{
+display:block;
+height:100%;
+background:#32ff7e;
+}
+
+/* CHART CARDS */
+
+.chart-box{
+height:320px;
+}
+
+/* RISK */
+
+.risk-box{
+text-align:center;
+}
+
+.risk-score{
+font-size:38px;
+font-weight:700;
+margin:15px 0;
+color:#ffc107;
+}
+
+/* RECOMMENDATIONS */
+
+.rec{
+display:flex;
+justify-content:space-between;
+padding:14px 0;
+border-bottom:1px solid rgba(255,255,255,.05);
+}
+
+/* FOOTER */
+
+.footer{
+margin-top:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1200px){
+
+.grid-4{
+grid-template-columns:repeat(2,1fr);
+}
+
+.grid-3{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.container{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+}
+
+.grid-4{
+grid-template-columns:1fr;
+}
+
+.footer{
+grid-template-columns:1fr;
+}
+
+.food-controls{
+flex-direction:column;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">🥗 <span>NutriScope</span></div>
+
+<div class="menu">
+<a class="active">Dashboard</a>
+<a>Food Log</a>
+<a>Meal Planner</a>
+<a>Profile</a>
+<a>Food Database</a>
+<a>Analysis</a>
+<a>Risk Analysis</a>
+<a>Recommendations</a>
+<a>Nutrition Sources</a>
+<a>Settings</a>
+</div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="main">
+
+<div class="topbar">
+<h2>Nutrition Dashboard</h2>
+
+<div>
+<button class="btn">Export CSV</button>
+<button class="btn">Import CSV</button>
+</div>
+</div>
+
+<!-- TOP CARDS -->
+
+<div class="grid grid-4">
+
+<div class="card">
+<div class="card-title">Your Profile</div>
+
+<div class="profile-row">
+<span>Age</span>
+<span>28</span>
+</div>
+
+<div class="profile-row">
+<span>Gender</span>
+<span>Male</span>
+</div>
+
+<div class="profile-row">
+<span>Height</span>
+<span>175 cm</span>
+</div>
+
+<div class="profile-row">
+<span>Weight</span>
+<span>70 kg</span>
+</div>
+
+</div>
+
+<div class="card">
+<div class="card-title">Daily Summary</div>
+
+<div class="energy">
+1865 kcal
+</div>
+
+<div class="progress">
+<span></span>
+</div>
+
+</div>
+
+<div class="card">
+<div class="card-title">Micronutrient Coverage</div>
+
+<canvas id="coverageChart"></canvas>
+</div>
+
+<div class="card">
+<div class="card-title">Top Deficiencies</div>
+
+<div class="def-list">
+<div class="def-item">
+<span>Vitamin D</span>
+<span class="red">-66%</span>
+</div>
+
+<div class="def-item">
+<span>Calcium</span>
+<span class="red">-42%</span>
+</div>
+
+<div class="def-item">
+<span>Iron</span>
+<span class="red">-28%</span>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOD LOG -->
+
+<div class="card food-log">
+
+<h3 style="margin-bottom:20px;">Food Log</h3>
+
+<div class="food-controls">
+
+<select>
+<option>Select Food</option>
+<option>Rice</option>
+<option>Dal</option>
+<option>Paneer</option>
+<option>Chicken</option>
+</select>
+
+<input type="number" placeholder="Quantity">
+
+<select>
+<option>Unit</option>
+<option>Gram</option>
+<option>Cup</option>
+<option>Piece</option>
+</select>
+
+<button>Add Food</button>
+
+</div>
+
+<table>
+
+<thead>
+<tr>
+<th>Food</th>
+<th>Qty</th>
+<th>Calories</th>
+<th>Protein</th>
+<th>Carbs</th>
+<th>Fat</th>
+<th>Action</th>
+</tr>
+</thead>
+
+<tbody id="foodTable">
+</tbody>
+
+</table>
+
+</div>
+
+<!-- NEXT SECTION -->
+
+<div class="grid grid-3" style="margin-top:20px;">
+
+<div class="card chart-box">
+<h3>Macronutrient Distribution</h3>
+<canvas id="macroChart"></canvas>
+</div>
+
+<div class="card chart-box">
+<h3>Calories Trend</h3>
+<canvas id="calorieChart"></canvas>
+</div>
+
+<div class="card risk-box">
+<h3>Risk Analysis</h3>
+
+<div class="risk-score">
+Moderate
+</div>
+
+<p>
+Low Vitamin D detected.
+Increase fish, eggs, or supplements.
+</p>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<div class="card">
+<h3>Nutrition Sources</h3>
+<br>
+USDA FoodData Central<br>
+ICMR Nutrition Tables
+</div>
+
+<div class="card">
+<h3>Disclaimer</h3>
+<br>
+Educational purposes only.
+Consult a registered dietitian.
+</div>
+
+<div class="card">
+<h3>NutriScope</h3>
+<br>
+Know Food. Know You.
+</div>
+
+</div>
+
+</div>
+
+</div>
