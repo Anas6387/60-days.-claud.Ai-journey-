@@ -752,7 +752,7 @@ body{
 </body>
 </html>
 
-------------------DAY 8________________________
+------------------DAY 8___________________
     HTML
 
 <!DOCTYPE html>
@@ -890,3 +890,224 @@ transition:.3s;
 }
 
 .menu
+
+    -----------------DAY 9--------
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Anas Resume</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f5f7fb;
+}
+
+.resume{
+    width:900px;
+    margin:20px auto;
+    background:#fff;
+    padding:40px;
+    border:1px solid #ddd;
+}
+
+h1{
+    color:#0b2c6b;
+    font-size:56px;
+    margin:0;
+    font-weight:800;
+}
+
+.subtitle{
+    font-size:24px;
+    margin-top:10px;
+    font-weight:600;
+}
+
+.contact{
+    margin-top:20px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:25px;
+    font-size:18px;
+}
+
+.section{
+    margin-top:30px;
+}
+
+.section-title{
+    color:#0b2c6b;
+    font-size:28px;
+    font-weight:700;
+    border-bottom:3px solid #0b2c6b;
+    padding-bottom:10px;
+    margin-bottom:15px;
+}
+
+.summary{
+    font-size:18px;
+    line-height:1.8;
+}
+
+.skills{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:30px;
+}
+
+.skills ul{
+    line-height:2;
+}
+
+.education-item{
+    margin-bottom:20px;
+}
+
+.education-item h4{
+    margin:0;
+    font-size:22px;
+}
+
+.education-item p{
+    margin:5px 0;
+}
+
+.bottom{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="resume">
+
+<h1>MOHAMMAD ANAS</h1>
+
+<div class="subtitle">
+B.TECH CSE STUDENT | CHAT & CALL PROCESS | CUSTOMER SUPPORT
+</div>
+
+<div class="contact">
+<span>📍 Lucknow, Uttar Pradesh, India</span>
+<span>📞 6387029023</span>
+<span>✉️ mohammadanas552005@gmail.com</span>
+</div>
+
+<div class="section">
+<div class="section-title">PROFESSIONAL SUMMARY</div>
+<div class="summary">
+Energetic and hardworking B.Tech CSE student with strong communication
+and customer handling skills. Experienced in chat support, call support,
+and customer service operations.
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">SKILLS</div>
+
+<div class="skills">
+
+<div>
+<h3>Technical Skills</h3>
+<ul>
+<li>HTML Basics</li>
+<li>CSS Basics</li>
+<li>Python Basics</li>
+<li>MS Office</li>
+</ul>
+</div>
+
+<div>
+<h3>Customer Support Skills</h3>
+<ul>
+<li>Chat Support</li>
+<li>Call Support</li>
+<li>Customer Handling</li>
+<li>Communication Skills</li>
+</ul>
+</div>
+
+<div>
+<h3>Professional Skills</h3>
+<ul>
+<li>Teamwork</li>
+<li>Problem Solving</li>
+<li>Quick Learning</li>
+<li>Time Management</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<div class="section">
+<div class="section-title">EDUCATION</div>
+
+<div class="education-item">
+<h4>B.Tech – Computer Science Engineering (2023–2027)</h4>
+<p>APJ Abdul Kalam Technical University, Lucknow</p>
+</div>
+
+<div class="education-item">
+<h4>Intermediate (12th) – 2023</h4>
+<p>Uttar Pradesh Board</p>
+</div>
+
+<div class="education-item">
+<h4>High School (10th) – 2021</h4>
+<p>Uttar Pradesh Board</p>
+</div>
+</div>
+
+<div class="bottom">
+
+<div>
+<div class="section-title">CERTIFICATIONS</div>
+<ul>
+<li>Deloitte Technology Job Simulation – 2025</li>
+<li>Deloitte Data Analytics Job Simulation – 2025</li>
+<li>Full Stack Web Development – Udemy (Ongoing)</li>
+</ul>
+</div>
+
+<div>
+<div class="section-title">STRENGTHS</div>
+<ul>
+<li>Positive Attitude & Discipline</li>
+<li>Good Communication & Confidence</li>
+<li>Fast Learner & Adaptable</li>
+<li>Responsible & Hardworking</li>
+<li>Team Player</li>
+</ul>
+</div>
+
+</div>
+
+<div class="section">
+<div class="section-title">ACHIEVEMENTS</div>
+<ul>
+<li>Completed Deloitte Technology Job Simulation</li>
+<li>Completed Deloitte Data Analytics Job Simulation</li>
+<li>Learning Full Stack Web Development</li>
+</ul>
+</div>
+
+</div>
+
+</body>
+</html>
