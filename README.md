@@ -891,7 +891,7 @@ transition:.3s;
 
 .menu
 
- -------------------------DAY 9---------------
+ -------------------------DAY 9 ---------------
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1113,7 +1113,7 @@ and customer service operations.
 </html>
 
 
-----------------------DAY 10 ________________
+----------------------DAY 12________________
 <!DOCTYPE html>
 <html lang="en">
 <head>
