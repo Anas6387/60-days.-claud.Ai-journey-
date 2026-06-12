@@ -1352,3 +1352,299 @@ Building a Career at the Intersection of AI, Analytics & Technology
 
 </body>
 </html>
+
+
+---------------+DAY 13_____________________
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Anas - Career Dashboard</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#f4f6fb;
+padding:20px;
+color:#222;
+}
+
+.container{
+max-width:1600px;
+margin:auto;
+}
+
+.header{
+background:#082B66;
+color:white;
+padding:25px;
+text-align:center;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.header h1{
+font-size:60px;
+font-weight:700;
+}
+
+.header h3{
+font-size:24px;
+color:#d7ddff;
+margin-top:10px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+}
+
+.card h2{
+background:#082B66;
+color:white;
+padding:12px;
+margin:-20px -20px 15px;
+border-radius:15px 15px 0 0;
+font-size:22px;
+}
+
+.card ul{
+padding-left:20px;
+line-height:1.9;
+}
+
+.table-card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
+margin-bottom:20px;
+overflow:auto;
+}
+
+.table-card h2{
+margin-bottom:15px;
+color:#082B66;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#082B66;
+color:white;
+padding:12px;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:center;
+}
+
+tr:hover{
+background:#f5f8ff;
+}
+
+.bottom{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+}
+
+.footer{
+background:#082B66;
+color:white;
+padding:18px;
+margin-top:20px;
+border-radius:15px;
+text-align:center;
+font-size:22px;
+font-weight:bold;
+}
+
+.score{
+font-size:70px;
+font-weight:bold;
+color:#0AA84F;
+text-align:center;
+margin-top:20px;
+}
+
+@media(max-width:900px){
+.grid,
+.bottom{
+grid-template-columns:1fr;
+}
+
+.header h1{
+font-size:38px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>MOHAMMAD ANAS</h1>
+<h3>B.Tech CSE Student | Aspiring Data Analyst & AI Enthusiast</h3>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Professional Profile</h2>
+<ul>
+<li>Current Role: B.Tech CSE Student</li>
+<li>Experience: Fresher</li>
+<li>Skills: SQL, Python, Excel, Power BI</li>
+<li>Prompt Engineering</li>
+<li>ATS Resume Optimization</li>
+<li>Data Analytics & Visualization</li>
+<li>GitHub Portfolio Development</li>
+<li>Location: Uttar Pradesh, India</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Job Search Criteria</h2>
+<ul>
+<li>Data Analyst</li>
+<li>Business Analyst</li>
+<li>AI Analyst</li>
+<li>MIS Executive</li>
+<li>Analytics Associate</li>
+<li>Remote / Hybrid Preferred</li>
+<li>Expected CTC: ₹4–8 LPA</li>
+<li>Entry-Level Opportunities</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Overall Fit Assessment</h2>
+
+<div class="score">87%</div>
+
+<p style="margin-top:20px;">
+Strong fit for fresher-level Data Analyst and Analytics
+Associate roles. Strengthen SQL, Python and Power BI
+projects to improve interview conversion rate.
+</p>
+
+</div>
+
+</div>
+
+<div class="table-card">
+
+<h2>Top Matching Opportunities</h2>
+
+<table>
+
+<tr>
+<th>Company</th>
+<th>Role</th>
+<th>Location</th>
+<th>Match</th>
+<th>Expected CTC</th>
+</tr>
+
+<tr>
+<td>Accenture</td>
+<td>Data Analyst</td>
+<td>Hybrid</td>
+<td>86%</td>
+<td>₹4.5–6.5 LPA</td>
+</tr>
+
+<tr>
+<td>Deloitte</td>
+<td>Business Analyst</td>
+<td>Remote</td>
+<td>89%</td>
+<td>₹5–8 LPA</td>
+</tr>
+
+<tr>
+<td>PwC</td>
+<td>Analytics Associate</td>
+<td>Hybrid</td>
+<td>87%</td>
+<td>₹5–8 LPA</td>
+</tr>
+
+<tr>
+<td>ZS Associates</td>
+<td>Decision Analytics</td>
+<td>Remote</td>
+<td>85%</td>
+<td>₹6–8 LPA</td>
+</tr>
+
+<tr>
+<td>Tiger Analytics</td>
+<td>Junior Analyst</td>
+<td>Remote</td>
+<td>88%</td>
+<td>₹5–7 LPA</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="bottom">
+
+<div class="card">
+<h2>Most Required Skills</h2>
+<ul>
+<li>SQL</li>
+<li>Excel</li>
+<li>Power BI</li>
+<li>Python</li>
+<li>Data Cleaning</li>
+<li>Dashboarding</li>
+<li>Statistics</li>
+<li>Business Analytics</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Skill Gap Analysis</h2>
+<ul>
+<li>Advanced SQL Queries</li>
+<li>Python Pandas & NumPy</li>
+<li>Machine Learning Basics</li>
+<li>Power BI DAX</li>
+<li>Cloud Fundamentals</li>
+<li>Data Storytelling</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Recommendations</h2>
+<ul>
+<li>Create 5 Power BI Projects</li>
+<li>Learn Advanced SQL</li>
+<li>Improve LinkedIn Profile</li>
