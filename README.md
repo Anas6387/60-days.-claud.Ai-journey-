@@ -891,7 +891,7 @@ transition:.3s;
 
 .menu
 
-    -----------------DAY 9--------
+ -------------------------DAY 9---------------
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1105,6 +1105,247 @@ and customer service operations.
 <li>Completed Deloitte Data Analytics Job Simulation</li>
 <li>Learning Full Stack Web Development</li>
 </ul>
+</div>
+
+</div>
+
+</body>
+</html>
+
+
+----------------------DAY 10 ________________
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Anas | Career Toolkit</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#222;
+padding:20px;
+}
+
+.container{
+max-width:1400px;
+margin:auto;
+}
+
+.header{
+background:#082b66;
+color:white;
+padding:30px;
+border-radius:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.name h1{
+font-size:60px;
+}
+
+.name h3{
+font-size:24px;
+margin-top:10px;
+}
+
+.profile{
+width:40%;
+}
+
+.profile h2{
+margin-bottom:15px;
+}
+
+.profile ul{
+line-height:1.9;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-top:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+background:#082b66;
+color:white;
+padding:10px;
+margin:-20px -20px 15px;
+border-radius:12px 12px 0 0;
+font-size:20px;
+}
+
+ul{
+padding-left:20px;
+line-height:1.8;
+}
+
+.footer{
+margin-top:25px;
+background:#082b66;
+color:white;
+padding:18px;
+text-align:center;
+border-radius:12px;
+font-size:22px;
+font-weight:bold;
+}
+
+@media(max-width:900px){
+.grid{
+grid-template-columns:1fr;
+}
+.header{
+flex-direction:column;
+text-align:center;
+}
+.profile{
+width:100%;
+margin-top:20px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+
+<div class="name">
+<h1>MOHAMMAD ANAS</h1>
+<h3>B.Tech CSE Student | AI & Data Analytics Enthusiast</h3>
+
+<p>
+📧 your-email@gmail.com<br>
+📍 Uttar Pradesh, India<br>
+🔗 LinkedIn / GitHub Portfolio
+</p>
+</div>
+
+<div class="profile">
+<h2>Profile Highlights</h2>
+
+<ul>
+<li>B.Tech Computer Science Engineering Student</li>
+<li>ATS Resume Optimization Experience</li>
+<li>Prompt Engineering & Claude AI Knowledge</li>
+<li>Portfolio Development & Personal Branding</li>
+<li>Data Analytics & Dashboard Projects</li>
+<li>Strong Communication & Problem Solving</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Top Job Titles</h2>
+<ul>
+<li>AI Prompt Engineer</li>
+<li>Data Analyst Intern</li>
+<li>Business Analyst Intern</li>
+<li>Junior Data Analyst</li>
+<li>AI Research Intern</li>
+<li>Operations Analyst</li>
+<li>MIS Executive</li>
+<li>Reporting Analyst</li>
+<li>Technical Support Analyst</li>
+<li>Analytics Associate</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Key Strengths</h2>
+<ul>
+<li>Prompt Engineering</li>
+<li>ATS Resume Optimization</li>
+<li>Portfolio Development</li>
+<li>Data Interpretation</li>
+<li>Communication Skills</li>
+<li>Quick Learning Ability</li>
+<li>Problem Solving</li>
+<li>AI Tools Utilization</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Skill Gap Analysis</h2>
+<ul>
+<li>Advanced SQL</li>
+<li>Python for Data Analytics</li>
+<li>Power BI Dashboarding</li>
+<li>Machine Learning Basics</li>
+<li>Cloud Fundamentals</li>
+<li>Git & GitHub Collaboration</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Personal Brand</h2>
+
+<p>
+Aspiring AI and Data Analytics professional combining
+technical knowledge, prompt engineering expertise,
+and problem-solving skills to create impactful
+data-driven solutions.
+</p>
+
+</div>
+
+<div class="card">
+<h2>Interview Talking Points</h2>
+
+<ul>
+<li>ATS Resume Optimization Projects</li>
+<li>Prompt Engineering Knowledge</li>
+<li>Portfolio Development Journey</li>
+<li>AI Productivity Workflows</li>
+<li>Problem Solving Examples</li>
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Learning Roadmap</h2>
+
+<ul>
+<li>SQL Advanced Queries</li>
+<li>Power BI</li>
+<li>Python</li>
+<li>Machine Learning</li>
+<li>Cloud Computing</li>
+<li>Generative AI</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer">
+Building a Career at the Intersection of AI, Analytics & Technology
 </div>
 
 </div>
