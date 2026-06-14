@@ -1648,3 +1648,261 @@ projects to improve interview conversion rate.
 <li>Create 5 Power BI Projects</li>
 <li>Learn Advanced SQL</li>
 <li>Improve LinkedIn Profile</li>
+
+
+  ________________ DAY 14 _____________________
+_________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Red Flag Detector</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+    padding:20px;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.header{
+    background:#0a2342;
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header h1{
+    font-size:42px;
+}
+
+.header span{
+    color:#ff3b30;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:20px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.risk-score{
+    text-align:center;
+}
+
+.score{
+    font-size:80px;
+    font-weight:bold;
+    color:red;
+}
+
+.high{
+    color:red;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.section-title{
+    color:#0a2342;
+    margin-bottom:15px;
+}
+
+.redflag{
+    border-left:6px solid red;
+    padding:10px;
+    margin:10px 0;
+    background:#fff5f5;
+}
+
+.positive{
+    border-left:6px solid green;
+    padding:10px;
+    margin:10px 0;
+    background:#f0fff4;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th,
+table td{
+    border:1px solid #ddd;
+    padding:10px;
+}
+
+.high-risk{
+    background:#ff4d4d;
+    color:white;
+    text-align:center;
+}
+
+.medium-risk{
+    background:#ffb84d;
+    color:white;
+    text-align:center;
+}
+
+.footer{
+    margin-top:20px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+}
+
+.verdict{
+    font-size:32px;
+    color:#ff9900;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <div>
+        <h1>🚩 <span>AI RED FLAG</span> DETECTOR</h1>
+        <p>Job Posting Analysis Report</p>
+    </div>
+
+    <div>
+        Analysis Date: June 2026
+    </div>
+</div>
+
+<div class="grid">
+
+<div class="card risk-score">
+    <h2>Overall Risk Score</h2>
+    <div class="score">72</div>
+    <div class="high">HIGH RISK</div>
+</div>
+
+<div class="card">
+    <h2 class="section-title">Company Information</h2>
+    <ul>
+        <li>Company: TechNova Solutions</li>
+        <li>Industry: Software & IT</li>
+        <li>Founded: 2018</li>
+        <li>Employees: 200+</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2 class="section-title">Top Red Flags</h2>
+
+    <div class="redflag">
+        <b>Too many skills for entry-level role</b><br>
+        Severity: 9/10
+    </div>
+
+    <div class="redflag">
+        <b>Wear many hats</b><br>
+        Severity: 8/10
+    </div>
+
+    <div class="redflag">
+        <b>24/7 availability expected</b><br>
+        Severity: 10/10
+    </div>
+
+</div>
+
+<div class="card">
+    <h2 class="section-title">Positive Signals</h2>
+
+    <div class="positive">
+        Entry-level friendly
+    </div>
+
+    <div class="positive">
+        Learning opportunities
+    </div>
+
+    <div class="positive">
+        Initial remote flexibility
+    </div>
+
+</div>
+
+</div>
+
+<div class="footer">
+
+<h2 class="section-title">Risk Breakdown</h2>
+
+<table>
+<tr>
+<th>Category</th>
+<th>Risk Level</th>
+</tr>
+
+<tr>
+<td>Requirements</td>
+<td class="high-risk">HIGH</td>
+</tr>
+
+<tr>
+<td>Culture</td>
+<td class="high-risk">HIGH</td>
+</tr>
+
+<tr>
+<td>Remote</td>
+<td class="high-risk">HIGH</td>
+</tr>
+
+<tr>
+<td>Hiring</td>
+<td class="medium-risk">MEDIUM-HIGH</td>
+</tr>
+
+<tr>
+<td>Company</td>
+<td class="medium-risk">MEDIUM</td>
+</tr>
+
+</table>
+
+<br>
+
+<h2>Final Verdict</h2>
+
+<div class="verdict">
+⚠️ APPLY WITH CAUTION
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
