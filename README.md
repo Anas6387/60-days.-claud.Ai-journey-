@@ -1906,3 +1906,228 @@ table td{
 
 </body>
 </html>
+
+______________________DAY 15___________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedic Astrology Report</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f5f7fb;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.header{
+    text-align:center;
+    background:#0d2b5c;
+    color:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h2{
+    margin-top:0;
+    color:#0d2b5c;
+    border-bottom:2px solid #0d2b5c;
+    padding-bottom:8px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th,
+table td{
+    border:1px solid #ddd;
+    padding:8px;
+    text-align:left;
+}
+
+table th{
+    background:#0d2b5c;
+    color:white;
+}
+
+.highlight{
+    background:#eef4ff;
+    padding:10px;
+    border-radius:8px;
+}
+
+.forecast{
+    grid-column:span 3;
+}
+
+.footer{
+    margin-top:20px;
+    background:white;
+    padding:15px;
+    border-radius:10px;
+}
+
+@media(max-width:900px){
+.grid{
+grid-template-columns:1fr;
+}
+.forecast{
+grid-column:span 1;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>VEDIC ASTROLOGY COMPREHENSIVE REPORT</h1>
+<p>Parashara • Jaimini • Nakshatra • Dasha Analysis</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Birth Details</h2>
+<p><b>Name:</b> __________</p>
+<p><b>Date of Birth:</b> __________</p>
+<p><b>Time:</b> __________</p>
+<p><b>Place:</b> __________</p>
+</div>
+
+<div class="card">
+<h2>Birth Chart Summary</h2>
+<p><b>Lagna:</b> Aries</p>
+<p><b>Moon Sign:</b> Cancer</p>
+<p><b>Sun Sign:</b> Leo</p>
+<p><b>Nakshatra:</b> Pushya</p>
+</div>
+
+<div class="card">
+<h2>Planetary Positions</h2>
+
+<table>
+<tr>
+<th>Planet</th>
+<th>Sign</th>
+</tr>
+
+<tr>
+<td>Sun</td>
+<td>Leo</td>
+</tr>
+
+<tr>
+<td>Moon</td>
+<td>Cancer</td>
+</tr>
+
+<tr>
+<td>Mars</td>
+<td>Gemini</td>
+</tr>
+
+</table>
+</div>
+
+<div class="card">
+<h2>Life Pattern Analysis</h2>
+<ul>
+<li>Core Personality</li>
+<li>Karmic Patterns</li>
+<li>Career Strengths</li>
+<li>Financial Habits</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Career & Wealth</h2>
+<ul>
+<li>Career Suitability</li>
+<li>Job vs Business</li>
+<li>Government Job Potential</li>
+<li>Foreign Opportunities</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Relationships</h2>
+<ul>
+<li>Marriage Timing</li>
+<li>Spouse Characteristics</li>
+<li>Relationship Risks</li>
+</ul>
+</div>
+
+<div class="card forecast">
+<h2>5-Year Forecast</h2>
+
+<table>
+<tr>
+<th>Year</th>
+<th>Career</th>
+<th>Money</th>
+<th>Relationship</th>
+<th>Health</th>
+</tr>
+
+<tr>
+<td>2026</td>
+<td>Growth</td>
+<td>Good</td>
+<td>Stable</td>
+<td>Normal</td>
+</tr>
+
+<tr>
+<td>2027</td>
+<td>Promotion</td>
+<td>Increase</td>
+<td>Strong</td>
+<td>Good</td>
+</tr>
+
+</table>
+</div>
+
+</div>
+
+<div class="footer">
+<h2>Practical Guidance</h2>
+<div class="highlight">
+Focus on skill development, disciplined financial planning,
+consistent routines, and long-term career growth.
+</div>
+</div>
+
+</div>
+
+</body>
+</html>
