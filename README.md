@@ -2131,3 +2131,77 @@ consistent routines, and long-term career growth.
 
 </body>
 </html>
+
+_______________________DAY 16__________________
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stock Dashboard</title>
+<style>
+body{
+    font-family:Arial,sans-serif;
+    margin:0;
+    background:#f5f7fa;
+}
+.header{
+    background:#002060;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    padding:15px;
+}
+.card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+h2{
+    color:#002060;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>INFOSYS LIMITED</h1>
+    <p>NSE: INFY | BSE: 500209</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+    <h2>Company Overview</h2>
+    <p>Infosys is a leading IT services company.</p>
+</div>
+
+<div class="card">
+    <h2>Price Chart</h2>
+    <img src="chart.png" width="100%">
+</div>
+
+<div class="card">
+    <h2>Key Metrics</h2>
+    <ul>
+        <li>P/E: 24.7</li>
+        <li>ROE: 29.4%</li>
+        <li>ROCE: 33.7%</li>
+    </ul>
+</div>
+
+<div class="card">
+    <h2>Financial Performance</h2>
+    <p>Revenue Growth: 11%</p>
+    <p>Profit Growth: 15.7%</p>
+</div>
+
+</div>
+
+</body>
+</html>
