@@ -2205,3 +2205,530 @@ h2{
 
 </body>
 </html>
+
+---------------DAY 18________________--------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Dump Action Planner</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f5f7fc;
+display:flex;
+min-height:100vh;
+color:#111827;
+}
+
+.sidebar{
+width:270px;
+background:linear-gradient(180deg,#07133f,#0a225f);
+color:white;
+padding:25px;
+position:fixed;
+height:100%;
+overflow:auto;
+}
+
+.logo{
+font-size:24px;
+font-weight:800;
+line-height:1.3;
+margin-bottom:30px;
+}
+
+.menu{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.menu a{
+text-decoration:none;
+color:white;
+padding:14px;
+border-radius:12px;
+transition:.3s;
+font-weight:500;
+}
+
+.menu a:hover,
+.active{
+background:rgba(255,255,255,.12);
+}
+
+.legend{
+margin-top:30px;
+padding:18px;
+border:1px solid rgba(255,255,255,.15);
+border-radius:16px;
+}
+
+.legend h4{
+margin-bottom:15px;
+}
+
+.legend div{
+margin:8px 0;
+font-size:14px;
+}
+
+.main{
+margin-left:270px;
+width:100%;
+padding:30px;
+}
+
+.topbar{
+background:white;
+padding:20px 25px;
+border-radius:18px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+margin-bottom:25px;
+}
+
+.topbar h1{
+font-size:34px;
+font-weight:800;
+margin-bottom:8px;
+}
+
+.topbar p{
+color:#6b7280;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-bottom:25px;
+}
+
+.card{
+background:white;
+border-radius:18px;
+padding:22px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+margin-top:12px;
+margin-bottom:10px;
+}
+
+.card p{
+color:#6b7280;
+font-size:14px;
+}
+
+.section{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+margin-bottom:25px;
+}
+
+.section-title{
+font-size:24px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#f3f4f6;
+padding:14px;
+text-align:left;
+font-size:14px;
+}
+
+td{
+padding:14px;
+border-top:1px solid #e5e7eb;
+font-size:14px;
+}
+
+.badge{
+padding:7px 12px;
+border-radius:999px;
+font-size:12px;
+font-weight:600;
+display:inline-block;
+}
+
+.high{
+background:#fee2e2;
+color:#dc2626;
+}
+
+.medium{
+background:#ffedd5;
+color:#ea580c;
+}
+
+.low{
+background:#dcfce7;
+color:#16a34a;
+}
+
+.conflict{
+background:#fde68a;
+color:#92400e;
+}
+
+.pending{
+background:#fef3c7;
+color:#b45309;
+}
+
+.complete{
+background:#dcfce7;
+color:#15803d;
+}
+
+.grid-two{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.info-box{
+background:#f9fafb;
+padding:18px;
+border-radius:14px;
+margin-bottom:15px;
+border-left:5px solid #4f46e5;
+}
+
+.info-box h4{
+margin-bottom:8px;
+}
+
+details{
+background:#f9fafb;
+border-radius:14px;
+padding:15px;
+margin-bottom:12px;
+}
+
+summary{
+cursor:pointer;
+font-weight:600;
+}
+
+.footer{
+text-align:center;
+color:#6b7280;
+padding:25px;
+}
+
+@media(max-width:900px){
+
+body{
+flex-direction:column;
+}
+
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+}
+
+.main{
+margin-left:0;
+}
+
+.grid-two{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+🧠 Brain Dump<br>
+Action Planner
+</div>
+
+<div class="menu">
+<a class="active" href="#">🏠 Overview</a>
+<a href="#">✅ Action Items</a>
+<a href="#">❓ Open Questions</a>
+<a href="#">⚠ Risks</a>
+<a href="#">⚡ Conflicts</a>
+<a href="#">📝 Notes</a>
+<a href="#">👥 Speakers</a>
+<a href="#">📂 Sources</a>
+</div>
+
+<div class="legend">
+<h4>Status Legend</h4>
+<div>🔴 High Priority</div>
+<div>🟠 Medium Priority</div>
+<div>🟢 Low Priority</div>
+<div>⚠️ Conflict</div>
+<div>❓ Open Question</div>
+<div>✅ Completed</div>
+<div>⏳ Pending</div>
+</div>
+
+</div>
+
+<div class="main">
+
+<div class="topbar">
+<h1>Organized Summary & Action Plan</h1>
+<p>Transform messy notes into clear actions and decisions.</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>🎯 Goals</h3>
+<p>Key objectives and outcomes captured from notes.</p>
+</div>
+
+<div class="card">
+<h3>✅ Decisions</h3>
+<p>Confirmed decisions and next agreed steps.</p>
+</div>
+
+<div class="card">
+<h3>📢 Updates</h3>
+<p>Important progress updates and highlights.</p>
+</div>
+
+<div class="card">
+<h3>💡 Insights</h3>
+<p>Ideas, observations and important takeaways.</p>
+</div>
+
+</div>
+
+<div class="section">
+<h2 class="section-title">1. Summary</h2>
+
+<div class="info-box">
+Consolidated overview of notes, meeting transcripts and brainstorming content.
+</div>
+
+</div>
+
+<div class="section">
+<h2 class="section-title">2. Key Takeaways</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Goal Alignment</h3>
+<p>Major objective identified.</p>
+</div>
+
+<div class="card">
+<h3>Decision Made</h3>
+<p>Next step confirmed.</p>
+</div>
+
+<div class="card">
+<h3>Risk Identified</h3>
+<p>Dependency requires attention.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2 class="section-title">3. Action Items</h2>
+
+<table>
+
+<tr>
+<th>Task</th>
+<th>Owner</th>
+<th>Deadline</th>
+<th>Priority</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Define Project Scope</td>
+<td>Not specified</td>
+<td>Not specified</td>
+<td><span class="badge high">🔴 High Priority</span></td>
+<td><span class="badge pending">⏳ Pending</span></td>
+</tr>
+
+<tr>
+<td>Review Design</td>
+<td>Not specified</td>
+<td>Not specified</td>
+<td><span class="badge medium">🟠 Medium Priority</span></td>
+<td><span class="badge pending">⏳ Pending</span></td>
+</tr>
+
+<tr>
+<td>Update Documentation</td>
+<td>Not specified</td>
+<td>Not specified</td>
+<td><span class="badge low">🟢 Low Priority</span></td>
+<td><span class="badge complete">✅ Completed</span></td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="grid-two">
+
+<div class="section">
+
+<h2 class="section-title">4. Open Questions</h2>
+
+<details open>
+<summary>❓ Budget Approval Status?</summary>
+<p>Not specified</p>
+</details>
+
+<details>
+<summary>❓ API Documentation Timeline?</summary>
+<p>Not specified</p>
+</details>
+
+</div>
+
+<div class="section">
+
+<h2 class="section-title">5. Risks / Blockers</h2>
+
+<div class="info-box">
+⚠ Dependency on Third-Party API
+</div>
+
+<div class="info-box">
+⚠ Resource Constraints
+</div>
+
+</div>
+
+</div>
+
+<div class="grid-two">
+
+<div class="section">
+
+<h2 class="section-title">6. Conflicts</h2>
+
+<div class="info-box">
+⚠ Conflicting Deadlines
+</div>
+
+<div class="info-box">
+⚠ Different Owners Assigned
+</div>
+
+</div>
+
+<div class="section">
+
+<h2 class="section-title">7. Additional Notes</h2>
+
+<div class="info-box">
+Brainstorming ideas and supporting context.
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2 class="section-title">8. Transcript Mode Analysis</h2>
+
+<table>
+
+<tr>
+<th>Speaker</th>
+<th>Summary</th>
+</tr>
+
+<tr>
+<td>Speaker 1</td>
+<td>Introduced project goals.</td>
+</tr>
+
+<tr>
+<td>Speaker 2</td>
+<td>Provided status update.</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2 class="section-title">9. Merge Mode Analysis</h2>
+
+<table>
+
+<tr>
+<th>Source</th>
+<th>Type</th>
+<th>Date</th>
+</tr>
+
+<tr>
+<td>Source 1</td>
+<td>Meeting Notes</td>
+<td>Not specified</td>
+</tr>
+
+<tr>
+<td>Source 2</td>
+<td>Transcript</td>
+<td>Not specified</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="footer">
+All information is presented exactly as provided.
+</div>
+
+</div>
+
+</body>
+</html>
