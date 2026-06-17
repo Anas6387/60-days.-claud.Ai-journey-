@@ -2206,6 +2206,455 @@ h2{
 </body>
 </html>
 
+_________________DAY 17______________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Fuel Analytics Dashboard</title>
+
+<style>
+
+:root{
+--bg:#0a0f1e;
+--glass:rgba(255,255,255,.05);
+--border:rgba(255,255,255,.08);
+--text:#ffffff;
+--muted:#9ca3af;
+
+--petrol:#2196f3;
+--e85:#ffb300;
+--diesel:#9e9e9e;
+--cng:#4caf50;
+--ev:#a855f7;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,Segoe UI,sans-serif;
+}
+
+body{
+background:var(--bg);
+color:var(--text);
+padding:20px;
+}
+
+.dashboard{
+max-width:1600px;
+margin:auto;
+}
+
+.glass{
+background:var(--glass);
+backdrop-filter:blur(18px);
+border:1px solid var(--border);
+border-radius:22px;
+box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+
+.header{
+padding:24px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.title{
+font-size:42px;
+font-weight:800;
+}
+
+.subtitle{
+color:var(--muted);
+margin-top:6px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:16px;
+margin-bottom:20px;
+}
+
+.card{
+padding:20px;
+position:relative;
+overflow:hidden;
+}
+
+.card::after{
+content:'';
+position:absolute;
+width:120px;
+height:120px;
+right:-20px;
+top:-20px;
+border-radius:50%;
+background:rgba(255,255,255,.05);
+}
+
+.card h4{
+font-size:13px;
+letter-spacing:1px;
+color:#d1d5db;
+margin-bottom:12px;
+}
+
+.value{
+font-size:42px;
+font-weight:800;
+}
+
+.small{
+font-size:14px;
+color:#9ca3af;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:20px;
+margin-bottom:20px;
+}
+
+.panel{
+padding:20px;
+}
+
+.panel h3{
+margin-bottom:15px;
+}
+
+svg{
+width:100%;
+height:auto;
+}
+
+.score-area{
+display:grid;
+grid-template-columns:420px 1fr;
+gap:20px;
+margin-bottom:20px;
+}
+
+.gauge{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.verdict{
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:22px;
+font-weight:600;
+}
+
+.fuels{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:15px;
+}
+
+.fuel-card{
+padding:20px;
+border-radius:22px;
+border:1px solid rgba(255,255,255,.08);
+background:rgba(255,255,255,.03);
+}
+
+.fuel-card.active{
+box-shadow:0 0 35px rgba(33,150,243,.6);
+border:1px solid var(--petrol);
+}
+
+.fuel-card h2{
+margin-bottom:12px;
+}
+
+.pro{
+color:#4ade80;
+margin:8px 0;
+}
+
+.con{
+color:#ef4444;
+margin:8px 0;
+}
+
+.best{
+margin-top:14px;
+padding-top:14px;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+@media(max-width:1100px){
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.score-area{
+grid-template-columns:1fr;
+}
+
+.fuels{
+grid-template-columns:1fr;
+}
+
+.title{
+font-size:28px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<div class="header glass">
+
+<div>
+<div class="title">
+Honda City · Petrol · Age:3y · 1000km/mo
+</div>
+<div class="subtitle">
+Fuel Economics & Environmental Impact Dashboard
+</div>
+</div>
+
+</div>
+
+<div class="stats">
+
+<div class="card glass">
+<h4>YOUR FUEL COST / KM</h4>
+<div class="value">₹6.19</div>
+<div class="small">Petrol</div>
+</div>
+
+<div class="card glass">
+<h4>E85 COST / KM</h4>
+<div class="value" style="color:var(--e85)">₹5.29</div>
+<div class="small">E85</div>
+</div>
+
+<div class="card glass">
+<h4>E85 PREMIUM VS PETROL</h4>
+<div class="value" style="color:#22d3ee">-14.53%</div>
+</div>
+
+<div class="card glass">
+<h4>BREAK EVEN PRICE</h4>
+<div class="value" style="color:var(--ev)">₹90.86</div>
+</div>
+
+<div class="card glass">
+<h4>MONTHLY COST</h4>
+<div class="value" style="color:#4ade80">₹6191</div>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="panel glass">
+
+<h3>Cost / KM</h3>
+
+<svg viewBox="0 0 450 250">
+
+<line x1="50" y1="200" x2="420" y2="200" stroke="#555"/>
+
+<rect x="60" y="80" width="45" height="120" fill="#ffb300"/>
+<rect x="130" y="60" width="45" height="140" fill="#2196f3"/>
+<rect x="200" y="70" width="45" height="130" fill="#9e9e9e"/>
+<rect x="270" y="120" width="45" height="80" fill="#4caf50"/>
+<rect x="340" y="150" width="45" height="50" fill="#a855f7"/>
+
+<text x="72" y="220" fill="white">E85</text>
+<text x="140" y="220" fill="white">Petrol</text>
+<text x="208" y="220" fill="white">Diesel</text>
+<text x="278" y="220" fill="white">CNG</text>
+<text x="355" y="220" fill="white">EV</text>
+
+</svg>
+
+</div>
+
+<div class="panel glass">
+
+<h3>CO₂ / KM</h3>
+
+<svg viewBox="0 0 300 300">
+
+<circle cx="150" cy="150" r="90" fill="none" stroke="#ffb300" stroke-width="35"
+stroke-dasharray="120 565"/>
+
+<circle cx="150" cy="150" r="90" fill="none" stroke="#2196f3" stroke-width="35"
+stroke-dasharray="170 565" transform="rotate(70 150 150)"/>
+
+<circle cx="150" cy="150" r="90" fill="none" stroke="#9e9e9e" stroke-width="35"
+stroke-dasharray="150 565" transform="rotate(180 150 150)"/>
+
+<circle cx="150" cy="150" r="90" fill="none" stroke="#4caf50" stroke-width="35"
+stroke-dasharray="100 565" transform="rotate(270 150 150)"/>
+
+<circle cx="150" cy="150" r="90" fill="none" stroke="#a855f7" stroke-width="35"
+stroke-dasharray="25 565" transform="rotate(330 150 150)"/>
+
+<text x="150" y="145" text-anchor="middle" fill="white" font-size="36">CO₂</text>
+<text x="150" y="180" text-anchor="middle" fill="#9ca3af">kg/km</text>
+
+</svg>
+
+</div>
+
+<div class="panel glass">
+
+<h3>Cost / KM vs Age</h3>
+
+<svg viewBox="0 0 500 250">
+
+<polyline
+fill="none"
+stroke="#2196f3"
+stroke-width="4"
+points="20,180 80,160 140,145 200,125 260,105 320,85 380,65 460,40"/>
+
+<polyline
+fill="none"
+stroke="#ffb300"
+stroke-width="4"
+points="20,200 80,190 140,180 200,165 260,150 320,135 380,120 460,100"/>
+
+<line
+x1="130"
+y1="10"
+x2="130"
+y2="220"
+stroke="white"
+stroke-dasharray="8 8"/>
+
+<text x="110" y="30" fill="white">3 yrs</text>
+
+</svg>
+
+</div>
+
+</div>
+
+<div class="score-area">
+
+<div class="glass gauge">
+
+<svg width="350" height="250">
+
+<path
+d="M50 200 A120 120 0 0 1 300 200"
+stroke="#333"
+stroke-width="25"
+fill="none"/>
+
+<path
+d="M50 200 A120 120 0 0 1 250 95"
+stroke="#ffb300"
+stroke-width="25"
+stroke-linecap="round"
+fill="none"/>
+
+<text x="175" y="150"
+text-anchor="middle"
+font-size="56"
+fill="#ffb300"
+font-weight="800">
+6.8
+</text>
+
+<text x="175" y="185"
+text-anchor="middle"
+fill="#fff">
+/10
+</text>
+
+</svg>
+
+</div>
+
+<div class="glass verdict">
+
+E85 scores 6.8/10 — a strong alternative to petrol with lower running cost and emissions.
+
+</div>
+
+</div>
+
+<div class="fuels">
+
+<div class="fuel-card active">
+<h2 style="color:#2196f3">PETROL</h2>
+<div class="pro">✅ Smooth performance</div>
+<div class="pro">✅ Widely available</div>
+<div class="con">❌ Higher running cost</div>
+<div class="con">❌ Higher emissions</div>
+<div class="best">🚗 Best for: Mixed usage</div>
+</div>
+
+<div class="fuel-card">
+<h2 style="color:#ffb300">E85</h2>
+<div class="pro">✅ Lower cost</div>
+<div class="pro">✅ Lower CO₂</div>
+<div class="con">❌ Mileage drop</div>
+<div class="con">❌ Availability</div>
+<div class="best">🚗 Best for: Cost conscious drivers</div>
+</div>
+
+<div class="fuel-card">
+<h2 style="color:#9e9e9e">DIESEL</h2>
+<div class="pro">✅ High mileage</div>
+<div class="pro">✅ Torque</div>
+<div class="con">❌ Emissions</div>
+<div class="con">❌ Maintenance</div>
+<div class="best">🚗 Best for: Highway</div>
+</div>
+
+<div class="fuel-card">
+<h2 style="color:#4caf50">CNG</h2>
+<div class="pro">✅ Cheapest running</div>
+<div class="pro">✅ Cleaner</div>
+<div class="con">❌ Tank space</div>
+<div class="con">❌ Availability</div>
+<div class="best">🚗 Best for: City use</div>
+</div>
+
+<div class="fuel-card">
+<h2 style="color:#a855f7">EV</h2>
+<div class="pro">✅ Lowest running cost</div>
+<div class="pro">✅ Zero tailpipe emission</div>
+<div class="con">❌ Charging time</div>
+<div class="con">❌ High purchase cost</div>
+<div class="best">🚗 Best for: Daily commute</div>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+
+
 ---------------DAY 18________________--------
 
 <!DOCTYPE html>
