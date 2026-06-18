@@ -3181,3 +3181,259 @@ All information is presented exactly as provided.
 
 </body>
 </html>
+
+
+_____________________DAY 19--------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Football Intelligence Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#08111f;
+color:white;
+padding:20px;
+}
+
+.container{
+max-width:1400px;
+margin:auto;
+}
+
+.header{
+text-align:center;
+padding:20px;
+border:2px solid #00d4ff;
+border-radius:15px;
+margin-bottom:20px;
+background:#0d1b2a;
+}
+
+.header h1{
+font-size:3rem;
+color:#fff;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr 1fr;
+gap:20px;
+}
+
+.card{
+background:#10233f;
+border:2px solid #00d4ff;
+border-radius:15px;
+padding:20px;
+box-shadow:0 0 15px rgba(0,212,255,.3);
+}
+
+.card h2{
+color:#00d4ff;
+margin-bottom:15px;
+}
+
+.country{
+font-size:2rem;
+font-weight:bold;
+color:#00ff88;
+}
+
+.score{
+font-size:3rem;
+font-weight:700;
+color:#00ff88;
+}
+
+.player{
+display:flex;
+align-items:center;
+gap:10px;
+margin:10px 0;
+padding:10px;
+background:#162c4f;
+border-radius:10px;
+}
+
+.player img{
+width:60px;
+height:60px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.quiz-question{
+margin-bottom:15px;
+padding:10px;
+background:#162c4f;
+border-radius:10px;
+}
+
+.personality{
+display:flex;
+justify-content:space-between;
+margin-top:20px;
+}
+
+.bar{
+height:20px;
+background:#333;
+border-radius:10px;
+overflow:hidden;
+margin-top:10px;
+}
+
+.fill{
+height:100%;
+background:#00ff88;
+width:78%;
+}
+
+.footer{
+margin-top:30px;
+padding:20px;
+border:2px solid #00d4ff;
+border-radius:15px;
+text-align:center;
+}
+
+@media(max-width:900px){
+.grid{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>⚽ FOOTBALL INTELLIGENCE PROFILE</h1>
+<p>Your Complete Football Insight, Personality & Prediction Report</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>🏆 FIFA World Cup 2026 Prediction</h2>
+
+<p>Most Likely Winner</p>
+<div class="country">Brazil</div>
+
+<div class="bar">
+<div class="fill"></div>
+</div>
+
+<p>Confidence: 62%</p>
+
+<br>
+
+<h3>Runner-Up</h3>
+<p>France (48%)</p>
+
+<br>
+
+<h3>Dark Horse</h3>
+<p>Morocco (28%)</p>
+</div>
+
+<div class="card">
+<h2>⭐ Players To Watch</h2>
+
+<div class="player">
+<img src="https://picsum.photos/100">
+<div>
+<b>Vinicius Jr.</b><br>
+Brazil
+</div>
+</div>
+
+<div class="player">
+<img src="https://picsum.photos/101">
+<div>
+<b>Kylian Mbappé</b><br>
+France
+</div>
+</div>
+
+<div class="player">
+<img src="https://picsum.photos/102">
+<div>
+<b>Jude Bellingham</b><br>
+England
+</div>
+</div>
+
+</div>
+
+<div class="card">
+<h2>🧠 Football IQ</h2>
+
+<div class="score">84/100</div>
+
+<p>Classification:</p>
+<h3>Football Enthusiast</h3>
+
+<ul>
+<li>World Cup History</li>
+<li>Tactical Understanding</li>
+<li>Player Knowledge</li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="card" style="margin-top:20px;">
+<h2>🐐 Messi vs Ronaldo Personality Match</h2>
+
+<div class="personality">
+<div>
+<h3>Messi</h3>
+<h1>78%</h1>
+</div>
+
+<div>
+<h3>Ronaldo</h3>
+<h1>62%</h1>
+</div>
+</div>
+
+<br>
+
+<h3>Archetype</h3>
+<p>Creative Playmaker</p>
+
+<p>
+Vision • Creativity • Composure • Teamwork
+</p>
+</div>
+
+<div class="footer">
+<h2>📊 Key Insights Summary</h2>
+<p>
+Brazil remains a strong contender for 2026.
+Young stars like Vinicius Jr., Bellingham and Musiala may define the tournament.
+Your football profile aligns most with the Creative Playmaker archetype.
+</p>
+</div>
+
+</div>
+
+</body>
+</html>
