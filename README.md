@@ -3437,3 +3437,362 @@ Your football profile aligns most with the Creative Playmaker archetype.
 
 </body>
 </html>
+
+_______________DAY 20__________________----
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Face Puzzle Game</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#07142d;
+background:linear-gradient(135deg,#07142d,#091b45);
+color:white;
+padding:20px;
+}
+
+.container{
+max-width:1400px;
+margin:auto;
+display:grid;
+grid-template-columns:320px 1fr 320px;
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:20px;
+padding:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+}
+
+.logo{
+font-size:32px;
+font-weight:bold;
+margin-bottom:15px;
+}
+
+.camera-preview{
+width:100%;
+height:300px;
+border-radius:15px;
+overflow:hidden;
+background:#111;
+}
+
+.camera-preview img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+margin-top:12px;
+transition:.3s;
+}
+
+.btn-purple{
+background:linear-gradient(135deg,#7c3aed,#4f46e5);
+color:white;
+}
+
+.btn-green{
+background:linear-gradient(135deg,#22c55e,#16a34a);
+color:white;
+}
+
+.btn-blue{
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:white;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+}
+
+.difficulty{
+display:flex;
+gap:15px;
+margin-top:20px;
+}
+
+.diff-card{
+flex:1;
+padding:15px;
+text-align:center;
+border-radius:12px;
+background:#0f2149;
+border:2px solid transparent;
+cursor:pointer;
+}
+
+.diff-card.active{
+border-color:#8b5cf6;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-bottom:20px;
+}
+
+.stat{
+background:#091933;
+padding:15px;
+border-radius:15px;
+text-align:center;
+}
+
+.stat h3{
+font-size:30px;
+color:#38bdf8;
+margin-top:8px;
+}
+
+.puzzle-board{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:3px;
+background:#111;
+padding:5px;
+border-radius:15px;
+}
+
+.tile{
+aspect-ratio:1;
+overflow:hidden;
+border:2px solid #1e293b;
+cursor:pointer;
+}
+
+.tile.correct{
+border-color:#22c55e;
+}
+
+.tile.active{
+border-color:#3b82f6;
+}
+
+.tile img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.sidebar h2{
+margin-bottom:20px;
+color:#c084fc;
+}
+
+.info{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.leaderboard{
+margin-top:20px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:10px;
+text-align:center;
+}
+
+tr{
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.win-screen{
+margin-top:20px;
+text-align:center;
+}
+
+.trophy{
+font-size:60px;
+}
+
+.win-screen h1{
+color:#22c55e;
+margin:15px 0;
+}
+
+@media(max-width:1100px){
+.container{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="logo">🧩 FACE PUZZLE</div>
+
+<div class="camera-preview">
+<img src="your-photo.jpg">
+</div>
+
+<button class="btn btn-purple">📷 Take Photo</button>
+<button class="btn btn-blue">🔄 Retake Photo</button>
+
+</div>
+
+<div class="card">
+
+<div class="difficulty">
+<div class="diff-card">3×3<br>Easy</div>
+<div class="diff-card active">4×4<br>Medium</div>
+<div class="diff-card">5×5<br>Hard</div>
+</div>
+
+<br>
+
+<div class="stats">
+
+<div class="stat">
+Time
+<h3>01:32</h3>
+</div>
+
+<div class="stat">
+Moves
+<h3>56</h3>
+</div>
+
+<div class="stat">
+Correct
+<h3>7/16</h3>
+</div>
+
+</div>
+
+<div class="puzzle-board">
+
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile active"><img src="your-photo.jpg"></div>
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile correct"><img src="your-photo.jpg"></div>
+
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile correct"><img src="your-photo.jpg"></div>
+
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile"><img src="your-photo.jpg"></div>
+
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile"><img src="your-photo.jpg"></div>
+<div class="tile correct"><img src="your-photo.jpg"></div>
+<div class="tile"><img src="your-photo.jpg"></div>
+
+</div>
+
+</div>
+
+<div class="card sidebar">
+
+<h2>🎮 Game Info</h2>
+
+<div class="info">
+<span>Time</span>
+<span>01:32</span>
+</div>
+
+<div class="info">
+<span>Moves</span>
+<span>56</span>
+</div>
+
+<div class="info">
+<span>Difficulty</span>
+<span>4×4</span>
+</div>
+
+<button class="btn btn-green">📸 New Photo</button>
+<button class="btn btn-blue">🔄 Play Again</button>
+
+<div class="leaderboard">
+
+<h2>🏆 Top 5 Best Times</h2>
+
+<table>
+
+<tr>
+<th>#</th>
+<th>Time</th>
+<th>Moves</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>01:32</td>
+<td>56</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>01:45</td>
+<td>63</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>01:58</td>
+<td>71</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="win-screen">
+
+<div class="trophy">🏆</div>
+
+<h1>Congratulations!</h1>
+
+<p>You solved the puzzle.</p>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
