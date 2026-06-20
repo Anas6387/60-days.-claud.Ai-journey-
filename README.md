@@ -3796,3 +3796,206 @@ Correct
 
 </body>
 </html>
+
+__________________DAY 21--____________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Insights Dashboard</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#060b17;
+color:white;
+padding:20px;
+}
+
+.dashboard{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.card{
+background:#0d1528;
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:20px;
+box-shadow:0 0 30px rgba(0,150,255,.1);
+}
+
+.title{
+font-size:14px;
+color:#8ca0c9;
+margin-bottom:10px;
+}
+
+.score{
+font-size:56px;
+font-weight:700;
+}
+
+.red{color:#ff4d4f;}
+.orange{color:#ff9f1a;}
+.green{color:#00d26a;}
+
+.progress{
+height:10px;
+background:#1c2947;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.progress span{
+display:block;
+height:100%;
+background:linear-gradient(
+90deg,
+#ff4d4f,
+#ff9f1a
+);
+}
+
+.profile{
+text-align:center;
+}
+
+.profile img{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #ff4d4f;
+}
+
+.table{
+width:100%;
+margin-top:15px;
+border-collapse:collapse;
+}
+
+.table td{
+padding:10px;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.final{
+margin-top:20px;
+padding:25px;
+border-radius:20px;
+background:#101c34;
+border:2px solid #ff4d4f;
+}
+
+.badge{
+padding:8px 16px;
+border-radius:999px;
+display:inline-block;
+background:#ff4d4f22;
+color:#ff4d4f;
+font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<div class="card profile">
+<img src="profile.jpg">
+<h2>Anas</h2>
+<p>Privacy Dashboard</p>
+</div>
+
+<div class="card">
+<div class="title">Digital Footprint Score</div>
+<div class="score red">84</div>
+<div class="progress">
+<span style="width:84%"></span>
+</div>
+</div>
+
+<div class="card">
+<div class="title">Privacy Score</div>
+<div class="score orange">42</div>
+<div class="progress">
+<span style="width:42%"></span>
+</div>
+</div>
+
+<div class="card">
+<div class="title">Tracking Surface</div>
+<div class="score red">High</div>
+</div>
+
+<div class="card">
+<h3>Company Exposure Ranking</h3>
+
+<table class="table">
+<tr><td>Google</td><td>95/100</td></tr>
+<tr><td>Meta</td><td>85/100</td></tr>
+<tr><td>ByteDance</td><td>80/100</td></tr>
+<tr><td>Snap</td><td>75/100</td></tr>
+<tr><td>Amazon</td><td>70/100</td></tr>
+</table>
+
+</div>
+
+<div class="card">
+<h3>Digital Twin Profile</h3>
+<ul>
+<li>Estimated Tech Enthusiast</li>
+<li>Estimated Social Media User</li>
+<li>Estimated Gamer</li>
+<li>Estimated Online Shopper</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Most Valuable Data Assets</h3>
+<ul>
+<li>Identity Information</li>
+<li>Behavioral Data</li>
+<li>Location History</li>
+<li>Social Connections</li>
+<li>Purchase History</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Privacy Improvement Plan</h3>
+<ul>
+<li>Enable 2FA</li>
+<li>Review Google Activity</li>
+<li>Limit Ad Tracking</li>
+<li>Use Password Manager</li>
+<li>Audit Permissions</li>
+</ul>
+</div>
+
+</div>
+
+<div class="final">
+<span class="badge">FINAL VERDICT</span>
+<h2>Your Digital Footprint is Extensive</h2>
+<p>
+Facts are based only on the listed services.
+All behavioral and demographic observations are estimates.
+No private databases were accessed.
+</p>
+</div>
+
+</body>
+</html>
