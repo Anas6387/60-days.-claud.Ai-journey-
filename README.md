@@ -3999,3 +3999,309 @@ No private databases were accessed.
 
 </body>
 </html>
+
+
+______________DAY22__________________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Startup Validation Report</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f4f7fc;
+padding:30px;
+color:#1f2937;
+}
+
+.container{
+max-width:1400px;
+margin:auto;
+background:#fff;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+border-bottom:2px solid #e5e7eb;
+padding-bottom:20px;
+margin-bottom:30px;
+}
+
+.logo{
+font-size:32px;
+font-weight:800;
+color:#0F2B6B;
+}
+
+.title{
+font-size:54px;
+font-weight:800;
+color:#0F2B6B;
+margin-bottom:10px;
+}
+
+.subtitle{
+font-size:18px;
+color:#6b7280;
+}
+
+.hero{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
+margin-top:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:18px;
+box-shadow:0 4px 12px rgba(0,0,0,.06);
+}
+
+.score-card{
+background:#0F2B6B;
+color:white;
+text-align:center;
+}
+
+.score{
+font-size:70px;
+font-weight:800;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+margin-top:30px;
+}
+
+.metric{
+text-align:center;
+padding:20px;
+border:1px solid #e5e7eb;
+border-radius:15px;
+}
+
+.metric h3{
+font-size:32px;
+color:#0F2B6B;
+}
+
+.section{
+margin-top:30px;
+}
+
+.section h2{
+margin-bottom:15px;
+color:#0F2B6B;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+table th{
+background:#0F2B6B;
+color:white;
+padding:12px;
+}
+
+table td{
+padding:12px;
+border:1px solid #e5e7eb;
+}
+
+.badge{
+padding:6px 12px;
+border-radius:20px;
+font-weight:600;
+}
+
+.go{
+background:#DCFCE7;
+color:#166534;
+}
+
+.no-go{
+background:#FEE2E2;
+color:#991B1B;
+}
+
+.footer{
+margin-top:40px;
+text-align:center;
+color:#6b7280;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<div>
+<div class="logo">Startup Advisory Group</div>
+<p>Strategy • Research • Growth</p>
+</div>
+
+<div>
+<p>Report Date: 2026</p>
+</div>
+</div>
+
+<h1 class="title">STARTUP VALIDATION REPORT</h1>
+<p class="subtitle">Data-Driven Insights • Smart Decisions • Scalable Growth</p>
+
+<div class="hero">
+
+<div class="card">
+<h2>Executive Summary</h2>
+<br>
+<p>
+The startup addresses a meaningful customer problem with strong market potential.
+Early validation signals are positive and execution focus will determine success.
+</p>
+</div>
+
+<div class="card score-card">
+<p>Overall Validation Score</p>
+<div class="score">78</div>
+<p>/100</p>
+<br>
+<span class="badge go">GO</span>
+</div>
+
+</div>
+
+<div class="grid">
+
+<div class="metric">
+<p>Problem Validation</p>
+<h3>85</h3>
+</div>
+
+<div class="metric">
+<p>Market Opportunity</p>
+<h3>80</h3>
+</div>
+
+<div class="metric">
+<p>Competitive Edge</p>
+<h3>72</h3>
+</div>
+
+<div class="metric">
+<p>Execution Readiness</p>
+<h3>75</h3>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>TAM • SAM • SOM Analysis</h2>
+
+<table>
+<tr>
+<th>Market Type</th>
+<th>Size</th>
+</tr>
+
+<tr>
+<td>TAM</td>
+<td>$12.5 Billion</td>
+</tr>
+
+<tr>
+<td>SAM</td>
+<td>$2.8 Billion</td>
+</tr>
+
+<tr>
+<td>SOM</td>
+<td>$140 Million</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>Competitor Analysis</h2>
+
+<table>
+
+<tr>
+<th>Competitor</th>
+<th>Strength</th>
+<th>Pricing</th>
+<th>Rating</th>
+</tr>
+
+<tr>
+<td>Competitor A</td>
+<td>Strong</td>
+<td>$$$</td>
+<td>★★★★☆</td>
+</tr>
+
+<tr>
+<td>Competitor B</td>
+<td>Strong</td>
+<td>$$</td>
+<td>★★★★☆</td>
+</tr>
+
+<tr>
+<td>Your Startup</td>
+<td>High</td>
+<td>$$</td>
+<td>★★★★★</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>Go / No-Go Recommendation</h2>
+
+<br>
+
+<span class="badge go">
+GO — Strong Market Potential
+</span>
+
+</div>
+
+<div class="footer">
+Prepared by Startup Advisory Group
+</div>
+
+</div>
+
+</body>
+</html>
