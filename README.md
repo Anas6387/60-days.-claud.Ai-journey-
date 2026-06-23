@@ -4305,3 +4305,349 @@ Prepared by Startup Advisory Group
 
 </body>
 </html>
+
+___________________DAY 23----------------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer & MVP Blueprint</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6fa;
+    padding:20px;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+.header{
+    background:#0d2d62;
+    color:white;
+    padding:25px;
+    border-radius:12px;
+    margin-bottom:20px;
+}
+
+.header h1{
+    font-size:42px;
+}
+
+.header p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.card h2{
+    color:#0d2d62;
+    margin-bottom:15px;
+    border-bottom:2px solid #eee;
+    padding-bottom:10px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:8px;
+}
+
+.table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.table th,
+.table td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:left;
+}
+
+.table th{
+    background:#0d2d62;
+    color:white;
+}
+
+.score-box{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.score{
+    flex:1;
+    background:#f5f8ff;
+    text-align:center;
+    padding:15px;
+    border-radius:10px;
+}
+
+.score h3{
+    color:#0d2d62;
+}
+
+.score span{
+    font-size:30px;
+    font-weight:bold;
+    color:green;
+}
+
+.verdict{
+    text-align:center;
+    padding:30px;
+    background:white;
+    border-radius:12px;
+    margin-top:20px;
+}
+
+.verdict h1{
+    color:green;
+    font-size:40px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+<h1>Customer & MVP Blueprint</h1>
+<p>Validate → Build → Launch → Scale</p>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h2>Executive Summary</h2>
+<p>
+This blueprint helps founders identify customers,
+validate demand, prioritize MVP features and create
+a scalable go-to-market strategy.
+</p>
+</div>
+
+<div class="card">
+<h2>Ideal Customer Profile</h2>
+<table class="table">
+<tr><th>Category</th><th>Details</th></tr>
+<tr><td>Industry</td><td>SaaS / SMB</td></tr>
+<tr><td>Company Size</td><td>5–50 Employees</td></tr>
+<tr><td>Location</td><td>Global</td></tr>
+<tr><td>Goal</td><td>Save Time & Increase Revenue</td></tr>
+</table>
+</div>
+
+<div class="card">
+<h2>Buyer Persona</h2>
+<ul>
+<li>Name: Marketing Manager</li>
+<li>Age: 25–40</li>
+<li>Goal: Increase ROI</li>
+<li>Pain: Manual Processes</li>
+<li>Need: Automation & Insights</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Top 10 Customer Pain Points</h2>
+<ul>
+<li>Lack of time</li>
+<li>High software costs</li>
+<li>No automation</li>
+<li>Low conversions</li>
+<li>Scattered data</li>
+<li>Poor analytics</li>
+<li>Hard onboarding</li>
+<li>Low ROI visibility</li>
+<li>Complex tools</li>
+<li>Scaling challenges</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Customer Journey</h2>
+<ul>
+<li>Awareness</li>
+<li>Consideration</li>
+<li>Trial</li>
+<li>Purchase</li>
+<li>Retention</li>
+<li>Referral</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>MVP Recommendation</h2>
+<ul>
+<li>Lead Capture</li>
+<li>Dashboard</li>
+<li>Email Integration</li>
+<li>Analytics</li>
+<li>User Authentication</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>MoSCoW Prioritization</h2>
+
+<h3>Must Have</h3>
+<ul>
+<li>Login</li>
+<li>Dashboard</li>
+<li>Analytics</li>
+</ul>
+
+<h3>Should Have</h3>
+<ul>
+<li>Automation</li>
+<li>Reporting</li>
+</ul>
+
+<h3>Could Have</h3>
+<ul>
+<li>AI Suggestions</li>
+</ul>
+
+<h3>Won't Have</h3>
+<ul>
+<li>Marketplace</li>
+</ul>
+
+</div>
+
+<div class="card">
+<h2>Pricing Hypothesis</h2>
+
+<table class="table">
+<tr>
+<th>Plan</th>
+<th>Price</th>
+</tr>
+
+<tr>
+<td>Starter</td>
+<td>₹999/mo</td>
+</tr>
+
+<tr>
+<td>Growth</td>
+<td>₹2499/mo</td>
+</tr>
+
+<tr>
+<td>Pro</td>
+<td>₹4999/mo</td>
+</tr>
+
+</table>
+
+</div>
+
+<div class="card">
+<h2>Top 5 Risks</h2>
+<ul>
+<li>Low Adoption</li>
+<li>Strong Competition</li>
+<li>Pricing Pressure</li>
+<li>Retention Issues</li>
+<li>Poor Distribution</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>30-Day MVP Plan</h2>
+<ul>
+<li>Week 1 → Research</li>
+<li>Week 2 → Build Core</li>
+<li>Week 3 → Test</li>
+<li>Week 4 → Launch</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Founder Action Sheet</h2>
+<ul>
+<li>Interview 20 Customers</li>
+<li>Create Landing Page</li>
+<li>Build MVP</li>
+<li>Get Beta Users</li>
+<li>Measure Retention</li>
+<li>Collect Testimonials</li>
+<li>Improve Product</li>
+<li>Start Content Marketing</li>
+<li>Build Partnerships</li>
+<li>Track Metrics</li>
+</ul>
+</div>
+
+</div>
+
+<div class="card" style="margin-top:20px;">
+<h2>Scores (0-100)</h2>
+
+<div class="score-box">
+
+<div class="score">
+<h3>Customer Clarity</h3>
+<span>85</span>
+</div>
+
+<div class="score">
+<h3>Problem Severity</h3>
+<span>88</span>
+</div>
+
+<div class="score">
+<h3>PMF Potential</h3>
+<span>80</span>
+</div>
+
+<div class="score">
+<h3>MVP Readiness</h3>
+<span>82</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="verdict">
+<h1>🟢 Strong Demand Signal</h1>
+<p>
+The problem is meaningful, customer profile is clear,
+and MVP scope is achievable.
+</p>
+</div>
+
+</div>
+
+</body>
+</html>
