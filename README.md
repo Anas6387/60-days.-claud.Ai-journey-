@@ -5044,3 +5044,363 @@ Built with White + Navy + Teal + Purple Premium 3D Dashboard UI
 
 </body>
 </html>
+
+________________DAY 25_______________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Shark Tank Simulator</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#050b17;
+color:white;
+overflow-x:hidden;
+}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:40px;
+background:
+radial-gradient(circle at top,#12386a 0%,transparent 40%),
+linear-gradient(to bottom,#050b17,#081321);
+}
+
+.container{
+width:1400px;
+max-width:100%;
+}
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#00d4ff;
+}
+
+.nav{
+display:flex;
+gap:20px;
+}
+
+.nav a{
+text-decoration:none;
+color:#d1d5db;
+}
+
+.dashboard{
+display:grid;
+grid-template-columns:320px 1fr 320px;
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.03);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.08);
+border-radius:24px;
+padding:24px;
+box-shadow:
+0 0 20px rgba(0,212,255,.1);
+}
+
+.title{
+font-size:64px;
+font-weight:900;
+line-height:1.1;
+margin-bottom:15px;
+}
+
+.gradient{
+background:linear-gradient(
+90deg,
+#00d4ff,
+#4f46e5,
+#a855f7
+);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.subtitle{
+color:#94a3b8;
+margin-bottom:30px;
+}
+
+.pitch-btn{
+padding:15px 28px;
+border:none;
+border-radius:14px;
+cursor:pointer;
+font-size:16px;
+font-weight:700;
+background:
+linear-gradient(
+90deg,
+#00d4ff,
+#7c3aed
+);
+color:white;
+}
+
+.form input,
+.form textarea{
+width:100%;
+padding:12px;
+margin-top:10px;
+margin-bottom:15px;
+background:#0f172a;
+border:1px solid #1e293b;
+border-radius:12px;
+color:white;
+}
+
+.form textarea{
+height:90px;
+resize:none;
+}
+
+.judges{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:20px;
+}
+
+.judge{
+background:#0f172a;
+padding:15px;
+border-radius:16px;
+text-align:center;
+}
+
+.judge h4{
+margin-bottom:10px;
+}
+
+.score{
+width:220px;
+height:220px;
+margin:auto;
+border-radius:50%;
+background:
+conic-gradient(
+#00d4ff 0deg,
+#7c3aed 300deg,
+#182235 300deg
+);
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.inner{
+width:170px;
+height:170px;
+background:#050b17;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:48px;
+font-weight:900;
+}
+
+.metric{
+margin-top:20px;
+}
+
+.bar{
+height:8px;
+background:#1e293b;
+border-radius:20px;
+overflow:hidden;
+margin-top:8px;
+}
+
+.fill{
+height:100%;
+background:#00d4ff;
+}
+
+.decision{
+margin-top:25px;
+padding:20px;
+text-align:center;
+border-radius:18px;
+background:#052e1d;
+border:1px solid #16a34a;
+}
+
+.decision h2{
+color:#22c55e;
+font-size:34px;
+}
+
+@media(max-width:1100px){
+.dashboard{
+grid-template-columns:1fr;
+}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+
+<div class="container">
+
+<div class="topbar">
+<div class="logo">🦈 AI Shark Tank</div>
+
+<div class="nav">
+<a href="#">Dashboard</a>
+<a href="#">Leaderboard</a>
+<a href="#">Reports</a>
+</div>
+</div>
+
+<div class="dashboard">
+
+<!-- LEFT -->
+
+<div class="card">
+
+<h2>Startup Submission</h2>
+
+<div class="form">
+
+<input placeholder="Startup Name">
+
+<textarea placeholder="Problem Statement"></textarea>
+
+<textarea placeholder="Solution"></textarea>
+
+<input placeholder="Revenue Model">
+
+<input placeholder="Target Audience">
+
+<input placeholder="Funding Ask">
+
+<button class="pitch-btn">
+Launch Pitch
+</button>
+
+</div>
+
+</div>
+
+<!-- CENTER -->
+
+<div class="card">
+
+<h1 class="title">
+AI <span class="gradient">Shark Tank</span><br>
+Simulator
+</h1>
+
+<p class="subtitle">
+Pitch your startup to AI investors,
+receive feedback, valuation,
+and funding decisions.
+</p>
+
+<div class="judges">
+
+<div class="judge">
+<h4>🦈 VC</h4>
+<p>Market Size</p>
+</div>
+
+<div class="judge">
+<h4>🦈 Founder</h4>
+<p>Execution</p>
+</div>
+
+<div class="judge">
+<h4>🦈 Customer</h4>
+<p>Usefulness</p>
+</div>
+
+<div class="judge">
+<h4>🦈 Angel</h4>
+<p>Profitability</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="card">
+
+<div class="score">
+<div class="inner">
+92
+</div>
+</div>
+
+<div class="metric">
+Market Potential
+<div class="bar">
+<div class="fill" style="width:90%"></div>
+</div>
+</div>
+
+<div class="metric">
+Innovation
+<div class="bar">
+<div class="fill" style="width:95%"></div>
+</div>
+</div>
+
+<div class="metric">
+Business Model
+<div class="bar">
+<div class="fill" style="width:88%"></div>
+</div>
+</div>
+
+<div class="metric">
+Execution
+<div class="bar">
+<div class="fill" style="width:84%"></div>
+</div>
+</div>
+
+<div class="decision">
+<h2>INVEST</h2>
+<p>Valuation: $4.5M</p>
+<p>Funding: $500K</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
