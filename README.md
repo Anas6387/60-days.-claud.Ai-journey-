@@ -5403,4 +5403,552 @@ Execution
 </section>
 
 </body>
+
+
+______________________DAY 26_________________
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prior Authorization Workflow Simulator</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+rel="stylesheet">
+
+</head>
+
+<body>
+
+<header>
+
+<h1>
+<i class="fa-solid fa-shield-heart"></i>
+PRIOR AUTHORIZATION WORKFLOW SIMULATOR
+</h1>
+
+<p>Learn. Play. Understand Prior Authorization.</p>
+
+<button id="restart">
+<i class="fa-solid fa-rotate-right"></i>
+New Patient
+</button>
+
+</header>
+
+<section class="progress">
+
+<div class="step active">1</div>
+<div class="line"></div>
+
+<div class="step active">2</div>
+<div class="line"></div>
+
+<div class="step active">3</div>
+<div class="line"></div>
+
+<div class="step">4</div>
+<div class="line"></div>
+
+<div class="step">5</div>
+<div class="line"></div>
+
+<div class="step">6</div>
+<div class="line"></div>
+
+<div class="step">7</div>
+
+</section>
+
+<div class="dashboard">
+
+<div class="panel patient">
+
+<h2>
+<i class="fa-solid fa-user"></i>
+PATIENT
+</h2>
+
+<div class="card">
+
+<h3>Patient Case</h3>
+
+<p><b>Name:</b> John Doe</p>
+
+<p><b>Age:</b>45</p>
+
+<p>Chronic lower back pain</p>
+
+</div>
+
+<div class="card">
+
+<h3>Clinical Info</h3>
+
+<ul>
+
+<li>Symptoms 3+ Months</li>
+
+<li>Pain 8/10</li>
+
+<li>No Improvement</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="panel provider">
+
+<h2>
+
+<i class="fa-solid fa-user-doctor"></i>
+
+PROVIDER
+
+</h2>
+
+<div class="workflow">
+
+<div class="workflow-card">
+
+<i class="fa-solid fa-stethoscope"></i>
+
+<h3>Medical Necessity</h3>
+
+<p>Evaluate patient eligibility.</p>
+
+</div>
+
+<div class="workflow-card">
+
+<i class="fa-solid fa-folder-open"></i>
+
+<h3>Collect Documents</h3>
+
+<p>Gather required records.</p>
+
+</div>
+
+<div class="workflow-card">
+
+<i class="fa-solid fa-paper-plane"></i>
+
+<h3>Submit to Payer</h3>
+
+<p>Submit authorization request.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="panel payer">
+
+<h2>
+
+<i class="fa-solid fa-shield"></i>
+
+PAYER
+
+</h2>
+
+<div class="workflow">
+
+<div class="workflow-card">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<h3>Under Review</h3>
+
+</div>
+
+<div class="workflow-card">
+
+<i class="fa-solid fa-hourglass-half"></i>
+
+<h3>Pend</h3>
+
+</div>
+
+<div class="workflow-card">
+
+<i class="fa-solid fa-scale-balanced"></i>
+
+<h3>Decision</h3>
+
+</div>
+
+<div class="result">
+
+<button class="approve">
+Approval
+</button>
+
+<button class="deny">
+ Denial
+</button>
+
+<button class="peer">
+Peer Review
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
 </html>
+</html>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#eef5fc;
+    padding:20px;
+}
+
+header{
+    background:#fff;
+    border-radius:15px;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+header h1{
+    color:#1247a5;
+    font-size:34px;
+}
+
+header p{
+    color:#555;
+    margin-top:5px;
+}
+
+#restart{
+    background:#0b63ff;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.progress{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:30px 0;
+}
+
+.step{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#cfd8dc;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+    font-size:18px;
+}
+
+.step.active{
+    background:#1565c0;
+}
+
+.line{
+    width:80px;
+    height:5px;
+    background:#cfd8dc;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:20px;
+}
+
+.panel{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.patient{
+    border-top:8px solid #1565c0;
+}
+
+.provider{
+    border-top:8px solid #43a047;
+}
+
+.payer{
+    border-top:8px solid #1565c0;
+}
+
+.panel h2{
+    margin-bottom:20px;
+    color:#1a237e;
+}
+
+.card{
+    background:#f9fbff;
+    border:2px solid #dce8ff;
+    border-radius:12px;
+    padding:18px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#1565c0;
+    margin-bottom:10px;
+}
+
+.card p{
+    margin:8px 0;
+}
+
+.card ul{
+    padding-left:20px;
+}
+
+.card li{
+    margin:8px 0;
+}
+
+.workflow{
+    display:grid;
+    gap:20px;
+}
+
+.workflow-card{
+    background:#ffffff;
+    border:2px solid #d8e6ff;
+    border-radius:12px;
+    padding:20px;
+    text-align:center;
+    transition:.3s;
+}
+
+.workflow-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 10px 20px rgba(0,0,0,.12);
+}
+
+.workflow-card i{
+    font-size:40px;
+    color:#1976d2;
+    margin-bottom:15px;
+}
+
+.workflow-card h3{
+    margin-bottom:10px;
+}
+
+.result{
+    display:flex;
+    justify-content:space-between;
+    margin-top:25px;
+}
+
+.result button{
+    width:32%;
+    border:none;
+    border-radius:8px;
+    padding:15px;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.approve{
+    background:#43a047;
+}
+
+.deny{
+    background:#d32f2f;
+}
+
+.peer{
+    background:#1976d2;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+@media(max-width:1000px){
+    .dashboard{
+        grid-template-columns:1fr;
+    }
+
+    header{
+        flex-direction:column;
+        text-align:center;
+        gap:15px;
+    }
+
+    .result{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .result button{
+        width:100%;
+    }
+}
+// Progress Steps
+const steps = document.querySelectorAll(".step");
+
+// Buttons
+const approveBtn = document.querySelector(".approve");
+const denyBtn = document.querySelector(".deny");
+const peerBtn = document.querySelector(".peer");
+const restartBtn = document.getElementById("restart");
+
+// Current Workflow Step
+let currentStep = 3;
+
+// Dashboard Values
+let efficiency = 100;
+let days = 0;
+
+// Create Score Box
+const scoreBox = document.createElement("div");
+scoreBox.className = "score-box";
+scoreBox.innerHTML = `
+<h3>Dashboard</h3>
+
+<p>Days Elapsed :
+<span id="days">0</span>
+</p>
+
+<p>Efficiency :
+<span id="score">100%</span>
+</p>
+`;
+
+document.body.prepend(scoreBox);
+
+// Update Progress
+function updateProgress(){
+
+steps.forEach((step,index)=>{
+
+if(index<=currentStep){
+
+step.classList.add("active");
+
+}else{
+
+step.classList.remove("active");
+
+}
+
+});
+
+document.getElementById("days").innerText=days;
+document.getElementById("score").innerText=efficiency+"%";
+
+}
+
+// Approval
+approveBtn.addEventListener("click",()=>{
+
+currentStep=6;
+
+days+=1;
+
+alert(" Prior Authorization Approved!");
+
+updateProgress();
+
+});
+
+// Denial
+denyBtn.addEventListener("click",()=>{
+
+days+=3;
+
+efficiency-=15;
+
+alert(" Request Denied");
+
+updateProgress();
+
+});
+
+// Peer Review
+peerBtn.addEventListener("click",()=>{
+
+days+=2;
+
+efficiency-=5;
+
+alert("👨‍⚕️ Peer-to-Peer Review Scheduled");
+
+updateProgress();
+
+});
+
+// Restart
+restartBtn.addEventListener("click",()=>{
+
+currentStep=0;
+
+days=0;
+
+efficiency=100;
+
+updateProgress();
+
+});
+
+// Hover Animation
+const cards=document.querySelectorAll(".workflow-card");
+
+cards.forEach(card=>{
+
+card.addEventListener("mouseenter",()=>{
+
+card.style.transform="translateY(-8px)";
+card.style.boxShadow="0 15px 25px rgba(0,0,0,.18)";
+
+});
+
+card.addEventListener("mouseleave",()=>{
+
+card.style.transform="translateY(0)";
+card.style.boxShadow="0 5px 15px rgba(0,0,0,.08)";
+
+});
+
+});
+
+// Initial
+updateProgress();
