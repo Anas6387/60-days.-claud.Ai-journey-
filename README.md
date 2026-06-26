@@ -5952,3 +5952,595 @@ card.style.boxShadow="0 5px 15px rgba(0,0,0,.08)";
 
 // Initial
 updateProgress();
+
+_____________________DAY27___________________
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prior Authorization Story Simulator</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body{
+            font-family:'Inter',sans-serif;
+            background:#eef5ff;
+        }
+
+        ::-webkit-scrollbar{
+            width:8px;
+        }
+
+        ::-webkit-scrollbar-thumb{
+            background:#cbd5e1;
+            border-radius:20px;
+        }
+
+        ::-webkit-scrollbar-track{
+            background:#f8fafc;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-blue-900 to-indigo-800 text-white shadow-lg">
+
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+
+            <div>
+
+                <h1 class="text-4xl font-extrabold">
+                    Prior Authorization Story Simulator
+                </h1>
+
+                <p class="text-blue-100 mt-2">
+                    Follow Rahul's journey through Prior Authorization with Priya
+                </p>
+
+            </div>
+
+            <div class="bg-white rounded-xl p-4 shadow text-center">
+
+                <h3 class="text-blue-700 font-bold text-xl">
+                    StarCare Health
+                </h3>
+
+                <p class="text-sm text-gray-600">
+                    Illustrative Example
+                </p>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- Progress Section -->
+
+    <section class="bg-white shadow">
+
+        <div class="max-w-7xl mx-auto p-6">
+
+            <div class="flex justify-between items-center mb-3">
+
+                <h2 class="font-bold text-xl">
+                    Story Progress
+                </h2>
+
+                <span id="sceneNumber">
+                    Scene 1 of 8
+                </span>
+
+            </div>
+
+            <div id="progressBar"
+                 class="w-full h-4 rounded-full bg-gray-200 overflow-hidden">
+
+                <div id="progressFill"
+                     class="bg-blue-600 h-full w-[12.5%] transition-all duration-500">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Main Layout -->
+
+    <main class="max-w-7xl mx-auto p-5">
+
+        <div class="grid grid-cols-12 gap-5">
+
+            <!-- Sidebar -->
+
+            <aside class="col-span-3">
+
+                <div class="bg-white rounded-2xl shadow">
+
+                    <div class="p-5 border-b">
+
+                        <h2 class="text-2xl font-bold">
+                            Story Scenes
+                        </h2>
+
+                    </div>
+
+                    <div id="sceneList">
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <!-- Chat Area -->
+
+            <section class="col-span-6">
+
+                <div class="bg-white rounded-2xl shadow">
+
+                    <div class="border-b p-5">
+
+                        <h2 id="sceneTitle"
+                            class="text-3xl font-bold">
+                            Doctor Visit
+                        </h2>
+
+                        <p id="sceneSubtitle"
+                           class="text-gray-600 mt-2">
+                        </p>
+
+                    </div>
+
+                    <div id="chatContainer"
+                         class="h-[600px] overflow-y-auto p-6 space-y-5">
+
+                    </div>
+
+                    <div class="border-t p-6">
+
+                        <h3 class="font-bold mb-4">
+                            What would you like to do next?
+                        </h3>
+
+                        <div id="choiceContainer"
+                             class="grid grid-cols-2 gap-4">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- Right Panel -->
+
+            <aside class="col-span-3">
+
+                <div class="bg-white rounded-2xl shadow">
+
+                    <div class="bg-purple-600 text-white p-4 rounded-t-2xl">
+
+                        <h3 class="text-xl font-bold">
+                            DID YOU KNOW?
+                        </h3>
+
+                    </div>
+
+                    <div id="infoPanel"
+                         class="p-5 space-y-5">
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+/* ------------------------------
+   GLOBAL
+------------------------------ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#eef5ff;
+    color:#1e293b;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#edf2f7;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#94a3b8;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#64748b;
+}
+
+/* ------------------------------
+   CARDS
+------------------------------ */
+
+.card{
+    background:#ffffff;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.shadow-soft{
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+/* ------------------------------
+   HEADER
+------------------------------ */
+
+.header-gradient{
+    background:linear-gradient(
+        90deg,
+        #0f172a,
+        #1d4ed8
+    );
+}
+
+/* ------------------------------
+   SIDEBAR
+------------------------------ */
+
+.scene-item{
+
+    padding:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    border-bottom:1px solid #f1f5f9;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.scene-item:hover{
+
+    background:#eff6ff;
+
+}
+
+.scene-active{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+/* ------------------------------
+   CHAT AREA
+------------------------------ */
+
+#chatContainer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+/* Rahul */
+
+.chat-left{
+
+    display:flex;
+
+    justify-content:flex-start;
+
+}
+
+/* Priya */
+
+.chat-right{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+}
+
+.bubble{
+
+    max-width:72%;
+
+    padding:16px;
+
+    border-radius:18px;
+
+    line-height:1.6;
+
+    font-size:15px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+}
+
+/* Rahul */
+
+.bubble-left{
+
+    background:#e8f3ff;
+
+    border:1px solid #b6d6ff;
+
+}
+
+/* Priya */
+
+.bubble-right{
+
+    background:#ecfff2;
+
+    border:1px solid #b8ebc6;
+
+}
+
+/* Avatar */
+
+.avatar{
+
+    width:55px;
+
+    height:55px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+}
+
+/* ------------------------------
+   NARRATOR
+------------------------------ */
+
+.narrator{
+
+    text-align:center;
+
+    font-style:italic;
+
+    color:#475569;
+
+    font-size:17px;
+
+    padding:12px;
+
+}
+
+/* ------------------------------
+   BUTTONS
+------------------------------ */
+
+.choice-btn{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    transition:.25s;
+
+}
+
+.choice-a{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.choice-a:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-2px);
+
+}
+
+.choice-b{
+
+    background:#16a34a;
+
+    color:white;
+
+}
+
+.choice-b:hover{
+
+    background:#15803d;
+
+    transform:translateY(-2px);
+
+}
+
+/* ------------------------------
+   PROGRESS BAR
+------------------------------ */
+
+.progress{
+
+    width:100%;
+
+    height:12px;
+
+    background:#dbeafe;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    width:12.5%;
+
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #3b82f6
+    );
+
+    transition:.4s;
+
+}
+
+/* ------------------------------
+   INFO PANEL
+------------------------------ */
+
+.info-card{
+
+    background:#faf5ff;
+
+    border-left:5px solid #7c3aed;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    margin-bottom:16px;
+
+}
+
+.info-title{
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+/* ------------------------------
+   ANIMATIONS
+------------------------------ */
+
+.fade{
+
+    animation:fade .35s ease;
+
+}
+
+@keyframes fade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ------------------------------
+   RESPONSIVE
+------------------------------ */
+
+@media(max-width:992px){
+
+    .bubble{
+
+        max-width:90%;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .avatar{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .bubble{
+
+        font-size:14px;
+
+        max-width:100%;
+
+    }
+
+}
