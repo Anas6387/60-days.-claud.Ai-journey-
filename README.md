@@ -6544,3 +6544,612 @@ body{
     }
 
 }
+
+____________________DAY 28___________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hospital Admission Readiness Simulator</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body{
+background:#07111f;
+font-family:Inter,sans-serif;
+}
+
+.card{
+background:#111b2d;
+border:1px solid rgba(255,255,255,.08);
+border-radius:14px;
+}
+
+.card-title{
+font-size:18px;
+font-weight:700;
+color:white;
+}
+
+.label{
+font-size:13px;
+color:#9ca3af;
+margin-bottom:6px;
+display:block;
+}
+
+.input{
+width:100%;
+padding:12px;
+background:#0d1728;
+border:1px solid #334155;
+border-radius:10px;
+color:white;
+}
+
+.btn{
+width:100%;
+padding:15px;
+background:#6D4AFF;
+border-radius:12px;
+font-size:18px;
+font-weight:700;
+color:white;
+transition:.3s;
+}
+
+.btn:hover{
+background:#5B38F7;
+}
+
+.notice{
+background:#2b2512;
+border:1px solid #8b6b1c;
+border-radius:12px;
+padding:18px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="max-w-7xl mx-auto p-6">
+
+<div class="flex justify-between items-center mb-6">
+
+<div class="flex items-center gap-4">
+
+<div class="text-5xl">
+🏥
+</div>
+
+<div>
+
+<h1 class="text-4xl font-bold text-white">
+Hospital Admission
+</h1>
+
+<h2 class="text-3xl font-bold text-blue-400">
+Readiness Simulator
+</h2>
+
+</div>
+
+<div class="ml-8 px-4 py-2 rounded-full bg-blue-900 text-blue-300 text-sm">
+Illustrative Training Data
+</div>
+
+</div>
+
+<div class="text-right">
+
+<p class="text-gray-400">
+You are playing as:
+</p>
+
+<h3 class="text-white text-xl font-bold">
+Hospital Admission Coordinator
+</h3>
+
+</div>
+
+</div>
+
+<div class="grid grid-cols-3 gap-6">
+
+<!-- LEFT PANEL -->
+
+<div class="card p-6">
+
+<div class="flex items-center gap-3 mb-6">
+
+<div class="w-8 h-8 rounded bg-indigo-700 flex items-center justify-center text-white font-bold">
+1
+</div>
+
+<h2 class="card-title">
+SETUP
+</h2>
+
+</div>
+
+<label class="label">
+Provider (Illustrative)
+</label>
+
+<select class="input">
+<option>HealthFirst Medical Center</option>
+<option>Mercy General Hospital</option>
+<option>Regional Care Hospital</option>
+</select>
+
+<div class="h-5"></div>
+
+<label class="label">
+Attending Physician (Illustrative)
+</label>
+
+<select class="input">
+<option>Dr. Emily Carter, MD</option>
+<option>Dr. James Wilson</option>
+<option>Dr. Sophia Lee</option>
+</select>
+
+<div class="h-5"></div>
+
+<label class="label">
+Diagnosis
+</label>
+
+<select class="input">
+<option>Acute MI</option>
+<option>CHF</option>
+<option>Pneumonia</option>
+<option>Elective Surgery</option>
+<option>Hip Fracture</option>
+</select>
+
+<div class="h-5"></div>
+
+<label class="label">
+Admission Type
+</label>
+
+<select class="input">
+<option>Inpatient</option>
+<option>Observation</option>
+<option>Emergency</option>
+<option>ICU</option>
+<option>Same-Day Surgery</option>
+</select>
+
+<div class="h-5"></div>
+
+<label class="label">
+PA Status
+</label>
+
+<select class="input">
+<option>Pending</option>
+<option>Approved</option>
+<option>Denied</option>
+</select>
+
+<div class="h-5"></div>
+
+<label class="label">
+Admission Date
+</label>
+
+<input
+type="date"
+class="input">
+
+<div class="mt-6 notice">
+
+<h3 class="text-yellow-400 font-bold text-lg">
+Observation Status Notice
+</h3>
+
+<p class="text-gray-200 mt-3">
+
+CMS 2-Midnight Rule applies —
+different cost-sharing,
+SNF eligibility,
+and billing than inpatient.
+
+<br><br>
+
+Medicare patients require
+written MOON notification.
+
+</p>
+
+</div>
+
+<button class="btn mt-6">
+🏥 Analyze Admission Readiness
+</button>
+
+</div>
+
+<!-- RIGHT SIDE STARTS HERE -->
+
+<div class="col-span-2">
+
+<!-- Continue in Part 2 -->
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+/* ===================================
+   Hospital Admission Simulator UI
+=================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#07111f;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* Layout */
+
+.container{
+width:95%;
+max-width:1600px;
+margin:auto;
+padding:20px;
+}
+
+.grid{
+display:grid;
+gap:20px;
+}
+
+.grid-2{
+grid-template-columns:380px 1fr;
+}
+
+.grid-3{
+grid-template-columns:repeat(3,1fr);
+}
+
+.grid-4{
+grid-template-columns:repeat(4,1fr);
+}
+
+.grid-6{
+grid-template-columns:repeat(6,1fr);
+}
+
+/* Card */
+
+.card{
+background:#111c2d;
+border:1px solid rgba(255,255,255,.08);
+border-radius:16px;
+padding:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+transition:.35s;
+}
+
+.card:hover{
+transform:translateY(-3px);
+border-color:#5b7cff;
+}
+
+/* Header */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:18px;
+}
+
+.logo-icon{
+font-size:52px;
+}
+
+.title h1{
+font-size:42px;
+font-weight:800;
+}
+
+.title h2{
+font-size:30px;
+color:#60a5fa;
+}
+
+.badge{
+padding:10px 18px;
+background:#173a67;
+color:#9bd2ff;
+border-radius:999px;
+font-size:13px;
+}
+
+/* Inputs */
+
+label{
+display:block;
+margin-bottom:8px;
+color:#9ca3af;
+font-size:13px;
+}
+
+input,
+select{
+width:100%;
+padding:14px;
+background:#0d1728;
+border:1px solid #334155;
+border-radius:10px;
+color:#fff;
+outline:none;
+margin-bottom:18px;
+}
+
+input:focus,
+select:focus{
+border-color:#4f7cff;
+}
+
+/* Button */
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:linear-gradient(90deg,#5f5bff,#8d55ff);
+color:#fff;
+font-size:17px;
+font-weight:700;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 25px rgba(101,87,255,.45);
+}
+
+/* Status Cards */
+
+.status-card{
+background:#16243a;
+border-radius:14px;
+padding:18px;
+text-align:center;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.status-card h3{
+font-size:15px;
+margin-top:10px;
+}
+
+.status-card h1{
+font-size:40px;
+margin:12px 0;
+}
+
+.weight{
+font-size:14px;
+color:#94a3b8;
+}
+
+/* Colors */
+
+.green{
+color:#4ade80;
+}
+
+.orange{
+color:#fbbf24;
+}
+
+.red{
+color:#fb7185;
+}
+
+.blue{
+color:#60a5fa;
+}
+
+/* Progress */
+
+.progress{
+height:16px;
+background:#2c3647;
+border-radius:50px;
+overflow:hidden;
+margin-top:20px;
+}
+
+.progress-bar{
+height:100%;
+width:48%;
+background:linear-gradient(90deg,#ffb347,#ff8c00);
+border-radius:50px;
+}
+
+/* Notice */
+
+.notice{
+background:#2c2515;
+border:1px solid #8a6d1f;
+border-radius:12px;
+padding:18px;
+}
+
+.notice h3{
+color:#ffd35f;
+margin-bottom:10px;
+}
+
+/* Timeline */
+
+.timeline{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:20px;
+}
+
+.step{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.circle{
+width:62px;
+height:62px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#223248;
+border:2px solid #3b82f6;
+font-size:24px;
+}
+
+.line{
+flex:1;
+height:4px;
+background:#3b82f6;
+}
+
+/* Workflow */
+
+.workflow button{
+margin-bottom:12px;
+}
+
+/* Risk */
+
+.risk-card{
+padding:18px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,.08);
+background:#16243a;
+}
+
+.risk-bar{
+height:12px;
+background:#2c3647;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.risk-fill{
+height:100%;
+width:70%;
+background:#ffb347;
+}
+
+/* Governance */
+
+.gov{
+background:#11344b;
+border:1px solid #2d8cff;
+}
+
+.gov ul{
+margin-top:15px;
+padding-left:18px;
+}
+
+.gov li{
+margin-bottom:10px;
+}
+
+/* Final Decision */
+
+.success{
+background:#143323;
+border:1px solid #28c76f;
+}
+
+.warning{
+background:#3b2b11;
+border:1px solid #ffb547;
+}
+
+/* Footer */
+
+.footer{
+margin-top:30px;
+text-align:center;
+color:#94a3b8;
+font-size:13px;
+}
+
+/* Responsive */
+
+@media(max-width:1200px){
+
+.grid-2{
+grid-template-columns:1fr;
+}
+
+.grid-6{
+grid-template-columns:repeat(3,1fr);
+}
+
+.timeline{
+overflow-x:auto;
+gap:20px;
+}
+
+}
+
+@media(max-width:768px){
+
+.grid-3,
+.grid-4,
+.grid-6{
+grid-template-columns:1fr;
+}
+
+.header{
+flex-direction:column;
+gap:20px;
+align-items:flex-start;
+}
+
+.title h1{
+font-size:30px;
+}
+
+.title h2{
+font-size:24px;
+}
+
+}
