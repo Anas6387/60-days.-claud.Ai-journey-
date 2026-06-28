@@ -7153,3 +7153,594 @@ font-size:24px;
 }
 
 }
+_______________________DAY 29________________
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Operation Lifeline: Supply Chain Crisis Lab</title>
+</head>
+<body style="font-family:Arial;padding:40px;">
+<h1>Operation Lifeline: Supply Chain Crisis Lab</h1>
+<p>
+Your requested application is too large to fit within a single ChatGPT response.
+</p>
+
+<p>
+The app you described (complete React app with:
+</p>
+
+<ul>
+<li>React + Babel single file</li>
+<li>8 gameplay stages</li>
+<li>Random company generator</li>
+<li>Random crisis engine</li>
+<li>War Room simulation</li>
+<li>Animated KPI dashboard</li>
+<li>4-round branching negotiation</li>
+<li>CEO boardroom quiz</li>
+<li>AI strategy planner</li>
+<li>Final executive dashboard</li>
+<li>Responsive premium UI</li>
+<li>Reusable React components</li>
+<li>Offline support</li>
+<li>No placeholders</li>
+</ul>
+
+<p>
+...requires well over 2,500–4,000 lines of HTML/JSX/CSS, which exceeds ChatGPT's maximum response size. Because of that, I can't produce the complete file in one message.
+</p>
+
+<p>
+The best way to generate it is as a downloadable HTML file (or in several parts that combine into one file). That allows the full application to be delivered without truncation.
+</p>
+</body>
+</html>
+/* ============================
+   OPERATION LIFELINE
+   Premium Dark Dashboard Theme
+============================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+
+    --bg:#08111f;
+    --card:#111c2f;
+    --card2:#16263d;
+    --border:#263854;
+
+    --primary:#4f7dff;
+    --primary2:#6b5cff;
+
+    --success:#2ecc71;
+    --warning:#f1c40f;
+    --danger:#ff4b5c;
+
+    --text:#ffffff;
+    --text2:#b8c4d9;
+
+    --radius:18px;
+}
+
+body{
+
+    font-family:Inter,Segoe UI,Arial,sans-serif;
+
+    background:
+    radial-gradient(circle at top,#102647,#08111f 60%);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+/* Scroll */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#324867;
+border-radius:20px;
+
+}
+
+.container{
+
+width:min(1500px,95%);
+margin:auto;
+padding:30px;
+
+}
+
+/* ===================== */
+
+.title{
+
+font-size:42px;
+font-weight:800;
+letter-spacing:1px;
+
+}
+
+.subtitle{
+
+margin-top:10px;
+
+color:var(--text2);
+
+font-size:18px;
+
+line-height:1.7;
+
+}
+
+/* ===================== */
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:20px;
+
+margin-top:25px;
+
+}
+
+/* ===================== */
+
+.card{
+
+background:linear-gradient(
+180deg,
+var(--card),
+var(--card2)
+);
+
+border:1px solid var(--border);
+
+border-radius:var(--radius);
+
+padding:22px;
+
+transition:.35s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+left:0;
+top:0;
+
+height:4px;
+width:100%;
+
+background:linear-gradient(
+90deg,
+#4f7dff,
+#6b5cff,
+#00d4ff
+);
+
+}
+
+.card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:
+
+0 15px 40px rgba(0,0,0,.35);
+
+}
+
+/* ===================== */
+
+.sectionTitle{
+
+font-size:22px;
+font-weight:700;
+
+margin-bottom:15px;
+
+}
+
+/* ===================== */
+
+.info{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:12px 0;
+
+border-bottom:1px solid rgba(255,255,255,.06);
+
+}
+
+.info:last-child{
+
+border:none;
+
+}
+
+/* ===================== */
+
+.badge{
+
+display:inline-block;
+
+padding:8px 16px;
+
+border-radius:999px;
+
+font-size:13px;
+
+font-weight:700;
+
+background:#203454;
+
+color:white;
+
+}
+
+.badge.red{
+
+background:#ff4b5c;
+
+}
+
+.badge.green{
+
+background:#2ecc71;
+
+}
+
+.badge.orange{
+
+background:#f39c12;
+
+}
+
+/* ===================== */
+
+button{
+
+padding:14px 26px;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-size:16px;
+
+font-weight:700;
+
+transition:.35s;
+
+color:white;
+
+background:linear-gradient(
+90deg,
+#4f7dff,
+#6b5cff
+);
+
+}
+
+button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 12px 30px rgba(79,125,255,.35);
+
+}
+
+/* ===================== */
+
+.progress{
+
+height:12px;
+
+background:#22344f;
+
+border-radius:30px;
+
+overflow:hidden;
+
+margin-top:8px;
+
+}
+
+.progress div{
+
+height:100%;
+
+border-radius:30px;
+
+transition:1.2s;
+
+}
+
+.green{
+
+background:#2ecc71;
+
+}
+
+.red{
+
+background:#ff4b5c;
+
+}
+
+.yellow{
+
+background:#f1c40f;
+
+}
+
+.blue{
+
+background:#4f7dff;
+
+}
+
+.purple{
+
+background:#8b5cf6;
+
+}
+
+/* ===================== */
+
+.metric{
+
+margin-top:18px;
+
+}
+
+.metric h4{
+
+margin-bottom:8px;
+
+font-size:15px;
+
+color:#c6d5eb;
+
+}
+
+/* ===================== */
+
+.choice{
+
+padding:18px;
+
+border:1px solid #324867;
+
+border-radius:14px;
+
+margin-bottom:14px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.choice:hover{
+
+background:#203454;
+
+border-color:#4f7dff;
+
+}
+
+.choice.selected{
+
+border:2px solid #4f7dff;
+
+background:#243c63;
+
+}
+
+/* ===================== */
+
+.dashboard{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:18px;
+
+}
+
+.kpi{
+
+background:#122033;
+
+padding:20px;
+
+border-radius:18px;
+
+text-align:center;
+
+border:1px solid #2c4564;
+
+}
+
+.kpi h1{
+
+font-size:42px;
+
+margin-top:12px;
+
+}
+
+.kpi p{
+
+margin-top:8px;
+
+color:#b5c4d8;
+
+}
+
+/* ===================== */
+
+.scoreCircle{
+
+width:120px;
+
+height:120px;
+
+border-radius:50%;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:34px;
+
+font-weight:800;
+
+background:conic-gradient(
+
+#4f7dff 80%,
+#243854 0
+
+);
+
+}
+
+/* ===================== */
+
+.aiCard{
+
+padding:18px;
+
+border-radius:16px;
+
+background:#15243a;
+
+border:1px solid #324867;
+
+transition:.35s;
+
+cursor:pointer;
+
+}
+
+.aiCard:hover{
+
+transform:scale(1.03);
+
+}
+
+.aiCard.selected{
+
+border:2px solid #2ecc71;
+
+box-shadow:0 0 20px rgba(46,204,113,.35);
+
+}
+
+/* ===================== */
+
+footer{
+
+margin-top:40px;
+
+text-align:center;
+
+color:#91a7c6;
+
+font-size:14px;
+
+}
+
+/* ===================== */
+
+.fade{
+
+animation:fade .7s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+/* ===================== */
+
+@media(max-width:900px){
+
+.title{
+
+font-size:32px;
+
+}
+
+.subtitle{
+
+font-size:16px;
+
+}
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+button{
+
+width:100%;
+
+}
+
+}
