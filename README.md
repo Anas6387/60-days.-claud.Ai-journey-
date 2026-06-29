@@ -7744,3 +7744,452 @@ width:100%;
 }
 
 }
+
+_______________________DAY30______________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply Chain Builder</title>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:#0f172a;
+color:white;
+padding:30px;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:16px;
+margin-bottom:20px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-4px);
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#2563eb;
+color:white;
+font-size:16px;
+margin-top:15px;
+}
+
+button:hover{
+background:#3b82f6;
+}
+
+.progress{
+height:14px;
+background:#334155;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:15px;
+}
+
+.fill{
+height:100%;
+background:#22c55e;
+transition:1s;
+}
+</style>
+</head>
+
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const companies=[
+{
+industry:"Electronics",
+product:"Smartphones",
+countries:"India, UAE",
+demand:"High"
+},
+{
+industry:"Food",
+product:"Snacks",
+countries:"India, Nepal",
+demand:"Medium"
+},
+{
+industry:"Fashion",
+product:"Shoes",
+countries:"India, UK",
+demand:"High"
+}
+];
+
+function App(){
+
+const [company]=React.useState(
+companies[Math.floor(Math.random()*companies.length)]
+);
+
+const [cost]=React.useState(70);
+const [speed]=React.useState(65);
+const [risk]=React.useState(40);
+const [customer]=React.useState(82);
+const [green]=React.useState(55);
+
+return(
+
+<div className="container">
+
+<div className="card">
+
+<h1>Supply Chain Builder</h1>
+
+<br/>
+
+<p>
+A supply chain is the journey of a product from suppliers
+to factories, warehouses and finally customers.
+Every decision affects cost, speed, quality and customer satisfaction.
+</p>
+
+<br/>
+
+<h2>Random Company</h2>
+
+<p><b>Industry:</b> {company.industry}</p>
+<p><b>Product:</b> {company.product}</p>
+<p><b>Countries:</b> {company.countries}</p>
+<p><b>Demand:</b> {company.demand}</p>
+
+<button>
+Start Building
+</button>
+
+</div>
+
+<div className="card">
+
+<h2>Business Metrics</h2>
+
+<p>Cost</p>
+<div className="progress">
+<div className="fill" style={{width:cost+"%"}}></div>
+</div>
+
+<p>Delivery Speed</p>
+<div className="progress">
+<div className="fill" style={{width:speed+"%"}}></div>
+</div>
+
+<p>Risk</p>
+<div className="progress">
+<div className="fill" style={{width:risk+"%"}}></div>
+</div>
+
+<p>Customer Satisfaction</p>
+<div className="progress">
+<div className="fill" style={{width:customer+"%"}}></div>
+</div>
+
+<p>Sustainability</p>
+<div className="progress">
+<div className="fill" style={{width:green+"%"}}></div>
+</div>
+
+</div>
+
+</div>
+
+);
+
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+
+</script>
+
+</body>
+</html>
+/* ===========================
+   SUPPLY CHAIN BUILDER CSS
+   Premium Dark Theme
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#0f172a;
+    color:#ffffff;
+    min-height:100vh;
+    padding:25px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* Header */
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#38bdf8;
+}
+
+.subtitle{
+    color:#94a3b8;
+}
+
+/* Card */
+
+.card{
+    background:#1e293b;
+    border-radius:18px;
+    padding:22px;
+    margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+h1,h2,h3{
+    margin-bottom:15px;
+}
+
+p{
+    line-height:1.7;
+    color:#cbd5e1;
+}
+
+/* Grid */
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+/* Buttons */
+
+button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+    margin-top:10px;
+}
+
+button:hover{
+    background:#3b82f6;
+    transform:scale(1.03);
+}
+
+/* Choice Card */
+
+.choice{
+    background:#334155;
+    border-radius:15px;
+    padding:20px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.choice:hover{
+    background:#475569;
+    transform:translateY(-4px);
+}
+
+/* Metrics */
+
+.metric{
+    margin-bottom:18px;
+}
+
+.metric-title{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:8px;
+    font-size:14px;
+}
+
+.progress{
+    width:100%;
+    height:14px;
+    background:#475569;
+    border-radius:30px;
+    overflow:hidden;
+}
+
+.fill{
+    height:100%;
+    border-radius:30px;
+    transition:width .8s ease;
+}
+
+/* Different Colors */
+
+.cost{
+    background:#ef4444;
+}
+
+.speed{
+    background:#3b82f6;
+}
+
+.risk{
+    background:#f97316;
+}
+
+.customer{
+    background:#22c55e;
+}
+
+.sustain{
+    background:#14b8a6;
+}
+
+/* Dashboard */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.score{
+    text-align:center;
+    font-size:60px;
+    color:#22c55e;
+    font-weight:bold;
+}
+
+.badge{
+    display:inline-block;
+    background:#22c55e;
+    color:white;
+    padding:8px 16px;
+    border-radius:20px;
+    margin-top:10px;
+}
+
+/* Lists */
+
+ul{
+    margin-left:20px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+/* Footer */
+
+footer{
+    margin-top:30px;
+    text-align:center;
+    color:#94a3b8;
+}
+
+/* Fade Animation */
+
+.fade{
+    animation:fade .6s ease;
+}
+
+@keyframes fade{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Card Pop */
+
+.pop{
+animation:pop .4s;
+}
+
+@keyframes pop{
+
+0%{
+transform:scale(.9);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+body{
+padding:15px;
+}
+
+.logo{
+font-size:24px;
+}
+
+.score{
+font-size:45px;
+}
+
+button{
+font-size:15px;
+}
+
+}
