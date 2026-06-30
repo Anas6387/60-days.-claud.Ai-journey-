@@ -8193,3 +8193,687 @@ font-size:15px;
 }
 
 }
+
+__________________DAY 31___________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Supply Chain Control Tower</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,Arial,sans-serif;
+}
+
+body{
+background:#07111f;
+color:#fff;
+overflow-x:hidden;
+}
+
+header{
+height:75px;
+background:#0b1b2f;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+border-bottom:2px solid #00cfff;
+box-shadow:0 0 20px rgba(0,255,255,.15);
+}
+
+header h1{
+font-size:28px;
+color:#4fd9ff;
+}
+
+.topControls{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.controlBtn{
+padding:10px 18px;
+background:#10345d;
+border:none;
+color:white;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.controlBtn:hover{
+background:#178cff;
+}
+
+.dashboard{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:20px;
+padding:20px;
+}
+
+.leftPanel{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.rightPanel{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.kpiGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+}
+
+.kpiCard{
+background:#0f2744;
+border:1px solid #1ea7ff;
+border-radius:12px;
+padding:18px;
+box-shadow:0 0 15px rgba(0,255,255,.15);
+transition:.3s;
+}
+
+.kpiCard:hover{
+transform:translateY(-5px);
+box-shadow:0 0 20px rgba(0,255,255,.4);
+}
+
+.kpiTitle{
+font-size:14px;
+color:#7fdcff;
+margin-bottom:10px;
+}
+
+.kpiValue{
+font-size:28px;
+font-weight:bold;
+color:#63ffb4;
+}
+
+.section{
+background:#0f2744;
+border-radius:12px;
+padding:20px;
+border:1px solid #1ea7ff;
+}
+
+.section h2{
+margin-bottom:15px;
+color:#5ddcff;
+}
+
+#alerts{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.alertCard{
+background:#19385c;
+border-left:6px solid red;
+padding:15px;
+border-radius:10px;
+animation:pulse 2s infinite;
+}
+
+.alertTitle{
+font-size:18px;
+font-weight:bold;
+margin-bottom:8px;
+}
+
+.priority{
+display:inline-block;
+padding:4px 10px;
+border-radius:20px;
+background:#ff9800;
+font-size:12px;
+margin-bottom:10px;
+}
+
+.description{
+font-size:14px;
+line-height:1.5;
+margin-bottom:12px;
+color:#ddd;
+}
+
+.actionArea{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.actionBtn{
+padding:8px 14px;
+background:#178cff;
+border:none;
+border-radius:6px;
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+
+.actionBtn:hover{
+background:#29b6ff;
+}
+
+#eventLog{
+height:520px;
+overflow-y:auto;
+}
+
+.logItem{
+padding:10px;
+border-bottom:1px solid rgba(255,255,255,.08);
+font-size:14px;
+}
+
+.modal{
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,.75);
+}
+
+.modalContent{
+background:#0f2744;
+padding:30px;
+width:90%;
+max-width:650px;
+border-radius:12px;
+border:1px solid #1ea7ff;
+}
+
+.closeBtn{
+margin-top:20px;
+padding:10px 18px;
+background:#178cff;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer;
+}
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 rgba(255,0,0,.2);}
+50%{box-shadow:0 0 20px rgba(255,0,0,.6);}
+100%{box-shadow:0 0 0 rgba(255,0,0,.2);}
+}
+
+@media(max-width:900px){
+.dashboard{
+grid-template-columns:1fr;
+}
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>AI Supply Chain Control Tower</h1>
+
+<div class="topControls">
+
+<div id="timer">03:00</div>
+
+<div id="score">Score : 0</div>
+
+<button class="controlBtn" id="pauseBtn">
+Pause
+</button>
+
+<button class="controlBtn" id="soundBtn">
+🔊 Sound
+</button>
+
+<button class="controlBtn" id="helpBtn">
+Help
+</button>
+
+</div>
+
+</header>
+
+<div class="dashboard">
+
+<div class="leftPanel">
+
+<div class="kpiGrid">
+
+<div class="kpiCard">
+<div class="kpiTitle">Service Level</div>
+<div class="kpiValue" id="serviceLevel">98%</div>
+</div>
+
+<div class="kpiCard">
+<div class="kpiTitle">Customer Satisfaction</div>
+<div class="kpiValue" id="customerSatisfaction">94%</div>
+</div>
+
+<div class="kpiCard">
+<div class="kpiTitle">Inventory Health</div>
+<div class="kpiValue" id="inventoryHealth">91%</div>
+</div>
+
+<div class="kpiCard">
+<div class="kpiTitle">Transportation Efficiency</div>
+<div class="kpiValue" id="transportEfficiency">89%</div>
+</div>
+
+<div class="kpiCard">
+<div class="kpiTitle">Operating Cost</div>
+<div class="kpiValue" id="operatingCost">$18M</div>
+</div>
+
+<div class="kpiCard">
+<div class="kpiTitle">Revenue Protected</div>
+<div class="kpiValue" id="revenueProtected">$250M</div>
+</div>
+
+<div class="kpiCard">
+<div class="kpiTitle">Overall Score</div>
+<div class="kpiValue" id="overallScore">0</div>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>🚨 Active Alerts</h2>
+
+<div id="alerts">
+
+<!-- JavaScript will generate alerts here -->
+
+</div>
+
+</div>
+
+</div>
+
+<div class="rightPanel">
+
+<div class="section">
+
+<h2>Live Event Log</h2>
+
+<div id="eventLog"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="modal" id="helpModal">
+
+<div class="modalContent">
+
+<h2>How to Play</h2>
+
+<p>
+You are the Head of Operations. Resolve alerts before they affect KPIs.
+Choose the best operational action to maximize performance, protect revenue,
+and keep customers satisfied before the timer reaches zero.
+</p>
+
+<button class="closeBtn" id="closeHelp">
+Close
+</button>
+
+</div>
+
+</div>
+let score = 0;
+let timeLeft = 180;
+let gamePaused = false;
+
+let resolvedAlerts = 0;
+let correctDecisions = 0;
+let wrongDecisions = 0;
+
+const kpis = {
+    serviceLevel: 98,
+    customerSatisfaction: 94,
+    inventoryHealth: 91,
+    transportationEfficiency: 89,
+    operatingCost: 18,
+    revenueProtected: 250
+};
+
+const alertDatabase = [
+{
+title: "Port Congestion",
+description: "Major congestion delaying shipments.",
+priority: "High",
+impact: "Transportation"
+},
+{
+title: "Supplier Delay",
+description: "Raw material supplier delayed.",
+priority: "Medium",
+impact: "Production"
+},
+{
+title: "Truck Breakdown",
+description: "Delivery vehicle failure.",
+priority: "Critical",
+impact: "Distribution"
+},
+{
+title: "Warehouse Running Out of Stock",
+description: "Inventory levels critically low.",
+priority: "Critical",
+impact: "Customer Orders"
+},
+{
+title: "Customs Inspection",
+description: "Shipment held at customs.",
+priority: "Medium",
+impact: "Imports"
+},
+{
+title: "Demand Spike",
+description: "Unexpected increase in demand.",
+priority: "Medium",
+impact: "Inventory"
+},
+{
+title: "Factory Machine Failure",
+description: "Production line stopped.",
+priority: "Critical",
+impact: "Manufacturing"
+},
+{
+title: "Weather Disruption",
+description: "Weather affecting logistics.",
+priority: "High",
+impact: "Transportation"
+},
+{
+title: "Wrong Inventory Count",
+description: "Inventory mismatch detected.",
+priority: "Medium",
+impact: "Warehouse"
+},
+{
+title: "Damaged Shipment",
+description: "Shipment damaged during transport.",
+priority: "High",
+impact: "Customer Satisfaction"
+}
+];
+
+const actions = [
+"Expedite Shipment",
+"Use Backup Supplier",
+"Reroute Trucks",
+"Increase Production",
+"Transfer Inventory",
+"Approve Air Freight",
+"Ignore",
+"Delay Decision"
+];
+
+const alertContainer = document.getElementById("alerts");
+const eventLog = document.getElementById("eventLog");
+
+function updateKPIs() {
+    document.getElementById("serviceLevel").textContent = kpis.serviceLevel + "%";
+    document.getElementById("customerSatisfaction").textContent = kpis.customerSatisfaction + "%";
+    document.getElementById("inventoryHealth").textContent = kpis.inventoryHealth + "%";
+    document.getElementById("transportEfficiency").textContent = kpis.transportationEfficiency + "%";
+    document.getElementById("operatingCost").textContent = "$" + kpis.operatingCost + "M";
+    document.getElementById("revenueProtected").textContent = "$" + kpis.revenueProtected + "M";
+    document.getElementById("overallScore").textContent = score;
+    document.getElementById("score").textContent = "Score : " + score;
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+background:#07111f;
+color:#ffffff;
+overflow-x:hidden;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px;
+background:#0b1c31;
+border-bottom:2px solid #00d4ff;
+box-shadow:0 0 20px rgba(0,212,255,.2);
+position:sticky;
+top:0;
+z-index:100;
+}
+
+header h1{
+font-size:28px;
+color:#5edcff;
+font-weight:700;
+}
+
+.topControls{
+display:flex;
+gap:12px;
+align-items:center;
+}
+
+.controlBtn{
+padding:10px 18px;
+border:none;
+border-radius:8px;
+background:#12385c;
+color:#fff;
+cursor:pointer;
+transition:.3s;
+}
+
+.controlBtn:hover{
+background:#1d74d6;
+transform:translateY(-2px);
+}
+
+.dashboard{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:20px;
+padding:20px;
+}
+
+.leftPanel,
+.rightPanel{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.kpiGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:16px;
+}
+
+.kpiCard{
+background:#102742;
+padding:18px;
+border-radius:14px;
+border:1px solid #1aa7ff;
+box-shadow:0 0 15px rgba(0,212,255,.15);
+transition:.3s;
+}
+
+.kpiCard:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px rgba(0,212,255,.35);
+}
+
+.kpiTitle{
+font-size:14px;
+color:#86dfff;
+margin-bottom:10px;
+}
+
+.kpiValue{
+font-size:30px;
+font-weight:bold;
+color:#6effa8;
+}
+
+.section{
+background:#102742;
+padding:20px;
+border-radius:14px;
+border:1px solid #1aa7ff;
+}
+
+.section h2{
+margin-bottom:15px;
+color:#6fdcff;
+}
+
+#alerts{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.alertCard{
+background:#18375c;
+padding:16px;
+border-left:6px solid #ff3b3b;
+border-radius:10px;
+animation:pulse 2s infinite;
+}
+
+.alertTitle{
+font-size:18px;
+font-weight:bold;
+margin-bottom:8px;
+}
+
+.priority{
+display:inline-block;
+padding:4px 10px;
+border-radius:30px;
+background:#ff9800;
+font-size:12px;
+margin-bottom:10px;
+}
+
+.description{
+font-size:14px;
+line-height:1.6;
+color:#ddd;
+margin-bottom:12px;
+}
+
+.actionArea{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.actionBtn{
+padding:8px 14px;
+border:none;
+border-radius:6px;
+background:#008cff;
+color:#fff;
+cursor:pointer;
+transition:.3s;
+}
+
+.actionBtn:hover{
+background:#27a6ff;
+}
+
+#eventLog{
+height:520px;
+overflow-y:auto;
+}
+
+.logItem{
+padding:10px;
+border-bottom:1px solid rgba(255,255,255,.08);
+font-size:14px;
+}
+
+.modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+display:none;
+justify-content:center;
+align-items:center;
+background:rgba(0,0,0,.75);
+}
+
+.modalContent{
+background:#102742;
+padding:30px;
+width:90%;
+max-width:650px;
+border-radius:12px;
+border:1px solid #1aa7ff;
+}
+
+.closeBtn{
+margin-top:20px;
+padding:10px 18px;
+border:none;
+border-radius:8px;
+background:#008cff;
+color:#fff;
+cursor:pointer;
+}
+
+@keyframes pulse{
+0%{
+box-shadow:0 0 0 rgba(255,0,0,.2);
+}
+50%{
+box-shadow:0 0 18px rgba(255,0,0,.6);
+}
+100%{
+box-shadow:0 0 0 rgba(255,0,0,.2);
+}
+}
+
+@media(max-width:900px){
+.dashboard{
+grid-template-columns:1fr;
+}
+}
