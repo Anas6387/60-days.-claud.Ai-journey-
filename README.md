@@ -9327,4 +9327,151 @@ _______________________DAY32________________
                 if (selectedPillars.includes(id)) {
                     setSelectedPillars(selectedPillars.filter(p => p !== id));
                 } else {
+
+__________________________DAY33_______________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Integrity Analyzer</title>
+    <script src="https://cdn.jsdelivr.net/npm/lucide-static@0.400.0/js/lucide.min.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0b0f19;
+            --bg-card: #111827;
+            --bg-nested: #1f2937;
+            --primary: #f97316;
+            --primary-hover: #ea580c;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 8fr 4fr;
+            gap: 24px;
+        }
+
+        header {
+            grid-column: span 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 16px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            background: rgba(249, 115, 22, 0.1);
+            padding: 10px;
+            border-radius: 12px;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .logo-text p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .theme-selector {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-card);
+            padding: 6px 14px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .theme-opt {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .theme-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .theme-opt.active {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        /* Introduction Banner */
+        .intro-banner {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #111827 0%, #1e1b4b 100%);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-left {
+            display: flex;
+            gap: 20px;
+            max-width: 65%;
+        }
+
+        .intro-icon-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 16px;
+            border-radius: 50%;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content:
+
     
