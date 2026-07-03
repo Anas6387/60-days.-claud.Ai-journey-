@@ -9474,4 +9474,1065 @@ __________________________DAY33_______________
             align-items: center;
             justify-content:
 
+___________________________DAY34_______________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>Marketing Detective</title>
+
+<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,Tahoma,Geneva,Verdana,sans-serif;
+}
+
+body{
+background:#111;
+color:#fff;
+overflow-x:hidden;
+transition:.4s;
+}
+
+body.orange{
+--primary:#ff8c32;
+--secondary:#ffb366;
+--bg:#111;
+--card:#1d1d1d;
+--border:#ff8c32;
+}
+
+body.blue{
+--primary:#43a6ff;
+--secondary:#7dc5ff;
+--bg:#0b1220;
+--card:#162237;
+--border:#43a6ff;
+}
+
+body.green{
+--primary:#2ecc71;
+--secondary:#79ffb0;
+--bg:#08150f;
+--card:#13231c;
+--border:#2ecc71;
+}
+
+body.purple{
+--primary:#b66dff;
+--secondary:#d8b4ff;
+--bg:#12091d;
+--card:#241534;
+--border:#b66dff;
+}
+
+body{
+background:var(--bg);
+}
+
+header{
+padding:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#000;
+border-bottom:2px solid var(--border);
+box-shadow:0 0 20px rgba(0,0,0,.6);
+}
+
+.logo{
+font-size:34px;
+font-weight:bold;
+color:var(--primary);
+}
+
+.subtitle{
+opacity:.7;
+margin-top:5px;
+}
+
+select{
+background:var(--card);
+color:white;
+padding:12px;
+border:none;
+border-radius:8px;
+font-size:15px;
+outline:none;
+}
+
+.container{
+max-width:1400px;
+margin:auto;
+padding:30px;
+}
+
+.screen{
+display:none;
+animation:fade .5s;
+}
+
+.screen.active{
+display:block;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:none;
+}
+}
+
+.card{
+background:var(--card);
+padding:25px;
+border-radius:18px;
+border:2px solid var(--border);
+margin-bottom:25px;
+box-shadow:0 0 20px rgba(0,0,0,.5);
+}
+
+.card h2{
+color:var(--primary);
+margin-bottom:15px;
+}
+
+button{
+background:var(--primary);
+color:black;
+font-weight:bold;
+border:none;
+padding:14px 28px;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+}
+
+.progress{
+height:12px;
+background:#222;
+border-radius:30px;
+overflow:hidden;
+margin:25px 0;
+}
+
+.progressFill{
+height:100%;
+width:20%;
+background:linear-gradient(to right,var(--primary),var(--secondary));
+transition:1s;
+}
+
+.board{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.folder{
+background:#2d2417;
+padding:20px;
+border-radius:12px;
+border:2px solid #76512a;
+transform:rotate(-1deg);
+transition:.4s;
+}
+
+.folder:hover{
+transform:rotate(0deg) scale(1.02);
+}
+
+.sticky{
+background:#ffe26f;
+color:black;
+padding:15px;
+border-radius:6px;
+transform:rotate(2deg);
+margin-top:15px;
+}
+
+.pin{
+width:16px;
+height:16px;
+background:red;
+border-radius:50%;
+margin:auto;
+margin-bottom:10px;
+box-shadow:0 0 8px red;
+}
+
+.evidenceArea{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.evidence{
+width:220px;
+padding:20px;
+background:#242424;
+border:2px dashed var(--border);
+border-radius:12px;
+cursor:grab;
+transition:.3s;
+}
+
+.evidence:hover{
+transform:translateY(-6px);
+}
+
+.dropZone{
+margin-top:20px;
+min-height:180px;
+border:3px dashed var(--primary);
+border-radius:12px;
+padding:20px;
+}
+
+.caseClosed{
+font-size:70px;
+text-align:center;
+animation:zoom 1s infinite alternate;
+color:var(--primary);
+}
+
+@keyframes zoom{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.08);
+}
+}
+
+.reportGrid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:20px;
+margin-top:20px;
+}
+
+.reportCard{
+background:#202020;
+padding:20px;
+border-radius:15px;
+border:2px solid var(--border);
+}
+
+footer{
+padding:30px;
+text-align:center;
+opacity:.6;
+}
+
+canvas{
+width:100%;
+height:250px;
+background:#151515;
+border-radius:10px;
+margin-top:15px;
+}
+
+@media(max-width:700px){
+
+.logo{
+font-size:26px;
+}
+
+header{
+flex-direction:column;
+gap:20px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body class="orange">
+
+<div id="root"></div>
+
+<script type="text/babel">
+
+const {useState,useEffect}=React;
+
+function App(){
+
+const [theme,setTheme]=useState("orange");
+
+const [screen,setScreen]=useState(1);
+
+useEffect(()=>{
+document.body.className=theme;
+},[theme]);
+
+return(
+
+<div>
+
+<header>
+
+<div>
+
+<div className="logo">
+🕵 Marketing Detective
+</div>
+
+<div className="subtitle">
+Investigate. Analyze. Solve.
+</div>
+
+</div>
+
+<select
+value={theme}
+onChange={(e)=>setTheme(e.target.value)}
+>
+
+<option value="orange">
+Claude Orange
+</option>
+
+<option value="blue">
+Midnight Blue
+</option>
+
+<option value="green">
+Emerald
+</option>
+
+<option value="purple">
+Royal Purple
+</option>
+
+</select>
+
+</header>
+
+<div className="container">
+
+<div className="progress">
+
+<div
+className="progressFill"
+style={{
+width:(screen*20)+"%"
+}}
+></div>
+
+</div>
+
+{
+screen===1&&(
+
+<div className="screen active">
+
+<div className="card">
+
+<h2>
+Case Assignment
+</h2>
+
+<p>
+
+Welcome Detective.
+
+You have been assigned a confidential marketing investigation.
+
+A company's campaign has failed.
+
+Collect evidence.
+
+Identify clues.
+
+Solve the mystery.
+
+</p>
+
+<br/>
+
+<button
+onClick={()=>setScreen(2)}
+>
+
+Open Case File
+
+</button>
+
+</div>
+
+</div>
+
+)
+}
+
+{
+screen===2&&(
+
+<div className="screen active">
+
+<div className="card">
+
+<h2>
+Investigation Board
+</h2>
+
+<div className="board">
+
+<div className="folder">
+
+<div className="pin"></div>
+
+<h3>
+Company Folder
+</h3>
+
+<div className="sticky">
+Information loads in Part 2
+</div>
+
+</div>
+
+<div className="folder">
+
+<div className="pin"></div>
+
+<h3>
+Campaign Metrics
+</h3>
+
+<div className="sticky">
+Charts added in Part 5
+</div>
+
+</div>
+
+<div className="folder">
+
+<div className="pin"></div>
+
+<h3>
+Customer Evidence
+</h3>
+
+<div className="sticky">
+Comments appear in Part 2
+</div>
+
+</div>
+
+</div>
+
+<br/>
+
+<button
+onClick={()=>setScreen(3)}
+>
+
+Begin Investigation
+
+</button>
+
+</div>
+
+</div>
+
+)
+}
+
+{
+screen===3&&(
+
+<div className="screen active">
+
+<div className="card">
+
+<h2>
+Interactive Investigation
+</h2>
+
+<p>
+
+Drag evidence into the investigation board.
+
+(Logic added in Part 4)
+
+</p>
+
+<div className="evidenceArea">
+
+<div className="evidence">
+CTR Report
+</div>
+
+<div className="evidence">
+Customer Review
+</div>
+
+<div className="evidence">
+Budget Sheet
+</div>
+
+<div className="evidence">
+Social Analytics
+</div>
+
+</div>
+
+<div className="dropZone">
+
+Drop Evidence Here
+
+</div>
+
+<br/>
+
+<button
+onClick={()=>setScreen(4)}
+>
+
+Solve Case
+
+</button>
+
+</div>
+
+</div>
+
+)
+}
+
+{
+screen===4&&(
+
+<div className="screen active">
+
+<div className="card">
+
+<h2>
+Solve the Case
+</h2>
+
+<p>
+
+Interactive questions arrive in Part 3.
+
+</p>
+
+<br/>
+
+<button
+onClick={()=>setScreen(5)}
+>
+
+Submit Investigation
+
+</button>
+
+</div>
+
+</div>
+
+)
+}
+
+{
+screen===5&&(
+
+<div className="screen active">
+
+<div className="card">
+
+<div className="caseClosed">
+
+CASE CLOSED
+
+</div>
+
+<div className="reportGrid">
+
+<div className="reportCard">
+Learning report appears in Part 5.
+</div>
+
+<div className="reportCard">
+Performance analysis.
+</div>
+
+<div className="reportCard">
+Replay system.
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+)
+}
+
+</div>
+
+<footer>
+
+Marketing Detective © 2026
+
+</footer>
+
+</div>
+
+);
+
+}
+
+ReactDOM.createRoot(
+document.getElementById("root")
+).render(<App/>);
+
+</script>
+
+</body>
+</html>
+/* ==========================================================
+   PART 2
+   Fictional Marketing Cases Database
+   Paste this ABOVE function App()
+   ========================================================== */
+
+const marketingCases = [
+
+{
+id:1,
+company:"Aurora Coffee",
+industry:"Coffee Chain",
+objective:"Increase mobile app orders",
+targetAudience:"Students & Young Professionals",
+channels:["Instagram","Email","Influencer","Google Ads"],
+budget:{
+Social:40,
+Search:25,
+Email:10,
+Influencer:25
+},
+metrics:{
+Reach:850000,
+CTR:"0.42%",
+Engagement:"1.8%",
+Conversions:430,
+Sales:"₹4.6L"
+},
+comments:[
+"App keeps crashing.",
+"Offer wasn't clear.",
+"Loved the coffee though."
+],
+social:{
+Instagram:"Low",
+Facebook:"Average",
+LinkedIn:"Poor",
+TikTok:"High"
+},
+mistake:"Landing page failed to match the ad message.",
+clues:[
+"High reach but very low CTR",
+"Visitors exited within 5 seconds",
+"Bounce rate exceeded 80%"
+],
+explanation:"Traffic was interested but landing page confused visitors.",
+improvements:[
+"Improve landing page",
+"Reduce loading time",
+"Match ad copy with CTA"
+]
+},
+
+{
+id:2,
+company:"Nova Fashion",
+industry:"Fashion",
+objective:"Boost online sales",
+targetAudience:"Women 18-30",
+channels:["Instagram","Pinterest","Meta Ads"],
+budget:{
+Social:70,
+Search:10,
+Email:20
+},
+metrics:{
+Reach:1300000,
+CTR:"3.6%",
+Engagement:"8%",
+Conversions:120,
+Sales:"₹2.1L"
+},
+comments:[
+"Checkout is complicated.",
+"Website feels slow."
+],
+social:{
+Instagram:"Excellent",
+Facebook:"Average",
+Pinterest:"Excellent"
+},
+mistake:"Checkout friction",
+clues:[
+"High engagement",
+"Very low purchases",
+"Large cart abandonment"
+],
+explanation:"Users wanted products but abandoned checkout.",
+improvements:[
+"Simplify checkout",
+"Guest checkout",
+"Faster payment"
+]
+},
+
+{
+id:3,
+company:"FitPeak",
+industry:"Fitness",
+objective:"Generate memberships",
+targetAudience:"Working Professionals",
+channels:["Google","YouTube","Instagram"],
+budget:{
+Search:45,
+Video:35,
+Social:20
+},
+metrics:{
+Reach:900000,
+CTR:"5.4%",
+Engagement:"7%",
+Conversions:90,
+Sales:"₹1.7L"
+},
+comments:[
+"Pricing isn't visible.",
+"No trial available."
+],
+social:{
+Instagram:"Good",
+YouTube:"Excellent"
+},
+mistake:"Hidden pricing",
+clues:[
+"Many clicks",
+"Few signups",
+"Users asked pricing repeatedly"
+],
+explanation:"Visitors couldn't quickly understand pricing.",
+improvements:[
+"Show pricing",
+"Free trial",
+"Comparison table"
+]
+},
+
+{
+id:4,
+company:"GreenNest",
+industry:"Furniture",
+objective:"Increase sales",
+targetAudience:"Home Owners",
+channels:["Pinterest","Facebook","SEO"],
+budget:{
+SEO:35,
+Pinterest:40,
+Facebook:25
+},
+metrics:{
+Reach:600000,
+CTR:"1.3%",
+Engagement:"5%",
+Conversions:280,
+Sales:"₹8.2L"
+},
+comments:[
+"Images look amazing.",
+"Shipping too expensive."
+],
+social:{
+Pinterest:"Excellent",
+Facebook:"Average"
+},
+mistake:"High delivery charges",
+clues:[
+"Many abandoned carts",
+"Shipping complaints",
+"Late price surprise"
+],
+explanation:"Shipping cost discouraged buyers.",
+improvements:[
+"Free shipping threshold",
+"Earlier price visibility",
+"Shipping calculator"
+]
+},
+
+{
+id:5,
+company:"LearnSpark",
+industry:"EdTech",
+objective:"Course enrollments",
+targetAudience:"College Students",
+channels:["YouTube","Google","Email"],
+budget:{
+Video:50,
+Search:35,
+Email:15
+},
+metrics:{
+Reach:2100000,
+CTR:"2.1%",
+Engagement:"6%",
+Conversions:1200,
+Sales:"₹16L"
+},
+comments:[
+"Certificate unclear.",
+"Need mentor support."
+],
+social:{
+YouTube:"Excellent",
+LinkedIn:"Good"
+},
+mistake:"Weak trust signals",
+clues:[
+"High watch time",
+"FAQ ignored",
+"Students asked credibility"
+],
+explanation:"People wanted proof before buying.",
+improvements:[
+"Show testimonials",
+"Display certificates",
+"Highlight instructors"
+]
+},
+
+{
+id:6,
+company:"FreshBasket",
+industry:"Grocery",
+objective:"Increase repeat orders",
+targetAudience:"Families",
+channels:["Email","Push Notification"],
+budget:{
+Email:50,
+Push:50
+},
+metrics:{
+Reach:420000,
+CTR:"8%",
+Engagement:"12%",
+Conversions:480,
+Sales:"₹5.8L"
+},
+comments:[
+"Too many notifications."
+],
+social:{
+Instagram:"Average"
+},
+mistake:"Notification fatigue",
+clues:[
+"Users muted app",
+"High unsubscribe",
+"Negative feedback"
+],
+explanation:"Too many reminders annoyed users.",
+improvements:[
+"Limit notifications",
+"Personalize timing",
+"Frequency control"
+]
+},
+
+{
+id:7,
+company:"PixelPhone",
+industry:"Electronics",
+objective:"Launch smartphone",
+targetAudience:"Tech Enthusiasts",
+channels:["YouTube","Instagram","Search"],
+budget:{
+Video:60,
+Search:25,
+Social:15
+},
+metrics:{
+Reach:3000000,
+CTR:"4.8%",
+Engagement:"9%",
+Conversions:720,
+Sales:"₹28L"
+},
+comments:[
+"Battery specs missing."
+],
+social:{
+YouTube:"Excellent",
+Instagram:"Excellent"
+},
+mistake:"Incomplete product details",
+clues:[
+"Repeated battery questions",
+"Comparison videos dominated",
+"Support overloaded"
+],
+explanation:"Important buying information was missing.",
+improvements:[
+"Add specifications",
+"Comparison chart",
+"FAQ"
+]
+},
+
+{
+id:8,
+company:"TravelEase",
+industry:"Travel",
+objective:"Holiday bookings",
+targetAudience:"Families",
+channels:["Meta","Google","Email"],
+budget:{
+Search:45,
+Social:35,
+Email:20
+},
+metrics:{
+Reach:1200000,
+CTR:"2.9%",
+Engagement:"4%",
+Conversions:340,
+Sales:"₹13L"
+},
+comments:[
+"Hidden taxes."
+],
+social:{
+Facebook:"Good",
+Instagram:"Average"
+},
+mistake:"Price transparency",
+clues:[
+"Checkout exits",
+"Complaint spike",
+"Refund requests"
+],
+explanation:"Unexpected charges reduced trust.",
+improvements:[
+"Show total cost",
+"No hidden fees",
+"Transparent pricing"
+]
+},
+
+{
+id:9,
+company:"PetJoy",
+industry:"Pet Care",
+objective:"Subscription growth",
+targetAudience:"Pet Owners",
+channels:["Instagram","Facebook"],
+budget:{
+Social:100
+},
+metrics:{
+Reach:510000,
+CTR:"1.5%",
+Engagement:"11%",
+Conversions:61,
+Sales:"₹90K"
+},
+comments:[
+"Didn't know subscription benefits."
+],
+social:{
+Instagram:"High"
+},
+mistake:"Poor value communication",
+clues:[
+"High likes",
+"Few purchases",
+"Benefit confusion"
+],
+explanation:"Benefits weren't explained.",
+improvements:[
+"Comparison table",
+"Benefit icons",
+"Video demo"
+]
+},
+
+{
+id:10,
+company:"CloudDesk",
+industry:"SaaS",
+objective:"Free trial signups",
+targetAudience:"Startups",
+channels:["LinkedIn","Search","Content"],
+budget:{
+LinkedIn:45,
+Search:30,
+Content:25
+},
+metrics:{
+Reach:750000,
+CTR:"4.1%",
+Engagement:"5%",
+Conversions:190,
+Sales:"₹7.5L"
+},
+comments:[
+"Demo request takes too long."
+],
+social:{
+LinkedIn:"Excellent"
+},
+mistake:"Long lead form",
+clues:[
+"12 form fields",
+"High drop-offs",
+"Low demo completion"
+],
+explanation:"Visitors abandoned the lengthy form.",
+improvements:[
+"Reduce form fields",
+"One-click demo",
+"Progress indicator"
+]
+};
+
+/* Random Case Loader */
+
+function getRandomCase(){
+return marketingCases[
+Math.floor(Math.random()*marketingCases.length)
+];
+}
     
