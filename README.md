@@ -10535,4 +10535,638 @@ return marketingCases[
 Math.floor(Math.random()*marketingCases.length)
 ];
 }
-    
+    ___________________DAY35______________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Prompt Puzzle UI</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+
+background:
+radial-gradient(circle at top left,#5327ff 0%,transparent 30%),
+radial-gradient(circle at bottom right,#ff00c8 0%,transparent 30%),
+#070713;
+
+color:#fff;
+overflow-x:hidden;
+padding:25px;
+}
+
+.container{
+
+max-width:1700px;
+margin:auto;
+display:grid;
+grid-template-columns:370px 1fr 420px;
+gap:22px;
+
+}
+
+.card{
+
+background:rgba(15,16,35,.82);
+border:1px solid rgba(255,255,255,.08);
+border-radius:20px;
+padding:22px;
+backdrop-filter:blur(20px);
+box-shadow:0 15px 40px rgba(0,0,0,.4);
+
+}
+
+.logo{
+
+display:flex;
+align-items:center;
+gap:15px;
+margin-bottom:25px;
+
+}
+
+.logoIcon{
+
+width:70px;
+height:70px;
+border-radius:20px;
+
+background:linear-gradient(135deg,#ff00d4,#5a37ff);
+
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:34px;
+box-shadow:0 0 25px rgba(179,0,255,.45);
+
+}
+
+.logo h1{
+
+font-size:42px;
+font-weight:800;
+line-height:1.1;
+
+}
+
+.logo h1 span{
+
+display:block;
+color:#d24cff;
+
+}
+
+.sub{
+
+opacity:.8;
+margin-top:6px;
+font-size:15px;
+
+}
+
+.sectionTitle{
+
+margin-top:25px;
+margin-bottom:16px;
+text-align:center;
+font-weight:700;
+letter-spacing:1px;
+color:#c88bff;
+
+}
+
+.grid{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+
+}
+
+.domain{
+
+background:#13172d;
+border:1px solid rgba(255,255,255,.08);
+padding:16px;
+border-radius:12px;
+cursor:pointer;
+transition:.25s;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-weight:600;
+
+}
+
+.domain:hover{
+
+transform:translateY(-4px);
+background:#1d2344;
+border-color:#9f53ff;
+
+}
+
+.easy{
+background:#14341f;
+}
+
+.medium{
+background:#463300;
+}
+
+.hard{
+background:#45151c;
+}
+
+.start{
+
+margin-top:25px;
+width:100%;
+padding:17px;
+border:none;
+border-radius:16px;
+
+font-size:18px;
+font-weight:700;
+
+background:linear-gradient(90deg,#7f2fff,#d91eff);
+
+color:#fff;
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.start:hover{
+
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(177,0,255,.45);
+
+}
+
+/* CENTER */
+
+.header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+
+}
+
+.badge{
+
+padding:10px 18px;
+background:#1a2038;
+border-radius:12px;
+
+}
+
+.timer{
+
+font-weight:700;
+color:#ffb4ff;
+
+}
+
+.score{
+
+font-size:20px;
+font-weight:800;
+color:#fff;
+
+}
+
+.challenge{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+
+}
+
+.panel{
+
+background:#11172d;
+border-radius:16px;
+padding:18px;
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.panel h3{
+
+margin-bottom:14px;
+color:#d692ff;
+
+}
+
+.outputBox{
+
+background:#0d1120;
+border:1px solid rgba(255,255,255,.07);
+padding:15px;
+border-radius:12px;
+min-height:110px;
+
+}
+
+.builder{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+margin-top:16px;
+
+}
+
+.block{
+
+background:#221d43;
+border:1px solid #914cff;
+border-radius:10px;
+padding:11px;
+text-align:center;
+font-size:13px;
+cursor:grab;
+
+transition:.25s;
+
+}
+
+.block:hover{
+
+transform:scale(1.05);
+
+}
+
+.dropZone{
+
+margin-top:18px;
+min-height:130px;
+
+border:2px dashed #7c3cff;
+border-radius:15px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+color:#8d8d8d;
+
+}
+
+/* RIGHT */
+
+.option{
+
+padding:18px;
+background:#10172b;
+border-radius:15px;
+margin-bottom:15px;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.25s;
+
+}
+
+.option:hover{
+
+border-color:#9355ff;
+transform:translateX(5px);
+
+}
+
+.option.good{
+
+border-color:#34ff8d;
+background:#113324;
+
+}
+
+.reportCard{
+
+margin-top:20px;
+
+}
+
+.metric{
+
+display:flex;
+justify-content:space-between;
+margin:10px 0;
+
+}
+
+.progress{
+
+height:8px;
+background:#222;
+border-radius:20px;
+overflow:hidden;
+margin-top:10px;
+
+}
+
+.progress div{
+
+height:100%;
+width:75%;
+background:linear-gradient(90deg,#8f2eff,#ff32d5);
+
+}
+
+.footerButtons{
+
+display:flex;
+gap:15px;
+margin-top:22px;
+
+}
+
+.footerButtons button{
+
+flex:1;
+padding:14px;
+border:none;
+border-radius:14px;
+cursor:pointer;
+font-weight:700;
+
+background:#6a29ff;
+color:#fff;
+
+}
+
+.footerButtons button:last-child{
+
+background:#151d36;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- LEFT -->
+
+<div class="card">
+
+<div class="logo">
+
+<div class="logoIcon">
+🧩
+</div>
+
+<div>
+
+<h1>
+PROMPT
+<span>PUZZLE</span>
+</h1>
+
+<div class="sub">
+Master AI Prompting Through Play
+</div>
+
+</div>
+
+</div>
+
+<div class="sectionTitle">
+Choose Your Domain
+</div>
+
+<div class="grid">
+
+<div class="domain">💻 Technology</div>
+<div class="domain">📚 Education</div>
+<div class="domain">✍ Writing</div>
+<div class="domain">🎨 Creative</div>
+<div class="domain">📈 Business</div>
+<div class="domain">📊 Data Science</div>
+<div class="domain">🏥 Healthcare</div>
+<div class="domain">⚖ Legal</div>
+
+</div>
+
+<div class="sectionTitle">
+Choose Difficulty
+</div>
+
+<div class="grid">
+
+<div class="domain easy">
+🟢 Easy
+</div>
+
+<div class="domain medium">
+🟡 Medium
+</div>
+
+<div class="domain hard">
+🔴 Hard
+</div>
+
+</div>
+
+<button class="start">
+START PUZZLE ▶
+</button>
+
+</div>
+
+<!-- CENTER -->
+
+<div class="card">
+
+<div class="header">
+
+<div>
+
+<h2>🧩 Build the Prompt</h2>
+
+<div class="sub">
+Scenario 2 of 6
+</div>
+
+</div>
+
+<div class="badge timer">
+02:35
+</div>
+
+<div class="badge score">
+1250
+</div>
+
+</div>
+
+<div class="challenge">
+
+<div class="panel">
+
+<h3>Scenario</h3>
+
+<div class="outputBox">
+
+Create a study plan for a student preparing for board exams in 3 months.
+
+</div>
+
+<h3 style="margin-top:18px;">
+Desired Output
+</h3>
+
+<div class="outputBox">
+
+A week-wise study plan with revision strategy and daily goals.
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<h3>
+Build Your Prompt
+</h3>
+
+<div class="builder">
+
+<div class="block">
+Role
+</div>
+
+<div class="block">
+Audience
+</div>
+
+<div class="block">
+Task
+</div>
+
+<div class="block">
+Format
+</div>
+
+<div class="block">
+Context
+</div>
+
+<div class="block">
+Tone
+</div>
+
+<div class="block">
+Examples
+</div>
+
+<div class="block">
+Constraints
+</div>
+
+</div>
+
+<div class="dropZone">
+
+Drop Blocks Here
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT -->
+
+<div class="card">
+
+<h2>
+Choose Best Prompt
+</h2>
+
+<div class="option">
+
+A study plan for exams.
+
+</div>
+
+<div class="option good">
+
+Act as a productivity coach. Create a detailed study plan with weekly milestones, revision strategy, and daily goals.
+
+</div>
+
+<div class="option">
+
+Create the most detailed study plan ever with unlimited information...
+
+</div>
+
+<div class="reportCard">
+
+<h3>
+Prompt Performance
+</h3>
+
+<div class="metric">
+<span>Accuracy</span>
+<strong>94%</strong>
+</div>
+
+<div class="metric">
+<span>Moves</span>
+<strong>85%</strong>
+</div>
+
+<div class="metric">
+<span>Optimization Bonus</span>
+<strong>+10</strong>
+</div>
+
+<div class="progress">
+<div></div>
+</div>
+
+</div>
+
+<div class="footerButtons">
+
+<button>
+Play Again
+</button>
+
+<button>
+All Scenarios
+</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
