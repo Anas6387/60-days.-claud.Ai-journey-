@@ -11170,3 +11170,607 @@ All Scenarios
 
 </body>
 </html>
+
+________________________________DAY36_________
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognitive Pattern Explorer</title>
+    <style>
+        :root {
+            --bg-primary: #f4f6f9;
+            --bg-card: #ffffff;
+            --text-main: #2d3748;
+            --text-muted: #718096;
+            --accent-purple: #6b46c1;
+            --accent-teal: #2c7a7b;
+            --accent-green: #38a169;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Sidebar Navigation Layout */
+        .sidebar {
+            width: 240px;
+            background-color: #fff;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 24px;
+            box-sizing: border-box;
+        }
+
+        .logo-area {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--accent-purple);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 32px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            padding: 10px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text-muted);
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-item.active {
+            background-color: #f0e6ff;
+            color: var(--accent-purple);
+        }
+
+        .sidebar-footer {
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+
+        .progress-container {
+            margin-bottom: 12px;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+
+        .progress-bar-bg {
+            background-color: var(--border-color);
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            background-color: var(--accent-purple);
+            height: 100%;
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        /* Main Window Layout */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .screen {
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            box-sizing: border-box;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        /* Top Progress Sequence Indicator */
+        .top-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .top-steps::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--border-color);
+            z-index: 1;
+        }
+
+        .step-node {
+            position: relative;
+            z-index: 2;
+            background: #fff;
+            padding: 0 8px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .step-circle {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #fff;
+            border: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 6px auto;
+            font-weight: bold;
+        }
+
+        .step-node.active .step-circle {
+            border-color: var(--accent-purple);
+            background-color: var(--accent-purple);
+            color: #fff;
+        }
+
+        .step-node.completed .step-circle {
+            border-color: var(--accent-green);
+            background-color: var(--accent-green);
+            color: #fff;
+        }
+
+        /* Typography */
+        h1 { font-size: 2.2rem; color: #1a202c; margin-bottom: 8px; text-align: center;}
+        h2 { font-size: 1.6rem; color: #1a202c; margin-bottom: 6px; text-align: center;}
+        .subtitle { text-align: center; color: var(--text-muted); margin-bottom: 32px; }
+
+        /* Welcome Screen Elements */
+        .mode-selection-container {
+            display: flex;
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .mode-card {
+            flex: 1;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover { opacity: 0.9; }
+        .btn-purple { background-color: var(--accent-purple); color: white; }
+        .btn-teal { background-color: var(--accent-teal); color: white; }
+        .btn-green { background-color: var(--accent-green); color: white; }
+        .btn-outline { background-color: transparent; border: 1px solid var(--border-color); color: var(--text-main); }
+
+        /* Scenario Grid Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .option-box {
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .option-box:hover {
+            border-color: var(--accent-purple);
+            background-color: #fafdff;
+        }
+
+        /* Drag and Drop Elements (Chapter 2 & 3) */
+        .pool-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 32px;
+            min-height: 60px;
+            padding: 10px;
+            border: 1px dashed var(--border-color);
+            border-radius: 8px;
+        }
+
+        .draggable-item {
+            padding: 10px 16px;
+            background: #fff;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            cursor: grab;
+            user-select: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .slots-container {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            margin-top: 16px;
+        }
+
+        .dropzone-slot {
+            flex: 1;
+            height: 90px;
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #fafafa;
+        }
+
+        .slot-number {
+            position: absolute;
+            bottom: 4px;
+            font-size: 0.75rem;
+            color: #cbd5e0;
+        }
+
+        /* Workspace Footer Buttons */
+        .action-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            align-items: center;
+        }
+
+        /* Results Visualization layout */
+        .results-layout {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .chart-placeholder {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 16px solid var(--accent-purple);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+        .metrics-list {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .summary-box {
+            background-color: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-purple);
+            margin-bottom: 32px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Global App Sidebar Layout -->
+    <div class="sidebar">
+        <div>
+            <div class="logo-area">🔮 Pattern Explorer</div>
+            <div class="nav-links">
+                <div class="nav-item active" id="nav-home" onclick="navigateTo('screen-welcome')">Home</div>
+                <div class="nav-item" id="nav-ch1" onclick="navigateTo('screen-ch1')">Chapter 1</div>
+                <div class="nav-item" id="nav-ch2" onclick="navigateTo('screen-ch2')">Chapter 2</div>
+                <div class="nav-item" id="nav-ch3" onclick="navigateTo('screen-ch3')">Chapter 3</div>
+                <div class="nav-item" id="nav-reflect" onclick="navigateTo('screen-reflection')">Reflection</div>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div class="progress-container">
+                <div class="progress-text">
+                    <span>Progress</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Screens Container -->
+    <div class="main-content">
+
+        <!-- SCREEN 0: WELCOME SCREEN -->
+        <div id="screen-welcome" class="screen active">
+            <h1>Cognitive Pattern Explorer</h1>
+            <p class="subtitle">Understand your thinking. Empower your choices.</p>
+            <div style="text-align: center; margin-bottom: 32px; color: var(--text-muted); font-size: 0.9rem;">
+                <em>This is an educational self-reflection experience, not a test or diagnosis.</em>
+            </div>
+            
+            <div class="mode-selection-container">
+                <div class="mode-card">
+                    <h3>Calm Mode</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">A slow, mindful journey with gentle flow.</p>
+                    <button class="btn btn-teal" onclick="startExperience(25, 'screen-ch1')">Start Calm Mode</button>
+                </div>
+                <div class="mode-card">
+                    <h3>Stress Mode</h3>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">A grounding journey to bring clarity.</p>
+                    <button class="btn btn-purple" onclick="startExperience(25, 'screen-ch1')">Start Stress Mode</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 1: CHAPTER 1 (Discover Thinking Style) -->
+        <div id="screen-ch1" class="screen">
+            <div class="top-steps">
+                <div class="step-node active"><div class="step-circle">1</div>Discover</div>
+                <div class="step-node"><div class="step-circle">2</div>Priorities</div>
+                <div class="step-node"><div class="step-circle">3</div>Map</div>
+                <div class="step-node"><div class="step-circle">4</div>Reflect</div>
+            </div>
+            <h2>Discover Your Thinking Style</h2>
+            <p class="subtitle">Scenario 2 of 6: You're stuck on a big decision. What's your natural first step?</p>
+            
+            <div class="options-grid">
+                <div class="option-box" onclick="goToChapter2()">🔍 I gather facts, pros & cons, and analyze every angle.</div>
+                <div class="option-box" onclick="goToChapter2()">❤️ I check in with my feelings and trust my gut.</div>
+                <div class="option-box" onclick="goToChapter2()">🌀 I overthink more, trying to predict every outcome.</div>
+                <div class="option-box" onclick="goToChapter2()">⚡ I take action and adjust as I go forward.</div>
+            </div>
+        </div>
+
+        <!-- SCREEN 2: CHAPTER 2 (Choose Priorities) -->
+        <div id="screen-ch2" class="screen">
+            <div class="top-steps">
+                <div class="step-node completed"><div class="step-circle">✓</div>Discover</div>
+                <div class="step-node active"><div class="step-circle">2</div>Priorities</div>
+                <div class="step-node"><div class="step-circle">3</div>Map</div>
+                <div class="step-node"><div class="step-circle">4</div>Reflect</div>
+            </div>
+            <h2>Choose Your Priorities</h2>
+            <p class="subtitle">Drag and drop items to arrange what matters most to you (1 = Top Priority).</p>
+            
+            <div class="pool-container" id="pool-ch2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item1">🌱 Personal Growth</div>
+                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item2">🛡️ Stability</div>
+                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item3">💖 Relationships</div>
+                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="item4">✈️ Freedom</div>
+            </div>
+
+            <div class="slots-container">
+                <div class="dropzone-slot" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="slot-number">1</span></div>
+                <div class="dropzone-slot" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="slot-number">2</span></div>
+                <div class="dropzone-slot" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="slot-number">3</span></div>
+                <div class="dropzone-slot" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="slot-number">4</span></div>
+            </div>
+
+            <div class="action-row">
+                <button class="btn btn-outline" onclick="resetElements('pool-ch2')">Reset</button>
+                <button class="btn btn-purple" onclick="goToChapter3()">Continue</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: CHAPTER 3 (Map Thinking) -->
+        <div id="screen-ch3" class="screen">
+            <div class="top-steps">
+                <div class="step-node completed"><div class="step-circle">✓</div>Discover</div>
+                <div class="step-node completed"><div class="step-circle">✓</div>Priorities</div>
+                <div class="step-node active"><div class="step-circle">3</div>Map</div>
+                <div class="step-node"><div class="step-circle">4</div>Reflect</div>
+            </div>
+            <h2>Map Your Thinking</h2>
+            <p class="subtitle">Arrange how your thoughts usually flow.</p>
+
+            <div class="pool-container" id="pool-ch3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="flow1">👀 Notice Details</div>
+                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="flow2">🧠 Feel Emotions</div>
+                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="flow3">⚡ Take Action</div>
+                <div class="draggable-item" draggable="true" ondragstart="drag(event)" id="flow4">🔄 Reflect & Learn</div>
+            </div>
+
+            <div class="slots-container">
+                <div class="dropzone-slot" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="slot-number">1</span></div>
+                <div class="dropzone-slot" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="slot-number">2</span></div>
+                <div class="dropzone-slot" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="slot-number">3</span></div>
+                <div class="dropzone-slot" ondrop="drop(event)" ondragover="allowDrop(event)"><span class="slot-number">4</span></div>
+            </div>
+
+            <div class="action-row">
+                <button class="btn btn-outline" onclick="resetElements('pool-ch3')">Reset</button>
+                <button class="btn btn-green" onclick="goToReflection()">Calculate Reflection</button>
+            </div>
+        </div>
+
+        <!-- SCREEN 4: REFLECTION PROFILE SUMMARY -->
+        <div id="screen-reflection" class="screen">
+            <div class="top-steps">
+                <div class="step-node completed"><div class="step-circle">✓</div>Discover</div>
+                <div class="step-node completed"><div class="step-circle">✓</div>Priorities</div>
+                <div class="step-node completed"><div class="step-circle">✓</div>Map</div>
+                <div class="step-node completed"><div class="step-circle">✓</div>Reflect</div>
+            </div>
+            <h2>Your Reflection</h2>
+            <p class="subtitle">Here is what your patterns suggest about your thinking style.</p>
+
+            <div class="results-layout">
+                <div class="chart-placeholder">🧠 Profile Data</div>
+                <div class="metrics-list">
+                    <div class="metric-row"><strong>Analytical Thinker</strong> <span>27%</span></div>
+                    <div class="metric-row"><strong>Emotional Intuitive</strong> <span>22%</span></div>
+                    <div class="metric-row"><strong>Overthinking Loop Style</strong> <span>19%</span></div>
+                    <div class="metric-row"><strong>Action-First Decision Maker</strong> <span>18%</span></div>
+                    <div class="metric-row"><strong>Balanced Reflective Thinker</strong> <span>14%</span></div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                "You show a strong analytical mindset with a balance of intuition and action. You may sometimes get caught in overthinking loops, but you also value reflection and learning. Keep nurturing your balance."
+            </div>
+
+            <div style="display: flex; gap: 16px; justify-content: center;">
+                <button class="btn btn-outline">Write in Journal</button>
+                <button class="btn btn-green">Download Summary</button>
+                <button class="btn btn-outline" onclick="resetAll()">Start Over</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Interface Logic Controller Script -->
+    <script>
+        // Progress UI Tracker Utility
+        function updateProgress(percentage) {
+            document.getElementById('progress-percent').innerText = percentage + '%';
+            document.getElementById('progress-bar').style.width = percentage + '%';
+        }
+
+        // View Router Switching Function
+        function navigateTo(screenId) {
+            // Hide all views
+            document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+            // Remove active highlighting on left links
+            document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+            
+            // Activate selected window element
+            document.getElementById(screenId).classList.add('active');
+
+            // Synchronize active sidebar selection styling
+            if(screenId === 'screen-welcome') {
+                document.getElementById('nav-home').classList.add('active');
+                updateProgress(0);
+            } else if (screenId === 'screen-ch1') {
+                document.getElementById('nav-ch1').classList.add('active');
+                updateProgress(25);
+            } else if (screenId === 'screen-ch2') {
+                document.getElementById('nav-ch2').classList.add('active');
+                updateProgress(59);
+            } else if (screenId === 'screen-ch3') {
+                document.getElementById('nav-ch3').classList.add('active');
+                updateProgress(80);
+            } else if (screenId === 'screen-reflection') {
+                document.getElementById('nav-reflect').classList.add('active');
+                updateProgress(100);
+            }
+        }
+
+        function startExperience(progValue, nextScreen) {
+            navigateTo(nextScreen);
+        }
+
+        function goToChapter2() { navigateTo('screen-ch2'); }
+        function goToChapter3() { navigateTo('screen-ch3'); }
+        function goToReflection() { navigateTo('screen-reflection'); }
+
+        // HTML5 Drag and Drop Handlers
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            let data = ev.dataTransfer.getData("text");
+            let draggedElement = document.getElementById(data);
+            
+            // Direct placement constraints checking if dropping inside slot nodes or returning to container pool zones
+            if (ev.target.classList.contains('dropzone-slot') && ev.target.children.length <= 1) {
+                ev.target.appendChild(draggedElement);
+            } else if (ev.target.classList.contains('pool-container')) {
+                ev.target.appendChild(draggedElement);
+            }
+        }
+
+        // Workspace Utility Helpers
+        function resetElements(poolId) {
+            let pool = document.getElementById(poolId);
+            let screen = pool.closest('.screen');
+            screen.querySelectorAll('.draggable-item').forEach(item => {
+                pool.appendChild(item);
+            });
+        }
+
+        function resetAll() {
+            resetElements('pool-ch2');
+            resetElements('pool-ch3');
+            navigateTo('screen-welcome');
+        }
+    </script>
+</body>
+</html>
