@@ -11774,3 +11774,394 @@ ________________________________DAY36_________
     </script>
 </body>
 </html>
+_______________________DAY37___________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Compass Dashboard</title>
+    <!-- Tailwind CSS for styling and layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for the UI icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030712;
+        }
+        /* Custom neon box-shadow and glow effects matching the image */
+        .neon-border-purple {
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.2), inset 0 0 15px rgba(168, 85, 247, 0.1);
+        }
+        .neon-border-blue {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.2), inset 0 0 15px rgba(59, 130, 246, 0.1);
+        }
+        .neon-border-orange {
+            box-shadow: 0 0 15px rgba(249, 115, 22, 0.2), inset 0 0 15px rgba(249, 115, 22, 0.1);
+        }
+        .drag-hover {
+            background-color: rgba(168, 85, 247, 0.2) !important;
+            border-color: #a855f7 !important;
+            scale: 1.02;
+        }
+    </style>
+</head>
+<body class="text-slate-200 min-h-screen p-6 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-900 via-purple-950/10 to-black">
+
+    <div class="max-w-[1600px] mx-auto grid grid-cols-12 gap-6">
+        
+        <!-- ================= SIDEBAR NAV ================= -->
+        <aside class="col-span-2 bg-slate-950/60 border border-slate-800/80 rounded-2xl p-5 flex flex-col justify-between h-[calc(100vh-3rem)] sticky top-6">
+            <div>
+                <!-- Logo Header -->
+                <div class="flex items-center gap-3 mb-8">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-purple-500/20">
+                        <i class="fa-solid fa-compass text-lg animate-spin-slow"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-sm font-bold tracking-wider uppercase text-slate-400">Task</h1>
+                        <p class="text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 -mt-1">Compass</p>
+                    </div>
+                </div>
+
+                <p class="text-xs text-slate-400 mb-6 leading-relaxed">Learn how work flows through real organizations.</p>
+
+                <!-- Progress Section -->
+                <div class="mb-6 bg-slate-900/50 p-3 rounded-xl border border-slate-800/50">
+                    <span class="text-xs font-semibold text-slate-400 block mb-2">PROGRESS</span>
+                    <div class="flex justify-between items-center text-xs mb-1">
+                        <span class="text-purple-400 font-medium">Stage 3 of 3</span>
+                    </div>
+                    <div class="flex gap-1">
+                        <div class="h-2 flex-1 rounded-sm bg-emerald-500"></div>
+                        <div class="h-2 flex-1 rounded-sm bg-emerald-500"></div>
+                        <div class="h-2 flex-1 rounded-sm bg-emerald-500"></div>
+                    </div>
+                </div>
+
+                <!-- Navigation Items -->
+                <nav class="space-y-2">
+                    <div class="p-3 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-950/40 to-transparent flex items-center gap-3 cursor-pointer transition-all">
+                        <div class="w-7 h-7 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 border border-purple-500/40"><i class="fa-solid fa-id-badge text-xs"></i></div>
+                        <div>
+                            <div class="text-xs font-bold text-white">Stage 1</div>
+                            <div class="text-[11px] text-purple-300">Who Owns This?</div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-900/30 flex items-center gap-3 cursor-pointer text-slate-400 hover:text-slate-200 transition-all">
+                        <div class="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center border border-slate-800"><i class="fa-solid fa-route text-xs"></i></div>
+                        <div>
+                            <div class="text-xs font-bold">Stage 2</div>
+                            <div class="text-[11px]">Task Routing</div>
+                        </div>
+                    </div>
+                    <div class="p-3 rounded-xl border border-transparent hover:border-slate-800 hover:bg-slate-900/30 flex items-center gap-3 cursor-pointer text-slate-400 hover:text-slate-200 transition-all">
+                        <div class="w-7 h-7 rounded-lg bg-slate-900 flex items-center justify-center border border-slate-800"><i class="fa-solid fa-users-rectangle text-xs"></i></div>
+                        <div>
+                            <div class="text-xs font-bold">Stage 3</div>
+                            <div class="text-[11px]">Collaboration Challenge</div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Footer Quote inside Sidebar -->
+            <div class="border-t border-slate-800/80 pt-4 text-center">
+                <p class="text-[11px] italic text-slate-500">"Great managers don't just do tasks, they understand how work flows."</p>
+            </div>
+        </aside>
+
+        <!-- ================= MAIN WORKSPACE AREA ================= -->
+        <main class="col-span-10 space-y-6">
+            
+            <!-- Sub Header Info -->
+            <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <span class="text-sm font-semibold text-slate-300">Three stages.</span>
+                    <span class="text-sm italic text-purple-400">Real understanding.</span>
+                </div>
+                <div class="bg-amber-500/10 border border-amber-500/30 rounded-full px-3 py-1 flex items-center gap-2 text-xs text-amber-400">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Learning Mode <span class="text-slate-400">| Not a Test. A Simulation.</span></span>
+                </div>
+            </div>
+
+            <!-- THREE COLUMNS STAGES GRID -->
+            <div class="grid grid-cols-3 gap-6">
+                
+                <!-- STAGE 1: WHO OWNS THIS? -->
+                <div class="bg-slate-950/40 border border-purple-500/20 rounded-2xl p-5 neon-border-purple flex flex-col justify-between h-[520px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-full bg-purple-600 flex items-center justify-center text-xs font-bold text-white">1</span>
+                                <div>
+                                    <h3 class="text-sm font-bold text-white">Who Owns This?</h3>
+                                    <p class="text-[11px] text-slate-400">Identify the single role responsible.</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 bg-slate-900 px-2 py-0.5 rounded">3 / 10</span>
+                        </div>
+
+                        <!-- Task Context Prompt Card -->
+                        <div class="bg-[amber-500]/5 bg-amber-950/20 border border-amber-500/20 rounded-xl p-4 mb-4 relative overflow-hidden">
+                            <span class="text-[9px] uppercase tracking-wider text-amber-500 font-bold block mb-1">TASK</span>
+                            <p class="text-xs font-medium text-amber-100/90 leading-relaxed pr-8">A customer reports that payments fail only on iPhones.</p>
+                            <i class="fa-solid fa-mobile-screen-button absolute right-4 top-4 text-slate-600 text-lg"></i>
+                        </div>
+
+                        <p class="text-[11px] text-center text-purple-300/80 mb-3">Drag ONE role to the ownership slot</p>
+                        
+                        <!-- DROP ZONE -->
+                        <div id="drop-zone" class="border-2 border-dashed border-purple-500/30 rounded-xl py-5 text-center bg-purple-950/10 text-xs text-slate-400 transition-all flex flex-col items-center justify-center gap-2 min-h-[76px]">
+                            <i class="fa-solid fa-circle-user text-slate-500 text-lg"></i>
+                            <span>Drop the primary owner here</span>
+                        </div>
+
+                        <!-- ROLES GRID OPTIONS -->
+                        <div class="grid grid-cols-4 gap-2 mt-4">
+                            <div draggable="true" class="role-card p-2 rounded-lg bg-slate-900 border border-slate-800 text-center cursor-grab active:cursor-grabbing hover:border-cyan-500/50 transition-all" data-role="Frontend Developer">
+                                <i class="fa-solid fa-code text-cyan-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] font-semibold block leading-tight">Frontend Dev</span>
+                            </div>
+                            <div draggable="true" class="role-card p-2 rounded-lg bg-slate-900 border border-slate-800 text-center cursor-grab active:cursor-grabbing hover:border-emerald-500/50 transition-all" data-role="Backend Developer">
+                                <i class="fa-solid fa-server text-emerald-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] font-semibold block leading-tight">Backend Dev</span>
+                            </div>
+                            <div draggable="true" class="role-card p-2 rounded-lg bg-slate-900 border border-slate-800 text-center cursor-grab active:cursor-grabbing hover:border-yellow-500/50 transition-all" data-role="QA Engineer">
+                                <i class="fa-solid fa-bug text-yellow-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] font-semibold block leading-tight">QA Eng</span>
+                            </div>
+                            <div draggable="true" class="role-card p-2 rounded-lg bg-slate-900 border border-slate-800 text-center cursor-grab active:cursor-grabbing hover:border-fuchsia-500/50 transition-all" data-role="Product Manager">
+                                <i class="fa-solid fa-box-open text-fuchsia-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] font-semibold block leading-tight">Product Mgr</span>
+                            </div>
+                            <div draggable="true" class="role-card p-2 rounded-lg bg-slate-900 border border-slate-800 text-center cursor-grab active:cursor-grabbing hover:border-rose-500/50 transition-all" data-role="UX Designer">
+                                <i class="fa-solid fa-palette text-rose-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] font-semibold block leading-tight">UX Des</span>
+                            </div>
+                            <div draggable="true" class="role-card p-2 rounded-lg bg-slate-900 border border-slate-800 text-center cursor-grab active:cursor-grabbing hover:border-blue-400/50 transition-all" data-role="Customer Support">
+                                <i class="fa-solid fa-headset text-blue-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] font-semibold block leading-tight">Support</span>
+                            </div>
+                            <div draggable="true" class="role-card p-2 rounded-lg bg-slate-900 border border-slate-800 text-center cursor-grab active:cursor-grabbing hover:border-orange-500/50 transition-all" data-role="DevOps Engineer">
+                                <i class="fa-solid fa-cloud text-orange-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] font-semibold block leading-tight">DevOps</span>
+                            </div>
+                            <div draggable="true" class="role-card p-2 rounded-lg bg-slate-900 border border-slate-800 text-center cursor-grab active:cursor-grabbing hover:border-indigo-400/50 transition-all" data-role="Engineering Manager">
+                                <i class="fa-solid fa-users text-indigo-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] font-semibold block leading-tight">Eng Mgr</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="w-full py-2.5 rounded-xl bg-purple-600/20 text-purple-400 font-bold text-xs border border-purple-500/30 hover:bg-purple-600 hover:text-white transition-all tracking-wide">Submit My Choice</button>
+                </div>
+
+                <!-- STAGE 2: TASK ROUTING -->
+                <div class="bg-slate-950/40 border border-blue-500/20 rounded-2xl p-5 neon-border-blue flex flex-col justify-between h-[520px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-full bg-blue-600 flex items-center justify-center text-xs font-bold text-white">2</span>
+                                <div>
+                                    <h3 class="text-sm font-bold text-white">Task Routing</h3>
+                                    <p class="text-[11px] text-slate-400">Build the correct workflow structure.</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 bg-slate-900 px-2 py-0.5 rounded">3 / 10</span>
+                        </div>
+
+                        <div class="bg-blue-950/20 border border-blue-500/20 rounded-xl p-4 mb-4 relative overflow-hidden">
+                            <span class="text-[9px] uppercase tracking-wider text-blue-400 font-bold block mb-1">TASK</span>
+                            <p class="text-xs font-medium text-blue-100/90 leading-relaxed pr-8">User can't reset password and is locked out.</p>
+                            <i class="fa-solid fa-lock absolute right-4 top-4 text-slate-600 text-lg"></i>
+                        </div>
+
+                        <p class="text-[11px] text-center text-blue-300/80 mb-3">Drag roles in the correct sequence order</p>
+                        
+                        <!-- WORKFLOW STEPS PREVIEW -->
+                        <div class="flex items-center justify-between gap-1 bg-slate-900/60 p-2 rounded-xl border border-slate-800 mb-4 text-xs">
+                            <div class="w-10 h-10 border border-slate-800 rounded bg-slate-950 flex items-center justify-center font-bold text-slate-500">1</div>
+                            <i class="fa-solid fa-arrow-right text-[10px] text-slate-700"></i>
+                            <div class="w-10 h-10 border border-slate-800 rounded bg-slate-950 flex items-center justify-center font-bold text-slate-500">2</div>
+                            <i class="fa-solid fa-arrow-right text-[10px] text-slate-700"></i>
+                            <div class="w-10 h-10 border border-slate-800 rounded bg-slate-950 flex items-center justify-center font-bold text-slate-500">3</div>
+                            <i class="fa-solid fa-arrow-right text-[10px] text-slate-700"></i>
+                            <div class="w-10 h-10 border border-slate-800 rounded bg-slate-950 flex items-center justify-center font-bold text-slate-500">4</div>
+                        </div>
+
+                        <!-- INTERACTIVE CANDIDATE POOL -->
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-center opacity-70">
+                                <i class="fa-solid fa-headset text-blue-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] block">Support</span>
+                            </div>
+                            <div class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-center opacity-70">
+                                <i class="fa-solid fa-bug text-yellow-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] block">QA Eng</span>
+                            </div>
+                            <div class="p-2 rounded-lg bg-slate-900 border border-slate-800 text-center opacity-70">
+                                <i class="fa-solid fa-server text-emerald-400 text-xs mb-1 block"></i>
+                                <span class="text-[9px] block">Backend</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="w-full py-2.5 rounded-xl bg-blue-600/20 text-blue-400 font-bold text-xs border border-blue-500/30 hover:bg-blue-600 hover:text-white transition-all tracking-wide">Submit Workflow</button>
+                </div>
+
+                <!-- STAGE 3: COLLABORATION CHALLENGE -->
+                <div class="bg-slate-950/40 border border-orange-500/20 rounded-2xl p-5 neon-border-orange flex flex-col justify-between h-[520px]">
+                    <div>
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="flex items-center gap-3">
+                                <span class="w-7 h-7 rounded-full bg-orange-600 flex items-center justify-center text-xs font-bold text-white">3</span>
+                                <div>
+                                    <h3 class="text-sm font-bold text-white">Collaboration</h3>
+                                    <p class="text-[11px] text-slate-400">Assign key cross-functional roles.</p>
+                                </div>
+                            </div>
+                            <span class="text-xs font-mono text-slate-500 bg-slate-900 px-2 py-0.5 rounded">3 / 10</span>
+                        </div>
+
+                        <div class="bg-orange-950/20 border border-orange-500/20 rounded-xl p-4 mb-4 relative overflow-hidden">
+                            <span class="text-[9px] uppercase tracking-wider text-orange-400 font-bold block mb-1">SITUATION</span>
+                            <p class="text-xs font-medium text-orange-100/90 leading-relaxed pr-8">Customer satisfaction has suddenly dropped across products.</p>
+                            <i class="fa-solid fa-chart-line-down absolute right-4 top-4 text-rose-500 text-lg"></i>
+                        </div>
+
+                        <div class="flex justify-between items-center text-[11px] text-slate-400 mb-2">
+                            <span>Select up to FOUR key roles</span>
+                            <span class="font-mono text-[10px]">0 / 4 selected</span>
+                        </div>
+
+                        <div class="grid grid-cols-4 gap-2 mb-4">
+                            <div class="h-10 border border-dashed border-slate-800 rounded bg-slate-950 flex items-center justify-center text-slate-600 text-xs">+</div>
+                            <div class="h-10 border border-dashed border-slate-800 rounded bg-slate-950 flex items-center justify-center text-slate-600 text-xs">+</div>
+                            <div class="h-10 border border-dashed border-slate-800 rounded bg-slate-950 flex items-center justify-center text-slate-600 text-xs">+</div>
+                            <div class="h-10 border border-dashed border-slate-800 rounded bg-slate-950 flex items-center justify-center text-slate-600 text-xs">+</div>
+                        </div>
+                    </div>
+
+                    <button class="w-full py-2.5 rounded-xl bg-orange-600/20 text-orange-400 font-bold text-xs border border-orange-500/30 hover:bg-orange-600 hover:text-white transition-all tracking-wide">Submit Team</button>
+                </div>
+
+            </div>
+
+            <!-- LOWER DATA & INSIGHTS GRID -->
+            <div class="grid grid-cols-12 gap-6">
+                <!-- Understanding Analytics Card -->
+                <div class="col-span-4 bg-slate-950/60 border border-slate-800/80 rounded-2xl p-5">
+                    <h4 class="text-sm font-bold text-white mb-4">Understanding Overview</h4>
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <div class="flex justify-between mb-1 text-slate-400"><span>Ownership</span><span class="font-semibold text-white">82%</span></div>
+                            <div class="w-full bg-slate-900 h-1.5 rounded-full"><div class="bg-purple-500 h-1.5 rounded-full" style="width: 82%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-slate-400"><span>Delegation</span><span class="font-semibold text-white">76%</span></div>
+                            <div class="w-full bg-slate-900 h-1.5 rounded-full"><div class="bg-blue-500 h-1.5 rounded-full" style="width: 76%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1 text-slate-400"><span>Collaboration</span><span class="font-semibold text-white">85%</span></div>
+                            <div class="w-full bg-slate-900 h-1.5 rounded-full"><div class="bg-orange-500 h-1.5 rounded-full" style="width: 85%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reflection Log Feed Card -->
+                <div class="col-span-5 bg-slate-950/60 border border-slate-800/80 rounded-2xl p-5 space-y-3">
+                    <h4 class="text-sm font-bold text-white mb-2">Your Reflection ✨</h4>
+                    
+                    <div class="flex items-start gap-3 bg-emerald-950/20 border border-emerald-500/20 p-2.5 rounded-xl">
+                        <i class="fa-solid fa-circle-check text-emerald-400 text-sm mt-0.5"></i>
+                        <div>
+                            <h5 class="text-xs font-bold text-emerald-300">What you understood well</h5>
+                            <p class="text-[11px] text-slate-400">Identified key system owners quickly in multi-team workflows.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 bg-amber-950/20 border border-amber-500/20 p-2.5 rounded-xl">
+                        <i class="fa-solid fa-triangle-exclamation text-amber-400 text-sm mt-0.5"></i>
+                        <div>
+                            <h5 class="text-xs font-bold text-amber-300">Where you over-assigned</h5>
+                            <p class="text-[11px] text-slate-400">Included too many engineering dependencies early on simple tasks.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulation Mission Complete Reward Card -->
+                <div class="col-span-3 bg-gradient-to-b from-slate-950 to-purple-950/30 border border-purple-500/30 rounded-2xl p-5 flex flex-col items-center justify-center text-center relative overflow-hidden">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-amber-400 to-orange-500 p-0.5 shadow-lg shadow-orange-500/20 mb-3 animate-bounce">
+                        <div class="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-trophy text-amber-400 text-xl"></i>
+                        </div>
+                    </div>
+                    <h4 class="text-sm font-extrabold text-white mb-1">Mission Complete!</h4>
+                    <p class="text-[11px] text-slate-400 px-2 mb-4">You've successfully developed a cross-functional mindset.</p>
+                    <button class="w-full py-2 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold text-xs rounded-xl shadow-lg transition-all">Play Again</button>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ================= INTERACTIVE DRAG & DROP JAVASCRIPT ================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const draggables = document.querySelectorAll('.role-card');
+            const dropZone = document.getElementById('drop-zone');
+
+            draggables.forEach(draggable => {
+                // When dragging starts
+                draggable.addEventListener('dragstart', (e) => {
+                    draggable.classList.add('opacity-40');
+                    e.dataTransfer.setData('text/plain', draggable.getAttribute('data-role'));
+                    e.dataTransfer.setData('element-id', draggable.innerText);
+                });
+
+                // When dragging ends
+                draggable.addEventListener('dragend', () => {
+                    draggable.classList.remove('opacity-40');
+                });
+            });
+
+            // Prevent default behavior to allow drop events
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('drag-hover');
+            });
+
+            // Remove highlight style if element leaves target space
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('drag-hover');
+            });
+
+            // Handle dropped node event logic
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('drag-hover');
+                
+                const roleName = e.dataTransfer.getData('text/plain');
+                
+                if(roleName) {
+                    // Update Drop Zone display context dynamically based on drop event
+                    dropZone.innerHTML = `
+                        <div class="flex items-center gap-2 bg-purple-500/20 border border-purple-500 px-4 py-1.5 rounded-lg text-white font-semibold animate-pulse">
+                            <i class="fa-solid fa-check-circle text-purple-400"></i>
+                            <span>${roleName} Assigned</span>
+                        </div>
+                    `;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
