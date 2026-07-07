@@ -12165,3 +12165,423 @@ _______________________DAY37___________________
     </script>
 </body>
 </html>
+__________________________DAY39________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Studio Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-bolt logo-icon"></i>
+                <div>
+                    <h2>Typing</h2>
+                    <p>Speed Studio</p>
+                </div>
+            </div>
+            
+            <div class="menu-section">
+                <span class="section-title">MODES</span>
+                <button class="menu-item active"><i class="fa-regular fa-clock"></i> Time Mode</button>
+                <button class="menu-item"><i class="fa-solid fa-font"></i> Word Mode</button>
+                <button class="menu-item"><i class="fa-solid fa-quote-left"></i> Quote Mode</button>
+            </div>
+
+            <div class="menu-section">
+                <span class="section-title">CATEGORIES</span>
+                <button class="menu-item active-category"><i class="fa-solid fa-globe"></i> General English</button>
+                <button class="menu-item"><i class="fa-solid fa-briefcase"></i> Business</button>
+                <button class="menu-item"><i class="fa-solid fa-graduation-cap"></i> Academic</button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-nav">
+                <div class="modes-top">
+                    <span class="top-mode active">Time Mode <small>60 Seconds</small></span>
+                    <span class="top-mode">Word Mode</span>
+                    <span class="top-mode">Quote Mode</span>
+                </div>
+                <div class="profile-area">
+                    <i class="fa-solid fa-music"></i>
+                    <i class="fa-solid fa-volume-high"></i>
+                    <i class="fa-solid fa-gear"></i>
+                    <div class="avatar">A</div>
+                </div>
+            </header>
+
+            <section class="typing-card">
+                <div class="card-meta">
+                    <div>Category: <strong>General English</strong></div>
+                    <div class="timer">24s <small>Time Left</small></div>
+                </div>
+                
+                <div class="text-display" id="textDisplay">
+                    </div>
+
+                <div class="live-stats">
+                    <div class="stat-box"><h5>WPM</h5><p id="liveWpm">68</p></div>
+                    <div class="stat-box"><h5>Raw WPM</h5><p>72</p></div>
+                    <div class="stat-box"><h5>Accuracy</h5><p id="liveAccuracy">96.4%</p></div>
+                </div>
+
+                <div class="keyboard">
+                    <div class="key-row">
+                        <div class="key" id="key-q">Q</div>
+                        <div class="key" id="key-w">W</div>
+                        <div class="key" id="key-e">E</div>
+                        <div class="key" id="key-r">R</div>
+                        <div class="key" id="key-t">T</div>
+                        <div class="key" id="key-y">Y</div>
+                    </div>
+                    <div class="key-row">
+                        <div class="key highlighted-blue" id="key-a">A</div>
+                        <div class="key highlighted-blue" id="key-s">S</div>
+                        <div class="key highlighted-blue" id="key-d">D</div>
+                        <div class="key highlighted-blue" id="key-f">F</div>
+                        <div class="key highlighted-blue" id="key-g">G</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <aside class="right-panel">
+            <div class="session-completed-card">
+                <h3><i class="fa-solid fa-trophy yellow"></i> Session Completed!</h3>
+                <div class="grade-circle">A+</div>
+                
+                <div class="grid-stats">
+                    <div><h5>WPM</h5><p>68</p></div>
+                    <div><h5>Accuracy</h5><p>96.4%</p></div>
+                    <div><h5>Consistency</h5><p>87%</p></div>
+                    <div><h5>Time</h5><p>60s</p></div>
+                </div>
+            </div>
+
+            <div class="achievements-card">
+                <h4>Achievements</h4>
+                <div class="badge-row">
+                    <div class="badge"><i class="fa-solid fa-fire text-orange"></i></div>
+                    <div class="badge"><i class="fa-solid fa-award text-green"></i></div>
+                </div>
+            </div>
+        </aside>
+    </div>
+</body>
+</html>
+:root {
+    --bg-dark: #090b15;
+    --card-bg: #0f1326;
+    --sidebar-bg: #0b0e1a;
+    --accent-purple: #6366f1;
+    --accent-blue: #2563eb;
+    --text-main: #f3f4f6;
+    --text-muted: #6b7280;
+    --correct-green: #10b981;
+    --error-red: #ef4444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-hidden: scroll;
+}
+
+.app-container {
+    display: grid;
+    grid-template-columns: 240px 1fr 320px;
+    height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid #1e293b;
+    padding: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.logo-icon {
+    font-size: 24px;
+    color: var(--accent-purple);
+}
+
+.menu-section {
+    margin-bottom: 25px;
+}
+
+.section-title {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.menu-item {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    padding: 10px 12px;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s;
+}
+
+.menu-item.active, .menu-item:hover {
+    background-color: #1e1e38;
+    color: var(--text-main);
+}
+
+.menu-item.active-category {
+    background-color: rgba(99, 102, 241, 0.15);
+    color: var(--accent-purple);
+    border: 1px solid var(--accent-purple);
+}
+
+/* Main Content Styles */
+.main-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-mode {
+    margin-right: 20px;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.top-mode.active {
+    color: var(--accent-purple);
+    font-weight: bold;
+}
+
+.profile-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-muted);
+}
+
+.avatar {
+    background-color: var(--accent-purple);
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* Typing Card Display */
+.typing-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid #1e293b;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-muted);
+}
+
+.timer {
+    font-size: 20px;
+    color: var(--accent-purple);
+    font-weight: bold;
+}
+
+.text-display {
+    font-size: 22px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+    margin: 30px 0;
+    font-family: monospace;
+}
+
+.char-correct { color: var(--correct-green); }
+.char-incorrect { color: var(--error-red); background-color: rgba(239, 68, 68, 0.2); }
+.char-current { border-left: 2px solid var(--accent-purple); animation: blink 1s infinite; }
+
+@keyframes blink { 50% { border-color: transparent; } }
+
+/* Mini Stats Layout */
+.live-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.stat-box {
+    background: #161b33;
+    padding: 12px 24px;
+    border-radius: 8px;
+    min-width: 100px;
+}
+
+.stat-box h5 { font-size: 11px; color: var(--text-muted); }
+.stat-box p { font-size: 20px; font-weight: bold; }
+
+/* Keyboard Display */
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    background: #0b0e1a;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.key-row { display: flex; gap: 6px; }
+
+.key {
+    background: #1e2342;
+    padding: 12px;
+    min-width: 45px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.highlighted-blue {
+    background-color: var(--accent-blue);
+    color: white;
+}
+
+/* Right Dashboard Stats */
+.right-panel {
+    background-color: var(--sidebar-bg);
+    border-left: 1px solid #1e293b;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.session-completed-card {
+    background: var(--card-bg);
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.grade-circle {
+    width: 70px;
+    height: 70px;
+    border: 4px solid #eab308;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 15px auto;
+    color: #eab308;
+}
+
+.grid-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.grid-stats h5 { font-size: 11px; color: var(--text-muted); }
+.grid-stats p { font-size: 18px; font-weight: bold; }
+.yellow { color: #eab308; }
+const quote = "Success is not final, failure is not fatal: it is the courage to continue that counts.";
+const textDisplay = document.getElementById('textDisplay');
+
+// Split quote into spans for character manipulation
+let characterSpans = [];
+
+function loadQuote() {
+    textDisplay.innerHTML = '';
+    quote.split('').forEach((char, index) => {
+        const span = document.createElement('span');
+        span.innerText = char;
+        if(index === 0) span.classList.add('char-current');
+        textDisplay.appendChild(span);
+        characterSpans.push(span);
+    });
+}
+
+let currentIndex = 0;
+
+window.addEventListener('keydown', (e) => {
+    // Prevent scrolling behavior for Spacebar
+    if (e.key === " " && e.target === document.body) {
+        e.preventDefault();
+    }
+
+    if (currentIndex >= characterSpans.length) return;
+
+    const currentSpan = characterSpans[currentIndex];
+    
+    // Logic for matching typed characters
+    if (e.key === currentSpan.innerText) {
+        currentSpan.classList.remove('char-current');
+        currentSpan.classList.add('char-correct');
+        currentIndex++;
+    } else if (e.key !== 'Shift' && e.key !== 'Control' && e.key !== 'Alt') {
+        currentSpan.classList.remove('char-current');
+        currentSpan.classList.add('char-incorrect');
+        currentIndex++;
+    }
+
+    // Set tracker element for next letter
+    if (currentIndex < characterSpans.length) {
+        characterSpans[currentIndex].classList.add('char-current');
+    }
+});
+
+// Initialize on page run
+loadQuote();
