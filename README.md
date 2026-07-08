@@ -12585,3 +12585,250 @@ window.addEventListener('keydown', (e) => {
 
 // Initialize on page run
 loadQuote();
+____________________________DAY39______________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Splitter & Merger Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0b0f19',
+                        sidebarBg: '#111625',
+                        cardBg: '#161c2e',
+                        borderClr: '#222b45',
+                        accentPurp: '#7c3aed',
+                        accentOrange: '#f97316',
+                        textMuted: '#9ca3af'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar to match the sleek dark theme UI */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111625;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2b3554;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #414f7a;
+        }
+    </style>
+</head>
+<body class="bg-darkBg text-gray-100 font-sans min-h-screen flex flex-col antialiased select-none">
+
+    <header class="h-16 border-b border-borderClr bg-sidebarBg flex items-center justify-between px-6 z-10">
+        <div class="flex items-center space-x-3">
+            <div class="bg-red-500 text-white p-2 rounded-lg flex items-center justify-center shadow-lg shadow-red-500/20">
+                <i class="fa-solid fa-file-pdf text-xl"></i>
+            </div>
+            <span class="font-bold text-lg tracking-wide">PDF Splitter & Merger <span class="text-xs bg-purple-600/30 text-purple-400 px-2 py-0.5 rounded ml-1 border border-purple-500/30 font-medium">Pro</span></span>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="p-2 text-textMuted hover:text-white transition" title="Toggle Theme"><i class="fa-regular fa-moon text-lg"></i></button>
+            <button class="p-2 text-textMuted hover:text-white transition" title="Help"><i class="fa-regular fa-circle-question text-lg"></i></button>
+            <div class="bg-cardBg px-3 py-1.5 rounded-lg border border-borderClr text-xs text-textMuted flex items-center space-x-2">
+                <span>Ctrl / ⌘ K</span>
+            </div>
+            <button class="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-4 py-2 rounded-xl text-sm font-semibold flex items-center space-x-2 shadow-lg shadow-orange-500/10 transition transform active:scale-95">
+                <i class="fa-solid fa-crown text-xs"></i>
+                <span>Premium</span>
+            </button>
+        </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+        
+        <aside class="w-64 bg-sidebarBg border-r border-borderClr flex flex-col justify-between p-4 shrink-0">
+            <div class="space-y-6">
+                <div>
+                    <a href="#" class="flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-cardBg text-textMuted hover:text-white transition font-medium text-sm">
+                        <i class="fa-solid fa-table-columns text-base"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+                
+                <div>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest px-4 block mb-2">PDF Tools</span>
+                    <div class="space-y-1">
+                        <button onclick="switchTab('splitter')" id="btn-tab-splitter" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition font-medium text-sm bg-purple-600/20 text-purple-400 border border-purple-500/20">
+                            <i class="fa-solid fa-scissors"></i>
+                            <span>Splitter</span>
+                        </button>
+                        <button onclick="switchTab('merger')" id="btn-tab-merger" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-textMuted hover:text-white hover:bg-cardBg transition font-medium text-sm">
+                            <i class="fa-solid fa-code-merge"></i>
+                            <span>Merger</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <span class="text-xs font-bold text-gray-500 uppercase tracking-widest px-4 block mb-2">Other Tools</span>
+                    <div class="space-y-1">
+                        <a href="#" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-textMuted hover:text-white hover:bg-cardBg transition text-sm">
+                            <i class="fa-solid fa-compress w-5 text-gray-400"></i><span>Compress</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-textMuted hover:text-white hover:bg-cardBg transition text-sm">
+                            <i class="fa-solid fa-rotate w-5 text-gray-400"></i><span>Rotate</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-textMuted hover:text-white hover:bg-cardBg transition text-sm">
+                            <i class="fa-solid fa-trash-can w-5 text-gray-400"></i><span>Delete Pages</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-textMuted hover:text-white hover:bg-cardBg transition text-sm">
+                            <i class="fa-solid fa-arrow-down-z-a w-5 text-gray-400"></i><span>Rearrange</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 px-4 py-2.5 rounded-xl text-textMuted hover:text-white hover:bg-cardBg transition text-sm">
+                            <i class="fa-regular fa-images w-5 text-gray-400"></i><span>Extract Images</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-b from-cardBg to-sidebarBg border border-borderClr p-4 rounded-2xl relative overflow-hidden group">
+                <div class="absolute -right-6 -top-6 w-20 h-20 bg-gradient-to-br from-amber-500 to-orange-500 opacity-10 rounded-full blur-xl group-hover:opacity-20 transition"></div>
+                <i class="fa-solid fa-crown text-amber-500 text-xl mb-2"></i>
+                <h4 class="font-bold text-sm text-gray-200">Go Premium</h4>
+                <p class="text-xs text-textMuted mt-1 mb-4 leading-relaxed">Unlock all features and enjoy unlimited PDF processing.</p>
+                <button class="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white text-xs font-bold py-2.5 rounded-xl transition transform active:scale-95 shadow-md shadow-orange-500/10">Upgrade Now</button>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-6 overflow-y-auto flex flex-col space-y-6">
+            
+            <div class="text-center md:text-left">
+                <h2 class="text-xl font-bold tracking-tight">Powerful PDF tools to split and merge your documents</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start flex-1">
+                
+                <section id="panel-splitter" class="bg-sidebarBg border border-borderClr rounded-2xl p-5 flex flex-col space-y-5 shadow-xl min-h-[620px]">
+                    <div class="flex items-center space-x-2 text-purple-400 border-b border-borderClr pb-3 font-semibold text-sm tracking-wide">
+                        <i class="fa-solid fa-scissors"></i>
+                        <span>SPLITTER</span>
+                    </div>
+
+                    <div class="bg-cardBg border border-borderClr rounded-xl p-4 flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-gray-800 text-gray-300 p-3 rounded-xl border border-borderClr">
+                                <i class="fa-regular fa-file-pdf text-2xl text-red-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-sm text-gray-200">sample-document.pdf</h3>
+                                <p class="text-xs text-textMuted mt-0.5">24 Pages • 2.45 MB</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <button class="bg-gray-800 border border-borderClr hover:bg-gray-700 text-xs font-medium px-3 py-2 rounded-xl transition">Change File</button>
+                            <button class="bg-red-500/10 border border-red-500/20 hover:bg-red-500/20 text-red-400 p-2 rounded-xl transition" title="Remove File"><i class="fa-regular fa-trash-can"></i></button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs font-semibold text-textMuted tracking-wide">Page Preview (24 pages)</span>
+                            <div class="flex items-center space-x-1.5 bg-cardBg rounded-lg p-0.5 border border-borderClr">
+                                <button class="p-1 px-2 text-xs hover:bg-gray-800 text-gray-400 hover:text-white rounded transition"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+                                <button class="p-1 px-2 text-xs hover:bg-gray-800 text-gray-400 hover:text-white rounded transition"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+                                <button class="p-1 px-2 text-xs hover:bg-gray-800 text-gray-400 hover:text-white rounded transition"><i class="fa-solid fa-expand"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-4 gap-3 bg-cardBg/50 border border-borderClr/70 p-4 rounded-xl max-h-56 overflow-y-auto">
+                            <div class="bg-cardBg border-2 border-purple-500 rounded-lg p-2 flex flex-col items-center justify-between aspect-[3/4] relative group cursor-pointer shadow-md">
+                                <div class="w-full flex flex-col space-y-1.5 opacity-40">
+                                    <div class="h-1.5 bg-gray-500 rounded w-5/6"></div>
+                                    <div class="h-1.5 bg-gray-600 rounded w-full"></div>
+                                    <div class="h-1.5 bg-gray-600 rounded w-4/5"></div>
+                                </div>
+                                <span class="bg-purple-600 text-[10px] font-bold text-white px-2 py-0.5 rounded-full z-10">1</span>
+                            </div>
+                            <div class="bg-cardBg border border-borderClr rounded-lg p-2 flex flex-col items-center justify-between aspect-[3/4] relative opacity-80 hover:opacity-100 transition cursor-pointer">
+                                <div class="w-full flex flex-col space-y-1.5 opacity-20">
+                                    <div class="h-1.5 bg-gray-500 rounded w-4/5"></div><div class="h-1.5 bg-gray-600 rounded w-full"></div><div class="h-1.5 bg-gray-600 rounded w-3/4"></div>
+                                </div>
+                                <span class="bg-gray-800 text-[10px] text-textMuted px-2 py-0.5 rounded-full border border-borderClr">2</span>
+                            </div>
+                            <div class="bg-cardBg border border-borderClr rounded-lg p-2 flex flex-col items-center justify-between aspect-[3/4] relative opacity-80 hover:opacity-100 transition cursor-pointer">
+                                <div class="w-full flex flex-col space-y-1.5 opacity-20">
+                                    <div class="h-1.5 bg-gray-500 rounded w-full"></div><div class="h-1.5 bg-gray-600 rounded w-5/6"></div><div class="h-1.5 bg-gray-600 rounded w-full"></div>
+                                </div>
+                                <span class="bg-gray-800 text-[10px] text-textMuted px-2 py-0.5 rounded-full border border-borderClr">3</span>
+                            </div>
+                            <div class="bg-cardBg border border-borderClr rounded-lg p-2 flex flex-col items-center justify-between aspect-[3/4] relative opacity-80 hover:opacity-100 transition cursor-pointer">
+                                <div class="w-full flex flex-col space-y-1.5 opacity-20">
+                                    <div class="h-1.5 bg-gray-500 rounded w-2/3"></div><div class="h-1.5 bg-gray-600 rounded w-full"></div><div class="h-1.5 bg-gray-600 rounded w-5/6"></div>
+                                </div>
+                                <span class="bg-gray-800 text-[10px] text-textMuted px-2 py-0.5 rounded-full border border-borderClr">4</span>
+                            </div>
+                            <div class="bg-cardBg border border-borderClr rounded-lg p-2 flex flex-col items-center justify-between aspect-[3/4] relative opacity-80 cursor-pointer"><div class="w-full flex flex-col space-y-1.5 opacity-20"><div class="h-1.5 bg-gray-500 rounded w-5/6"></div><div class="h-1.5 bg-gray-600 rounded w-full"></div></div><span class="bg-gray-800 text-[10px] text-textMuted px-2 py-0.5 rounded-full border border-borderClr">5</span></div>
+                            <div class="bg-cardBg border border-borderClr rounded-lg p-2 flex flex-col items-center justify-between aspect-[3/4] relative opacity-80 cursor-pointer"><div class="w-full flex flex-col space-y-1.5 opacity-20"><div class="h-1.5 bg-gray-500 rounded w-full"></div><div class="h-1.5 bg-gray-600 rounded w-4/5"></div></div><span class="bg-gray-800 text-[10px] text-textMuted px-2 py-0.5 rounded-full border border-borderClr">6</span></div>
+                            <div class="bg-cardBg border border-borderClr rounded-lg p-2 flex flex-col items-center justify-between aspect-[3/4] relative opacity-80 cursor-pointer"><div class="w-full flex flex-col space-y-1.5 opacity-20"><div class="h-1.5 bg-gray-500 rounded w-4/5"></div><div class="h-1.5 bg-gray-600 rounded w-full"></div></div><span class="bg-gray-800 text-[10px] text-textMuted px-2 py-0.5 rounded-full border border-borderClr">7</span></div>
+                            <div class="bg-cardBg border border-borderClr rounded-lg p-2 flex flex-col items-center justify-between aspect-[3/4] relative opacity-80 cursor-pointer"><div class="w-full flex flex-col space-y-1.5 opacity-20"><div class="h-1.5 bg-gray-500 rounded w-5/6"></div><div class="h-1.5 bg-gray-600 rounded w-3/4"></div></div><span class="bg-gray-800 text-[10px] text-textMuted px-2 py-0.5 rounded-full border border-borderClr">8</span></div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <span class="text-xs font-semibold text-textMuted tracking-wide block">Split Options</span>
+                        <div class="grid grid-cols-4 gap-1 bg-cardBg border border-borderClr p-1 rounded-xl text-xs font-medium">
+                            <button class="bg-purple-600 text-white py-2 rounded-lg transition shadow">Custom Ranges</button>
+                            <button class="hover:bg-gray-800 text-textMuted hover:text-gray-200 py-2 rounded-lg transition">Split After Pages</button>
+                            <button class="hover:bg-gray-800 text-textMuted hover:text-gray-200 py-2 rounded-lg transition">Split Every N Pages</button>
+                            <button class="hover:bg-gray-800 text-textMuted hover:text-gray-200 py-2 rounded-lg transition">Extract Pages</button>
+                        </div>
+                    </div>
+
+                    <div class="space-y-3">
+                        <p class="text-[11px] text-textMuted flex items-center space-x-1.5">
+                            <i class="fa-solid fa-circle-info text-purple-400"></i> 
+                            <span>Enter page ranges separated by comma. Example: <span class="text-purple-300 underline underline-offset-2">1-3, 6, 9-12</span></span>
+                        </p>
+                        
+                        <div class="bg-cardBg border border-borderClr rounded-xl p-2.5 flex flex-wrap gap-2 items-center focus-within:border-purple-500/50 transition">
+                            <div class="bg-purple-600/20 text-purple-300 text-xs px-2.5 py-1 rounded-lg border border-purple-500/20 flex items-center space-x-1.5">
+                                <span class="font-semibold">1-3</span><i class="fa-solid fa-xmark text-[10px] hover:text-white cursor-pointer"></i>
+                            </div>
+                            <div class="bg-purple-600/20 text-purple-300 text-xs px-2.5 py-1 rounded-lg border border-purple-500/20 flex items-center space-x-1.5">
+                                <span class="font-semibold">6-8</span><i class="fa-solid fa-xmark text-[10px] hover:text-white cursor-pointer"></i>
+                            </div>
+                            <div class="bg-purple-600/20 text-purple-300 text-xs px-2.5 py-1 rounded-lg border border-purple-500/20 flex items-center space-x-1.5">
+                                <span class="font-semibold">10-12</span><i class="fa-solid fa-xmark text-[10px] hover:text-white cursor-pointer"></i>
+                            </div>
+                            <div class="bg-purple-600/20 text-purple-300 text-xs px-2.5 py-1 rounded-lg border border-purple-500/20 flex items-center space-x-1.5">
+                                <span class="font-semibold">15-18</span><i class="fa-solid fa-xmark text-[10px] hover:text-white cursor-pointer"></i>
+                            </div>
+                            <input type="text" placeholder="Add range..." class="bg-transparent border-none text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-0 ml-1 flex-1 min-w-[80px]">
+                        </div>
+                        
+                        <div class="flex items-center justify-between text-xs font-medium">
+                            <span class="text-emerald-400 flex items-center space-x-1"><i class="fa-regular fa-circle-check"></i> <span>All ranges are valid</span></span>
+                            <span class="text-textMuted">Total Output Files: <span class="text-gray-200 font-bold">4</span></span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <span class="text-xs font-semibold text-textMuted tracking-wide block">Preview Output Structure</span>
+                        <div class="grid grid-cols-4 gap-2.5">
+                            <div class="bg-cardBg border border-purple-500/30 p-2.5 rounded-xl flex items-start space-x-2">
+                                <i class="fa-solid fa-file-export text-purple-400 mt-0.5 text-xs"></i>
+                                <div><h5 class="text-[11px] font-bold text-gray-200">Output 1</h5><p class="text-[9px] text-textMuted mt-0.5">Pages 1-3<br>3 pages</p></div>
+                            </div>
+                            <div class="bg-cardBg border border-borderClr p-2.5 rounded-xl flex items-start space-x-2">
+                                <i class="fa-solid fa-file-export text-cyan-400 mt-0.5 text-xs"></i>
+                                <div><h5 class="text-[11px] font-bold text-gray-200">Output 2</h5><p class="text-[9px] text-textMuted mt-0.5">Pages 6-8<br>3 pages</p></div>
+                            </div>
+                            <div class="bg-cardBg border border-borderClr p-2.5 r
