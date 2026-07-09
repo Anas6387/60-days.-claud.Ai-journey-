@@ -12832,3 +12832,666 @@ ____________________________DAY39______________
                                 <div><h5 class="text-[11px] font-bold text-gray-200">Output 2</h5><p class="text-[9px] text-textMuted mt-0.5">Pages 6-8<br>3 pages</p></div>
                             </div>
                             <div class="bg-cardBg border border-borderClr p-2.5 r
+
+______________DAY40____________________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Assistant Builder Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Core Theme Settings --- */
+        :root {
+            --bg-main: #13110F;
+            --bg-card: #181513;
+            --bg-sidebar: #141210;
+            --bg-chat-inner: #1A1715;
+            --bg-input-container: #171412;
+            --bg-input: #1C1816;
+            
+            --border-color: #26211E;
+            --border-hover: #3D332E;
+            
+            --text-primary: #F3EFEA;
+            --text-secondary: #A49B90;
+            --text-muted: #6E655C;
+            
+            --brand-gold: #EADCC9;
+            --brand-gold-hover: #D9CBB8;
+            --accent-orange: #D97706;
+            --accent-orange-hover: #B45309;
+            --accent-green: #10B981;
+        }
+
+        /* --- Global Reset & Typography --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .serif-text {
+            font-family: 'Instrument Serif', serif;
+        }
+
+        /* --- Main Layout Grid --- */
+        .app-container {
+            max-width: 1280px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .upper-section {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 1024px) {
+            .upper-section {
+                grid-template-columns: 4fr 8fr;
+            }
+        }
+
+        /* --- Left Column UI (Editorial) --- */
+        .editorial-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            padding: 1.5rem 0;
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .brand-logo-circle {
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            background: rgba(217, 119, 6, 0.1);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-orange);
+            font-size: 0.65rem;
+            font-weight: bold;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.1;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Value Props Feature List */
+        .features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .feature-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: #1C1816;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            transition: border-color 0.2s;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .feature-icon {
+            padding: 0.5rem;
+            background-color: var(--border-color);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-title {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .feature-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .quote-tagline {
+            font-style: italic;
+            font-size: 0.875rem;
+            color: rgba(217, 119, 6, 0.6);
+        }
+
+        /* --- Right Column UI (Interactive App Mockup) --- */
+        .app-mockup {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            height: 640px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (min-width: 768px) {
+            .app-mockup {
+                flex-direction: row;
+            }
+        }
+
+        /* Sidebar UI */
+        .sidebar {
+            width: 100%;
+            background-color: var(--bg-sidebar);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .sidebar {
+                width: 240px;
+                border-bottom: none;
+                border-right: 1px solid var(--border-color);
+            }
+        }
+
+        .new-btn {
+            width: 100%;
+            background-color: var(--brand-gold);
+            color: var(--bg-sidebar);
+            border: none;
+            padding: 0.65rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            cursor: pointer;
+            margin: 1.25rem 0;
+            transition: background-color 0.2s;
+        }
+
+        .new-btn:hover {
+            background-color: var(--brand-gold-hover);
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .nav-item {
+            width: 100%;
+            padding: 0.5rem 0.75rem;
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            text-align: left;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .nav-item.active {
+            background-color: var(--border-color);
+            color: var(--accent-orange);
+        }
+
+        .nav-item:hover:not(.active) {
+            background-color: #1C1816;
+            color: var(--text-primary);
+        }
+
+        .active-assistant-panel {
+            background-color: #1C1816;
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+        }
+
+        .status-header {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .status-indicator {
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 50%;
+            background-color: var(--accent-green);
+        }
+
+        .assistant-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .sidebar-footer {
+            margin-top: 0.75rem;
+            padding-top: 0.5rem;
+            border-t: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        /* Chat Core Box UI */
+        .chat-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-chat-inner);
+        }
+
+        .chat-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .meta-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .meta-desc {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 0.15rem;
+        }
+
+        .ready-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: var(--accent-green);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .message-row {
+            display: flex;
+            gap: 1rem;
+            max-width: 85%;
+        }
+
+        .message-row.user {
+            margin-left: auto;
+            flex-direction: row-reverse;
+        }
+
+        .avatar {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.85rem;
+        }
+
+        .message-row.user .avatar {
+            background-color: var(--border-color);
+            border: 1px solid var(--border-hover);
+        }
+
+        .message-row.assistant .avatar {
+            background: rgba(217, 119, 6, 0.1);
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            color: var(--accent-orange);
+        }
+
+        .bubble {
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+
+        .message-row.user .bubble {
+            background-color: #2B231E;
+            border: 1px solid var(--border-hover);
+        }
+
+        .message-row.assistant .bubble {
+            background-color: #1F1B19;
+            border: 1px solid var(--border-color);
+        }
+
+        .msg-time {
+            display: block;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            text-align: right;
+        }
+
+        /* Input Controls Layout */
+        .chat-input-area {
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--bg-input-container);
+        }
+
+        .input-box-wrapper {
+            background-color: var(--bg-input);
+            border: 1px solid rgba(45, 38, 34, 1);
+            border-radius: 0.75rem;
+            padding: 0.5rem;
+        }
+
+        .input-box-wrapper:focus-within {
+            border-color: rgba(217, 119, 6, 0.4);
+        }
+
+        .text-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            padding: 0.5rem;
+        }
+
+        .text-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .input-actions-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .action-btn-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .utility-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .utility-btn:hover {
+            color: var(--text-primary);
+            background-color: var(--border-color);
+        }
+
+        .send-btn {
+            background-color: var(--accent-orange);
+            color: var(--bg-sidebar);
+            border: none;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .send-btn:hover {
+            background-color: var(--accent-orange-hover);
+        }
+
+        /* --- Footer Info System --- */
+        .footer-system {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+        }
+
+        .footer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-col-title {
+            font-size: 0.875rem;
+            color: rgba(217, 119, 6, 0.9);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .footer-col p, .footer-col ul {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-col li::before {
+            content: "✓ ";
+            color: rgba(217, 119, 6, 0.6);
+            margin-right: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <main class="upper-section">
+            
+            <section class="editorial-panel">
+                <div class="brand-badge">
+                    <div class="brand-logo-circle">AI</div>
+                    AI Assistant Builder
+                </div>
+                
+                <div>
+                    <h1 class="hero-title serif-text">Build Smarter.<br>Assist Better.</h1>
+                    <p class="hero-subtitle">Create powerful, role-based AI assistants tailored to your goals.</p>
+                </div>
+                
+                <div class="features-list">
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <div>
+                            <div class="feature-title">Purpose-Built</div>
+                            <div class="feature-desc">Designed for your domain and use case</div>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✦</div>
+                        <div>
+                            <div class="feature-title">Claude Powered</div>
+                            <div class="feature-desc">Built on Anthropic's Claude API</div>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✓</div>
+                        <div>
+                            <div class="feature-title">Production Ready</div>
+                            <div class="feature-desc">Secure, responsive, and reliable</div>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <div>
+                            <div class="feature-title">Extensible</div>
+                            <div class="feature-desc">Add tools, memory, and workflows</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="quote-tagline serif-text">"The right assistant. Built the right way."</p>
+            </section>
+
+            <section class="app-mockup">
+                
+                <aside class="sidebar">
+                    <div>
+                        <div class="brand-badge" style="padding: 0 0.5rem;">
+                            <div class="brand-logo-circle">AI</div>
+                            Assistant Builder
+                        </div>
+                        <button class="new-btn">+ New Assistant</button>
+                        <ul class="nav-list">
+                            <li><button class="nav-item active">💬 Chat</button></li>
+                            <li><button class="nav-item">🕒 History</button></li>
+                            <li><button class="nav-item">⚙ Settings</button></li>
+                            <li><button class="nav-item">❓ How it works</button></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <div class="active-assistant-panel">
+                            <div class="status-header">
+                                <span class="status-indicator"></span> Active Assistant
+                            </div>
+                            <div class="assistant-name">Career Coach</div>
+                        </div>
+                        <div class="sidebar-footer">
+                            <span>v1.0.0</span>
+                            <span style="cursor:pointer;">☀</span>
+                        </div>
+                    </div>
+                </aside>
+
+                <div class="chat-container">
+                    
+                    <header class="chat-header">
+                        <div>
+                            <div class="meta-title">📂 Career Coach Assistant</div>
+                            <div class="meta-desc">Get personalized career guidance, resume feedback, and job search strategies.</div>
+                        </div>
+                        <div class="ready-badge">
+                            <span class="status-indicator"></span> Ready
+                        </div>
+                    </header>
+
+                    <div class="chat-messages" id="chatStream">
+                        
+                        <div class="message-row user">
+                            <div class="avatar">👤</div>
+                            <div class="bubble">
+                                I want to switch from frontend developer to product manager. What skills should I learn and how should I start?
+                                <span class="msg-time">10:24 AM</span>
+                            </div>
+                        </div>
+
+                        <div class="message-row assistant">
+                            <div class="avatar">✨</div>
+                            <div class="bubble">
+                                Great career move! Here's a structured plan to transition into Product Management:<br><br>
+                                1. <b>Understand the Role</b> – Learn core PM responsibilities and workflows.<br>
+                                2. <b>Build Key Skills</b> – Focus on problem solving, analytics, user research, product sense, and communication.<br>
+                                3. <b>Learn Frameworks</b> – Study roadmap planning, prioritization (RICE, ICE), and Agile basics.<br>
+                                4. <b>Get Practical</b> – Work on c
+                 
+
+        
+
+        
+        
+                     
