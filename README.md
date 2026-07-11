@@ -13489,6 +13489,134 @@ ______________DAY40____________________________
                                 3. <b>Learn Frameworks</b> – Study roadmap planning, prioritization (RICE, ICE), and Agile basics.<br>
                                 4. <b>Get Practical</b> – Work on c
                  
+________________________DAY41_________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="card">
+        <h1>Interactive Learning Studio</h1>
+        <p>Click below to fetch your current progress from the backend server.</p>
+        
+        <button id="fetchBtn">Fetch User Data</button>
+
+        <div id="dataContainer" class="hidden">
+            <hr>
+            <h3>User Profile:</h3>
+            <p><strong>Username:</strong> <span id="username"></span></p>
+            <p><strong>Current Score:</strong> <span id="score"></span>/100</p>
+            <p><strong>Status:</strong> <span id="status"></span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #0b111e;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.card {
+    background-color: #151f32;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+button {
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button:hover {
+    background-color: #4f46e5;
+}
+
+.hidden {
+    display: none;
+}
+
+#dataContainer {
+    margin-top: 20px;
+    text-align: left;
+    background: #1e293b;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+hr {
+    border: 0;
+    border-top: 1px solid #334155;
+    margin-bottom: 15px;
+}
+document.getElementById('fetchBtn').addEventListener('click', async () => {
+    try {
+        // 1. Send an HTTP GET request to our Backend API endpoint
+        const response = await fetch('/api/progress');
+        
+        // 2. Parse the incoming JSON data from the backend
+        const data = await response.json();
+
+        // 3. Update the HTML elements with the backend data
+        document.getElementById('username').textContent = data.username;
+        document.getElementById('score').textContent = data.score;
+        document.getElementById('status').textContent = data.status;
+
+        // 4. Reveal the hidden data container
+        document.getElementById('dataContainer').classList.remove('hidden');
+    } catch (error) {
+        console.error('Error fetching data from backend:', error);
+        alert('Could not connect to the server.');
+    }
+});
+const express = require('express');
+const path = require('path');
+const app = express();
+const PORT = 3000;
+
+// Serve our static frontend files (HTML, CSS, JS) from the 'public' folder
+app.use(express.static(path.join(__dirname, 'public')));
+
+// API Endpoint: This is what the frontend JavaScript requests
+app.get('/api/progress', (req, res) => {
+    // In a production app, this data would come dynamically from a Database (e.g., MongoDB, SQL)
+    const databaseMock = {
+        username: "OopMaster99",
+        score: 85,
+        status: "Active Learner 🚀"
+    };
+    
+    // Send the response back to the client browser as JSON
+    res.json(databaseMock);
+});
+
+// Start the server machine and listen for requests
+app.listen(PORT, () => {
+    console.log(`🚀 Server is running smoothly at http://localhost:${PORT}`);
+});
 
         
 
