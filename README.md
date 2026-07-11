@@ -13618,6 +13618,397 @@ app.listen(PORT, () => {
     console.log(`🚀 Server is running smoothly at http://localhost:${PORT}`);
 });
 
+__________________DAY42________________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinCommand - Personal Financial Command Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0B0E14;
+            --bg-card: #121824;
+            --bg-sidebar: #0F131C;
+            --primary-blue: #2563EB;
+            --text-main: #FFFFFF;
+            --text-muted: #8E9BAE;
+            --green: #10B981;
+            --orange: #F59E0B;
+            --purple: #8B5CF6;
+            --border-color: #1E293B;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- SIDEBAR SYSTEM --- */
+        aside {
+            width: 260px;
+            background-color: var(--bg-sidebar);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 24px 16px;
+            position: fixed;
+            height: 100vh;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 32px;
+        }
+
+        .logo-area span {
+            color: var(--primary-blue);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .nav-item a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--text-muted);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .nav-item.active a, .nav-item a:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* --- MAIN DASHBOARD LAYOUT --- */
+        main {
+            margin-left: 260px;
+            flex-grow: 1;
+            padding: 32px;
+            max-width: 1400px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+        }
+
+        .welcome-text h1 {
+            font-size: 1.75rem;
+            margin-bottom: 4px;
+        }
+
+        .welcome-text p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Metrics Ribbons */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .metric-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .metric-card p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .metric-card h2 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+        }
+
+        .trend-indicator {
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .trend-up { color: var(--green); }
+        .trend-down { color: #EF4444; }
+
+        /* Health Score Specifics */
+        .health-score-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .score-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 4px solid var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* Blocks Workspace */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .card-span-2 {
+            grid-column: span 2;
+        }
+
+        .panel {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .panel-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Component elements styling */
+        .expense-split-box {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+        }
+
+        .chart-center-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-translate(-50%, -50%));
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .legend-list {
+            flex-grow: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            font-size: 0.85rem;
+        }
+
+        .legend-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+        }
+
+        .legend-marker {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+
+        /* Goals UI Progress lines */
+        .goal-row {
+            margin-bottom: 16px;
+        }
+
+        .goal-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .progress-bar-container {
+            background-color: var(--border-color);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Simulation Controls */
+        .range-slider {
+            width: 100%;
+            margin: 16px 0;
+            accent-color: var(--primary-blue);
+        }
+
+        .btn-action {
+            width: 100%;
+            background-color: var(--purple);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-action:hover {
+            opacity: 0.9;
+        }
+
+        /* Lists for actions/reminders */
+        .list-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .list-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            background-color: #1A2232;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .list-meta {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Bottom Row Quick Layouts */
+        .bottom-trio {
+            grid-column: span 3;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        /* Checklist customization */
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .check-item input[type="checkbox"] {
+            accent-color: var(--green);
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            aside { display: none; }
+            main { margin-left: 0; }
+            .dashboard-grid, .bottom-trio { grid-template-columns: 1fr; }
+            .card-span-2 { grid-column: auto; }
+            .bottom-trio { grid-column: auto; }
+        }
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="logo-area">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            FIN<span>COMMAND</span>
+        </div>
+        <ul class="nav-links">
+            <li class="nav-item active"><a href="#">Dashboard</a></li>
+            <li class="nav-item"><a href="#">Income</a></li>
+            <li class="nav-item"><a href="#">Expenses</a></li>
+            <li class="nav-item"><a href="#">Budget</a></li>
+            <li class="nav-item"><a href="#">Savings & Goals</a></li>
+            <li class="nav-item"><a href="#">Investments</a></li>
+            <li class="nav-item"><a href="#">Debt & Loans</a></li>
+        </ul>
+    </aside>
+
+    <main>
+        <header>
+            <div class="welcome-text">
+                <h1>Good evening, Anas 👋</h1>
+                <p>Here's your financial overview for today</p>
+            </div>
+        </header>
+
+        <section class="metrics-grid">
+            <div class="metric-card">
+                <p>Total Net Worth</p>
+                <h2>₹12,45,000</h2>
+                <span class="trend-indicator trend-up">↑ 12.5% <small>vs last month</small></span>
+            </div>
+            <div class="metric-card">
+                <p>Monthly Income</p>
+                <h2>₹85,000</h2>
+                <span class="trend-indicator trend-up">↑ 8.2% <small>vs last month</small></span>
+            </div>
+            <div class="metric-card">
+                <p>Monthly Expenses</p>
+                <h2>₹48,650</h2>
+                <span class="trend-indicator trend-down">↑ 5.3% <small>vs last month</small></span>
+            </div>
+            <div class="metric-card">
+                <p>Financial Health Score</p>
+
         
 
         
