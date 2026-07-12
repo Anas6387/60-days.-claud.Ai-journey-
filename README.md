@@ -14009,6 +14009,311 @@ __________________DAY42________________________
             <div class="metric-card">
                 <p>Financial Health Score</p>
 
+__________________________DAY43______________
+
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Workflow Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030712;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="text-gray-300 min-h-screen flex flex-col justify-between text-xs selection:bg-indigo-500 selection:text-white">
+
+    <header class="border-b border-gray-800 bg-[#070b14] px-6 py-3 flex items-center justify-between sticky top-0 z-50">
+        <div class="flex items-center gap-2">
+            <div class="bg-indigo-600 p-1.5 rounded-lg text-white">
+                <i data-lucide="layers" class="w-5 h-5"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-sm text-white tracking-wide">AI Workflow Architect</h1>
+                <p class="text-[10px] text-gray-500">Design. Automate. Achieve.</p>
+            </div>
+        </div>
+        
+        <div class="flex items-center gap-4 w-1/3">
+            <div class="relative w-full">
+                <i data-lucide="search" class="w-4 h-4 text-gray-500 absolute left-3 top-2.5"></i>
+                <input type="text" placeholder="Search workflows, tools, prompts..." class="w-full bg-[#0d1527] border border-gray-800 rounded-lg pl-9 pr-4 py-2 text-xs text-gray-300 focus:outline-none focus:border-indigo-500 transition-colors">
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2">
+            <button class="flex items-center gap-1.5 px-3 py-1.5 bg-[#0d1527] border border-gray-800 rounded-lg hover:bg-gray-800 transition-colors">
+                <i data-lucide="moon" class="w-3.5 h-3.5"></i> Dark
+            </button>
+            <button class="flex items-center gap-1.5 px-3 py-1.5 bg-[#0d1527] border border-gray-800 rounded-lg hover:bg-gray-800 transition-colors">
+                <i data-lucide="download" class="w-3.5 h-3.5"></i> Export
+            </button>
+            <button class="flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors font-medium">
+                <i data-lucide="printer" class="w-3.5 h-3.5"></i> Print
+            </button>
+        </div>
+    </header>
+
+    <div class="flex flex-1">
+        
+        <aside class="w-64 border-r border-gray-800 bg-[#050911] p-4 flex flex-col gap-6 select-none shrink-0">
+            <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2.5 rounded-xl font-medium flex items-center justify-center gap-2 transition-colors shadow-lg shadow-indigo-600/10">
+                <i data-lucide="plus" class="w-4 h-4"></i> New Workflow
+            </button>
+
+            <nav class="flex flex-col gap-1">
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-[#0d1527] border border-indigo-900/40 text-indigo-400 font-medium transition-colors">
+                    <i data-lucide="layout-dashboard" class="w-4 h-4"></i> Dashboard
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#0d1527]/50 text-gray-400 hover:text-gray-200 transition-colors">
+                    <i data-lucide="git-branch" class="w-4 h-4"></i> My Workflows
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#0d1527]/50 text-gray-400 hover:text-gray-200 transition-colors">
+                    <i data-lucide="folder" class="w-4 h-4"></i> Templates
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#0d1527]/50 text-gray-400 hover:text-gray-200 transition-colors">
+                    <i data-lucide="bookmark" class="w-4 h-4"></i> Bookmarks
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#0d1527]/50 text-gray-400 hover:text-gray-200 transition-colors">
+                    <i data-lucide="sticky-note" class="w-4 h-4"></i> Notes
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#0d1527]/50 text-gray-400 hover:text-gray-200 transition-colors">
+                    <i data-lucide="cpu" class="w-4 h-4"></i> AI Tools
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#0d1527]/50 text-gray-400 hover:text-gray-200 transition-colors">
+                    <i data-lucide="columns" class="w-4 h-4"></i> Comparisons
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#0d1527]/50 text-gray-400 hover:text-gray-200 transition-colors">
+                    <i data-lucide="library" class="w-4 h-4"></i> Resources
+                </a>
+                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#0d1527]/50 text-gray-400 hover:text-gray-200 transition-colors mt-4 border-t border-gray-800/60 pt-4">
+                    <i data-lucide="settings" class="w-4 h-4"></i> Settings
+                </a>
+            </nav>
+
+            <div class="border border-gray-800 bg-[#070c16] rounded-xl p-4 flex flex-col items-center gap-4">
+                <h3 class="text-[11px] font-semibold text-gray-400 tracking-wider uppercase self-start">Progress Tracker</h3>
+                
+                <div class="relative w-24 h-24 flex items-center justify-center">
+                    <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                        <path class="text-gray-800" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="text-indigo-500" stroke-dasharray="65, 100" stroke-width="3" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <div class="absolute flex flex-col items-center">
+                        <span class="text-lg font-bold text-white">65%</span>
+                        <span class="text-[9px] text-gray-500">Overall Progress</span>
+                    </div>
+                </div>
+
+                <div class="w-full flex flex-col gap-1.5 text-[11px]">
+                    <div class="flex justify-between items-center"><span class="flex items-center gap-1.5 text-gray-400"><span class="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>Planning</span><span class="text-gray-500">100%</span></div>
+                    <div class="flex justify-between items-center"><span class="flex items-center gap-1.5 text-gray-400"><span class="w-1.5 h-1.5 bg-green-400 rounded-full"></span>Content Strategy</span><span class="text-gray-500">80%</span></div>
+                    <div class="flex justify-between items-center"><span class="flex items-center gap-1.5 text-gray-400"><span class="w-1.5 h-1.5 bg-yellow-500 rounded-full"></span>Content Creation</span><span class="text-gray-500">60%</span></div>
+                    <div class="flex justify-between items-center"><span class="flex items-center gap-1.5 text-gray-400"><span class="w-1.5 h-1.5 bg-pink-500 rounded-full"></span>Publishing</span><span class="text-gray-500">50%</span></div>
+                    <div class="flex justify-between items-center"><span class="flex items-center gap-1.5 text-gray-400"><span class="w-1.5 h-1.5 bg-purple-500 rounded-full"></span>Engagement</span><span class="text-gray-500">40%</span></div>
+                    <div class="flex justify-between items-center"><span class="flex items-center gap-1.5 text-gray-400"><span class="w-1.5 h-1.5 bg-teal-500 rounded-full"></span>Analytics & Opt.</span><span class="text-gray-500">20%</span></div>
+                    <div class="flex justify-between items-center"><span class="flex items-center gap-1.5 text-gray-400"><span class="w-1.5 h-1.5 bg-blue-600 rounded-full"></span>Monetization</span><span class="text-gray-500">0%</span></div>
+                </div>
+            </div>
+
+            <div class="border border-gray-800 bg-[#070c16] rounded-xl p-3 flex flex-col gap-1.5">
+                <h3 class="text-[10px] font-semibold text-gray-400 tracking-wider uppercase mb-1 px-1">Quick Actions</h3>
+                <button class="w-full flex items-center gap-2 px-2 py-1.5 bg-[#0d1527]/40 hover:bg-[#0d1527] border border-gray-800/80 rounded-lg text-left text-gray-400 hover:text-gray-200 transition-colors"><i data-lucide="file-text" class="w-3.5 h-3.5"></i> Add Note</button>
+                <button class="w-full flex items-center gap-2 px-2 py-1.5 bg-[#0d1527]/40 hover:bg-[#0d1527] border border-gray-800/80 rounded-lg text-left text-gray-400 hover:text-gray-200 transition-colors"><i data-lucide="bookmark" class="w-3.5 h-3.5"></i> Add Bookmark</button>
+                <button class="w-full flex items-center gap-2 px-2 py-1.5 bg-[#0d1527]/40 hover:bg-[#0d1527] border border-gray-800/80 rounded-lg text-left text-gray-400 hover:text-gray-200 transition-colors"><i data-lucide="share-2" class="w-3.5 h-3.5"></i> Share Workflow</button>
+                <button class="w-full flex items-center gap-2 px-2 py-1.5 bg-[#0d1527]/40 hover:bg-[#0d1527] border border-gray-800/80 rounded-lg text-left text-gray-400 hover:text-gray-200 transition-colors"><i data-lucide="copy" class="w-3.5 h-3.5"></i> Duplicate Workflow</button>
+                <button class="w-full flex items-center gap-2 px-2 py-1.5 bg-[#0d1527]/40 hover:bg-[#0d1527] border border-gray-800/80 rounded-lg text-left text-gray-400 hover:text-gray-200 transition-colors"><i data-lucide="download-cloud" class="w-3.5 h-3.5"></i> Download Guide</button>
+            </div>
+
+            <div class="border border-purple-900/40 bg-gradient-to-br from-[#0e0c1f] to-[#070c16] rounded-xl p-4 flex flex-col items-center gap-2 text-center relative overflow-hidden mt-auto">
+                <h3 class="text-[10px] font-semibold text-purple-400 tracking-wider uppercase self-start">AI Tip of the day</h3>
+                <p class="font-semibold text-white mt-1 leading-relaxed">Consistency + Value + Authenticity = Growth</p>
+                <p class="text-gray-500 text-[10px] leading-relaxed">Use AI to automate, analyze and amplify your impact.</p>
+                <div class="mt-2 text-purple-500/70"><i data-lucide="lightbulb" class="w-10 h-10 stroke-1 animate-pulse"></i></div>
+            </div>
+        </aside>
+
+        <main class="flex-1 bg-[#02040a] p-6 flex flex-col gap-6 overflow-y-auto custom-scrollbar">
+            
+            <div class="flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-[11px]">
+                    <span class="bg-blue-900/40 text-blue-400 border border-blue-800/60 px-2 py-0.5 rounded">Domain: Marketing</span>
+                    <span class="bg-green-900/40 text-green-400 border border-green-800/60 px-2 py-0.5 rounded">Category: Social Media</span>
+                    <span class="bg-yellow-900/40 text-yellow-500 border border-yellow-800/60 px-2 py-0.5 rounded">Platform: Instagram</span>
+                    <span class="bg-pink-900/40 text-pink-400 border border-pink-800/60 px-2 py-0.5 rounded">Goal: Personal Brand Growth</span>
+                </div>
+                <div class="flex items-center justify-between mt-1">
+                    <div class="flex items-center gap-2">
+                        <div class="bg-gradient-to-br from-indigo-500 to-purple-600 p-2 rounded-xl text-white">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h2 class="text-xl font-bold text-white tracking-wide">Instagram Personal Brand Growth Workflow</h2>
+                                <button class="text-gray-500 hover:text-gray-300"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
+                            </div>
+                            <p class="text-gray-500 text-[11px] mt-0.5">End-to-end AI-powered workflow to build, grow and monetize your personal brand on Instagram.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-7 gap-3">
+                <div class="border border-blue-800/60 bg-[#070f21] rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-center relative border-b-4 border-b-blue-500">
+                    <div class="bg-blue-500/10 text-blue-400 p-2 rounded-lg"><i data-lucide="lightbulb" class="w-5 h-5"></i></div>
+                    <span class="font-semibold text-white block text-[11px]">1. Planning</span>
+                </div>
+                <div class="border border-gray-800 bg-[#050913] rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-center hover:border-gray-700 transition-colors">
+                    <div class="bg-green-500/10 text-green-400 p-2 rounded-lg"><i data-lucide="target" class="w-5 h-5"></i></div>
+                    <span class="font-medium text-gray-400 block text-[11px]">2. Content Strategy</span>
+                </div>
+                <div class="border border-gray-800 bg-[#050913] rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-center hover:border-gray-700 transition-colors">
+                    <div class="bg-yellow-500/10 text-yellow-500 p-2 rounded-lg"><i data-lucide="pen-tool" class="w-5 h-5"></i></div>
+                    <span class="font-medium text-gray-400 block text-[11px]">3. Content Creation</span>
+                </div>
+                <div class="border border-gray-800 bg-[#050913] rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-center hover:border-gray-700 transition-colors">
+                    <div class="bg-pink-500/10 text-pink-400 p-2 rounded-lg"><i data-lucide="send" class="w-5 h-5"></i></div>
+                    <span class="font-medium text-gray-400 block text-[11px]">4. Publishing</span>
+                </div>
+                <div class="border border-gray-800 bg-[#050913] rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-center hover:border-gray-700 transition-colors">
+                    <div class="bg-purple-500/10 text-purple-400 p-2 rounded-lg"><i data-lucide="messages-square" class="w-5 h-5"></i></div>
+                    <span class="font-medium text-gray-400 block text-[11px]">5. Engagement</span>
+                </div>
+                <div class="border border-gray-800 bg-[#050913] rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-center hover:border-gray-700 transition-colors">
+                    <div class="bg-teal-500/10 text-teal-400 p-2 rounded-lg"><i data-lucide="bar-chart-3" class="w-5 h-5"></i></div>
+                    <span class="font-medium text-gray-400 block text-[11px]">6. Analytics & Opt.</span>
+                </div>
+                <div class="border border-gray-800 bg-[#050913] rounded-xl p-3 flex flex-col items-center justify-center gap-2 text-center hover:border-gray-700 transition-colors">
+                    <div class="bg-blue-500/10 text-blue-500 p-2 rounded-lg"><i data-lucide="dollar-sign" class="w-5 h-5"></i></div>
+                    <span class="font-medium text-gray-400 block text-[11px]">7. Monetization</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-6">
+                
+                <div class="col-span-2 flex flex-col gap-6">
+                    
+                    <div class="border border-gray-800 bg-[#050913] rounded-2xl p-5 flex flex-col gap-4">
+                        <div class="flex justify-between items-center border-b border-gray-800/60 pb-3">
+                            <div class="flex items-center gap-2">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                                <h3 class="text-sm font-bold text-white tracking-wide">1. PLANNING</h3>
+                            </div>
+                            <span class="text-gray-500 flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i> 2–3 Hours</span>
+                        </div>
+
+                        <div>
+                            <h4 class="text-[10px] font-semibold text-gray-500 tracking-wider uppercase">Objective</h4>
+                            <p class="text-gray-300 mt-0.5 font-medium">Define your niche, audience, brand identity and goals.</p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 mt-1">
+                            <div class="border border-gray-800/80 bg-[#080d1a] rounded-xl p-3 flex flex-col gap-2">
+                                <h4 class="text-[10px] font-semibold text-gray-400 tracking-wider uppercase mb-1">Tasks</h4>
+                                <label class="flex items-center gap-2 text-gray-300 cursor-pointer"><input type="checkbox" class="rounded border-gray-700 bg-gray-900 text-indigo-600 focus:ring-0 w-3.5 h-3.5"> Define your niche</label>
+                                <label class="flex items-center gap-2 text-gray-300 cursor-pointer"><input type="checkbox" class="rounded border-gray-700 bg-gray-900 text-indigo-600 focus:ring-0 w-3.5 h-3.5"> Identify target audience</label>
+                                <label class="flex items-center gap-2 text-gray-300 cursor-pointer"><input type="checkbox" class="rounded border-gray-700 bg-gray-900 text-indigo-600 focus:ring-0 w-3.5 h-3.5"> Analyze competitors</label>
+                                <label class="flex items-center gap-2 text-gray-300 cursor-pointer"><input type="checkbox" class="rounded border-gray-700 bg-gray-900 text-indigo-600 focus:ring-0 w-3.5 h-3.5"> Define brand voice & tone</label>
+                                <label class="flex items-center gap-2 text-gray-300 cursor-pointer"><input type="checkbox" class="rounded border-gray-700 bg-gray-900 text-indigo-600 focus:ring-0 w-3.5 h-3.5"> Set SMART goals</label>
+                                <label class="flex items-center gap-2 text-gray-300 cursor-pointer"><input type="checkbox" class="rounded border-gray-700 bg-gray-900 text-indigo-600 focus:ring-0 w-3.5 h-3.5"> Create brand identity</label>
+                            </div>
+                            
+                            <div class="border border-gray-800/80 bg-[#080d1a] rounded-xl p-3 flex flex-col gap-2">
+                                <h4 class="text-[10px] font-semibold text-gray-400 tracking-wider uppercase mb-1">Best AI Tools & Why</h4>
+                                <div class="flex flex-col gap-2">
+                                    <div class="flex items-start justify-between border-b border-gray-800/50 pb-1.5 last:border-0 last:pb-0">
+                                        <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded bg-emerald-600 flex items-center justify-center font-bold text-[9px] text-white">G</span><span class="font-medium text-white">ChatGPT</span></div>
+                                        <span class="text-gray-500 text-[10px] text-right max-w-[65%] leading-tight">Market research, idea generation & context structuring.</span>
+                                    </div>
+                                    <div class="flex items-start justify-between border-b border-gray-800/50 pb-1.5 last:border-0 last:pb-0">
+                                        <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded bg-orange-600 flex items-center justify-center font-bold text-[9px] text-white">C</span><span class="font-medium text-white">Claude</span></div>
+                                        <span class="text-gray-500 text-[10px] text-right max-w-[65%] leading-tight">Deep analysis, content strategy & identity documents.</span>
+                                    </div>
+                                    <div class="flex items-start justify-between border-b border-gray-800/50 pb-1.5 last:border-0 last:pb-0">
+                                        <div class="flex items-center gap-1.5"><span class="w-4 h-4 rounded bg-blue-600 flex items-center justify-center font-bold text-[9px] text-white">P</span><span class="font-medium text-white">Perplexity</span></div>
+                                        <span class="text-gray-500 text-[10px] text-right max-w-[65%] leading-tight">Competitor monitoring & real-time search trends.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-4 gap-3 mt-1 text-[11px]">
+                            <div class="border border-gray-800 bg-[#0b1224] p-2.5 rounded-lg flex flex-col gap-1 col-span-1">
+                                <span class="text-[10px] text-blue-400 font-bold uppercase tracking-wider">Prompt Example</span>
+                                <p class="text-gray-400 italic leading-snug">"Act as a social media strategist. Help me define a profitable Instagram niche..."</p>
+                            </div>
+                            <div class="border border-gray-800 bg-[#0b1224] p-2.5 rounded-lg flex flex-col gap-1 col-span-1">
+                                <span class="text-[10px] text-green-400 font-bold uppercase tracking-wider">Best Practices</span>
+                                <ul class="list-disc pl-3 text-gray-400 space-y-0.5">
+                                    <li>Be specific with niche</li>
+                                    <li>Validate target demand</li>
+                                    <li>Study top 5 competitors</li>
+                                </ul>
+                            </div>
+                            <div class="border border-gray-800 bg-[#0b1224] p-2.5 rounded-lg flex flex-col gap-1 col-span-1">
+                                <span class="text-[10px] text-red-400 font-bold uppercase tracking-wider">Common Mistakes</span>
+                                <ul class="list-disc pl-3 text-gray-400 space-y-0.5">
+                                    <li>Choosing broad niche</li>
+                                    <li>Ignoring pain points</li>
+                                    <li>Inconsistent tone</li>
+                                </ul>
+                            </div>
+                            <div class="border border-gray-800 bg-[#0b1224] p-2.5 rounded-lg flex flex-col gap-1 col-span-1">
+                                <span class="text-[10px] text-yellow-500 font-bold uppercase tracking-wider">Expected Outputs</span>
+                                <ul class="list-disc pl-3 text-gray-400 space-y-0.5">
+                                    <li>Audience profile doc</li>
+                                    <li>Content pillar matrix</li>
+                                    <li>Brand voice guidebook</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-800 bg-[#050913] rounded-2xl p-5 flex flex-col gap-4">
+                        <h3 class="text-sm font-bold text-white tracking-wide border-b border-gray-800/60 pb-3">WORKFLOW DIAGRAM</h3>
+                        <div class="p-6 bg-[#03060f] border border-gray-800/80 rounded-xl relative flex flex-col gap-8 items-center justify-center min-h-[220px]">
+                            
+                            <div class="flex items-center justify-between w-full relative z-10 px-4">
+                                <div class="w-36 p-2.5 border border-blue-800 bg-[#081229] rounded-lg text-center shadow-lg shadow-blue-500/5">
+                                    <span class="font-bold text-white block text-[11px]">1. Planning</span>
+                                    <span class="text-[10px] text-gray-400 mt-0.5 block">Define niche & audience</span>
+                                </div>
+                                <i data-lucide="arrow-right" class="w-4 h-4 text-gray-600"></i>
+                                <div class="w-36 p-2.5 border border-green-800 bg-[#081723] rounded-lg text-center">
+                                    <span class="font-bold text-white block text-[11px]">2. Content Strategy</span>
+                                    <span class="text-[10px] text-gray-400 mt-0.5 block">Plan pillars & calendar</span>
+                                </div>
+                                <i data-lucide="arrow-right" class="w-4 h-4 text-gray-600"></i>
+                                <div class="w-36 p-2.5 border border-yellow-800 bg-[#1c1a17] rounded-lg text-center">
+                                    <span class="font-bold text-white block text-[11px]">3. Content Creation</span>
+                                    <span class="text-[10px] text-gray-400 mt-0.5 block">Create reels & carousels</span>
+                                </div>
+                                <i data-lucide="arrow-right" class="w-4 h-4 text-gray-600"></i>
+                                <div class="w-36 p-2.5 border border-pink-800 bg-[#1f101b] rounded-lg text-center">
+                                    <span class="font-bold text-white block text-[11px]">4. Publishing</span>
+                                    <span class="text-[10px] text-gray-400 mt-0.5 block">Optimize times & tags</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-around w-4/5 relative z-10 px-4">
+                                <div class="w-36 p-2.5 border border-purple-800
         
 
         
