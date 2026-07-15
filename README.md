@@ -15700,6 +15700,591 @@ export default function AutonomousAgentStudio() {
                   <td className="py-1.5 text-center font-bold">83</td>
                   <td className="py-1.5 text-center text-emerald-400 font-bold">+9</t
 
+____________________DAY45___________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Decision Report Dashboard</title>
+  <style>
+    /* --- CSS RESET & VARIABLES --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #050811;
+      --bg-panel: #0a1128;
+      --border-color: rgba(255, 255, 255, 0.08);
+      
+      /* Option Theme Colors */
+      --color-option-a: #3b82f6; /* Blue */
+      --color-option-b: #10b981; /* Emerald */
+      --color-option-c: #a855f7; /* Purple */
+      --color-yellow: #f59e0b;
+      
+      --text-main: #e2e8f0;
+      --text-muted: #64748b;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 11px;
+      line-height: 1.5;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* --- HEADER --- */
+    header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .header-title h1 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    .header-title p {
+      font-size: 12px;
+      color: var(--color-option-a);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .header-meta {
+      text-align: right;
+      font-size: 10px;
+      color: var(--text-muted);
+    }
+
+    /* --- COMMON PANELS & SHAPES --- */
+    .panel {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 16px;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .step-number {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: var(--color-option-a);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 10px;
+    }
+
+    .step-title {
+      font-size: 11px;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+
+    /* --- GRID SYSTEM --- */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .grid-2col {
+        grid-template-columns: 1.2fr 2.8fr;
+      }
+    }
+
+    /* --- OPTION CARDS --- */
+    .options-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 640px) {
+      .options-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .option-card {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 12px;
+      background-color: rgba(11, 19, 43, 0.4);
+    }
+
+    .option-card.a { border-color: rgba(59, 130, 246, 0.3); }
+    .option-card.b { border-color: rgba(16, 185, 129, 0.3); }
+    .option-card.c { border-color: rgba(168, 85, 247, 0.3); }
+
+    .option-title {
+      font-weight: 800;
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .option-card.a .option-title { color: var(--color-option-a); }
+    .option-card.b .option-title { color: var(--color-option-b); }
+    .option-card.c .option-title { color: var(--color-option-c); }
+
+    .bullet-group {
+      margin-top: 8px;
+    }
+
+    .bullet-label {
+      font-weight: bold;
+      font-size: 9px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .bullet-desc {
+      color: var(--text-muted);
+      font-size: 9px;
+      margin-bottom: 6px;
+      padding-left: 12px;
+    }
+
+    /* --- DECISION MATRIX --- */
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .matrix-table th {
+      text-align: left;
+      font-size: 9px;
+      color: var(--text-muted);
+      padding-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .matrix-table td {
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .bar-container {
+      width: 100%;
+      height: 8px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+    }
+
+    .matrix-totals {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .total-box {
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 8px;
+    }
+    .total-box.a { border-color: rgba(59, 130, 246, 0.3); color: var(--color-option-a); }
+    .total-box.b { border-color: rgba(16, 185, 129, 0.5); color: var(--color-option-b); background-color: rgba(16, 185, 129, 0.05); }
+    .total-box.c { border-color: rgba(168, 85, 247, 0.3); color: var(--color-option-c); }
+
+    .total-score {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    /* --- PREMORTEM & STEPS --- */
+    .premortem-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .premortem-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .premortem-box {
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    /* --- 7-DAY PLAN --- */
+    .plan-steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    @media (min-width: 768px) {
+      .plan-steps {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .plan-card {
+      background-color: rgba(11, 19, 43, 0.5);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px;
+    }
+
+    /* --- VERDICT HERO --- */
+    .verdict-hero {
+      border: 1px solid var(--color-yellow);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.03) 0%, rgba(245, 158, 11, 0.08) 100%);
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .verdict-hero {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    /* --- SHARE CARDS --- */
+    .share-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .share-grid {
+        grid-template-columns: 1fr 1.3fr 1.3fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <div class="header-title">
+        <h1>DECISION REPORT</h1>
+        <p id="decision-subtitle">Choosing between Higher Studies (MS Abroad), Job Now, or Entrepreneurship</p>
+      </div>
+      <div class="header-meta">
+        <span style="font-weight: bold; color: #fff;">📅 <span id="decision-date">May 25, 2025</span></span><br>
+        <span>Decision Clarity Dashboard</span>
+      </div>
+    </header>
+
+    <div class="grid-2col">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="step-number" style="background-color: var(--color-option-a);">1</div>
+          <div class="step-title">The Real Decision</div>
+        </div>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px;">
+          <li>🎯 <strong>The objective:</strong> Invest the next 2–3 years for the best long-term lifestyle.</li>
+          <li>⚖️ <strong>The trade-off:</strong> Trading short-term safety for long-term growth.</li>
+          <li>❤️ <strong>The obstacle:</strong> Hard choosing due to fear of missing out on paths left unselected.</li>
+        </ul>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <div class="step-number" style="background-color: var(--color-option-b);">2</div>
+          <div class="step-title">The Case for Each Option</div>
+        </div>
+        <div class="options-row">
+          <div class="option-card a">
+            <div class="option-title">Option A: MS Abroad</div>
+            <div class="bullet-group">
+              <span class="bullet-label" style="color: var(--color-option-a);">👍 Strongest Case:</span>
+              <p class="bullet-desc">High-growth, global exposure, better career routes.</p>
+              <span class="bullet-label" style="color: var(--color-option-a);">⭐️ Hidden Upside:</span>
+              <p class="bullet-desc">Networking and lifelong prestige value.</p>
+              <span class="bullet-label" style="color: var(--color-option-a);">⚠️ Biggest Weakness:</span>
+              <p class="bullet-desc">High cost, zero guarantee of immediate ROI.</p>
+            </div>
+          </div>
+          <div class="option-card b">
+            <div class="option-title">Option B: Job Now</div>
+            <div class="bullet-group">
+              <span class="bullet-label" style="color: var(--color-option-b);">👍 Strongest Case:</span>
+              <p class="bullet-desc">Immediate financial stability and cash flow.</p>
+              <span class="bullet-label" style="color: var(--color-option-b);">⭐️ Hidden Upside:</span>
+              <p class="bullet-desc">Compounding early investments and savings.</p>
+              <span class="bullet-label" style="color: var(--color-option-b);">⚠️ Biggest Weakness:</span>
+              <p class="bullet-desc">Risk of quick career plateauing.</p>
+            </div>
+          </div>
+          <div class="option-card c">
+            <div class="option-title">Option C: Entrepreneurship</div>
+            <div class="bullet-group">
+              <span class="bullet-label" style="color: var(--color-option-c);">👍 Strongest Case:</span>
+              <p class="bullet-desc">Uncapped financial and creative ceiling.</p>
+              <span class="bullet-label" style="color: var(--color-option-c);">⭐️ Hidden Upside:</span>
+              <p class="bullet-desc">Extremely rapid foundational business skillset.</p>
+              <span class="bullet-label" style="color: var(--color-option-c);">⚠️ Biggest Weakness:</span>
+              <p class="bullet-desc">Statistically high chance of failure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2col">
+      <div class="panel">
+        <div class="panel-header">
+          <div class="step-number" style="background-color: var(--color-option-c);">3</div>
+          <div class="step-title">Assumption Buster</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <p><strong>🚨 Assumptions to challenge:</strong></p>
+          <p style="color: var(--text-muted);">1. "A better degree guarantees a better life."</p>
+          <p style="color: var(--text-muted);">2. "Job security today equates to safety forever."</p>
+          <p style="color: var(--text-muted);">3. "I must have it all figured out before taking action."</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <div class="step-number" style="background-color: var(--color-option-a);">4</div>
+          <div class="step-title">Decision Matrix <span style="color: var(--text-muted); font-size: 9px; font-weight: normal;">(Out of 10)</span></div>
+        </div>
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="width: 40%;">Dimension</th>
+              <th style="width: 20%;">Option A</th>
+              <th style="width: 20%;">Option B</th>
+              <th style="width: 20%;">Option C</th>
+            </tr>
+          </thead>
+          <tbody id="matrix-body">
+            </tbody>
+        </table>
+        
+        <div class="matrix-totals">
+          <div class="total-box a">
+            <p style="font-size: 9px; font-weight: bold;">OPTION A TOTAL</p>
+            <p class="total-score">46 / 70</p>
+          </div>
+          <div class="total-box b">
+            <p style="font-size: 9px; font-weight: bold;">🥇 OPTION B TOTAL</p>
+            <p class="total-score">50 / 70</p>
+          </div>
+          <div class="total-box c">
+            <p style="font-size: 9px; font-weight: bold;">OPTION C TOTAL</p>
+            <p class="total-score">41 / 70</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <div class="step-number" style="background-color: var(--color-yellow);">5</div>
+        <div class="step-title">Premortem — Imagine failing 12 months out</div>
+      </div>
+      <div class="premortem-grid">
+        <div class="premortem-box" style="border-color: rgba(16, 185, 129, 0.3);">
+          <h4 style="color: var(--color-option-b); font-weight: bold; margin-bottom: 6px;">Option B (Job Now) Fail Path</h4>
+          <p style="color: var(--text-muted); margin-bottom: 8px;">Failed by stagnating in a low-growth corporate role.</p>
+          <span style="color: var(--color-option-b); font-weight: bold;">✔️ Prevention:</span> Set concrete monthly metrics to upskill out of hours.
+        </div>
+        <div class="premortem-box" style="border-color: rgba(59, 130, 246, 0.3);">
+          <h4 style="color: var(--color-option-a); font-weight: bold; margin-bottom: 6px;">Option A (MS Abroad) Fail Path</h4>
+          <p style="color: var(--text-muted); margin-bottom: 8px;">Failed due to massive debt with poor job markets.</p>
+          <span style="color: var(--color-option-a); font-weight: bold;">✔️ Prevention:</span> Vet specific higher education programs for actual ROI.
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <div class="step-number" style="background-color: var(--color-option-b);">6</div>
+        <div class="step-title">7-Day Test Plan</div>
+      </div>
+      <div class="plan-steps">
+        <div class="plan-card">
+          <p style="font-weight: bold; color: var(--color-option-a);">Days 1–2: Research</p>
+          <p style="color: var(--text-muted); font-size: 10px; margin-top: 4px;">Map exact target budgets, tuition costs, and regional career pipelines.</p>
+        </div>
+        <div class="plan-card">
+          <p style="font-weight: bold; color: var(--color-option-b);">Days 3–4: Build / Apply</p>
+          <p style="color: var(--text-muted); font-size: 10px; margin-top: 4px;">Update résumé vectors, check job applications, draft outreach drafts.</p>
+        </div>
+        <div class="plan-card">
+          <p style="font-weight: bold; color: var(--color-option-c);">Days 5–6: Network</p>
+          <p style="color: var(--text-muted); font-size: 10px; margin-top: 4px;">Schedule quick informational alignment chats with peers on these paths.</p>
+        </div>
+        <div class="plan-card">
+          <p style="font-weight: bold; color: var(--color-yellow);">Day 7: Decide</p>
+          <p style="color: var(--text-muted); font-size: 10px; margin-top: 4px;">Lock in your execution targets with 80% baseline directional confidence.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict-hero">
+      <div>
+        <h2 style="color: var(--color-yellow); font-size: 16px;">🏆 THE VERDICT: OPTION B (JOB NOW)</h2>
+        <p style="color: var(--text-main); margin-top: 4px; font-size: 11px; max-width: 600px;">
+          Calculated metrics identify **Option B** as offering the best sweet spot balancing immediate financial stability, safety, and regret minimization, leaving door vectors open for future graduate steps.
+        </p>
+      </div>
+      <div style="border-left: 1px solid rgba(245, 158, 11, 0.3); padding-left: 16px; min-width: 200px;">
+        <p style="color: var(--color-yellow); font-weight: bold;">The Hard Truth</p>
+        <p style="font-size: 10px; color: var(--text-muted); font-style: italic; margin-top: 2px;">
+          "There is no perfect path. Progress comes simply from choosing and committing."
+        </p>
+      </div>
+    </div>
+
+    <div class="share-grid">
+      <div class="panel">
+        <h4 style="font-size: 10px; font-weight: bold; margin-bottom: 8px;">Matrix Summary</h4>
+        <p>Option A: 46 / 70</p>
+        <p style="color: var(--color-option-b); font-weight: bold;">Option B: 50 / 70 ★</p>
+        <p>Option C: 41 / 70</p>
+      </div>
+      <div class="panel" style="text-align: center; border-color: rgba(245, 158, 11, 0.4);">
+        <p style="color: var(--color-yellow); font-size: 14px; font-weight: bold;">👑 OPTION B - JOB NOW</p>
+        <p style="color: var(--text-muted); font-size: 10px; margin-top: 4px;">Lower risk, direct career growth potential, and financial safety.</p>
+      </div>
+      <div class="panel">
+        <h4 style="font-size: 10px; font-weight: bold; margin-bottom: 4px; color: var(--color-option-c);">LinkedIn Hook</h4>
+        <p style="color: var(--text-muted); font-size: 10px; font-style: italic;">
+          "The best decision is an informed decision. I mapped my goals, scored my values, and committed to action..."
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Fetch and populate Matrix values dynamically from our Node.js Server API
+    async function loadDecisionData() {
+      try {
+        const response = await fetch('/api/decision-data');
+        const data = await response.json();
+        
+        document.getElementById('decision-subtitle').innerText = data.title;
+        document.getElementById('decision-date').innerText = data.date;
+        
+        const tableBody = document.getElementById('matrix-body');
+        tableBody.innerHTML = ''; // Clear fallback contents
+        
+        data.dimensions.forEach(dim => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td><strong>${dim.name}</strong></td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span>${dim.optionA}</span>
+                <div class="bar-container"><div class="bar-fill" style="width: ${dim.optionA * 10}%; background-color: var(--color-option-a);"></div></div>
+              </div>
+            </td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span>${dim.optionB}</span>
+                <div class="bar-container"><div class="bar-fill" style="width: ${dim.optionB * 10}%; background-color: var(--color-option-b);"></div></div>
+              </div>
+            </td>
+            <td>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span>${dim.optionC}</span>
+                <div class="bar-container"><div class="bar-fill" style="width: ${dim.optionC * 10}%; background-color: var(--color-option-c);"></div></div>
+              </div>
+            </td>
+          `;
+          tableBody.appendChild(row);
+        });
+      } catch (err) {
+        console.error("Error loading decision data from API: ", err);
+      }
+    }
+
+    window.addEventListener('DOMContentLoaded', loadDecisionData);
+  </script>
+</body>
+</html>
+const express = require('express');
+const path = require('path');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Serve static frontend files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.json());
+
+// API Endpoint returning the raw Decision Matrix Data
+app.get('/api/decision-data', (req, res) => {
+  const decisionData = {
+    title: "Choosing between Higher Studies (MS Abroad), Job Now, or Entrepreneurship",
+    date: "May 25, 2025",
+    dimensions: [
+      { name: "Life / Career Upside", optionA: 9, optionB: 7, optionC: 10 },
+      { name: "Financial Safety", optionA: 4, optionB: 8, optionC: 3 },
+      { name: "Growth & Learning", optionA: 9, optionB: 6, optionC: 9 },
+      { name: "Stress Level (10 = Low Stress)", optionA: 4, optionB: 7, optionC: 2 },
+      { name: "Reversibility (10 = Easy to Undo)", optionA: 6, optionB: 8, optionC: 4 },
+      { name: "Long-term Alignment", optionA: 8, optionB: 7, optionC: 8 },
+      { name: "Regret Risk (10 = Low Regret)", optionA: 6, optionB: 7, optionC: 5 }
+    ]
+  };
+  res.json(decisionData);
+});
+
+app.listen(PORT, () => {
+  console.log(`🚀 Decision Report Dashboard running at http://localhost:${PORT}`);
+});
+
         
 
         
