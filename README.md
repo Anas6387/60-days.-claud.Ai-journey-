@@ -14748,6 +14748,958 @@ ________________________DAY44_________________
 
 </body>
 </html>
+
+______________________DAY46____________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous Agent Studio Dashboard</title>
+  <style>
+    /* --- CSS RESET & VARIABLES --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #0b132b;
+      --bg-panel: #111c44;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #cbd5e1;
+      --text-muted: #64748b;
+      --cyan: #06b6d4;
+      --purple: #a855f7;
+      --amber: #f59e0b;
+      --emerald: #10b981;
+      --red: #ef4444;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-size: 11px;
+      line-height: 1.5;
+      padding: 16px;
+    }
+
+    /* --- COMMON COMPONENTS --- */
+    h1, h2, h3, h4 {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .badge {
+      font-size: 9px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .badge-running {
+      background-color: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    /* --- LAYOUT WRAPPER --- */
+    .dashboard-container {
+      max-width: 1600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* --- HEADER --- */
+    header {
+      background-color: var(--bg-panel);
+      border: 1px solid rgba(6, 182, 212, 0.25);
+      border-radius: 12px;
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 20px rgba(6, 182, 212, 0.05);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      background: linear-gradient(135deg, var(--cyan), #3b82f6);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .brand-subtitle span {
+      font-weight: bold;
+    }
+
+    .status-tracker {
+      display: flex;
+      background-color: rgba(11, 19, 43, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 6px 16px;
+      gap: 24px;
+    }
+
+    .status-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .status-label {
+      font-size: 8px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .status-value {
+      font-weight: bold;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-stop {
+      background-color: rgba(239, 68, 68, 0.1);
+      color: var(--red);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-stop:hover {
+      background-color: rgba(239, 68, 68, 0.2);
+    }
+
+    /* --- MAIN CONTENT GRID --- */
+    .grid-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 1024px) {
+      .grid-container {
+        grid-template-columns: 1fr 2fr 1fr;
+      }
+    }
+
+    /* --- PANELS --- */
+    .panel {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .panel-title {
+      font-size: 12px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* --- COLUMN 1: CONFIG & INTERVIEW --- */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .step-card {
+      background-color: rgba(11, 19, 43, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 6px;
+      padding: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .step-check {
+      color: var(--emerald);
+      font-weight: bold;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .form-group label {
+      color: var(--text-muted);
+      font-size: 10px;
+    }
+
+    .form-group input {
+      background-color: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: white;
+      font-size: 11px;
+    }
+
+    .btn-execute {
+      background: linear-gradient(90deg, #2563eb, var(--cyan));
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    }
+
+    /* --- COLUMN 2: WORKFLOW & OUTPUTS --- */
+    .workflow-box {
+      background-color: rgba(11, 19, 43, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 12px;
+      position: relative;
+    }
+
+    .node-chain {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 36px;
+    }
+
+    .node {
+      background-color: rgba(11, 19, 43, 0.8);
+      border-radius: 6px;
+      padding: 8px;
+      width: 105px;
+      text-align: center;
+      border: 1px solid transparent;
+    }
+
+    .node-planner { border-color: var(--emerald); color: var(--emerald); }
+    .node-executor { border-color: var(--amber); color: var(--amber); }
+    .node-evaluator { border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 8px rgba(6, 182, 212, 0.3); }
+    .node-critic { border-color: var(--purple); color: var(--purple); }
+    .node-improver { border-color: #eab308; color: #eab308; }
+
+    .node-arrow {
+      color: var(--text-muted);
+      font-weight: bold;
+    }
+
+    .memory-manager-node {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(168, 85, 247, 0.1);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 6px;
+      padding: 6px 12px;
+      text-align: center;
+    }
+
+    .agent-outputs {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .agent-outputs {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .output-card {
+      background-color: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .card-evaluator { border-left: 3px solid var(--cyan); }
+    .card-critic { border-left: 3px solid var(--purple); }
+    .card-improver { border-left: 3px solid #eab308; }
+    .card-draft { border-left: 3px solid var(--emerald); }
+
+    .terminal-box {
+      background-color: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 10px;
+      font-family: monospace;
+      font-size: 10px;
+      height: 140px;
+      overflow-y: auto;
+      color: #94a3b8;
+    }
+
+    /* --- COLUMN 3: STATS --- */
+    .history-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10px;
+    }
+
+    .history-table th, .history-table td {
+      padding: 6px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .history-table th {
+      color: var(--text-muted);
+    }
+
+    .active-row {
+      background-color: rgba(6, 182, 212, 0.08);
+      color: #ffffff;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .metric-card {
+      background-color: rgba(11, 19, 43, 0.5);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+    }
+
+    .metric-val {
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      font-family: monospace;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: rgba(17, 28, 68, 0.6);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      footer {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .footer-col h4 {
+      font-size: 10px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-col p, .footer-col ul {
+      color: var(--text-muted);
+      font-size: 10px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+
+    <header>
+      <div class="brand">
+        <div class="brand-logo">A</div>
+        <div>
+          <h1>Autonomous Agent Studio</h1>
+          <div class="brand-subtitle" style="font-size: 9px; color: var(--text-muted);">
+            <span style="color: var(--cyan);">Design</span> • 
+            <span style="color: var(--purple);">Orchestrate</span> • 
+            <span style="color: var(--amber);">Execute</span> • 
+            <span style="color: var(--emerald);">Improve</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-tracker">
+        <div class="status-group">
+          <span class="status-label">Status</span>
+          <span class="status-value text-emerald" style="color: var(--emerald); display: flex; align-items: center; gap: 4px;">
+            <span style="width: 6px; height: 6px; background-color: var(--emerald); border-radius: 50%;"></span> RUNNING
+          </span>
+        </div>
+        <div class="status-group" style="border-left: 1px solid var(--border-color); padding-left: 16px;">
+          <span class="status-label">Active Agent</span>
+          <span class="status-value" style="color: var(--cyan);">EVALUATOR</span>
+        </div>
+        <div class="status-group" style="border-left: 1px solid var(--border-color); padding-left: 16px;">
+          <span class="status-label">Round</span>
+          <span class="status-value" style="color: var(--amber);">3 — checking condition...</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <div style="text-align: right;">
+          <span class="status-label" style="display:block;">Claude API</span>
+          <span style="color: var(--emerald); font-weight: bold;">● Live</span>
+        </div>
+        <button class="btn-stop">■ Stop</button>
+      </div>
+    </header>
+
+    <div class="grid-container">
+
+      <div class="grid-container" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="panel">
+          <div class="panel-title">
+            <span>INTERVIEW <span style="color: var(--text-muted); font-size: 10px;">(Step 5 of 5)</span></span>
+          </div>
+          <div class="step-list">
+            <div class="step-card">
+              <div>
+                <p style="color: var(--text-muted);">1. Core AI Agent Type</p>
+                <p>Content Creation Assistant</p>
+              </div>
+              <span class="step-check">✓</span>
+            </div>
+            <div class="step-card">
+              <div>
+                <p style="color: var(--text-muted);">2. Task Automation Target</p>
+                <p>Write SEO blog posts from topics</p>
+              </div>
+              <span class="step-check">✓</span>
+            </div>
+            <div class="step-card">
+              <div>
+                <p style="color: var(--text-muted);">3. Success Criteria Metric</p>
+                <p>Quality Score (out of 100)</p>
+              </div>
+              <span class="step-check">✓</span>
+            </div>
+            <div class="step-card">
+              <div>
+                <p style="color: var(--text-muted);">4. Target Loop Condition</p>
+                <p>Score threshold reached</p>
+              </div>
+              <span class="step-check">✓</span>
+            </div>
+          </div>
+          <div style="background-color: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.2); padding: 8px; border-radius: 6px; text-align: center; color: var(--emerald); font-weight: bold;">
+            ✓ Interview Fully Complete!
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">Configuration</div>
+          <div class="form-group">
+            <label>Topic / Input Parameters</label>
+            <input type="text" value="The Future of Renewable Energy" readonly>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <div class="form-group" style="flex: 1;">
+              <label>Target Quality</label>
+              <input type="text" value="85 / 100" readonly>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label>Plateau Delta</label>
+              <input type="text" value="2 points" readonly>
+            </div>
+          </div>
+          <button class="btn-execute">⚡ Start Autonomous Execution</button>
+        </div>
+      </div>
+
+      <div class="grid-container" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="panel">
+          <div class="panel-title" style="color: var(--cyan);">WORKFLOW: Real Loop Orchestration</div>
+          <div class="workflow-box">
+            <div class="memory-manager-node">
+              <span style="color: var(--purple); font-weight: bold; font-size: 10px; display: block;">Memory Manager</span>
+              <span style="font-size: 8px; color: var(--text-muted);">Stores workspace state</span>
+            </div>
+            <div class="node-chain">
+              <div class="node node-planner">
+                <span style="font-weight: bold;">Planner</span>
+                <span style="font-size: 8px; display:block; color: var(--text-muted);">Structures plan</span>
+              </div>
+              <span class="node-arrow">→</span>
+              <div class="node node-executor">
+                <span style="font-weight: bold;">Executor</span>
+                <span style="font-size: 8px; display:block; color: var(--text-muted);">Drafts content</span>
+              </div>
+              <span class="node-arrow">→</span>
+              <div class="node node-evaluator">
+                <span style="font-weight: bold;">Evaluator</span>
+                <span style="font-size: 8px; display:block; color: var(--text-muted);">Grades & parses</span>
+              </div>
+              <span class="node-arrow">→</span>
+              <div class="node node-critic">
+                <span style="font-weight: bold;">Critic</span>
+                <span style="font-size: 8px; display:block; color: var(--text-muted);">Analyzes layout</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">LIVE AGENT OUTPUTS <span style="color: var(--text-muted); font-size: 10px;">(Round 3)</span></div>
+          <div class="agent-outputs">
+            <div class="output-card card-evaluator">
+              <h4 style="color: var(--cyan); margin-bottom: 4px;">📊 Evaluator Output</h4>
+              <p><strong>Score: 83 / 100</strong></p>
+              <p style="color: var(--text-muted); font-size: 10px; margin-top: 4px;">Blog post reads exceptionally well. Structure matches standard specifications, but lacks 2026 data.</p>
+            </div>
+            <div class="output-card card-critic">
+              <h4 style="color: var(--purple); margin-bottom: 4px;">💬 Critic Output</h4>
+              <p style="color: var(--text-muted); font-size: 10px;">• Fetch latest global energy capacities.<br>• Inject structural CTA headers.</p>
+            </div>
+            <div class="output-card card-improver">
+              <h4 style="color: #eab308; margin-bottom: 4px;">⚙️ Improver Output</h4>
+              <p style="color: var(--text-muted); font-size: 10px;">• Appended real-world 2026 global metrics.<br>• Formatted H2 schema indicators.</p>
+            </div>
+            <div class="output-card card-draft">
+              <h4 style="color: var(--emerald); margin-bottom: 4px;">📝 Current Draft</h4>
+              <p style="font-weight: bold;">The Future of Renewable Energy</p>
+              <p style="color: var(--text-muted); font-size: 9px; margin-top: 2px;">Renewable infrastructure is growing globally. In 2026, capacity markers surpassed record bounds...</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+          <div class="panel" style="gap: 8px;">
+            <div class="panel-title">ACTIVITY LOG</div>
+            <div class="terminal-box">
+              <p style="color: #475569;">12:15:03 <span style="color: var(--purple);">[Memory]</span> Recalled contextual arrays</p>
+              <p style="color: #475569;">12:15:05 <span style="color: var(--emerald);">[Planner]</span> Outlined standard schemas</p>
+              <p style="color: #475569;">12:15:08 <span style="color: var(--amber);">[Executor]</span> Generated 812 initial words</p>
+              <p style="color: #475569;">12:15:12 <span style="color: var(--cyan);">[Evaluator]</span> Graded draft base: 62/100</p>
+              <p style="color: #475569;">12:17:01 <span style="color: var(--cyan);">[Evaluator]</span> Advanced evaluation target: 83/100</p>
+              <p style="color: var(--amber); animation: pulse 1.5s infinite;">12:17:05 [System] Checking target loop standards...</p>
+            </div>
+          </div>
+          <div class="panel" style="gap: 8px;">
+            <div class="panel-title">MEMORY UPDATES</div>
+            <div class="terminal-box" style="background-color: rgba(168, 85, 247, 0.05); border-color: rgba(168, 85, 247, 0.15);">
+              <p style="color: var(--purple); font-weight: bold; margin-bottom: 4px;">Round 1 Insights</p>
+              <p style="margin-bottom: 8px;">• Structure anchors significantly boost raw grader values.</p>
+              <p style="color: var(--purple); font-weight: bold; margin-bottom: 4px;">Round 2 Insights</p>
+              <p>• Concrete statistics yield optimal authority indicators.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-container" style="display: flex; flex-direction: column; gap: 16px;">
+        <div class="panel">
+          <div class="panel-title">ITERATION HISTORY</div>
+          <table class="history-table">
+            <thead>
+              <tr>
+                <th>Round</th>
+                <th>Score</th>
+                <th>Δ Change</th>
+                <th>Check Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>62</td>
+                <td style="color: var(--text-muted);">--</td>
+                <td>Continue</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>74</td>
+                <td style="color: var(--emerald);">+12</td>
+                <td>Continue</td>
+              </tr>
+              <tr class="active-row">
+                <td>3</td>
+                <td>83</td>
+                <td style="color: var(--emerald); font-weight: bold;">+9</td>
+                <td style="color: var(--amber);">Checking...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title">Stop Conditions</div>
+          <div style="display:flex; flex-direction:column; gap: 6px;">
+            <div style="display:flex; justify-content:space-between
+import React from 'react';
+import { 
+  Play, Square, CheckCircle, Activity, Brain, 
+  Layers, Terminal, RefreshCw, Sliders, List, 
+  TrendingUp, BarChart2, Shield, Settings, HelpCircle
+} from 'lucide-react';
+
+export default function AutonomousAgentStudio() {
+  return (
+    <div className="min-h-screen bg-[#0b132b] text-slate-200 font-sans p-4 text-xs">
+      
+      {/* --- TOP HEADER BAR --- */}
+      <header className="flex flex-wrap items-center justify-between bg-[#111c44] border border-cyan-500/30 rounded-xl p-3 mb-4 shadow-lg shadow-cyan-950/20">
+        <div className="flex items-center space-x-3">
+          <div className="bg-gradient-to-br from-cyan-400 to-blue-600 p-2 rounded-lg text-white shadow-md">
+            <Layers className="w-5 h-5" />
+          </div>
+          <div>
+            <h1 className="text-lg font-bold tracking-wide text-white flex items-center gap-2">
+              Autonomous Agent Studio
+            </h1>
+            <p className="text-[10px] text-slate-400 font-medium">
+              <span className="text-cyan-400">Design</span> • <span className="text-purple-400">Orchestrate</span> • <span className="text-amber-400">Execute</span> • <span className="text-emerald-400">Improve</span>
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-6 bg-[#0b132b]/60 px-4 py-2 rounded-lg border border-slate-700">
+          <div>
+            <span className="text-slate-400 block text-[9px] uppercase tracking-wider">Status</span>
+            <span className="text-emerald-400 font-bold flex items-center gap-1">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> RUNNING
+            </span>
+          </div>
+          <div className="border-l border-slate-700 pl-4">
+            <span className="text-slate-400 block text-[9px] uppercase tracking-wider">Active Agent</span>
+            <span className="text-blue-400 font-bold">EVALUATOR</span>
+          </div>
+          <div className="border-l border-slate-700 pl-4">
+            <span className="text-slate-400 block text-[9px] uppercase tracking-wider">Round</span>
+            <span className="text-amber-400 font-bold">3 — checking stop condition...</span>
+          </div>
+        </div>
+
+        <div className="flex items-center space-x-4">
+          <div className="text-right">
+            <span className="text-slate-400 text-[10px] block">Claude API</span>
+            <span className="text-emerald-400 font-semibold flex items-center gap-1 justify-end">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Live
+            </span>
+          </div>
+          <button className="bg-red-950/40 hover:bg-red-900/60 text-red-400 border border-red-500/40 px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5 transition-colors">
+            <Square className="w-3 h-3 fill-current" /> Stop
+          </button>
+        </div>
+      </header>
+
+      {/* --- MAIN THREE-COLUMN LAYOUT --- */}
+      <div className="grid grid-cols-1 xl:grid-cols-4 gap-4">
+        
+        {/* LEFT COLUMN: INTERVIEW & CONFIG */}
+        <div className="space-y-4 xl:col-span-1">
+          {/* Interview Panel */}
+          <div className="bg-[#111c44] border border-slate-800 rounded-xl p-4 shadow-sm">
+            <h2 className="text-sm font-semibold text-white mb-3 flex justify-between items-center">
+              <span>INTERVIEW <span className="text-slate-400 font-normal text-xs">(Step 5 of 5)</span></span>
+            </h2>
+            <div className="space-y-2.5">
+              {[
+                { q: "1. What kind of autonomous AI agent should we build?", a: "Content Creation Assistant" },
+                { q: "2. What specific task should the agent automate?", a: "Write SEO blog posts from a topic" },
+                { q: "3. Primary success criteria?", a: "Quality Score (out of 100)" },
+                { q: "4. Stopping condition?", a: "Score threshold reached" },
+                { q: "5. Design approach?", a: "Auto-design (recommended agents)" },
+              ].map((item, idx) => (
+                <div key={idx} className="bg-[#0b132b]/40 p-2 rounded border border-slate-800/60 flex items-start justify-between gap-2">
+                  <div>
+                    <p className="text-slate-400 font-medium text-[11px]">{item.q}</p>
+                    <p className="text-slate-200 mt-0.5">{item.a}</p>
+                  </div>
+                  <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 bg-emerald-950/30 border border-emerald-500/30 rounded p-2 text-center text-emerald-400 font-semibold">
+              ✓ Interview Complete!
+            </div>
+          </div>
+
+          {/* Workflow Summary */}
+          <div className="bg-[#111c44] border border-slate-800 rounded-xl p-4">
+            <h3 className="text-xs font-semibold text-white mb-1">Workflow Summary</h3>
+            <p className="text-slate-400 leading-relaxed text-[11px]">
+              The agent will write an SEO-optimized blog post on a given topic, evaluate it against a rubric, critique weaknesses, and improve iteratively until the quality score reaches the target or a plateau is detected.
+            </p>
+          </div>
+
+          {/* Configuration */}
+          <div className="bg-[#111c44] border border-slate-800 rounded-xl p-4 space-y-3">
+            <h3 className="text-xs font-semibold text-white">Configuration</h3>
+            <div className="space-y-2">
+              <div>
+                <label className="text-slate-400 block mb-1">Topic / Input</label>
+                <input type="text" readOnly value="The Future of Renewable Energy" className="w-full bg-[#0b132b] border border-slate-700 rounded px-2.5 py-1.5 text-slate-200 focus:outline-none" />
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="text-slate-400 block mb-1">Target Quality Score</label>
+                  <input type="text" readOnly value="85 / 100" className="w-full bg-[#0b132b] border border-slate-700 rounded px-2.5 py-1.5 text-slate-200 focus:outline-none" />
+                </div>
+                <div>
+                  <label className="text-slate-400 block mb-1">Plateau Delta</label>
+                  <input type="text" readOnly value="2 points" className="w-full bg-[#0b132b] border border-slate-700 rounded px-2.5 py-1.5 text-slate-200 focus:outline-none" />
+                </div>
+              </div>
+              <div>
+                <label className="text-slate-400 block mb-1">Hard Iteration Cap</label>
+                <input type="text" readOnly value="15 (safety fallback)" className="w-full bg-[#0b132b] border border-slate-700 rounded px-2.5 py-1.5 text-slate-200 focus:outline-none" />
+              </div>
+            </div>
+            <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-medium py-2 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 mt-2">
+              <Activity className="w-4 h-4" /> Start Autonomous Execution
+            </button>
+          </div>
+        </div>
+
+        {/* MIDDLE COLUMN: WORKFLOW, OUTPUTS & LOGS */}
+        <div className="space-y-4 xl:col-span-2">
+          
+          {/* ORCHESTRATION GRAPH VISUALIZATION */}
+          <div className="bg-[#111c44] border border-slate-800 rounded-xl p-4">
+            <h3 className="text-xs font-semibold text-white mb-4 flex items-center gap-1.5">
+              <Sliders className="w-3.5 h-3.5 text-cyan-400" /> WORKFLOW: Real Loop Orchestration
+            </h3>
+            
+            <div className="relative p-3 bg-[#0b132b]/40 rounded-xl border border-slate-800/80 min-h-[160px] flex flex-wrap items-center justify-center gap-4">
+              
+              {/* Memory Manager (Top Absolute or flex item) */}
+              <div className="absolute top-2 bg-purple-950/40 border border-purple-500/40 rounded-lg p-2 flex items-center gap-2 max-w-[200px]">
+                <Brain className="w-4 h-4 text-purple-400 shrink-0" />
+                <div>
+                  <p className="font-bold text-[10px] text-purple-300">Memory Manager</p>
+                  <p className="text-[9px] text-slate-400">Stores history & context</p>
+                </div>
+              </div>
+
+              {/* Node Sequence */}
+              <div className="mt-12 flex flex-wrap items-center justify-center gap-2 z-10 w-full">
+                {[
+                  { name: "Planner", desc: "Creates plan & outline", color: "border-emerald-500/40 text-emerald-400 bg-emerald-950/20" },
+                  { name: "Executor", desc: "Produces initial draft", color: "border-amber-500/40 text-amber-400 bg-amber-950/20" },
+                  { name: "Evaluator", desc: "Scores using criteria", color: "border-blue-500 text-blue-400 bg-blue-950/40 ring-1 ring-blue-400" },
+                  { name: "Critic", desc: "Finds issues & feedback", color: "border-purple-500/40 text-purple-400 bg-purple-950/20" },
+                  { name: "Improver", desc: "Applies feedback", color: "border-yellow-500/40 text-yellow-400 bg-yellow-950/20" },
+                ].map((node, i) => (
+                  <div key={i} className="flex items-center">
+                    <div className={`border rounded-lg p-2 text-center w-28 shadow-sm ${node.color}`}>
+                      <p className="font-bold text-[11px]">{node.name}</p>
+                      <p className="text-[9px] text-slate-400 mt-0.5 leading-tight">{node.desc}</p>
+                    </div>
+                    {i < 4 && <span className="text-slate-600 px-0.5 font-bold">→</span>}
+                  </div>
+                ))}
+              </div>
+
+              {/* Safety Monitor (Bottom Absolute) */}
+              <div className="absolute bottom-2 bg-teal-950/40 border border-teal-500/40 rounded-lg p-1.5 flex items-center gap-1.5 text-[10px]">
+                <Shield className="w-3.5 h-3.5 text-teal-400" />
+                <span className="text-teal-300 font-medium">Safety Monitor: Active</span>
+              </div>
+            </div>
+
+            {/* Loop Legend Indicators */}
+            <div className="flex gap-4 mt-3 text-[10px] text-slate-400 justify-center">
+              <span className="flex items-center gap-1"><span className="w-2.5 h-0.5 bg-slate-500 inline-block"></span> Information Flow</span>
+              <span className="flex items-center gap-1"><span className="w-2.5 h-0.5 border-t border-dashed border-purple-400 inline-block"></span> Memory Flow</span>
+              <span className="flex items-center gap-1"><span className="w-2.5 h-0.5 bg-blue-500 inline-block"></span> Loop Back Loop</span>
+            </div>
+          </div>
+
+          {/* LIVE AGENT OUTPUTS (ROUND 3) */}
+          <div className="bg-[#111c44] border border-slate-800 rounded-xl p-4">
+            <h3 className="text-xs font-semibold text-white mb-3 flex items-center gap-1.5">
+              <RefreshCw className="w-3.5 h-3.5 text-blue-400 animate-spin-slow" /> LIVE AGENT OUTPUTS <span className="text-slate-400 font-normal">(Round 3)</span>
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {/* Evaluator Output */}
+              <div className="bg-[#0b132b] border border-blue-500/30 rounded-lg p-3">
+                <div className="flex justify-between items-center mb-1.5 border-b border-slate-800 pb-1">
+                  <span className="font-bold text-blue-400">📊 Evaluator Output</span>
+                  <span className="bg-blue-950 text-blue-300 px-1.5 py-0.5 rounded font-mono font-bold text-[10px]">Score: 83 / 100</span>
+                </div>
+                <p className="text-slate-300 text-[11px] leading-relaxed">
+                  <strong>Reasoning:</strong> The blog post is well-structured, informative, and engaging. It covers key aspects of renewable energy with depth. However, it lacks recent stats and some subheadings can be improved for scannability.
+                </p>
+              </div>
+
+              {/* Critic Output */}
+              <div className="bg-[#0b132b] border border-purple-500/30 rounded-lg p-3">
+                <div className="mb-1.5 border-b border-slate-800 pb-1">
+                  <span className="font-bold text-purple-400">💬 Critic Output</span>
+                </div>
+                <ul className="list-disc list-inside space-y-1 text-slate-300 text-[11px]">
+                  <li>Add latest data & statistics</li>
+                  <li>Improve subheading clarity</li>
+                  <li>Include more real-world examples</li>
+                  <li>Strengthen conclusion CTA</li>
+                </ul>
+              </div>
+
+              {/* Improver Output */}
+              <div className="bg-[#0b132b] border border-yellow-500/30 rounded-lg p-3">
+                <div className="mb-1.5 border-b border-slate-800 pb-1">
+                  <span className="font-bold text-yellow-400">⚙️ Improver Output</span>
+                </div>
+                <ul className="list-mono space-y-1 text-slate-300 text-[11px]">
+                  <li>✓ Added 2026 renewable energy stats</li>
+                  <li>✓ Enhanced descriptive subheadings</li>
+                  <li>✓ Added micro-case studies</li>
+                  <li>✓ Stronger conclusion with clean CTA</li>
+                </ul>
+              </div>
+
+              {/* Current Draft Preview */}
+              <div className="bg-[#0b132b] border border-emerald-500/30 rounded-lg p-3">
+                <div className="mb-1.5 border-b border-slate-800 pb-1">
+                  <span className="font-bold text-emerald-400">📝 Draft (Current)</span>
+                </div>
+                <p className="text-slate-200 font-semibold mb-1">The Future of Renewable Energy</p>
+                <p className="text-slate-400 text-[10px] line-clamp-3 leading-relaxed">
+                  Renewable energy is no longer the future—it's the present. As of 2026, global renewable capacity has grown significantly. Solar and wind lead the path toward dynamic sustainability...
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* LOGS AND MEMORY SYSTEM SPLIT PANEL */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* Activity Log */}
+            <div className="bg-[#111c44] border border-slate-800 rounded-xl p-4 flex flex-col h-60">
+              <h3 className="text-xs font-semibold text-white mb-2 flex items-center gap-1.5">
+                <Terminal className="w-3.5 h-3.5 text-slate-400" /> ACTIVITY LOG
+              </h3>
+              <div className="bg-[#0b132b] p-2.5 rounded-lg border border-slate-800 font-mono text-[10px] text-slate-400 space-y-1 overflow-y-auto flex-1">
+                <p><span className="text-slate-600">12:15:03</span> <span className="text-purple-400">🧠 Memory Manager:</span> Retrieved context (2 memories)</p>
+                <p><span className="text-slate-600">12:15:05</span> <span className="text-emerald-400">📋 Planner:</span> Outline generated successfully</p>
+                <p><span className="text-slate-600">12:15:08</span> <span className="text-amber-400">🛠️ Executor:</span> Initial draft generated (812 words)</p>
+                <p><span className="text-slate-600">12:15:12</span> <span className="text-blue-400">⭐ Evaluator:</span> Score: 62/100</p>
+                <p><span className="text-slate-600">12:15:16</span> <span className="text-purple-400">💬 Critic:</span> Feedback generated</p>
+                <p><span className="text-slate-600">12:15:19</span> <span className="text-yellow-400">⚙️ Improver:</span> Improved draft generated</p>
+                <p><span className="text-slate-600">12:16:02</span> <span className="text-blue-400">⭐ Evaluator:</span> Score: 74/100</p>
+                <p><span className="text-slate-600">12:17:01</span> <span className="text-blue-400">⭐ Evaluator:</span> Score: 83/100</p>
+                <p className="text-amber-400 animate-pulse"><span className="text-slate-600">12:17:05</span> 🔄 Checking stop conditions...</p>
+              </div>
+            </div>
+
+            {/* Memory Updates */}
+            <div className="bg-[#111c44] border border-slate-800 rounded-xl p-4 flex flex-col h-60">
+              <h3 className="text-xs font-semibold text-white mb-2 flex items-center gap-1.5">
+                <Brain className="w-3.5 h-3.5 text-purple-400" /> MEMORY UPDATES
+              </h3>
+              <div className="bg-[#0b132b] p-3 rounded-lg border border-slate-800 text-[11px] space-y-3 overflow-y-auto flex-1">
+                <div>
+                  <span className="text-purple-400 font-bold block">Round 1 Learnings</span>
+                  <p className="text-slate-400 text-[10px] mt-0.5">• Focus heavily on formatting hooks and data metrics.</p>
+                </div>
+                <div className="border-t border-slate-800/80 pt-2">
+                  <span className="text-purple-400 font-bold block">Round 2 Learnings</span>
+                  <p className="text-slate-400 text-[10px] mt-0.5">• Subheadings drastically increase readability factor.</p>
+                </div>
+                <div className="border-t border-slate-800/80 pt-2 bg-purple-950/10 p-1 rounded">
+                  <span className="text-amber-400 font-bold block flex items-center gap-1">Round 3 Learnings <span className="text-[9px] text-slate-500 font-normal">(In Progress)</span></span>
+                  <p className="text-slate-400 text-[10px] mt-0.5">• Strengthening ENG-E-A-T trust vectors.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        {/* RIGHT COLUMN: METRICS, ITERATIONS & ANCHORS */}
+        <div className="space-y-4 xl:col-span-1">
+          
+          {/* Iteration History */}
+          <div className="bg-[#111c44] border border-slate-800 rounded-xl p-4">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="text-xs font-semibold text-white flex items-center gap-1.5">
+                <List className="w-3.5 h-3.5 text-slate-400" /> ITERATION HISTORY
+              </h3>
+              <span className="text-[10px] text-cyan-400 cursor-pointer hover:underline">View All</span>
+            </div>
+            <table className="w-full text-left border-collapse text-[11px]">
+              <thead>
+                <tr className="border-b border-slate-800 text-slate-400 font-medium">
+                  <th className="py-1">Round</th>
+                  <th className="py-1 text-center">Score</th>
+                  <th className="py-1 text-center">Δ Change</th>
+                  <th className="py-1 text-right">Stop Check</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-800/40 font-mono">
+                <tr>
+                  <td className="py-1.5 text-slate-400">1</td>
+                  <td className="py-1.5 text-center font-bold text-slate-300">62</td>
+                  <td className="py-1.5 text-center text-slate-500">—</td>
+                  <td className="py-1.5 text-right text-slate-400">Continue</td>
+                </tr>
+                <tr>
+                  <td className="py-1.5 text-slate-400">2</td>
+                  <td className="py-1.5 text-center font-bold text-slate-300">74</td>
+                  <td className="py-1.5 text-center text-emerald-400">+12</td>
+                  <td className="py-1.5 text-right text-slate-400">Continue</td>
+                </tr>
+                <tr className="bg-blue-950/30 text-blue-300">
+                  <td className="py-1.5 font-bold">3</td>
+                  <td className="py-1.5 text-center font-bold">83</td>
+                  <td className="py-1.5 text-center text-emerald-400 font-bold">+9</t
+
         
 
         
