@@ -16285,7 +16285,484 @@ app.listen(PORT, () => {
   console.log(`🚀 Decision Report Dashboard running at http://localhost:${PORT}`);
 });
 
+_____________________DAY 47__________________
+
+
+       <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Content Analysis & Optimization Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #080914;
+            color: #e2e8f0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0e1e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27294d;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #3f427b;
+        }
+
+        /* Custom Glassmorphism Card Style */
+        .glass-card {
+            background: rgba(19, 21, 45, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+        }
+
+        .sidebar-active {
+            background: rgba(99, 102, 241, 0.15);
+            border-left: 3px solid #6366f1;
+            color: #ffffff;
+        }
+
+        /* Radial Progress Ring Animations */
+        .radial-progress-score {
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="min-h-screen overflow-x-hidden flex">
+
+    <aside class="w-64 bg-[#0c0d1e] border-r border-gray-800 flex flex-col justify-between shrink-0 hidden lg:flex">
+        <div class="p-6">
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="p-2 bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-xl shadow-lg shadow-indigo-500/30">
+                    <i data-lucide="brain-circuit" class="w-6 h-6 text-white"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-sm text-white tracking-wide leading-tight">Content</h1>
+                    <p class="text-xs text-indigo-400 font-medium">Intelligence Studio</p>
+                </div>
+            </div>
+
+            <nav class="space-y-6">
+                <div>
+                    <a href="#" class="flex items-center space-x-3 px-4 py-2.5 rounded-lg text-sm font-medium sidebar-active transition-all">
+                        <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+
+                <div>
+                    <span class="text-[10px] font-bold text-gray-500 tracking-wider uppercase block mb-3 px-4">Workflow</span>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center justify-between px-4 py-1.5 hover:text-white transition cursor-pointer">
+                            <span class="flex items-center space-x-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+                                <span>Interview & Brief</span>
+                            </span>
+                        </li>
+                        <li class="flex items-center justify-between px-4 py-1.5 hover:text-white transition cursor-pointer">
+                            <span class="flex items-center space-x-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+                                <span>Upload Content</span>
+                            </span>
+                        </li>
+                        <li class="flex items-center justify-between px-4 py-1.5 hover:text-white transition cursor-pointer">
+                            <span class="flex items-center space-x-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+                                <span>AI Review Process</span>
+                            </span>
+                            <span class="bg-indigo-950 text-indigo-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-indigo-800">5</span>
+                        </li>
+                        <li class="flex items-center justify-between px-4 py-1.5 hover:text-white transition cursor-pointer">
+                            <span class="flex items-center space-x-3">
+                                <i data-lucide="file-text" class="w-4 h-4 text-indigo-500"></i>
+                                <span>Results & Report</span>
+                            </span>
+                            <span class="bg-emerald-950 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-900">1</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <span class="text-[10px] font-bold text-gray-500 tracking-wider uppercase block mb-3 px-4">Tools</span>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center space-x-3 px-4 py-1.5 hover:text-white hover:bg-gray-900/40 rounded-lg transition cursor-pointer">
+                            <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            <span>Content Rewriter</span>
+                        </li>
+                        <li class="flex items-center space-x-3 px-4 py-1.5 hover:text-white hover:bg-gray-900/40 rounded-lg transition cursor-pointer">
+                            <i data-lucide="anchor" class="w-4 h-4"></i>
+                            <span>Hook & Title Gen</span>
+                        </li>
+                        <li class="flex items-center space-x-3 px-4 py-1.5 hover:text-white hover:bg-gray-900/40 rounded-lg transition cursor-pointer">
+                            <i data-lucide="list-checks" class="w-4 h-4"></i>
+                            <span>Checklist Builder</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div class="p-4 m-4 rounded-xl bg-gradient-to-b from-[#181a38] to-[#111226] border border-indigo-950/50">
+            <div class="flex items-center space-x-2 text-indigo-400 mb-2">
+                <i data-lucide="lightbulb" class="w-4 h-4"></i>
+                <span class="text-xs font-bold uppercase tracking-wider">Pro Tip</span>
+            </div>
+            <p class="text-xs text-gray-400 mb-3 leading-relaxed">Provide deeper audience context to sharpen optimization recommendations.</p>
+            <button class="w-full bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold py-2 rounded-lg transition-all shadow-lg shadow-indigo-600/10">View Best Practices</button>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-6 md:p-8 max-h-screen overflow-y-auto space-y-6">
+        
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div>
+                <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide flex items-center gap-2">
+                    AI-Powered Content Analysis & Optimization 
+                    <span class="text-xs font-normal text-gray-400 bg-gray-900 px-2.5 py-1 rounded-md border border-gray-800">v2.4</span>
+                </h2>
+                <p class="text-xs md:text-sm text-gray-400">Get data-driven, AI-crafted insights to build content that converts and hooks audiences.</p>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="flex items-center bg-emerald-950/40 text-emerald-400 text-xs font-semibold px-3 py-1.5 rounded-full border border-emerald-900/60">
+                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse mr-2"></span>
+                    Live Mode
+                </div>
+                <button class="bg-[#151731] hover:bg-[#1a1d3d] border border-gray-800 text-gray-200 text-xs font-semibold px-4 py-2 rounded-lg flex items-center gap-2 transition">
+                    <i data-lucide="download" class="w-3.5 h-3.5"></i> Export Report
+                </button>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
+                <div class="space-y-1">
+                    <span class="text-xs text-gray-400 font-medium">Overall Content Score</span>
+                    <div class="flex items-baseline space-x-1">
+                        <span class="text-3xl font-extrabold text-white">78</span>
+                        <span class="text-xs text-gray-500">/100</span>
+                    </div>
+                    <span class="inline-block text-[10px] text-emerald-400 font-semibold bg-emerald-950/40 border border-emerald-900 px-2 py-0.5 rounded">Very Good</span>
+                </div>
+                <div class="relative w-16 h-16">
+                    <svg class="w-full h-full" viewBox="0 0 36 36">
+                        <path class="text-gray-800" stroke-width="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                        <path class="text-emerald-500 radial-progress-score" stroke-dasharray="78, 100" stroke-width="3.2" stroke-linecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center text-xs font-bold text-white">78%</div>
+                </div>
+            </div>
+
+            <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
+                <div class="space-y-1">
+                    <span class="text-xs text-gray-400 font-medium">Predicted Performance</span>
+                    <div class="text-2xl font-extrabold text-emerald-400">High</div>
+                    <span class="text-[11px] text-gray-400 block">Strong reach potential</span>
+                </div>
+                <div class="w-20 h-10">
+                    <svg class="w-full h-full stroke-emerald-500 stroke-2 fill-none" viewBox="0 0 50 20">
+                        <path d="M0 15 Q 10 5, 20 12 T 40 4 T 50 2" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
+                <div class="space-y-1">
+                    <span class="text-xs text-gray-400 font-medium">Top Opportunity</span>
+                    <div class="text-lg font-extrabold text-amber-400">Stronger Hook</div>
+                    <span class="text-[11px] text-gray-400 block">Impact potential: High</span>
+                </div>
+                <div class="w-20 h-10">
+                    <svg class="w-full h-full stroke-amber-500 stroke-2 fill-none" viewBox="0 0 50 20">
+                        <path d="M0 18 Q 12 18, 22 10 T 38 8 T 50 2" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="glass-card p-5 rounded-2xl flex items-center justify-between">
+                <div class="space-y-1">
+                    <span class="text-xs text-gray-400 font-medium">Content Health</span>
+                    <div class="text-2xl font-extrabold text-indigo-400">Good</div>
+                    <span class="text-[11px] text-gray-400 block">Requires minor adjustments</span>
+                </div>
+                <div class="p-3 bg-indigo-950/40 rounded-full border border-indigo-900/60">
+                    <i data-lucide="shield-alert" class="w-6 h-6 text-indigo-400"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            
+            <div class="lg:col-span-3 space-y-6">
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <div class="px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+                        <span class="text-xs font-bold uppercase tracking-wider text-gray-400">Uploaded Content</span>
+                        <span class="text-[10px] text-indigo-400 bg-indigo-950 px-2 py-0.5 rounded font-mono">thumbnail.png</span>
+                    </div>
+                    <div class="p-4 space-y-4">
+                        <div class="relative group rounded-xl overflow-hidden aspect-video bg-indigo-950 flex items-center justify-center border border-indigo-900">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-purple-900 to-indigo-950 flex flex-col justify-end p-3">
+                                <span class="bg-red-600 text-white text-[8px] font-bold px-1.5 py-0.5 rounded uppercase self-start mb-2">AI-Powered Tools</span>
+                                <h4 class="text-white text-xs font-black tracking-tight leading-tight uppercase">5 AI Tools to 10X your productivity</h4>
+                                <div class="flex space-x-1 mt-2 opacity-80">
+                                    <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+                                    <span class="w-3 h-3 rounded bg-blue-500"></span>
+                                    <span class="w-3 h-3 rounded bg-amber-500"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-950/60 p-3 rounded-xl border border-gray-900 space-y-2">
+                            <span class="text-[10px] uppercase font-bold text-gray-500 block">Analyzed Text Draft</span>
+                            <p class="text-xs text-gray-400 leading-relaxed max-h-24 overflow-y-auto">
+                                "In this video, I'm sharing 5 AI tools that have seriously boosted my productivity. These tools save me hours every day and can do the same for you. Watch till the end!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-4 rounded-2xl space-y-3">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Auto-Detected Insights</h3>
+                    <div class="space-y-2 text-xs">
+                        <div class="flex justify-between py-1 border-b border-gray-900/60">
+                            <span class="text-gray-500 font-medium">Type</span>
+                            <span class="text-gray-300 font-semibold">YouTube video + description</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-gray-900/60">
+                            <span class="text-gray-500 font-medium">Language</span>
+                            <span class="text-gray-300 font-semibold">English</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-gray-900/60">
+                            <span class="text-gray-500 font-medium">Primary Tone</span>
+                            <span class="text-gray-300 font-semibold text-indigo-400">Informative, Hype</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-6">
+                <div class="glass-card p-5 rounded-2xl space-y-4">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-sm font-bold text-white">AI Specialist Reviews</h3>
+                            <p class="text-xs text-gray-500">Multi-perspective expert alignment matrix</p>
+                        </div>
+                        <span class="text-xs text-emerald-400 bg-emerald-950/40 px-2 py-0.5 rounded border border-emerald-900 font-medium flex items-center gap-1">
+                            <i data-lucide="check" class="w-3.5 h-3.5"></i> Complete
+                        </span>
+                    </div>
+
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between bg-gray-950/40 p-2.5 rounded-xl border border-gray-900/80">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-indigo-950 border border-indigo-900 flex items-center justify-center">
+                                    <i data-lucide="user-cog" class="w-4 h-4 text-indigo-400"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-white block">Content Strategist</span>
+                                    <span class="text-[10px] text-gray-500">Checks hook logic and flow</span>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-900">92% Match</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-gray-950/40 p-2.5 rounded-xl border border-gray-900/80">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-purple-950 border border-purple-900 flex items-center justify-center">
+                                    <i data-lucide="trending-up" class="w-4 h-4 text-purple-400"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-white block">Growth Hacker</span>
+                                    <span class="text-[10px] text-gray-500">Optimizes for click-through potential</span>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-900">85% Match</span>
+                        </div>
+                        <div class="flex items-center justify-between bg-gray-950/40 p-2.5 rounded-xl border border-gray-900/80">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-lg bg-pink-950 border border-pink-900 flex items-center justify-center">
+                                    <i data-lucide="heart" class="w-4 h-4 text-pink-400"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs font-bold text-white block">Behavioral Psychologist</span>
+                                    <span class="text-[10px] text-gray-500">Evaluates emotional impact triggers</span>
+                                </div>
+                            </div>
+                            <span class="text-[10px] font-bold text-emerald-400 bg-emerald-950/50 px-2 py-0.5 rounded border border-emerald-900">89% Match</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-5 rounded-2xl space-y-4">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400">Core Metric Breakdown</h3>
+                    <div class="space-y-3.5">
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-gray-400">Hook & Visual Impact</span>
+                                <span class="text-emerald-400 font-bold">85/100</span>
+                            </div>
+                            <div class="w-full bg-gray-950 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-gradient-to-r from-emerald-600 to-teal-400 h-1.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-gray-400">Authority & Value Proposition</span>
+                                <span class="text-indigo-400 font-bold">78/100</span>
+                            </div>
+                            <div class="w-full bg-gray-950 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-gradient-to-r from-indigo-600 to-blue-400 h-1.5 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex justify-between text-xs">
+                                <span class="text-gray-400">SEO & Metadata Alignment</span>
+                                <span class="text-amber-400 font-bold">65/100</span>
+                            </div>
+                            <div class="w-full bg-gray-950 rounded-full h-1.5 overflow-hidden">
+                                <div class="bg-gradient-to-r from-amber-600 to-yellow-400 h-1.5 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-4 space-y-6">
+                <div class="glass-card p-5 rounded-2xl space-y-4">
+                    <h3 class="text-sm font-bold text-white">Top Recommendations</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3 p-2 bg-rose-950/20 border border-rose-950/60 rounded-xl">
+                            <div class="mt-0.5 bg-rose-500/20 text-rose-400 p-1 rounded">
+                                <i data-lucide="alert-triangle" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1">
+                                <span class="text-xs font-semibold text-rose-200 block">Deliver Hook within 3 seconds</span>
+                                <p class="text-[10px] text-gray-400">Immediate benefit statement is missing from early seconds.</p>
+                            </div>
+                            <span class="text-[9px] font-bold text-rose-400 bg-rose-950 px-1.5 py-0.5 rounded uppercase self-center">High</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-2 bg-amber-950/20 border border-amber-950/60 rounded-xl">
+                            <div class="mt-0.5 bg-amber-500/20 text-amber-400 p-1 rounded">
+                                <i data-lucide="help-circle" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1">
+                                <span class="text-xs font-semibold text-amber-200 block">Add Curiosity Gap to title</span>
+                                <p class="text-[10px] text-gray-400">Title states output directly, lower psychological suspense.</p>
+                            </div>
+                            <span class="text-[9px] font-bold text-amber-400 bg-amber-950 px-1.5 py-0.5 rounded uppercase self-center">Med</span>
+                        </li>
+                        <li class="flex items-start space-x-3 p-2 bg-indigo-950/20 border border-indigo-950/60 rounded-xl">
+                            <div class="mt-0.5 bg-indigo-500/20 text-indigo-400 p-1 rounded">
+                                <i data-lucide="sparkles" class="w-4 h-4"></i>
+                            </div>
+                            <div class="flex-1">
+                                <span class="text-xs font-semibold text-indigo-200 block">Inject bolder color contrasts</span>
+                                <p class="text-[10px] text-gray-400">Incorporate high-contrasting yellows/reds into thumbnail text.</p>
+                            </div>
+                            <span class="text-[9px] font-bold text-indigo-400 bg-indigo-950 px-1.5 py-0.5 rounded uppercase self-center">Low</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card rounded-2xl overflow-hidden">
+                    <div class="bg-gray-950/80 border-b border-gray-900 flex text-xs font-semibold text-gray-400">
+                        <button onclick="switchTab('strengths')" id="tab-strengths" class="flex-1 py-3 text-white border-b-2 border-indigo-500 font-bold transition">Strengths</button>
+                        <button onclick="switchTab('weaknesses')" id="tab-weaknesses" class="flex-1 py-3 border-b-2 border-transparent hover:text-white transition">Gaps & Flags</button>
+                    </div>
+                    <div class="p-4" id="swot-content">
+                        <ul class="space-y-2.5 text-xs text-gray-300">
+                            <li class="flex items-center space-x-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                                <span>Eye-catching thumbnail visual hierarchy</span>
+                            </li>
+                            <li class="flex items-center space-x-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                                <span>High-demand primary search keywords included</span>
+                            </li>
+                            <li class="flex items-center space-x-2.5">
+                                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                                <span>Action-inducing and high-energy tone structure</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // simple dynamic UI Tab Switcher
+        function switchTab(tab) {
+            const strengthsBtn = document.getElementById('tab-strengths');
+            const weaknessesBtn = document.getElementById('tab-weaknesses');
+            const contentBox = document.getElementById('swot-content');
+
+            if (tab === 'strengths') {
+                strengthsBtn.classList.add('text-white', 'border-indigo-500');
+                strengthsBtn.classList.remove('border-transparent');
+                weaknessesBtn.classList.remove('text-white', 'border-indigo-500');
+                weaknessesBtn.classList.add('border-transparent');
+                
+                contentBox.innerHTML = `
+                    <ul class="space-y-2.5 text-xs text-gray-300">
+                        <li class="flex items-center space-x-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Eye-catching thumbnail visual hierarchy</span>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            <span>High-demand primary search keywords included</span>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                            <span>Action-inducing and high-energy tone structure</span>
+                        </li>
+                    </ul>
+                `;
+            } else {
+                weaknessesBtn.classList.add('text-white', 'border-indigo-500');
+                weaknessesBtn.classList.remove('border-transparent');
+                strengthsBtn.classList.remove('text-white', 'border-indigo-500');
+                strengthsBtn.classList.add('border-transparent');
+
+                contentBox.innerHTML = `
+                    <ul class="space-y-2.5 text-xs text-gray-300">
+                        <li class="flex items-center space-x-2.5">
+                            <i data-lucide="x" class="w-4 h-4 text-rose-400"></i>
+                            <span>First 5 seconds lacks strong focus visual focus</span>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i data-lucide="x" class="w-4 h-4 text-rose-400"></i>
+                            <span>Description lacks dynamic keyword spacing</span>
+                        </li>
+                        <li class="flex items-center space-x-2.5">
+                            <i data-lucide="x" class="w-4 h-4 text-rose-400"></i>
+                            <span>No explicit trust elements or social proof</span>
+                        </li>
+                    </ul>
+                `;
+            }
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html> 
 
         
         
