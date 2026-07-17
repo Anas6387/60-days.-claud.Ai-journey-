@@ -16764,6 +16764,302 @@ _____________________DAY 47__________________
 </body>
 </html> 
 
+__________________DAY48_______________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compare & Decide Builder</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#071226;
+    color:white;
+    padding:25px;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:40px;
+}
+
+.subtitle{
+    color:#c4c4c4;
+}
+
+.actions button{
+    background:#111d38;
+    color:white;
+    border:1px solid #3f4b6a;
+    padding:10px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-left:10px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+}
+
+.card{
+    background:linear-gradient(180deg,#121a39,#0d1330);
+    border:1px solid #2b3558;
+    border-radius:20px;
+    padding:20px;
+}
+
+.tools{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.tool{
+    background:#1a2348;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.tool h3{
+    margin-bottom:10px;
+}
+
+table{
+    width:100%;
+    margin-top:20px;
+    border-collapse:collapse;
+}
+
+th,td{
+    padding:15px;
+    border-bottom:1px solid #2c3659;
+    text-align:center;
+}
+
+.score{
+    background:#12351e;
+    color:#7fff8b;
+    padding:6px 14px;
+    border-radius:20px;
+    display:inline-block;
+}
+
+.result{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:20px;
+}
+
+.result-box{
+    background:#101d37;
+    border:1px solid #33446e;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+}
+
+.result-box h2{
+    color:#7CFF8F;
+}
+
+.sources li{
+    margin-bottom:10px;
+    color:#d7d7d7;
+}
+
+.research{
+    margin-top:20px;
+    line-height:1.8;
+    color:#d5d5d5;
+}
+
+@media(max-width:900px){
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .tools{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .result{
+        grid-template-columns:1fr 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+    <div>
+        <h1>⚖ Compare & Decide Builder</h1>
+        <p class="subtitle">Research. Compare. Decide with Confidence.</p>
+    </div>
+
+    <div class="actions">
+        <button>Share</button>
+        <button>Export</button>
+        <button>Reset</button>
+    </div>
+</header>
+
+<div class="grid">
+
+    <div>
+
+        <div class="card">
+            <h2>AI Tools For Business & Productivity</h2>
+
+            <div class="tools">
+                <div class="tool">
+                    <h3>ChatGPT</h3>
+                    <p>Writing, coding, analysis.</p>
+                </div>
+
+                <div class="tool">
+                    <h3>Claude</h3>
+                    <p>Long-form reasoning.</p>
+                </div>
+
+                <div class="tool">
+                    <h3>Gemini</h3>
+                    <p>Google ecosystem.</p>
+                </div>
+
+                <div class="tool">
+                    <h3>Perplexity</h3>
+                    <p>Research & citations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <table>
+                <tr>
+                    <th>Criteria</th>
+                    <th>ChatGPT</th>
+                    <th>Claude</th>
+                    <th>Gemini</th>
+                    <th>Perplexity</th>
+                </tr>
+
+                <tr>
+                    <td>Cost</td>
+                    <td><span class="score">8.0</span></td>
+                    <td><span class="score">7.5</span></td>
+                    <td><span class="score">9.0</span></td>
+                    <td><span class="score">7.0</span></td>
+                </tr>
+
+                <tr>
+                    <td>Accuracy</td>
+                    <td><span class="score">8.5</span></td>
+                    <td><span class="score">9.0</span></td>
+                    <td><span class="score">8.0</span></td>
+                    <td><span class="score">9.0</span></td>
+                </tr>
+
+                <tr>
+                    <td>Features</td>
+                    <td><span class="score">9.0</span></td>
+                    <td><span class="score">8.5</span></td>
+                    <td><span class="score">8.5</span></td>
+                    <td><span class="score">7.5</span></td>
+                </tr>
+            </table>
+
+            <div class="result">
+                <div class="result-box">
+                    <h2>8.48</h2>
+                    <p>ChatGPT</p>
+                </div>
+
+                <div class="result-box">
+                    <h2>8.40</h2>
+                    <p>Claude</p>
+                </div>
+
+                <div class="result-box">
+                    <h2>8.45</h2>
+                    <p>Gemini</p>
+                </div>
+
+                <div class="result-box">
+                    <h2>7.78</h2>
+                    <p>Perplexity</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+
+        <div class="card">
+            <h2>Sources</h2>
+
+            <ul class="sources">
+                <li>OpenAI Pricing Page</li>
+                <li>Anthropic Claude Docs</li>
+                <li>Google Gemini Overview</li>
+                <li>Perplexity AI Pricing</li>
+                <li>Official Product Documentation</li>
+            </ul>
+        </div>
+
+        <div class="card research">
+            <h2>How this was researched</h2>
+            <p>
+                Data was collected from official pricing pages,
+                product documentation, model cards, and publicly
+                available technical benchmarks.
+            </p>
+
+            <br>
+
+            <p>
+                If multiple sources conflicted, the latest
+                official documentation was prioritized.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+
         
         
                      
