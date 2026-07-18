@@ -17059,7 +17059,484 @@ th,td{
 
 </body>
 </html>
+_______________DAY 49_________________________
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Personal AI Playbook</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,sans-serif;
+}
+
+:root{
+    --bg:#060816;
+    --card:#10152d;
+    --border:rgba(255,255,255,.08);
+    --text:#ffffff;
+    --muted:#a5acc8;
+    --primary:#7c5cff;
+    --secondary:#27d3ff;
+}
+
+body{
+    background:
+    radial-gradient(circle at top,#25195e 0%,#060816 60%);
+    color:var(--text);
+}
+
+.app{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    min-height:100vh;
+}
+
+.sidebar{
+    background:rgba(16,21,45,.7);
+    backdrop-filter:blur(20px);
+    border-right:1px solid var(--border);
+    padding:24px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:800;
+    margin-bottom:40px;
+}
+
+.logo span{
+    color:var(--primary);
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.menu button{
+    background:transparent;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:14px;
+    text-align:left;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.menu button:hover{
+    background:rgba(124,92,255,.15);
+}
+
+.main{
+    padding:30px;
+}
+
+.hero{
+    background:
+    linear-gradient(
+        135deg,
+        #5b4cff,
+        #8d5cff,
+        #27d3ff
+    );
+
+    border-radius:30px;
+    padding:50px;
+    margin-bottom:25px;
+
+    box-shadow:
+    0 20px 60px rgba(0,0,0,.4);
+}
+
+.hero h1{
+    font-size:70px;
+    font-weight:800;
+}
+
+.hero p{
+    margin-top:15px;
+    color:#e9e9ff;
+    font-size:20px;
+}
+
+.tags{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+    flex-wrap:wrap;
+}
+
+.tag{
+    padding:12px 20px;
+    border-radius:999px;
+    background:rgba(255,255,255,.15);
+    backdrop-filter:blur(10px);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:20px;
+    margin-bottom:20px;
+}
+
+.card{
+    background:rgba(16,21,45,.75);
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    border-radius:24px;
+    padding:25px;
+
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+}
+
+.card h2{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.workflow-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:20px;
+    margin-top:20px;
+}
+
+.workflow{
+    background:#0f1430;
+    border:1px solid var(--border);
+    padding:20px;
+    border-radius:20px;
+}
+
+.workflow h3{
+    margin-bottom:10px;
+}
+
+.workflow p{
+    color:var(--muted);
+    margin-bottom:15px;
+}
+
+.badges{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.badges span{
+    background:rgba(124,92,255,.15);
+    color:#cfc7ff;
+    padding:8px 12px;
+    border-radius:999px;
+    font-size:12px;
+}
+
+.builders{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:20px;
+}
+
+.block{
+    background:#0f1430;
+    border-radius:18px;
+    padding:16px;
+    margin-top:12px;
+}
+
+.block h4{
+    margin-bottom:6px;
+}
+
+.block p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+.footer{
+    margin-top:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.shortcut{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+kbd{
+    background:#1d244d;
+    padding:8px 12px;
+    border-radius:8px;
+}
+
+.help{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    border:none;
+    color:white;
+    padding:15px 22px;
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+@media(max-width:1000px){
+
+    .app{
+        grid-template-columns:1fr;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    .grid,
+    .builders{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            Personal AI <span>Playbook</span>
+        </div>
+
+        <div class="menu">
+            <button>Dashboard</button>
+            <button>Prompt Builder</button>
+            <button>Loop Builder</button>
+            <button>My Workflows</button>
+            <button>Favorites</button>
+            <button>Categories</button>
+            <button>Templates</button>
+            <button>Variables</button>
+            <button>Insights</button>
+            <button>Settings</button>
+        </div>
+
+    </aside>
+
+    <main class="main">
+
+        <section class="hero">
+            <h1>Personal AI Playbook</h1>
+            <p>
+                Build, customize, and run AI workflows
+                that work exactly like you do.
+            </p>
+
+            <div class="tags">
+                <div class="tag">Build Better Prompts</div>
+                <div class="tag">Create Smart Loops</div>
+                <div class="tag">Save & Reuse</div>
+                <div class="tag">Work Faster</div>
+            </div>
+        </section>
+
+        <div class="grid">
+
+            <div class="card">
+                <h2>🚀 What is this?</h2>
+
+                <p>
+                    Personal AI Playbook helps you create
+                    reusable AI systems instead of one-off prompts.
+                    Build workflows, create autonomous loops, save
+                    templates, and organize everything in one place.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>At a Glance</h2>
+
+                <p>Workflows: 24</p>
+                <p>Favorites: 8</p>
+                <p>Hours Saved: 37.5</p>
+                <p>Runs This Week: 18</p>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Your Workflow Library</h2>
+            <p>Your saved AI workflows, at a glance.</p>
+
+            <div class="workflow-grid">
+
+                <div class="workflow">
+                    <h3>Blog Post Creator</h3>
+                    <p>Idea → SEO article workflow.</p>
+
+                    <div class="badges">
+                        <span>Content</span>
+                        <span>SEO</span>
+                    </div>
+                </div>
+
+                <div class="workflow">
+                    <h3>Research Summarizer</h3>
+                    <p>Summarize articles and reports.</p>
+
+                    <div class="badges">
+                        <span>Research</span>
+                        <span>Summary</span>
+                    </div>
+                </div>
+
+                <div class="workflow">
+                    <h3>Email Responder</h3>
+                    <p>Professional email generation.</p>
+
+                    <div class="badges">
+                        <span>Productivity</span>
+                    </div>
+                </div>
+
+                <div class="workflow">
+                    <h3>Study Assistant</h3>
+                    <p>Learn faster with AI workflows.</p>
+
+                    <div class="badges">
+                        <span>Learning</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="builders">
+
+            <div class="card">
+                <h2>Prompt Builder</h2>
+                <p>
+                    Build high-quality prompts with
+                    reusable building blocks.
+                </p>
+
+                <div class="block">
+                    <h4>Role</h4>
+                    <p>Defines the AI's expertise.</p>
+                </div>
+
+                <div class="block">
+                    <h4>Objective</h4>
+                    <p>What should the AI accomplish?</p>
+                </div>
+
+                <div class="block">
+                    <h4>Context</h4>
+                    <p>Provides background information.</p>
+                </div>
+
+                <div class="block">
+                    <h4>Constraints</h4>
+                    <p>Rules and limitations.</p>
+                </div>
+
+            </div>
+
+            <div class="card">
+                <h2>Loop Builder</h2>
+                <p>
+                    Turn prompts into autonomous
+                    self-improving loops.
+                </p>
+
+                <div class="block">
+                    <h4>Goal</h4>
+                    <p>Define the final outcome.</p>
+                </div>
+
+                <div class="block">
+                    <h4>Evaluation Criteria</h4>
+                    <p>Determine what success looks like.</p>
+                </div>
+
+                <div class="block">
+                    <h4>Improvement Strategy</h4>
+                    <p>Specify how the AI should improve.</p>
+                </div>
+
+                <div class="block">
+                    <h4>Stop Conditions</h4>
+                    <p>Define when the loop ends.</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="footer">
+
+            <div class="shortcut">
+                <kbd>N</kbd>
+                <kbd>L</kbd>
+                <kbd>/</kbd>
+                <kbd>Ctrl + S</kbd>
+                <kbd>Esc</kbd>
+            </div>
+
+            <p>Dark Mode Enabled</p>
+
+        </div>
+
+    </main>
+
+</div>
+
+<button class="help">
+    What is this?
+</button>
+
+</body>
+</html>
         
         
                      
