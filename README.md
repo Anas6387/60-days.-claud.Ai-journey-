@@ -17538,5 +17538,392 @@ kbd{
 </body>
 </html>
         
+______________DAY50____________________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Defend Your Experience</title>
+<style>
+:root{
+  --bg:#070b14;
+  --card:#111827;
+  --accent:#8b5cf6;
+  --accent2:#38bdf8;
+  --text:#f8fafc;
+  --muted:#94a3b8;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,Arial,sans-serif;
+  background:linear-gradient(135deg,#020617,#0f172a);
+  color:var(--text);
+}
+header{
+  padding:30px;
+  text-align:center;
+}
+h1{
+  margin:0;
+  font-size:48px;
+}
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+.card{
+  background:rgba(17,24,39,.9);
+  border:1px solid #334155;
+  border-radius:18px;
+  padding:20px;
+  backdrop-filter:blur(10px);
+}
+input,textarea,select{
+  width:100%;
+  padding:12px;
+  margin-top:8px;
+  margin-bottom:12px;
+  border-radius:10px;
+  border:1px solid #334155;
+  background:#0b1220;
+  color:white;
+}
+button{
+  border:none;
+  border-radius:10px;
+  padding:12px 18px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  color:white;
+  cursor:pointer;
+}
+#drop{
+  border:2px dashed #475569;
+  border-radius:14px;
+  padding:35px;
+  text-align:center;
+  color:var(--muted);
+}
+#chat{
+  height:350px;
+  overflow:auto;
+  border:1px solid #334155;
+  border-radius:12px;
+  padding:10px;
+}
+.msg{
+  margin:10px 0;
+  padding:12px;
+  border-radius:12px;
+}
+.ai{background:#1e293b;}
+.user{background:#0c4a6e;}
+.progress{
+  height:14px;
+  background:#1e293b;
+  border-radius:999px;
+  overflow:hidden;
+}
+.bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#22c55e,#38bdf8);
+}
+ul{
+  padding-left:18px;
+}
+@media(max-width:800px){
+  .grid{grid-template-columns:1fr;}
+  h1{font-size:34px;}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Defend Your Experience</h1>
+  <p>
+    Upload your resume, LinkedIn profile, portfolio, startup story,
+    performance review, or project details. Every claim becomes something
+    you must defend.
+  </p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <div class="card">
+      <h2>Interview Setup</h2>
+
+      <label>Why are you preparing?</label>
+      <select id="purpose">
+        <option>Job Interview</option>
+        <option>Promotion</option>
+        <option>Scholarship</option>
+        <option>Startup Pitch</option>
+        <option>Freelance Client Call</option>
+      </select>
+
+      <label>Audience</label>
+      <select id="audience">
+        <option>Recruiter</option>
+        <option>Hiring Manager</option>
+        <option>CTO</option>
+        <option>Founder</option>
+        <option>Professor</option>
+      </select>
+
+      <label>Visual Style</label>
+      <select id="style">
+        <option>Modern Dark</option>
+        <option>Glassmorphism</option>
+        <option>Corporate</option>
+        <option>Minimal</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <h2>Upload Experience</h2>
+
+      <div id="drop">
+        Drag & Drop Resume / Portfolio Here
+      </div>
+
+      <textarea
+        id="claims"
+        rows="8"
+        placeholder="Paste your resume, bio, portfolio, project description, startup story, etc.">
+      </textarea>
+
+      <button onclick="extractClaims()">
+        Extract Claims
+      </button>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:20px;">
+
+    <div class="card">
+      <h2>Adaptive Interview</h2>
+
+      <div id="chat"></div>
+
+      <input
+        id="answer"
+        placeholder="Type your answer..."
+      />
+
+      <button onclick="submitAnswer()">
+        Submit Answer
+      </button>
+    </div>
+
+    <div class="card">
+      <h2>Defense Dashboard</h2>
+
+      <div class="progress">
+        <div class="bar" id="bar"></div>
+      </div>
+
+      <p id="stats">0 claims defended</p>
+
+      <h3>Confidence</h3>
+      <ul id="confidence"></ul>
+
+      <h3>Defense Report</h3>
+
+      <div id="report">
+        No report generated.
+      </div>
+
+      <br>
+
+      <button onclick="exportReport()">
+        Export Report
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+let claims = [];
+let current = 0;
+
+function addMessage(type, text){
+  const div = document.createElement("div");
+  div.className = "msg " + type;
+  div.innerText = text;
+
+  const chat = document.getElementById("chat");
+
+  chat.appendChild(div);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+function extractClaims(){
+
+  const text = document
+    .getElementById("claims")
+    .value
+    .trim();
+
+  claims = text
+    .split(/\n|\./)
+    .map(x => x.trim())
+    .filter(x => x.length > 15);
+
+  current = 0;
+
+  localStorage.setItem(
+    "claims",
+    JSON.stringify(claims)
+  );
+
+  askQuestion();
+}
+
+async function askQuestion(){
+
+  if(current >= claims.length){
+    finish();
+    return;
+  }
+
+  const claim = claims[current];
+
+  // Anthropic Messages API placeholder.
+  // In Anthropic HTML artifact environments,
+  // authentication is automatically handled.
+
+  const fallback =
+    `You claimed:\n"${claim}"\n\n` +
+    `Walk me through exactly how you accomplished this. ` +
+    `What metrics, challenges, trade-offs, and measurable impact can you provide?`;
+
+  addMessage("ai", fallback);
+}
+
+function submitAnswer(){
+
+  const input = document.getElementById("answer");
+
+  if(!input.value.trim()) return;
+
+  addMessage("user", input.value);
+
+  const score = Math.min(
+    100,
+    Math.max(
+      20,
+      Math.floor(input.value.length / 2)
+    )
+  );
+
+  const li = document.createElement("li");
+
+  li.innerText =
+    `Claim ${current + 1}: ${score}% confidence`;
+
+  document
+    .getElementById("confidence")
+    .appendChild(li);
+
+  current++;
+
+  document
+    .getElementById("stats")
+    .innerText =
+      `${current} claims defended`;
+
+  document
+    .getElementById("bar")
+    .style.width =
+      (current / claims.length) * 100 + "%";
+
+  input.value = "";
+
+  saveSession();
+
+  askQuestion();
+}
+
+function finish(){
+
+  document.getElementById(
+    "report"
+  ).innerHTML = `
+    <b>Strong Areas</b>
+    <ul>
+      <li>Claims supported with metrics.</li>
+      <li>Good STAR storytelling.</li>
+      <li>Strong technical explanations.</li>
+    </ul>
+
+    <b>Needs Improvement</b>
+    <ul>
+      <li>Vague accomplishments.</li>
+      <li>Missing numbers and impact.</li>
+      <li>Weak evidence.</li>
+    </ul>
+
+    <b>Recommendation</b>
+    <p>
+      Prepare one STAR story and one
+      measurable outcome for every claim
+      on your resume.
+    </p>
+  `;
+}
+
+function exportReport(){
+
+  const text =
+    document.getElementById(
+      "report"
+    ).innerText;
+
+  const blob = new Blob(
+    [text],
+    {type:"text/plain"}
+  );
+
+  const a = document.createElement("a");
+
+  a.href = URL.createObjectURL(blob);
+  a.download = "DefenseReport.txt";
+
+  a.click();
+}
+
+function saveSession(){
+
+  let history =
+    JSON.parse(
+      localStorage.getItem("history")
+      || "[]"
+    );
+
+  history.push({
+    date:new Date().toLocaleString(),
+    completed:current
+  });
+
+  localStorage.setItem(
+    "history",
+    JSON.stringify(history)
+  );
+}
+</script>
+
+</body>
+</html>
         
                      
