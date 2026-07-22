@@ -17925,8 +17925,327 @@ function saveSession(){
 
 </body>
 </html>
+_________________________DAY51_________________
 
-____________________DAY51_____________________
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriScope - System Design Blueprint</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body{
+      background:#08121f;
+      color:white;
+      font-family:Arial, sans-serif;
+    }
+
+    .card{
+      background:white;
+      color:black;
+      border-radius:15px;
+      border:3px solid #15803d;
+      overflow:hidden;
+    }
+
+    .title{
+      background:#166534;
+      color:white;
+      padding:12px;
+      font-weight:bold;
+      font-size:22px;
+    }
+
+    .section{
+      padding:20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="max-w-[1800px] mx-auto p-5">
+
+    <!-- Header -->
+    <div class="bg-black rounded-xl p-8 flex justify-between items-center">
+
+        <div>
+            <h1 class="text-6xl font-bold">
+                Nutri<span class="text-green-500">Scope</span>
+            </h1>
+
+            <p class="text-2xl">
+                AI Powered Nutrition Analyzer
+            </p>
+        </div>
+
+        <div class="text-center">
+            <h1 class="text-7xl font-bold">
+                DAY 2
+            </h1>
+
+            <p class="text-3xl">
+                SYSTEM DESIGN BLUEPRINT
+            </p>
+        </div>
+
+        <div class="border border-green-500 p-5 rounded-xl">
+            <h3 class="text-3xl font-bold">
+                Goal
+            </h3>
+            <p>Build & Launch</p>
+            <p>v1.0 in 10 Days</p>
+        </div>
+
+    </div>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-3 gap-5 mt-5">
+
+        <!-- Project -->
+        <div class="card">
+            <div class="title">
+                1. PROJECT OVERVIEW
+            </div>
+
+            <div class="section">
+                <p>
+                    NutriScope analyzes food images and provides
+                    calories, nutrition, health insights, and
+                    personalized recommendations.
+                </p>
+
+                <ul class="mt-5 space-y-3">
+                    <li>✓ AI Food Recognition</li>
+                    <li>✓ Nutrition Analysis</li>
+                    <li>✓ Health Goals</li>
+                    <li>✓ Water Tracker</li>
+                    <li>✓ Dashboard</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Architecture -->
+        <div class="card">
+
+            <div class="title">
+                2. SYSTEM ARCHITECTURE
+            </div>
+
+            <div class="section">
+
+<pre>
+User
+  ↓
+Frontend
+(React)
+
+  ↓
+
+Backend
+(Node.js)
+
+ ↓      ↓
+
+Gemini  MongoDB
+
+      ↓
+
+ Response
+</pre>
+
+            </div>
+        </div>
+
+        <!-- Data Flow -->
+        <div class="card">
+
+            <div class="title">
+                3. DATA FLOW
+            </div>
+
+            <div class="section">
+
+                <ol class="list-decimal ml-5">
+                    <li>Upload Image</li>
+                    <li>Send to Backend</li>
+                    <li>Analyze with Gemini</li>
+                    <li>Store in MongoDB</li>
+                    <li>Display Results</li>
+                </ol>
+
+            </div>
+
+        </div>
+
+        <!-- Database -->
+        <div class="card">
+
+            <div class="title">
+                4. DATABASE DESIGN
+            </div>
+
+            <div class="section">
+
+<pre>
+Users
+------
+id
+name
+email
+
+Meals
+------
+userId
+image
+type
+
+Nutrition
+---------
+calories
+protein
+fat
+carbs
+</pre>
+
+            </div>
+
+        </div>
+
+        <!-- API -->
+        <div class="card">
+
+            <div class="title">
+                5. API DESIGN
+            </div>
+
+            <div class="section">
+
+                <ul>
+                    <li>POST /login</li>
+                    <li>POST /register</li>
+                    <li>POST /analyze</li>
+                    <li>GET /history</li>
+                    <li>DELETE /meal/:id</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- UI -->
+        <div class="card">
+
+            <div class="title">
+                6. UI FLOW
+            </div>
+
+            <div class="section">
+
+                <p>
+                    Welcome →
+                    Login →
+                    Dashboard →
+                    Upload →
+                    Results →
+                    Profile
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Structure -->
+        <div class="card">
+
+            <div class="title">
+                7. PROJECT STRUCTURE
+            </div>
+
+            <div class="section">
+
+<pre>
+client/
+server/
+docs/
+
+components/
+pages/
+routes/
+models/
+</pre>
+
+            </div>
+
+        </div>
+
+        <!-- Readiness -->
+        <div class="card">
+
+            <div class="title">
+                8. DAY 3 READY
+            </div>
+
+            <div class="section">
+
+                <ul>
+                    <li>✓ Architecture Complete</li>
+                    <li>✓ API Defined</li>
+                    <li>✓ Schema Complete</li>
+                    <li>✓ UI Planned</li>
+                    <li>✓ Ready to Build</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+        <!-- Deliverables -->
+        <div class="card">
+
+            <div class="title">
+                9. DELIVERABLES
+            </div>
+
+            <div class="section">
+
+                <ul>
+                    <li>ARCHITECTURE.md</li>
+                    <li>SCHEMA.md</li>
+                    <li>API.md</li>
+                    <li>UI-WIREFRAMES.md</li>
+                    <li>PROJECT-STRUCTURE.md</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="bg-black rounded-xl mt-5 p-10 text-center">
+
+        <h1 class="text-5xl font-bold">
+            Day 3 Here We Come! 🚀
+        </h1>
+
+        <p class="mt-5 text-2xl text-gray-400">
+            Tomorrow: Begin Project Setup & Implementation
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+
+
+
+____________________DAY52_____________________
 
 <!DOCTYPE html>
 <html lang="en">
