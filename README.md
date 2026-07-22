@@ -17925,5 +17925,295 @@ function saveSession(){
 
 </body>
 </html>
+
+____________________DAY51_____________________
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriScope - Day 2 System Design</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        body {
+            background: #0f172a;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .glass {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .card:hover{
+            transform: translateY(-5px);
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <section class="text-center py-16 px-5">
+        <h1 class="text-6xl font-bold">
+            NutriScope
+        </h1>
+
+        <p class="text-xl text-gray-300 mt-4">
+            AI Powered Nutrition Analyzer
+        </p>
+
+        <div class="mt-8">
+            <span class="bg-green-600 px-4 py-2 rounded-full">
+                Day 2 - System Design Complete
+            </span>
+        </div>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="max-w-7xl mx-auto p-6">
+        <h2 class="text-4xl font-bold mb-8">
+            Final Tech Stack
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+            <div class="glass card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold">Frontend</h3>
+                <p class="mt-2">React + Tailwind CSS</p>
+            </div>
+
+            <div class="glass card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold">Backend</h3>
+                <p class="mt-2">Node.js + Express</p>
+            </div>
+
+            <div class="glass card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold">Database</h3>
+                <p class="mt-2">MongoDB Atlas</p>
+            </div>
+
+            <div class="glass card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold">Authentication</h3>
+                <p class="mt-2">JWT + Google OAuth</p>
+            </div>
+
+            <div class="glass card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold">AI Model</h3>
+                <p class="mt-2">Google Gemini API</p>
+            </div>
+
+            <div class="glass card p-6 rounded-xl">
+                <h3 class="text-2xl font-bold">Hosting</h3>
+                <p class="mt-2">Vercel + Render</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section class="max-w-7xl mx-auto p-6 mt-10">
+        <h2 class="text-4xl font-bold mb-8">
+            System Architecture
+        </h2>
+
+        <div class="glass rounded-xl p-8 overflow-auto">
+
+<pre>
+User
+ |
+ v
+React Frontend
+ |
+ v
+REST API (Express)
+ |
+ +----> Authentication Service
+ |
+ +----> Google Gemini API
+ |
+ +----> MongoDB Atlas
+ |
+ v
+Response to User
+</pre>
+
+        </div>
+    </section>
+
+    <!-- API -->
+    <section class="max-w-7xl mx-auto p-6 mt-10">
+
+        <h2 class="text-4xl font-bold mb-8">
+            API Endpoints
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+            <div class="glass p-5 rounded-xl">
+                <h3 class="font-bold">POST /auth/login</h3>
+                <p>User Authentication</p>
+            </div>
+
+            <div class="glass p-5 rounded-xl">
+                <h3 class="font-bold">POST /auth/register</h3>
+                <p>Create Account</p>
+            </div>
+
+            <div class="glass p-5 rounded-xl">
+                <h3 class="font-bold">POST /analyze</h3>
+                <p>Analyze Food Image</p>
+            </div>
+
+            <div class="glass p-5 rounded-xl">
+                <h3 class="font-bold">GET /history</h3>
+                <p>Fetch Previous Reports</p>
+            </div>
+
+            <div class="glass p-5 rounded-xl">
+                <h3 class="font-bold">DELETE /history/:id</h3>
+                <p>Delete Analysis</p>
+            </div>
+
+            <div class="glass p-5 rounded-xl">
+                <h3 class="font-bold">GET /profile</h3>
+                <p>User Details</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Database -->
+    <section class="max-w-7xl mx-auto p-6 mt-10">
+
+        <h2 class="text-4xl font-bold mb-8">
+            Database Schema
+        </h2>
+
+        <div class="glass rounded-xl p-6">
+
+<pre>
+Users
+------
+_id
+name
+email
+password
+createdAt
+
+Reports
+-------
+_id
+userId
+foodName
+calories
+protein
+carbs
+fat
+imageUrl
+createdAt
+</pre>
+
+        </div>
+
+    </section>
+
+    <!-- Folder Structure -->
+    <section class="max-w-7xl mx-auto p-6 mt-10">
+
+        <h2 class="text-4xl font-bold mb-8">
+            Project Structure
+        </h2>
+
+<div class="glass p-6 rounded-xl">
+
+<pre>
+NutriScope/
+│
+├── client/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   └── utils/
+│
+├── server/
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   └── config/
+│
+├── docs/
+│   ├── ARCHITECTURE.md
+│   ├── API.md
+│   ├── SCHEMA.md
+│   └── UI-WIREFRAMES.md
+│
+└── README.md
+</pre>
+
+</div>
+
+    </section>
+
+    <!-- Deliverables -->
+    <section class="max-w-7xl mx-auto p-6 mt-10">
+
+        <h2 class="text-4xl font-bold mb-8">
+            Deliverables
+        </h2>
+
+        <div class="grid md:grid-cols-5 gap-4">
+
+            <div class="glass p-4 rounded-xl text-center">
+                ARCHITECTURE.md
+            </div>
+
+            <div class="glass p-4 rounded-xl text-center">
+                API.md
+            </div>
+
+            <div class="glass p-4 rounded-xl text-center">
+                SCHEMA.md
+            </div>
+
+            <div class="glass p-4 rounded-xl text-center">
+                UI-WIREFRAMES.md
+            </div>
+
+            <div class="glass p-4 rounded-xl text-center">
+                PROJECT-STRUCTURE.md
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-16 mt-10">
+        <h2 class="text-3xl font-bold">
+            Day 3 Ready 🚀
+        </h2>
+
+        <p class="text-gray-400 mt-3">
+            Tomorrow: Begin Implementation Immediately
+        </p>
+
+        <div class="mt-8">
+            <span class="bg-blue-600 px-5 py-3 rounded-full">
+                Build in Public • NutriScope
+            </span>
+        </div>
+    </footer>
+
+</body>
+</html>
+
         
                      
