@@ -18533,6 +18533,256 @@ NutriScope/
 
 </body>
 </html>
+___________________DAY53______________________
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 3 - Project Setup & Foundation</title>
+
+<style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial,sans-serif;
+    }
+
+    body{
+        background:linear-gradient(135deg,#081229,#0F172A,#1E3A8A);
+        color:#fff;
+        min-height:100vh;
+        padding:40px;
+    }
+
+    h1{
+        text-align:center;
+        margin-bottom:10px;
+        font-size:3rem;
+    }
+
+    .subtitle{
+        text-align:center;
+        color:#cbd5e1;
+        margin-bottom:20px;
+    }
+
+    .status{
+        display:block;
+        width:150px;
+        margin:0 auto 40px;
+        text-align:center;
+        padding:10px;
+        border-radius:25px;
+        background:#22c55e;
+        font-weight:bold;
+    }
+
+    .container{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+        gap:20px;
+    }
+
+    .card{
+        background:rgba(255,255,255,0.08);
+        border:1px solid rgba(255,255,255,0.15);
+        backdrop-filter:blur(10px);
+        border-radius:15px;
+        padding:20px;
+        transition:0.3s;
+    }
+
+    .card:hover{
+        transform:translateY(-8px);
+        box-shadow:0 10px 25px rgba(0,0,0,.3);
+    }
+
+    h2{
+        margin-bottom:15px;
+        color:#60a5fa;
+    }
+
+    ul{
+        list-style:none;
+    }
+
+    li{
+        margin:8px 0;
+    }
+
+    pre{
+        white-space:pre-wrap;
+        color:#ddd;
+    }
+
+    .app-box{
+        background:#fff;
+        color:#000;
+        padding:20px;
+        border-radius:10px;
+    }
+
+    button{
+        margin-top:15px;
+        padding:10px 20px;
+        border:none;
+        background:#2563eb;
+        color:#fff;
+        border-radius:8px;
+        cursor:pointer;
+    }
+
+    button:hover{
+        background:#1d4ed8;
+    }
+
+    footer{
+        text-align:center;
+        margin-top:50px;
+    }
+
+    footer p{
+        margin-top:10px;
+        color:#94a3b8;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>DAY 3: PROJECT SETUP & FOUNDATION</h1>
+<p class="subtitle">10-Day Capstone Journey</p>
+<span class="status">COMPLETE</span>
+
+<div class="container">
+
+    <div class="card">
+        <h2>Completed Today</h2>
+        <ul>
+            <li>Environment Setup</li>
+            <li>Project Initialization</li>
+            <li>Git Repository Setup</li>
+            <li>Authentication Scaffold</li>
+            <li>Database Connection</li>
+            <li>Routing Setup</li>
+            <li>Navigation</li>
+            <li>Hello World Running</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Tech Stack</h2>
+        <ul>
+            <li>Next.js</li>
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Tailwind CSS</li>
+            <li>NextAuth</li>
+            <li>Prisma</li>
+            <li>PostgreSQL</li>
+            <li>GitHub</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Application Preview</h2>
+        <div class="app-box">
+            <h3>Hello, Anas!</h3>
+            <p>Your project is running successfully.</p>
+            <button onclick="showMessage()">
+                Get Started
+            </button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Project Structure</h2>
+<pre>
+capstone-project/
+├── app/
+├── components/
+├── prisma/
+├── public/
+├── styles/
+├── utils/
+└── README.md
+</pre>
+    </div>
+
+    <div class="card">
+        <h2>Database</h2>
+        <p>Database: capstone_db</p>
+        <p>Status: Connected</p>
+        <p>ORM: Prisma</p>
+    </div>
+
+    <div class="card">
+        <h2>Authentication</h2>
+        <ul>
+            <li>NextAuth.js</li>
+            <li>Session Management</li>
+            <li>Protected Routes</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Routing</h2>
+<pre>
+/              -> Home
+/login         -> Login
+/dashboard     -> Dashboard
+/api/auth      -> Auth
+</pre>
+    </div>
+
+    <div class="card">
+        <h2>Dependencies</h2>
+<pre>
+next
+react
+typescript
+tailwindcss
+next-auth
+prisma
+pg
+</pre>
+    </div>
+
+    <div class="card">
+        <h2>Tomorrow</h2>
+        <p>Build the first major user-facing feature.</p>
+        <br>
+        <button>READY FOR DAY 4</button>
+    </div>
+
+</div>
+
+<footer>
+    <h2>"The foundation is set. Tomorrow, we build!"</h2>
+    <p>PROJECT STATUS: ON TRACK | DAY 3 OF 10</p>
+</footer>
+
+<script>
+    function showMessage() {
+        alert(
+            "Project setup completed successfully! Ready for Day 4."
+        );
+    }
+
+    console.log("Day 3 Dashboard Loaded Successfully");
+
+    document.querySelector(".status").addEventListener(
+        "click",
+        () => {
+            alert("Current Status: COMPLETE");
+        }
+    );
+</script>
+
+</body>
+</html>
         
                      
