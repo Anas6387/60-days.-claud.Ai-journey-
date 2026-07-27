@@ -19438,7 +19438,8 @@ tbody.innerHTML += `
 <td>${item.category}</td>
 <td>${item.priority}</td>
 <td>
-<span class="status ${
+<span c
+lass="status ${
 item.status==="In Progress"
 ? "progress"
 : "todo"
@@ -19452,4 +19453,689 @@ ${item.status}
 </script>
 
 </body>
-</html>           
+</html>  
+
+_____________________DAY56____________________
+  
+       <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NutriScope - MVP</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#08111d;
+overflow-x:hidden;
+color:white;
+
+}
+
+body::before{
+
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:#00d4ff33;
+filter:blur(140px);
+top:-250px;
+right:-200px;
+
+}
+
+body::after{
+
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#6f00ff30;
+filter:blur(130px);
+bottom:-200px;
+left:-180px;
+
+}
+
+.hero{
+
+width:100%;
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+padding:60px;
+
+}
+
+.container{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+max-width:1300px;
+align-items:center;
+
+}
+
+.badge{
+
+display:inline-block;
+padding:8px 20px;
+border-radius:40px;
+
+background:#00d4ff22;
+
+border:1px solid #00d4ff55;
+
+color:#00d4ff;
+
+margin-bottom:25px;
+
+font-size:14px;
+
+}
+
+h1{
+
+font-size:64px;
+line-height:1.05;
+margin-bottom:20px;
+
+}
+
+h1 span{
+
+color:#00d4ff;
+
+}
+
+p{
+
+color:#cfd8e8;
+font-size:18px;
+line-height:1.8;
+margin-bottom:35px;
+
+}
+
+.buttons{
+
+display:flex;
+gap:20px;
+
+}
+
+button{
+
+padding:16px 34px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+
+transition:.4s;
+
+}
+
+.primary{
+
+background:#00d4ff;
+color:#000;
+
+}
+
+.secondary{
+
+background:transparent;
+border:2px solid #00d4ff;
+color:white;
+
+}
+
+button:hover{
+
+transform:translateY(-4px);
+
+}
+
+.dashboard{
+
+position:relative;
+
+background:#111d2d;
+
+border-radius:30px;
+
+padding:35px;
+
+box-shadow:0 20px 60px rgba(0,0,0,.4);
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.top{
+
+display:flex;
+justify-content:space-between;
+margin-bottom:25px;
+
+}
+
+.logo{
+
+font-size:24px;
+font-weight:bold;
+
+}
+
+.ai{
+
+background:#00d4ff22;
+padding:8px 18px;
+border-radius:30px;
+color:#00d4ff;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:18px;
+
+}
+
+.card{
+
+background:#182436;
+
+padding:22px;
+
+border-radius:18px;
+
+}
+
+.card h3{
+
+margin-bottom:12px;
+
+}
+
+.progress{
+
+height:12px;
+
+background:#22344d;
+
+border-radius:10px;
+
+overflow:hidden;
+
+margin-top:18px;
+
+}
+
+.progress span{
+
+display:block;
+
+height:100%;
+
+background:#00d4ff;
+
+width:82%;
+
+}
+
+.phone{
+
+position:absolute;
+
+right:-45px;
+
+bottom:-40px;
+
+width:220px;
+
+height:430px;
+
+background:#101820;
+
+border-radius:38px;
+
+border:8px solid #222;
+
+box-shadow:0 20px 60px rgba(0,212,255,.25);
+
+overflow:hidden;
+
+}
+
+.phone .screen{
+
+padding:20px;
+
+}
+
+.circle{
+
+width:110px;
+
+height:110px;
+
+border-radius:50%;
+
+border:10px solid #00d4ff;
+
+margin:auto;
+
+margin-top:20px;
+
+}
+
+.food{
+
+height:12px;
+
+background:#1f314b;
+
+border-radius:20px;
+
+margin-top:18px;
+
+overflow:hidden;
+
+}
+
+.food span{
+
+display:block;
+
+height:100%;
+
+background:#00d4ff;
+
+}
+
+footer{
+
+padding:35px;
+
+text-align:center;
+
+color:#90a4b7;
+
+font-size:14px;
+
+}
+
+@media(max-width:980px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+.phone{
+
+position:relative;
+right:0;
+bottom:0;
+margin:auto;
+margin-top:40px;
+
+}
+
+h1{
+
+font-size:42px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<div class="container">
+
+<div>
+
+<div class="badge">
+🚀 DAY 6 • MVP COMPLETE
+</div>
+
+<h1>
+Nutri<span>Scope</span><br>
+AI Nutrition Dashboard
+</h1>
+
+<p>
+
+Track meals, analyze nutrition using AI,
+view health insights,
+and manage everything from one modern dashboard.
+
+</p>
+
+<div class="buttons">
+
+<button class="primary">
+Live Demo
+</button>
+
+<button class="secondary">
+GitHub
+</button>
+
+</div>
+
+</div>
+
+<div class="dashboard">
+
+<div class="top">
+
+<div class="logo">
+🥗 NutriScope
+</div>
+
+<div class="ai">
+AI ACTIVE
+</div>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Calories</h3>
+
+<h2>1,924 kcal</h2>
+
+<div class="progress">
+
+<span></span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Protein</h3>
+
+<h2>132 g</h2>
+
+<div class="progress">
+
+<span style="width:70%"></span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Water</h3>
+
+<h2>2.4 L</h2>
+
+<div class="progress">
+
+<span style="width:60%"></span>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Health Score</h3>
+
+<h2>92%</h2>
+
+<div class="progress">
+
+<span style="width:92%"></span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="phone">
+
+<div class="screen">
+
+<div class="circle"></div>
+
+<div class="food"><span style="width:85%"></span></div>
+<div class="food"><span style="width:65%"></span></div>
+<div class="food"><span style="width:90%"></span></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Built with Claude as part of the AB Talks 60-Day Claude AI Challenge.
+
+</footer>
+
+<script>
+
+document.querySelectorAll("button").forEach(btn=>{
+
+btn.onclick=()=>{
+
+alert("Button Clicked!");
+
+}
+
+})
+
+</script>
+
+</body>
+</html>
+/* ---------- Floating Background ---------- */
+
+.bg{
+position:fixed;
+inset:0;
+overflow:hidden;
+z-index:-1;
+}
+
+.ball{
+position:absolute;
+border-radius:50%;
+background:rgba(0,212,255,.15);
+backdrop-filter:blur(10px);
+animation:float 14s linear infinite;
+}
+
+.ball:nth-child(1){
+width:160px;
+height:160px;
+left:8%;
+top:12%;
+animation-duration:18s;
+}
+
+.ball:nth-child(2){
+width:90px;
+height:90px;
+right:15%;
+top:25%;
+animation-duration:12s;
+}
+
+.ball:nth-child(3){
+width:220px;
+height:220px;
+left:35%;
+bottom:-60px;
+animation-duration:20s;
+}
+
+.ball:nth-child(4){
+width:120px;
+height:120px;
+right:25%;
+bottom:15%;
+animation-duration:15s;
+}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) rotate(0deg);
+}
+
+50%{
+transform:translateY(-35px) rotate(180deg);
+}
+
+100%{
+transform:translateY(0) rotate(360deg);
+}
+
+}
+
+/* ---------- Dashboard Hover ---------- */
+
+.dashboard{
+
+transition:.5s;
+
+}
+
+.dashboard:hover{
+
+transform:translateY(-10px) scale(1.02);
+
+box-shadow:0 30px 70px rgba(0,212,255,.25);
+
+}
+
+/* ---------- Card ---------- */
+
+.card{
+
+transition:.4s;
+
+cursor:pointer;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+background:#213551;
+
+}
+
+/* ---------- Chart ---------- */
+
+.chart{
+
+margin-top:35px;
+
+height:180px;
+
+display:flex;
+
+align-items:flex-end;
+
+gap:16px;
+
+}
+
+.bar{
+
+flex:1;
+
+background:linear-gradient(to top,#00d4ff,#7ff3ff);
+
+border-radius:12px 12px 0 0;
+
+animation:grow 2s;
+
+}
+
+.bar:nth-child(1){height:60%;}
+.bar:nth-child(2){height:90%;}
+.bar:nth-child(3){height:45%;}
+.bar:nth-child(4){height:75%;}
+.bar:nth-child(5){height:95%;}
+.bar:nth-child(6){height:65%;}
+
+@keyframes grow{
+
+from{
+
+height:0;
+
+}
+
+}
+
+/* ---------- Glow ---------- */
+
+.glow{
+
+position:absolute;
+
+width:320px;
+
+height:320px;
+
+background:#00d4ff22;
+
+filter:blur(120px);
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+pointer-events:none;
+
+}
