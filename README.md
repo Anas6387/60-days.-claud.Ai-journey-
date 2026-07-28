@@ -20897,3 +20897,5764 @@ e.clientY + "px"
 // =============================
 
 console.log("✅ NutriScope Day 7 Loaded Successfully");
+
+__________________DAY58________________________
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>NutriScope | Project Overview</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="stylesheet"
+href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="background-glow glow1"></div>
+<div class="background-glow glow2"></div>
+
+<header>
+
+<nav class="navbar">
+
+<div class="logo">
+
+<i class="fa-solid fa-leaf"></i>
+
+<span>NutriScope</span>
+
+</div>
+
+<ul>
+
+<li><a href="#overview">Overview</a></li>
+
+<li><a href="#features">Features</a></li>
+
+<li><a href="#tech">Tech Stack</a></li>
+
+<li><a href="#testing">Testing</a></li>
+
+<li><a href="#deployment">Deployment</a></li>
+
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-left">
+
+<h1>
+
+AI Powered Nutrition Analysis
+
+</h1>
+
+<p>
+
+Scan food.
+
+Analyze nutrition.
+
+Eat healthier using Artificial Intelligence.
+
+</p>
+
+<a href="#overview" class="btn">
+
+Explore Project
+
+</a>
+
+</div>
+
+<div class="hero-right">
+
+<div class="phone">
+
+<div class="screen">
+
+<div class="food-card">
+
+<i class="fa-solid fa-apple-whole"></i>
+
+<h2>Healthy Meal</h2>
+
+</div>
+
+<div class="stats">
+
+<div>
+
+<h3>520</h3>
+
+<p>Calories</p>
+
+</div>
+
+<div>
+
+<h3>28g</h3>
+
+<p>Protein</p>
+
+</div>
+
+<div>
+
+<h3>44g</h3>
+
+<p>Carbs</p>
+
+</div>
+
+<div>
+
+<h3>12g</h3>
+
+<p>Fat</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</header>
+
+<section id="overview" class="section">
+
+<h2>
+
+Project Overview
+
+</h2>
+
+<div class="overview-grid">
+
+<div class="card">
+
+<i class="fa-solid fa-robot"></i>
+
+<h3>
+
+AI Powered
+
+</h3>
+
+<p>
+
+Gemini AI analyzes nutritional information instantly.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-mobile-screen"></i>
+
+<h3>
+
+Responsive
+
+</h3>
+
+<p>
+
+Optimized for Desktop,
+
+Tablet and Mobile.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-cloud"></i>
+
+<h3>
+
+Cloud Ready
+
+</h3>
+
+<p>
+
+Deploy instantly using Netlify.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-chart-column"></i>
+
+<h3>
+
+Analytics
+
+</h3>
+
+<p>
+
+Interactive nutrition dashboard.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= FEATURES ================= -->
+
+<section id="features" class="section">
+
+    <h2 class="section-title">
+        Key Features
+    </h2>
+
+    <div class="feature-grid">
+
+        <div class="feature-card">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3>Food Search</h3>
+            <p>Search thousands of foods and instantly retrieve nutritional information.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-camera"></i>
+            <h3>Image Recognition</h3>
+            <p>Upload a food image and let AI identify the meal automatically.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-barcode"></i>
+            <h3>Barcode Scanner</h3>
+            <p>Scan packaged food items to analyze ingredients and nutrition facts.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-brain"></i>
+            <h3>Gemini AI</h3>
+            <p>Receive intelligent nutritional insights, meal suggestions, and health tips.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-chart-pie"></i>
+            <h3>Nutrition Dashboard</h3>
+            <p>Interactive charts display calories, protein, carbohydrates, and fats.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-heart-pulse"></i>
+            <h3>Health Score</h3>
+            <p>Each meal receives an AI-generated health score based on nutrition quality.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+            <h3>Responsive UI</h3>
+            <p>Works beautifully on desktops, tablets, and smartphones.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <h3>Cloud Deployment</h3>
+            <p>Hosted using Netlify with fast global CDN delivery.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= TECH STACK ================= -->
+
+<section id="tech" class="section">
+
+    <h2 class="section-title">
+        Technology Stack
+    </h2>
+
+    <div class="tech-grid">
+
+        <div class="tech-card">
+            <i class="fa-brands fa-html5"></i>
+            <h3>HTML5</h3>
+            <span>Semantic Structure</span>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-brands fa-css3-alt"></i>
+            <h3>CSS3</h3>
+            <span>Modern Styling</span>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-brands fa-js"></i>
+            <h3>JavaScript</h3>
+            <span>Interactive Logic</span>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-solid fa-robot"></i>
+            <h3>Gemini API</h3>
+            <span>AI Nutrition Engine</span>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3>Chart.js</h3>
+            <span>Data Visualization</span>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-solid fa-database"></i>
+            <h3>Local Storage</h3>
+            <span>User Preferences</span>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-solid fa-mobile-screen"></i>
+            <h3>Responsive Design</h3>
+            <span>Mobile First</span>
+        </div>
+
+        <div class="tech-card">
+            <i class="fa-solid fa-cloud"></i>
+            <h3>Netlify</h3>
+            <span>Cloud Hosting</span>
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard" class="section">
+
+    <h2 class="section-title">
+        Nutrition Dashboard
+    </h2>
+
+    <div class="dashboard-grid">
+
+        <div class="dashboard-card large">
+
+            <h3>Nutrition Breakdown</h3>
+
+            <canvas id="nutritionChart"></canvas>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <div class="metric">
+                <i class="fa-solid fa-fire"></i>
+                <h2>520</h2>
+                <p>Calories</p>
+            </div>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <div class="metric">
+                <i class="fa-solid fa-dumbbell"></i>
+                <h2>28g</h2>
+                <p>Protein</p>
+            </div>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <div class="metric">
+                <i class="fa-solid fa-wheat-awn"></i>
+                <h2>44g</h2>
+                <p>Carbohydrates</p>
+            </div>
+
+        </div>
+
+        <div class="dashboard-card">
+
+            <div class="metric">
+                <i class="fa-solid fa-droplet"></i>
+                <h2>12g</h2>
+                <p>Fat</p>
+            </div>
+
+        </div>
+
+        <div class="dashboard-card score-card">
+
+            <i class="fa-solid fa-heart-pulse"></i>
+
+            <h2>92%</h2>
+
+            <p>AI Health Score</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= AI WORKFLOW ================= -->
+
+<section id="workflow" class="section">
+
+    <h2 class="section-title">
+        AI Workflow
+    </h2>
+
+    <div class="workflow">
+
+        <div class="workflow-item">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h4>Search</h4>
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="workflow-item">
+            <i class="fa-solid fa-camera"></i>
+            <h4>Capture</h4>
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="workflow-item">
+            <i class="fa-solid fa-robot"></i>
+            <h4>AI Analysis</h4>
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="workflow-item">
+            <i class="fa-solid fa-chart-pie"></i>
+            <h4>Nutrition Report</h4>
+        </div>
+
+        <div class="arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+
+        <div class="workflow-item">
+            <i class="fa-solid fa-heart"></i>
+            <h4>Health Advice</h4>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= RESPONSIVE DEVICES ================= -->
+
+<section id="responsive" class="section">
+
+    <h2 class="section-title">
+        Responsive Experience
+    </h2>
+
+    <div class="devices">
+
+        <div class="device desktop">
+
+            <i class="fa-solid fa-desktop device-icon"></i>
+
+            <h3>Desktop</h3>
+
+            <p>
+                Full analytics dashboard with AI recommendations and interactive charts.
+            </p>
+
+        </div>
+
+        <div class="device tablet">
+
+            <i class="fa-solid fa-tablet-screen-button device-icon"></i>
+
+            <h3>Tablet</h3>
+
+            <p>
+                Optimized layout for touch interaction and larger content cards.
+            </p>
+
+        </div>
+
+        <div class="device mobile">
+
+            <i class="fa-solid fa-mobile-screen-button device-icon"></i>
+
+            <h3>Mobile</h3>
+
+            <p>
+                Fast mobile experience with image upload, barcode scan, and AI insights.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= TESTING ================= -->
+
+<section id="testing" class="section">
+
+    <h2 class="section-title">
+        Testing & Quality Assurance
+    </h2>
+
+    <div class="qa-grid">
+
+        <div class="qa-card">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Functional Testing</h3>
+            <p>All core features verified successfully.</p>
+        </div>
+
+        <div class="qa-card">
+            <i class="fa-solid fa-mobile-screen"></i>
+            <h3>Responsive Testing</h3>
+            <p>Desktop, tablet and mobile layouts validated.</p>
+        </div>
+
+        <div class="qa-card">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Security Review</h3>
+            <p>Input validation and secure API handling implemented.</p>
+        </div>
+
+        <div class="qa-card">
+            <i class="fa-solid fa-gauge-high"></i>
+            <h3>Performance</h3>
+            <p>Optimized assets and efficient rendering.</p>
+        </div>
+
+        <div class="qa-card">
+            <i class="fa-solid fa-universal-access"></i>
+            <h3>Accessibility</h3>
+            <p>Keyboard navigation and semantic HTML support.</p>
+        </div>
+
+        <div class="qa-card success">
+            <i class="fa-solid fa-award"></i>
+            <h3>Release Ready</h3>
+            <p>Application prepared for production deployment.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= DEPLOYMENT ================= -->
+
+<section id="deployment" class="section">
+
+    <h2 class="section-title">
+        Deployment
+    </h2>
+
+    <div class="deploy-grid">
+
+        <div class="deploy-card">
+
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+            <h3>Netlify Hosting</h3>
+
+            <p>
+
+                Continuous deployment with GitHub integration.
+
+            </p>
+
+        </div>
+
+        <div class="deploy-card">
+
+            <i class="fa-solid fa-code-branch"></i>
+
+            <h3>GitHub</h3>
+
+            <p>
+
+                Source code version control and collaboration.
+
+            </p>
+
+        </div>
+
+        <div class="deploy-card">
+
+            <i class="fa-solid fa-bolt"></i>
+
+            <h3>Fast CDN</h3>
+
+            <p>
+
+                Optimized worldwide content delivery.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PROJECT STATS ================= -->
+
+<section class="section stats-section">
+
+    <h2 class="section-title">
+        Project Statistics
+    </h2>
+
+    <div class="stats-grid">
+
+        <div class="stat-box">
+            <h2>20+</h2>
+            <span>Features</span>
+        </div>
+
+        <div class="stat-box">
+            <h2>8</h2>
+            <span>Development Days</span>
+        </div>
+
+        <div class="stat-box">
+            <h2>100%</h2>
+            <span>Responsive</span>
+        </div>
+
+        <div class="stat-box">
+            <h2>AI</h2>
+            <span>Powered</span>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>NutriScope</h2>
+
+    <p>
+
+        Scan • Analyze • Eat Healthy
+
+    </p>
+
+    <div class="footer-icons">
+
+        <i class="fa-brands fa-html5"></i>
+        <i class="fa-brands fa-css3-alt"></i>
+        <i class="fa-brands fa-js"></i>
+        <i class="fa-solid fa-robot"></i>
+        <i class="fa-solid fa-chart-pie"></i>
+
+    </div>
+
+    <p class="copyright">
+
+        © 2026 NutriScope • AI Powered Nutrition Analysis
+
+    </p>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
+/* ===================================================
+   NUTRISCOPE - PROJECT OVERVIEW
+   Premium Glassmorphism UI
+   Part 5A-1 : Reset + Variables + Global Styles
+=================================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Reset */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* Theme Variables */
+
+:root{
+
+    --primary:#22c55e;
+    --secondary:#3b82f6;
+    --accent:#a855f7;
+
+    --success:#10b981;
+    --warning:#f59e0b;
+    --danger:#ef4444;
+
+    --bg:#08111d;
+    --surface:#101b2c;
+    --surface2:#16253a;
+
+    --glass:rgba(255,255,255,.08);
+
+    --border:rgba(255,255,255,.15);
+
+    --text:#ffffff;
+    --muted:#b5c3d3;
+
+    --radius:22px;
+
+    --shadow:
+    0 10px 30px rgba(0,0,0,.35);
+
+    --transition:.35s ease;
+
+}
+
+/* Smooth Scroll */
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+/* Body */
+
+body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    min-height:100vh;
+
+    position:relative;
+
+    line-height:1.6;
+
+}
+
+/* Selection */
+
+::selection{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/* Background Gradient */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top left,
+    rgba(34,197,94,.18),
+    transparent 35%),
+
+    radial-gradient(circle at top right,
+    rgba(59,130,246,.16),
+    transparent 35%),
+
+    radial-gradient(circle at bottom,
+    rgba(168,85,247,.18),
+    transparent 40%);
+
+    z-index:-3;
+
+}
+
+/* Animated Glow */
+
+.background-glow{
+
+    position:fixed;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+    opacity:.35;
+
+    animation:floatGlow 10s ease-in-out infinite;
+
+    z-index:-2;
+
+}
+
+.glow1{
+
+    background:#22c55e;
+
+    top:-120px;
+
+    left:-100px;
+
+}
+
+.glow2{
+
+    background:#3b82f6;
+
+    right:-120px;
+
+    bottom:-120px;
+
+    animation-delay:4s;
+
+}
+
+/* Links */
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+/* Images */
+
+img{
+
+    width:100%;
+
+    display:block;
+
+}
+
+/* Lists */
+
+ul{
+
+    list-style:none;
+
+}
+
+/* Containers */
+
+.section{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+    padding:90px 0;
+
+}
+
+/* Headings */
+
+h1{
+
+    font-size:4rem;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+}
+
+h2{
+
+    font-size:2.3rem;
+
+    font-weight:700;
+
+}
+
+h3{
+
+    font-size:1.25rem;
+
+    font-weight:600;
+
+}
+
+p{
+
+    color:var(--muted);
+
+}
+
+/* Section Title */
+
+.section-title{
+
+    text-align:center;
+
+    margin-bottom:60px;
+
+    position:relative;
+
+}
+
+.section-title::after{
+
+    content:"";
+
+    width:90px;
+
+    height:5px;
+
+    background:linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary));
+
+    border-radius:20px;
+
+    display:block;
+
+    margin:18px auto 0;
+
+}
+
+/* Glass Card */
+
+.card,
+.feature-card,
+.tech-card,
+.dashboard-card,
+.qa-card,
+.deploy-card,
+.stat-box{
+
+    background:var(--glass);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+/* Hover */
+
+.card:hover,
+.feature-card:hover,
+.tech-card:hover,
+.dashboard-card:hover,
+.qa-card:hover,
+.deploy-card:hover,
+.stat-box:hover{
+
+    transform:translateY(-10px);
+
+    border-color:var(--primary);
+
+    box-shadow:
+
+    0 0 30px rgba(34,197,94,.25);
+
+}
+
+/* Primary Button */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px 36px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:
+
+    0 0 30px rgba(34,197,94,.4);
+
+}
+
+/* Floating Animation */
+
+@keyframes floatGlow{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-40px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+/* =====================================================
+   PART 5A-2
+   PREMIUM NAVIGATION BAR
+====================================================== */
+
+header{
+
+    min-height:100vh;
+
+    position:relative;
+
+}
+
+/* Navbar */
+
+.navbar{
+
+    width:min(1300px,92%);
+
+    height:80px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:fixed;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:999;
+
+    padding:0 35px;
+
+    background:rgba(16,27,44,.55);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:18px;
+
+    box-shadow:
+
+    0 10px 35px rgba(0,0,0,.35);
+
+    transition:.35s ease;
+
+}
+
+/* Scroll Effect */
+
+.navbar.scrolled{
+
+    background:rgba(8,17,29,.92);
+
+    border-color:rgba(34,197,94,.35);
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.45);
+
+}
+
+/* Logo */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    cursor:pointer;
+
+}
+
+.logo i{
+
+    font-size:2rem;
+
+    color:var(--primary);
+
+    animation:logoPulse 3s infinite;
+
+}
+
+.logo span{
+
+    font-size:1.55rem;
+
+    font-weight:700;
+
+    color:#fff;
+
+    letter-spacing:.5px;
+
+}
+
+/* Navigation */
+
+.navbar ul{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+}
+
+.navbar ul li{
+
+    position:relative;
+
+}
+
+.navbar ul li a{
+
+    color:#fff;
+
+    font-size:.98rem;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    padding:10px 0;
+
+}
+
+/* Hover */
+
+.navbar ul li a:hover{
+
+    color:var(--primary);
+
+}
+
+/* Animated Underline */
+
+.navbar ul li::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-4px;
+
+    width:0;
+
+    height:3px;
+
+    background:linear-gradient(
+
+        90deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    border-radius:20px;
+
+    transition:.35s;
+
+}
+
+.navbar ul li:hover::after{
+
+    width:100%;
+
+}
+
+/* CTA Button */
+
+.nav-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:12px 28px;
+
+    border-radius:40px;
+
+    background:linear-gradient(
+
+        135deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.nav-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 0 25px rgba(34,197,94,.45);
+
+}
+
+/* Mobile Menu Button */
+
+.menu-btn{
+
+    display:none;
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:12px;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-size:1.3rem;
+
+    transition:.3s;
+
+}
+
+.menu-btn:hover{
+
+    background:var(--primary);
+
+}
+
+/* Logo Animation */
+
+@keyframes logoPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.18);
+
+        text-shadow:
+
+        0 0 25px rgba(34,197,94,.6);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:992px){
+
+.navbar{
+
+    padding:0 20px;
+
+}
+
+.navbar ul{
+
+    gap:20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.menu-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.navbar{
+
+    height:72px;
+
+}
+
+.navbar ul{
+
+    position:absolute;
+
+    top:90px;
+
+    left:0;
+
+    right:0;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:rgba(16,27,44,.95);
+
+    backdrop-filter:blur(18px);
+
+    display:none;
+
+}
+
+.navbar ul.active{
+
+    display:flex;
+
+}
+
+}
+/* =====================================================
+   PART 5A-2
+   PREMIUM NAVIGATION BAR
+====================================================== */
+
+header{
+
+    min-height:100vh;
+
+    position:relative;
+
+}
+
+/* Navbar */
+
+.navbar{
+
+    width:min(1300px,92%);
+
+    height:80px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:fixed;
+
+    top:20px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:999;
+
+    padding:0 35px;
+
+    background:rgba(16,27,44,.55);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:18px;
+
+    box-shadow:
+
+    0 10px 35px rgba(0,0,0,.35);
+
+    transition:.35s ease;
+
+}
+
+/* Scroll Effect */
+
+.navbar.scrolled{
+
+    background:rgba(8,17,29,.92);
+
+    border-color:rgba(34,197,94,.35);
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.45);
+
+}
+
+/* Logo */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    cursor:pointer;
+
+}
+
+.logo i{
+
+    font-size:2rem;
+
+    color:var(--primary);
+
+    animation:logoPulse 3s infinite;
+
+}
+
+.logo span{
+
+    font-size:1.55rem;
+
+    font-weight:700;
+
+    color:#fff;
+
+    letter-spacing:.5px;
+
+}
+
+/* Navigation */
+
+.navbar ul{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+}
+
+.navbar ul li{
+
+    position:relative;
+
+}
+
+.navbar ul li a{
+
+    color:#fff;
+
+    font-size:.98rem;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    padding:10px 0;
+
+}
+
+/* Hover */
+
+.navbar ul li a:hover{
+
+    color:var(--primary);
+
+}
+
+/* Animated Underline */
+
+.navbar ul li::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-4px;
+
+    width:0;
+
+    height:3px;
+
+    background:linear-gradient(
+
+        90deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    border-radius:20px;
+
+    transition:.35s;
+
+}
+
+.navbar ul li:hover::after{
+
+    width:100%;
+
+}
+
+/* CTA Button */
+
+.nav-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:12px 28px;
+
+    border-radius:40px;
+
+    background:linear-gradient(
+
+        135deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.nav-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+    0 0 25px rgba(34,197,94,.45);
+
+}
+
+/* Mobile Menu Button */
+
+.menu-btn{
+
+    display:none;
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:12px;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+    font-size:1.3rem;
+
+    transition:.3s;
+
+}
+
+.menu-btn:hover{
+
+    background:var(--primary);
+
+}
+
+/* Logo Animation */
+
+@keyframes logoPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.18);
+
+        text-shadow:
+
+        0 0 25px rgba(34,197,94,.6);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+/* Mobile */
+
+@media(max-width:992px){
+
+.navbar{
+
+    padding:0 20px;
+
+}
+
+.navbar ul{
+
+    gap:20px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.menu-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.navbar{
+
+    height:72px;
+
+}
+
+.navbar ul{
+
+    position:absolute;
+
+    top:90px;
+
+    left:0;
+
+    right:0;
+
+    flex-direction:column;
+
+    gap:22px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:rgba(16,27,44,.95);
+
+    backdrop-filter:blur(18px);
+
+    display:none;
+
+}
+
+.navbar ul.active{
+
+    display:flex;
+
+}
+
+}
+/* =====================================================
+   PART 5A-3
+   PREMIUM HERO SECTION
+====================================================== */
+
+.hero{
+
+    width:min(1300px,92%);
+
+    margin:auto;
+
+    min-height:100vh;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    align-items:center;
+
+    gap:70px;
+
+    padding-top:120px;
+
+}
+
+/* Left Side */
+
+.hero-left{
+
+    animation:slideLeft 1.2s ease;
+
+}
+
+.hero-left h1{
+
+    font-size:4.5rem;
+
+    line-height:1.1;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+
+    background:linear-gradient(
+    90deg,
+    #ffffff,
+    #22c55e,
+    #3b82f6);
+
+    background-size:300%;
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
+    animation:gradientMove 8s infinite linear;
+
+}
+
+.hero-left p{
+
+    max-width:620px;
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+    color:var(--muted);
+
+    margin-bottom:35px;
+
+}
+
+.hero-left .btn{
+
+    font-size:1rem;
+
+    padding:16px 40px;
+
+}
+
+/* Right Side */
+
+.hero-right{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    animation:floatPhone 6s ease-in-out infinite;
+
+}
+
+/* Phone */
+
+.phone{
+
+    width:340px;
+
+    height:690px;
+
+    padding:18px;
+
+    border-radius:45px;
+
+    background:linear-gradient(
+    160deg,
+    #18283f,
+    #09121f);
+
+    box-shadow:
+
+    0 40px 80px rgba(0,0,0,.45),
+
+    0 0 60px rgba(34,197,94,.18);
+
+    position:relative;
+
+}
+
+.phone::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:130px;
+
+    height:18px;
+
+    border-radius:20px;
+
+    background:#000;
+
+}
+
+.screen{
+
+    width:100%;
+
+    height:100%;
+
+    border-radius:35px;
+
+    overflow:hidden;
+
+    background:
+
+    linear-gradient(
+    180deg,
+    #13253d,
+    #08111d);
+
+    padding:25px;
+
+}
+
+/* Food Card */
+
+.food-card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    text-align:center;
+
+    margin-bottom:28px;
+
+    transition:.35s;
+
+}
+
+.food-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 0 35px rgba(34,197,94,.25);
+
+}
+
+.food-card i{
+
+    font-size:4rem;
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+.food-card h2{
+
+    font-size:1.6rem;
+
+}
+
+.food-card p{
+
+    margin-top:10px;
+
+    color:#d5dce5;
+
+}
+
+/* Nutrition Stats */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.stats div{
+
+    padding:22px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(16px);
+
+    transition:.35s;
+
+}
+
+.stats div:hover{
+
+    transform:translateY(-8px);
+
+    background:rgba(34,197,94,.15);
+
+}
+
+.stats h3{
+
+    font-size:2rem;
+
+    color:var(--primary);
+
+}
+
+.stats p{
+
+    margin-top:6px;
+
+    font-size:.95rem;
+
+}
+
+/* Floating Badge */
+
+.phone::after{
+
+    content:"AI Powered";
+
+    position:absolute;
+
+    right:-25px;
+
+    top:120px;
+
+    padding:12px 22px;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+
+    color:#fff;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+    animation:badgeFloat 4s ease-in-out infinite;
+
+}
+
+/* Hero Animations */
+
+@keyframes floatPhone{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes gradientMove{
+
+    0%{
+
+        background-position:0%;
+
+    }
+
+    100%{
+
+        background-position:300%;
+
+    }
+
+}
+
+@keyframes slideLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-80px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+
+    }
+
+}
+
+@keyframes badgeFloat{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:1100px){
+
+.hero{
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+.hero-left{
+
+    order:2;
+
+}
+
+.hero-right{
+
+    order:1;
+
+}
+
+.hero-left p{
+
+    margin:auto auto 35px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-left h1{
+
+    font-size:3rem;
+
+}
+
+.phone{
+
+    width:290px;
+
+    height:590px;
+
+}
+
+}
+/* =====================================================
+   PART 5A-4
+   UTILITIES • EFFECTS • ANIMATIONS
+====================================================== */
+
+/* Container */
+
+.container{
+    width:min(1200px,92%);
+    margin:auto;
+}
+
+/* Flex Utilities */
+
+.flex{
+    display:flex;
+}
+
+.flex-center{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.grid{
+    display:grid;
+}
+
+/* Spacing */
+
+.mt-1{margin-top:10px;}
+.mt-2{margin-top:20px;}
+.mt-3{margin-top:30px;}
+.mt-4{margin-top:40px;}
+.mt-5{margin-top:50px;}
+
+.mb-1{margin-bottom:10px;}
+.mb-2{margin-bottom:20px;}
+.mb-3{margin-bottom:30px;}
+.mb-4{margin-bottom:40px;}
+.mb-5{margin-bottom:50px;}
+
+/* Text */
+
+.text-center{
+    text-align:center;
+}
+
+.text-white{
+    color:#fff;
+}
+
+.text-primary{
+    color:var(--primary);
+}
+
+.text-secondary{
+    color:var(--secondary);
+}
+
+/* Glass Panel */
+
+.glass{
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(20px);
+
+    -webkit-backdrop-filter:blur(20px);
+
+    border-radius:24px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+}
+
+/* Neon Border */
+
+.neon-border{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.neon-border::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    var(--primary),
+
+    var(--secondary),
+
+    var(--accent),
+
+    var(--primary)
+
+    );
+
+    background-size:400%;
+
+    animation:borderMove 6s linear infinite;
+
+    z-index:-1;
+
+}
+
+/* Glow */
+
+.glow{
+
+    box-shadow:
+
+    0 0 25px rgba(34,197,94,.35);
+
+}
+
+/* Hover Lift */
+
+.hover-lift{
+
+    transition:.35s;
+
+}
+
+.hover-lift:hover{
+
+    transform:
+
+    translateY(-10px);
+
+}
+
+/* Hover Scale */
+
+.hover-scale{
+
+    transition:.35s;
+
+}
+
+.hover-scale:hover{
+
+    transform:scale(1.05);
+
+}
+
+/* Rotate */
+
+.rotate:hover{
+
+    transform:rotate(5deg);
+
+}
+
+/* Fade Animation */
+
+.fade-up{
+
+    opacity:0;
+
+    transform:translateY(50px);
+
+    transition:1s;
+
+}
+
+.fade-up.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* Slide Left */
+
+.slide-left{
+
+    opacity:0;
+
+    transform:translateX(-60px);
+
+    transition:1s;
+
+}
+
+.slide-left.show{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+/* Slide Right */
+
+.slide-right{
+
+    opacity:0;
+
+    transform:translateX(60px);
+
+    transition:1s;
+
+}
+
+.slide-right.show{
+
+    opacity:1;
+
+    transform:translateX(0);
+
+}
+
+/* Zoom */
+
+.zoom{
+
+    opacity:0;
+
+    transform:scale(.8);
+
+    transition:1s;
+
+}
+
+.zoom.show{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+/* Floating */
+
+.float{
+
+    animation:floating 5s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+/* Gradient Animation */
+
+.gradient-text{
+
+background:
+
+linear-gradient(
+
+90deg,
+
+#22c55e,
+
+#3b82f6,
+
+#a855f7,
+
+#22c55e
+
+);
+
+background-size:300%;
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+animation:gradientFlow 8s linear infinite;
+
+}
+
+@keyframes gradientFlow{
+
+0%{
+
+background-position:0%;
+
+}
+
+100%{
+
+background-position:300%;
+
+}
+
+}
+
+/* Animated Border */
+
+@keyframes borderMove{
+
+0%{
+
+background-position:0%;
+
+}
+
+100%{
+
+background-position:400%;
+
+}
+
+}
+
+/* Loading Shimmer */
+
+.shimmer{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.shimmer::after{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-150%;
+
+width:50%;
+
+height:100%;
+
+background:
+
+linear-gradient(
+
+90deg,
+
+transparent,
+
+rgba(255,255,255,.18),
+
+transparent
+
+);
+
+animation:shimmer 2s infinite;
+
+}
+
+@keyframes shimmer{
+
+100%{
+
+left:180%;
+
+}
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#08111d;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:
+
+linear-gradient(
+
+180deg,
+
+var(--primary),
+
+var(--secondary)
+
+);
+
+border-radius:30px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:var(--accent);
+
+}
+
+/* Selection */
+
+::selection{
+
+background:var(--primary);
+
+color:#fff;
+
+}
+
+/* Responsive Utilities */
+
+@media(max-width:768px){
+
+.container{
+
+width:94%;
+
+}
+
+.hide-mobile{
+
+display:none;
+
+}
+
+.text-center-mobile{
+
+text-align:center;
+
+}
+
+}
+
+@media(min-width:769px){
+
+.hide-desktop{
+
+display:none;
+
+}
+
+}
+/* =====================================================
+   PART 5B
+   OVERVIEW • FEATURES • TECH STACK
+====================================================== */
+
+/* ---------- Overview Grid ---------- */
+
+.overview-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    margin-top:50px;
+
+}
+
+.card{
+
+    position:relative;
+
+    padding:35px 28px;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    transition:all .4s ease;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-100%;
+
+    left:-100%;
+
+    width:220%;
+
+    height:220%;
+
+    background:
+    radial-gradient(circle,
+    rgba(34,197,94,.18),
+    transparent 65%);
+
+    transition:.6s;
+
+}
+
+.card:hover::before{
+
+    top:-40%;
+
+    left:-40%;
+
+}
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:var(--primary);
+
+}
+
+.card i{
+
+    font-size:3.2rem;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+    transition:.4s;
+
+}
+
+.card:hover i{
+
+    transform:scale(1.15) rotate(8deg);
+
+    color:#fff;
+
+}
+
+.card h3{
+
+    margin-bottom:14px;
+
+    color:#fff;
+
+}
+
+.card p{
+
+    color:var(--muted);
+
+    font-size:.95rem;
+
+}
+
+/* ---------- Feature Grid ---------- */
+
+.feature-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:28px;
+
+    margin-top:60px;
+
+}
+
+.feature-card{
+
+    position:relative;
+
+    padding:35px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+}
+
+.feature-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:0;
+
+    width:100%;
+
+    height:5px;
+
+    background:linear-gradient(
+    90deg,
+    var(--primary),
+    var(--secondary));
+
+    transform:scaleX(0);
+
+    transform-origin:left;
+
+    transition:.4s;
+
+}
+
+.feature-card:hover::after{
+
+    transform:scaleX(1);
+
+}
+
+.feature-card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+.feature-card i{
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:1.9rem;
+
+    margin-bottom:25px;
+
+    background:rgba(34,197,94,.12);
+
+    color:var(--primary);
+
+    transition:.35s;
+
+}
+
+.feature-card:hover i{
+
+    background:linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary));
+
+    color:#fff;
+
+    transform:rotate(10deg);
+
+}
+
+.feature-card h3{
+
+    margin-bottom:15px;
+
+    color:#fff;
+
+}
+
+.feature-card p{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+/* ---------- Tech Stack ---------- */
+
+.tech-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+
+    margin-top:60px;
+
+}
+
+.tech-card{
+
+    text-align:center;
+
+    padding:35px 20px;
+
+    transition:.4s;
+
+}
+
+.tech-card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+.tech-card i{
+
+    font-size:3.5rem;
+
+    margin-bottom:20px;
+
+    transition:.35s;
+
+}
+
+/* Brand Colors */
+
+.fa-html5{
+
+    color:#e34f26;
+
+}
+
+.fa-css3-alt{
+
+    color:#1572b6;
+
+}
+
+.fa-js{
+
+    color:#f7df1e;
+
+}
+
+.tech-card:hover i{
+
+    transform:scale(1.2);
+
+}
+
+.tech-card h3{
+
+    margin-bottom:8px;
+
+    color:#fff;
+
+}
+
+.tech-card span{
+
+    color:var(--muted);
+
+    font-size:.9rem;
+
+    display:block;
+
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:992px){
+
+.feature-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.overview-grid,
+.feature-grid,
+.tech-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.card,
+.feature-card,
+.tech-card{
+
+padding:28px;
+
+}
+
+}
+/* =====================================================
+   PART 5C
+   DASHBOARD • WORKFLOW • RESPONSIVE DEVICES
+====================================================== */
+
+/* Dashboard */
+
+.dashboard-grid{
+
+display:grid;
+
+grid-template-columns:2fr 1fr 1fr;
+
+gap:30px;
+
+margin-top:60px;
+
+}
+
+.dashboard-card{
+
+padding:30px;
+
+position:relative;
+
+overflow:hidden;
+
+transition:.4s;
+
+}
+
+.dashboard-card.large{
+
+grid-row:span 2;
+
+min-height:520px;
+
+}
+
+.dashboard-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+
+}
+
+.dashboard-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-60%;
+
+left:-60%;
+
+width:220%;
+
+height:220%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(34,197,94,.12),
+
+transparent 65%);
+
+transition:.6s;
+
+}
+
+.dashboard-card:hover::before{
+
+top:-30%;
+
+left:-30%;
+
+}
+
+.dashboard-card h3{
+
+margin-bottom:25px;
+
+font-size:1.3rem;
+
+}
+
+/* Chart */
+
+canvas{
+
+width:100%!important;
+
+height:320px!important;
+
+}
+
+/* Metric Cards */
+
+.metric{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+height:100%;
+
+text-align:center;
+
+}
+
+.metric i{
+
+font-size:3rem;
+
+color:var(--primary);
+
+margin-bottom:15px;
+
+transition:.4s;
+
+}
+
+.metric:hover i{
+
+transform:scale(1.2) rotate(8deg);
+
+}
+
+.metric h2{
+
+font-size:2.4rem;
+
+margin-bottom:8px;
+
+}
+
+.metric p{
+
+color:var(--muted);
+
+}
+
+/* Health Score */
+
+.score-card{
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.score-card i{
+
+font-size:4rem;
+
+color:#22c55e;
+
+margin-bottom:20px;
+
+}
+
+.score-card h2{
+
+font-size:3.5rem;
+
+color:var(--primary);
+
+}
+
+/* Workflow */
+
+.workflow{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+gap:25px;
+
+margin-top:70px;
+
+flex-wrap:wrap;
+
+}
+
+.workflow-item{
+
+width:170px;
+
+padding:25px;
+
+text-align:center;
+
+border-radius:20px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,.12);
+
+transition:.4s;
+
+}
+
+.workflow-item:hover{
+
+transform:translateY(-12px);
+
+border-color:var(--primary);
+
+}
+
+.workflow-item i{
+
+font-size:3rem;
+
+margin-bottom:18px;
+
+color:var(--primary);
+
+transition:.35s;
+
+}
+
+.workflow-item:hover i{
+
+transform:rotate(15deg) scale(1.15);
+
+}
+
+.workflow-item h4{
+
+font-size:1rem;
+
+color:#fff;
+
+}
+
+.arrow{
+
+font-size:2rem;
+
+color:var(--secondary);
+
+animation:arrowMove 2s infinite;
+
+}
+
+@keyframes arrowMove{
+
+0%{
+
+transform:translateX(0);
+
+}
+
+50%{
+
+transform:translateX(8px);
+
+}
+
+100%{
+
+transform:translateX(0);
+
+}
+
+}
+
+/* Devices */
+
+.devices{
+
+display:grid;
+
+grid-template-columns:repeat(3,1fr);
+
+gap:35px;
+
+margin-top:70px;
+
+}
+
+.device{
+
+padding:35px;
+
+text-align:center;
+
+border-radius:24px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.12);
+
+transition:.4s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.device:hover{
+
+transform:translateY(-12px);
+
+}
+
+.device::before{
+
+content:"";
+
+position:absolute;
+
+top:-100%;
+
+left:-100%;
+
+width:220%;
+
+height:220%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(59,130,246,.18),
+
+transparent 70%);
+
+transition:.5s;
+
+}
+
+.device:hover::before{
+
+top:-40%;
+
+left:-40%;
+
+}
+
+.device-icon{
+
+font-size:4rem;
+
+margin-bottom:20px;
+
+color:var(--secondary);
+
+}
+
+.device h3{
+
+margin-bottom:12px;
+
+}
+
+.device p{
+
+color:var(--muted);
+
+line-height:1.8;
+
+}
+
+/* Responsive */
+
+@media(max-width:1100px){
+
+.dashboard-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.dashboard-card.large{
+
+grid-row:auto;
+
+min-height:420px;
+
+}
+
+.devices{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.devices{
+
+grid-template-columns:1fr;
+
+}
+
+.workflow{
+
+flex-direction:column;
+
+}
+
+.arrow{
+
+transform:rotate(90deg);
+
+}
+
+}
+
+/* =====================================================
+   PART 5D
+   TESTING • DEPLOYMENT • STATS • FOOTER
+====================================================== */
+
+/* ==========================
+   TESTING SECTION
+========================== */
+
+.testing-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.test-card{
+
+    position:relative;
+
+    padding:35px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    transition:.4s;
+
+}
+
+.test-card:hover{
+
+    transform:translateY(-12px);
+
+    border-color:var(--primary);
+
+}
+
+.test-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        rgba(34,197,94,.08),
+
+        transparent 60%
+
+    );
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+.test-card:hover::before{
+
+    opacity:1;
+
+}
+
+.test-card i{
+
+    font-size:3rem;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.test-card h3{
+
+    margin-bottom:15px;
+
+}
+
+.test-card p{
+
+    color:var(--muted);
+
+    line-height:1.8;
+
+}
+
+/* ==========================
+   DEPLOYMENT TIMELINE
+========================== */
+
+.timeline{
+
+    width:min(900px,100%);
+
+    margin:70px auto 0;
+
+    position:relative;
+
+}
+
+.timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:0;
+
+    width:4px;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    transform:translateX(-50%);
+
+}
+
+.timeline-item{
+
+    width:50%;
+
+    padding:25px 40px;
+
+    position:relative;
+
+}
+
+.timeline-item:nth-child(odd){
+
+    left:0;
+
+    text-align:right;
+
+}
+
+.timeline-item:nth-child(even){
+
+    left:50%;
+
+}
+
+.timeline-item::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:35px;
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    box-shadow:
+
+    0 0 18px rgba(34,197,94,.6);
+
+}
+
+.timeline-item:nth-child(odd)::after{
+
+    right:-9px;
+
+}
+
+.timeline-item:nth-child(even)::after{
+
+    left:-9px;
+
+}
+
+.timeline-content{
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.08);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    backdrop-filter:blur(18px);
+
+}
+
+.timeline-content h3{
+
+    margin-bottom:10px;
+
+}
+
+.timeline-content p{
+
+    color:var(--muted);
+
+}
+
+/* ==========================
+   PROJECT STATS
+========================== */
+
+.stats-section{
+
+    margin-top:90px;
+
+}
+
+.project-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    margin-top:55px;
+
+}
+
+.stat-box{
+
+    text-align:center;
+
+    padding:35px;
+
+    transition:.4s;
+
+}
+
+.stat-box:hover{
+
+    transform:translateY(-12px);
+
+}
+
+.stat-box h2{
+
+    font-size:3rem;
+
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+}
+
+.stat-box p{
+
+    color:var(--muted);
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+    margin-top:120px;
+
+    padding:70px 0 30px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    background:rgba(10,15,25,.55);
+
+    backdrop-filter:blur(20px);
+
+}
+
+.footer-content{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr;
+
+    gap:50px;
+
+}
+
+.footer-brand h2{
+
+    margin-bottom:18px;
+
+}
+
+.footer-brand p{
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+}
+
+.footer-links h3,
+
+.footer-social h3{
+
+    margin-bottom:20px;
+
+}
+
+.footer-links a{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    color:var(--muted);
+
+    transition:.3s;
+
+}
+
+.footer-links a:hover{
+
+    color:var(--primary);
+
+    padding-left:8px;
+
+}
+
+.social-icons{
+
+    display:flex;
+
+    gap:18px;
+
+}
+
+.social-icons a{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    transition:.35s;
+
+}
+
+.social-icons a:hover{
+
+    background:linear-gradient(
+
+        135deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    transform:translateY(-6px);
+
+}
+
+.social-icons i{
+
+    color:#fff;
+
+    font-size:1.1rem;
+
+}
+
+.footer-bottom{
+
+    text-align:center;
+
+    margin-top:55px;
+
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    color:var(--muted);
+
+}
+
+/* ==========================
+   SCROLL TO TOP
+========================== */
+
+.scroll-top{
+
+    position:fixed;
+
+    right:30px;
+
+    bottom:30px;
+
+    width:55px;
+
+    height:55px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#fff;
+
+    background:linear-gradient(
+
+        135deg,
+
+        var(--primary),
+
+        var(--secondary)
+
+    );
+
+    box-shadow:0 0 30px rgba(34,197,94,.4);
+
+    transition:.35s;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    z-index:999;
+
+}
+
+.scroll-top.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+.scroll-top:hover{
+
+    transform:translateY(-6px);
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+.project-stats{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.footer-content{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.social-icons{
+
+justify-content:center;
+
+}
+
+.timeline::before{
+
+left:30px;
+
+}
+
+.timeline-item,
+
+.timeline-item:nth-child(even),
+
+.timeline-item:nth-child(odd){
+
+left:0;
+
+width:100%;
+
+padding-left:70px;
+
+padding-right:20px;
+
+text-align:left;
+
+}
+
+.timeline-item::after,
+
+.timeline-item:nth-child(even)::after,
+
+.timeline-item:nth-child(odd)::after{
+
+left:22px;
+
+right:auto;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.project-stats{
+
+grid-template-columns:1fr;
+
+}
+
+footer{
+
+padding-top:50px;
+
+}
+
+.scroll-top{
+
+right:20px;
+
+bottom:20px;
+
+width:50px;
+
+height:50px;
+
+}
+
+}
+/* =====================================================
+   PART 6A
+   NAVBAR • MOBILE MENU • SMOOTH SCROLL • ACTIVE LINKS
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const navbar = document.querySelector(".navbar");
+    const menuBtn = document.querySelector(".menu-btn");
+    const navMenu = document.querySelector(".navbar ul");
+    const navLinks = document.querySelectorAll(".navbar ul li a");
+    const sections = document.querySelectorAll("section");
+
+    /* ===============================
+       Sticky Navbar
+    =============================== */
+
+    const handleNavbar = () => {
+
+        if (window.scrollY > 60) {
+
+            navbar?.classList.add("scrolled");
+
+        } else {
+
+            navbar?.classList.remove("scrolled");
+
+        }
+
+    };
+
+    window.addEventListener("scroll", handleNavbar);
+
+    handleNavbar();
+
+    /* ===============================
+       Mobile Menu Toggle
+    =============================== */
+
+    if (menuBtn && navMenu) {
+
+        menuBtn.addEventListener("click", () => {
+
+            navMenu.classList.toggle("active");
+
+            menuBtn.classList.toggle("active");
+
+            const icon = menuBtn.querySelector("i");
+
+            if (icon) {
+
+                icon.classList.toggle("fa-bars");
+                icon.classList.toggle("fa-times");
+
+            }
+
+        });
+
+    }
+
+    /* ===============================
+       Close Menu After Click
+    =============================== */
+
+    navLinks.forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            navMenu?.classList.remove("active");
+
+            menuBtn?.classList.remove("active");
+
+            const icon = menuBtn?.querySelector("i");
+
+            if (icon) {
+
+                icon.classList.add("fa-bars");
+                icon.classList.remove("fa-times");
+
+            }
+
+        });
+
+    });
+
+    /* ===============================
+       Smooth Scroll
+    =============================== */
+
+    navLinks.forEach(link => {
+
+        link.addEventListener("click", e => {
+
+            const href = link.getAttribute("href");
+
+            if (!href || !href.startsWith("#")) return;
+
+            e.preventDefault();
+
+            const target = document.querySelector(href);
+
+            if (!target) return;
+
+            window.scrollTo({
+
+                top: target.offsetTop - 95,
+
+                behavior: "smooth"
+
+            });
+
+        });
+
+    });
+
+    /* ===============================
+       Active Navigation Link
+    =============================== */
+
+    const activateLink = () => {
+
+        let current = "";
+
+        sections.forEach(section => {
+
+            const top = section.offsetTop - 150;
+            const height = section.offsetHeight;
+
+            if (window.scrollY >= top &&
+                window.scrollY < top + height) {
+
+                current = section.getAttribute("id");
+
+            }
+
+        });
+
+        navLinks.forEach(link => {
+
+            link.classList.remove("active");
+
+            if (
+                link.getAttribute("href") === `#${current}`
+            ) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    };
+
+    window.addEventListener("scroll", activateLink);
+
+    activateLink();
+
+});
+/* Active Navigation Link */
+
+.navbar ul li a.active{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.navbar ul li a.active::after{
+
+    width:100%;
+
+}
+/* Active Navigation Link */
+
+.navbar ul li a.active{
+
+    color:var(--primary);
+
+    font-weight:600;
+
+}
+
+.navbar ul li a.active::after{
+
+    width:100%;
+
+}
+/* =====================================================
+   PART 6B
+   SCROLL REVEAL • COUNTERS • INTERSECTION OBSERVER
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ===============================
+       Scroll Reveal Elements
+    =============================== */
+
+    const revealElements = document.querySelectorAll(
+        ".fade-up, .slide-left, .slide-right, .zoom"
+    );
+
+    const revealObserver = new IntersectionObserver(
+
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (!entry.isIntersecting) return;
+
+                entry.target.classList.add("show");
+
+                observer.unobserve(entry.target);
+
+            });
+
+        },
+
+        {
+            threshold:0.15
+        }
+
+    );
+
+    revealElements.forEach(item => {
+
+        revealObserver.observe(item);
+
+    });
+
+    /* ===============================
+       Animated Counters
+    =============================== */
+
+    const counters = document.querySelectorAll(".counter");
+
+    const animateCounter = counter => {
+
+        const target = Number(counter.dataset.target);
+
+        const duration = 1800;
+
+        let start = 0;
+
+        const increment = target / (duration / 16);
+
+        const update = () => {
+
+            start += increment;
+
+            if(start >= target){
+
+                counter.textContent = target;
+
+                return;
+
+            }
+
+            counter.textContent = Math.floor(start);
+
+            requestAnimationFrame(update);
+
+        };
+
+        update();
+
+    };
+
+    const counterObserver = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(entry.isIntersecting){
+
+                    animateCounter(entry.target);
+
+                    counterObserver.unobserve(entry.target);
+
+                }
+
+            });
+
+        },
+
+        {
+
+            threshold:0.5
+
+        }
+
+    );
+
+    counters.forEach(counter=>{
+
+        counterObserver.observe(counter);
+
+    });
+
+    /* ===============================
+       Progress Bars
+    =============================== */
+
+    const progressBars = document.querySelectorAll(".progress-fill");
+
+    const progressObserver = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if(!entry.isIntersecting) return;
+
+                const bar = entry.target;
+
+                const value = bar.dataset.progress || 0;
+
+                bar.style.width = value + "%";
+
+                progressObserver.unobserve(bar);
+
+            });
+
+        },
+
+        {
+
+            threshold:0.3
+
+        }
+
+    );
+
+    progressBars.forEach(bar=>{
+
+        bar.style.width="0";
+
+        progressObserver.observe(bar);
+
+    });
+
+    /* ===============================
+       Card Hover Tilt
+    =============================== */
+
+    const cards = document.querySelectorAll(
+
+        ".card, .feature-card, .tech-card, .dashboard-card"
+
+    );
+
+    cards.forEach(card=>{
+
+        card.addEventListener("mousemove",(e)=>{
+
+            const rect = card.getBoundingClientRect();
+
+            const x = e.clientX - rect.left;
+
+            const y = e.clientY - rect.top;
+
+            const rotateX = -(y - rect.height/2)/20;
+
+            const rotateY = (x - rect.width/2)/20;
+
+            card.style.transform =
+
+            `perspective(1000px)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)
+             translateY(-8px)`;
+
+        });
+
+        card.addEventListener("mouseleave",()=>{
+
+            card.style.transform="";
+
+        });
+
+    });
+
+    /* ===============================
+       Floating Elements
+    =============================== */
+
+    const floatingItems = document.querySelectorAll(".float");
+
+    floatingItems.forEach((item,index)=>{
+
+        item.style.animationDelay = `${index*0.4}s`;
+
+    });
+
+});
+.progress{
+
+    width:100%;
+
+    height:10px;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.08);
+
+}
+/* =====================================================
+   PART 6C
+   SCROLL TOP • CHART.JS • PARALLAX • INTERACTIONS
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ===============================
+       Scroll To Top Button
+    =============================== */
+
+    const scrollTopBtn = document.querySelector(".scroll-top");
+
+    const toggleScrollButton = () => {
+
+        if (!scrollTopBtn) return;
+
+        if (window.scrollY > 400) {
+
+            scrollTopBtn.classList.add("show");
+
+        } else {
+
+            scrollTopBtn.classList.remove("show");
+
+        }
+
+    };
+
+    window.addEventListener("scroll", toggleScrollButton);
+
+    toggleScrollButton();
+
+    scrollTopBtn?.addEventListener("click", () => {
+
+        window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+        });
+
+    });
+
+    /* ===============================
+       Chart.js Dashboard
+    =============================== */
+
+    const chartCanvas = document.getElementById("nutritionChart");
+
+    if (chartCanvas && typeof Chart !== "undefined") {
+
+        new Chart(chartCanvas, {
+
+            type: "doughnut",
+
+            data: {
+
+                labels: [
+
+                    "Protein",
+
+                    "Carbs",
+
+                    "Fat",
+
+                    "Fiber"
+
+                ],
+
+                datasets: [{
+
+                    data: [30, 40, 20, 10],
+
+                    backgroundColor: [
+
+                        "#22c55e",
+
+                        "#3b82f6",
+
+                        "#a855f7",
+
+                        "#f59e0b"
+
+                    ],
+
+                    borderWidth: 0,
+
+                    hoverOffset: 12
+
+                }]
+
+            },
+
+            options: {
+
+                responsive: true,
+
+                maintainAspectRatio: false,
+
+                plugins: {
+
+                    legend: {
+
+                        position: "bottom",
+
+                        labels: {
+
+                            color: "#ffffff",
+
+                            padding: 20,
+
+                            font: {
+
+                                size: 14
+
+                            }
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        });
+
+    }
+
+    /* ===============================
+       Parallax Effect
+    =============================== */
+
+    const parallaxItems = document.querySelectorAll(
+
+        ".phone, .hero-right, .float"
+
+    );
+
+    window.addEventListener("scroll", () => {
+
+        const offset = window.pageYOffset;
+
+        parallaxItems.forEach((item, index) => {
+
+            const speed = (index + 1) * 0.03;
+
+            item.style.transform =
+
+                `translateY(${offset * speed}px)`;
+
+        });
+
+    });
+
+    /* ===============================
+       Mouse Glow Effect
+    =============================== */
+
+    document.addEventListener("mousemove", e => {
+
+        const glow = document.querySelector(".cursor-glow");
+
+        if (!glow) return;
+
+        glow.style.left = `${e.clientX}px`;
+
+        glow.style.top = `${e.clientY}px`;
+
+    });
+
+    /* ===============================
+       Button Ripple Effect
+    =============================== */
+
+    const buttons = document.querySelectorAll(
+
+        ".btn, .nav-btn"
+
+    );
+
+    buttons.forEach(button => {
+
+        button.addEventListener("click", e => {
+
+            const ripple = document.createElement("span");
+
+            const rect = button.getBoundingClientRect();
+
+            const size = Math.max(rect.width, rect.height);
+
+            ripple.style.width = size + "px";
+
+            ripple.style.height = size + "px";
+
+            ripple.style.left =
+
+                e.clientX - rect.left - size / 2 + "px";
+
+            ripple.style.top =
+
+                e.clientY - rect.top - size / 2 + "px";
+
+            ripple.classList.add("ripple");
+
+            button.appendChild(ripple);
+
+            setTimeout(() => {
+
+                ripple.remove();
+
+            }, 600);
+
+        });
+
+    });
+
+});
+/* Ripple Effect */
+
+.btn,
+.nav-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    animation:rippleAnimation .6s linear;
+
+    background:rgba(255,255,255,.45);
+
+    pointer-events:none;
+
+}
+
+@keyframes rippleAnimation{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/* Cursor Glow */
+
+.cursor-glow{
+
+    position:fixed;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+
+        rgba(34,197,94,.18),
+
+        transparent 70%
+
+    );
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    z-index:0;
+
+    transition:left .08s linear, top .08s linear;
+
+}
+/* Ripple Effect */
+
+.btn,
+.nav-btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    animation:rippleAnimation .6s linear;
+
+    background:rgba(255,255,255,.45);
+
+    pointer-events:none;
+
+}
+
+@keyframes rippleAnimation{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
+
+/* Cursor Glow */
+
+.cursor-glow{
+
+    position:fixed;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+
+        rgba(34,197,94,.18),
+
+        transparent 70%
+
+    );
+
+    pointer-events:none;
+
+    transform:translate(-50%,-50%);
+
+    z-index:0;
+
+    transition:left .08s linear, top .08s linear;
+
+}
+
+
+.progress-fill{
+
+    width:0;
+
+    height:100%;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    transition:width 2s ease;
+
+}
+/* Loader */
+
+.loader{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#08111d;
+
+    z-index:99999;
+
+    transition:.6s;
+
+}
+
+.loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+.loader::before{
+
+    content:"";
+
+    width:70px;
+
+    height:70px;
+
+    border:6px solid rgba(255,255,255,.15);
+
+    border-top-color:#22c55e;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* Image Fade */
+
+img{
+
+    opacity:0;
+
+    transition:.5s;
+
+}
+
+img.loaded{
+
+    opacity:1;
+
+}
+/* =====================================================
+   PART 6E (BONUS)
+   TYPEWRITER • LAZY LOADING • COPY • THEME • PRELOADER
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ==========================
+       Typewriter Effect
+    ========================== */
+
+    const typingElement = document.querySelector(".typing");
+
+    if (typingElement) {
+
+        const text = typingElement.dataset.text || typingElement.textContent;
+
+        typingElement.textContent = "";
+
+        let index = 0;
+
+        function type() {
+
+            if (index < text.length) {
+
+                typingElement.textContent += text.charAt(index);
+
+                index++;
+
+                setTimeout(type, 60);
+
+            }
+
+        }
+
+        type();
+
+    }
+
+    /* ==========================
+       Lazy Loading Images
+    ========================== */
+
+    const lazyImages = document.querySelectorAll("img[data-src]");
+
+    const imageObserver = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            const img = entry.target;
+
+            img.src = img.dataset.src;
+
+            img.removeAttribute("data-src");
+
+            imageObserver.unobserve(img);
+
+        });
+
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+
+    /* ==========================
+       Copy Button
+    ========================== */
+
+    document.querySelectorAll(".copy-btn").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const text = button.dataset.copy;
+
+            if (!text) return;
+
+            navigator.clipboard.writeText(text);
+
+            button.textContent = "Copied!";
+
+            setTimeout(() => {
+
+                button.textContent = "Copy";
+
+            }, 1500);
+
+        });
+
+    });
+
+    /* ==========================
+       Theme Toggle
+    ========================== */
+
+    const themeBtn = document.querySelector(".theme-toggle");
+
+    if (themeBtn) {
+
+        themeBtn.addEventListener("click", () => {
+
+            document.body.classList.toggle("light-mode");
+
+            localStorage.setItem(
+                "theme",
+                document.body.classList.contains("light-mode")
+                    ? "light"
+                    : "dark"
+            );
+
+        });
+
+        if (localStorage.getItem("theme") === "light") {
+
+            document.body.classList.add("light-mode");
+
+        }
+
+    }
+
+    /* ==========================
+       Page Visible Animation
+    ========================== */
+
+    document.body.classList.add("page-loaded");
+
+});
+
+/* =====================================================
+   PART 6E (BONUS)
+   TYPEWRITER • LAZY LOADING • COPY • THEME • PRELOADER
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ==========================
+       Typewriter Effect
+    ========================== */
+
+    const typingElement = document.querySelector(".typing");
+
+    if (typingElement) {
+
+        const text = typingElement.dataset.text || typingElement.textContent;
+
+        typingElement.textContent = "";
+
+        let index = 0;
+
+        function type() {
+
+            if (index < text.length) {
+
+                typingElement.textContent += text.charAt(index);
+
+                index++;
+
+                setTimeout(type, 60);
+
+            }
+
+        }
+
+        type();
+
+    }
+
+    /* ==========================
+       Lazy Loading Images
+    ========================== */
+
+    const lazyImages = document.querySelectorAll("img[data-src]");
+
+    const imageObserver = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting) return;
+
+            const img = entry.target;
+
+            img.src = img.dataset.src;
+
+            img.removeAttribute("data-src");
+
+            imageObserver.unobserve(img);
+
+        });
+
+    });
+
+    lazyImages.forEach(img => imageObserver.observe(img));
+
+    /* ==========================
+       Copy Button
+    ========================== */
+
+    document.querySelectorAll(".copy-btn").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const text = button.dataset.copy;
+
+            if (!text) return;
+
+            navigator.clipboard.writeText(text);
+
+            button.textContent = "Copied!";
+
+            setTimeout(() => {
+
+                button.textContent = "Copy";
+
+            }, 1500);
+
+        });
+
+    });
+
+    /* ==========================
+       Theme Toggle
+    ========================== */
+
+    const themeBtn = document.querySelector(".theme-toggle");
+
+    if (themeBtn) {
+
+        themeBtn.addEventListener("click", () => {
+
+            document.body.classList.toggle("light-mode");
+
+            localStorage.setItem(
+                "theme",
+                document.body.classList.contains("light-mode")
+                    ? "light"
+                    : "dark"
+            );
+
+        });
+
+        if (localStorage.getItem("theme") === "light") {
+
+            document.body.classList.add("light-mode");
+
+        }
+
+    }
+
+    /* ==========================
+       Page Visible Animation
+    ========================== */
+
+    document.body.classList.add("page-loaded");
+
+});
+
+body.light-mode{
+
+    background:#f4f7fb;
+
+    color:#111827;
+
+}
+
+body.light-mode .glass{
+
+    background:rgba(255,255,255,.7);
+
+    color:#111827;
+
+}
+
+.page-loaded{
+
+    animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+    }
+
+    to{
+
+        opacity:1;
+
+    }
+
+}
+/* =====================================================
+   PART 6F (BONUS)
+   CURSOR • PARTICLES • STATS • SHORTCUTS
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ==========================
+       Mouse Parallax
+    ========================== */
+
+    const hero = document.querySelector(".hero");
+
+    document.addEventListener("mousemove", (e) => {
+
+        if (!hero) return;
+
+        const x = (window.innerWidth / 2 - e.clientX) / 40;
+        const y = (window.innerHeight / 2 - e.clientY) / 40;
+
+        hero.style.transform =
+            `translate(${x}px, ${y}px)`;
+
+    });
+
+    /* ==========================
+       Random Floating Animation
+    ========================== */
+
+    document.querySelectorAll(".float").forEach(item => {
+
+        item.style.animationDuration =
+            (4 + Math.random() * 3).toFixed(1) + "s";
+
+    });
+
+    /* ==========================
+       Reading Progress Bar
+    ========================== */
+
+    const progress = document.querySelector(".reading-progress");
+
+    window.addEventListener("scroll", () => {
+
+        if (!progress) return;
+
+        const total =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+        const value =
+            (window.scrollY / total) * 100;
+
+        progress.style.width = value + "%";
+
+    });
+
+    /* ==========================
+       Keyboard Shortcuts
+    ========================== */
+
+    document.addEventListener("keydown", e => {
+
+        if (e.key.toLowerCase() === "t") {
+
+            window.scrollTo({
+
+                top:0,
+
+                behavior:"smooth"
+
+            });
+
+        }
+
+    });
+
+    /* ==========================
+       Welcome Message
+    ========================== */
+
+    console.log(
+        "%cWelcome to NutriScope!",
+        "color:#22c55e;font-size:18px;font-weight:bold;"
+    );
+
+});
+/* Reading Progress */
+
+.reading-progress{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:0;
+
+    height:4px;
+
+    background:linear-gradient(
+        90deg,
+        #22c55e,
+        #3b82f6
+    );
+
+    z-index:9999;
+
+}
+
+/* Smooth Transform */
+
+.hero{
+
+    transition:transform .15s linear;
+
+}
+/* =====================================================
+   PART 6G (BONUS)
+   ACCESSIBILITY • FORM VALIDATION • UTILITIES
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ==================================
+       Respect Reduced Motion Preference
+    ================================== */
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+        document.querySelectorAll("*").forEach(el => {
+
+            el.style.animation = "none";
+            el.style.transition = "none";
+
+        });
+
+    }
+
+    /* ==================================
+       Highlight Current Section
+    ================================== */
+
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver((entries) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                sections.forEach(sec => sec.classList.remove("active-section"));
+
+                entry.target.classList.add("active-section");
+
+            }
+
+        });
+
+    }, {
+
+        threshold: 0.4
+
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+    /* ==================================
+       Simple Contact Form Validation
+    ================================== */
+
+    const form = document.querySelector("form");
+
+    if (form) {
+
+        form.addEventListener("submit", e => {
+
+            const required = form.querySelectorAll("[required]");
+
+            let valid = true;
+
+            required.forEach(input => {
+
+                if (!input.value.trim()) {
+
+                    valid = false;
+                    input.classList.add("input-error");
+
+                } else {
+
+                    input.classList.remove("input-error");
+
+                }
+
+            });
+
+            if (!valid) {
+
+                e.preventDefault();
+
+                alert("Please complete all required fields.");
+
+            }
+
+        });
+
+    }
+
+    /* ==================================
+       Smooth Fade-In for Images
+    ================================== */
+
+    document.querySelectorAll("img").forEach(img => {
+
+        if (img.complete) {
+
+            img.classList.add("loaded");
+
+        }
+
+    });
+
+    console.log("Bonus utilities initialized.");
+
+});
+.active-section{
+
+    transition:0.4s;
+
+}
+
+.input-error{
+
+    border:2px solid #ef4444 !important;
+
+    outline:none;
+
+}
+
+img.loaded{
+
+    opacity:1;
+
+}
+
+img{
+
+    opacity:0;
+
+    transition:opacity .5s ease;
+
+}
+/* =====================================================
+   PART 6G (BONUS)
+   SEARCH • PRINT • NETWORK • BACK TO SECTION
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ==================================
+       Live Search Filter
+    ================================== */
+
+    const searchInput = document.querySelector(".search-input");
+
+    if (searchInput) {
+
+        searchInput.addEventListener("input", e => {
+
+            const value = e.target.value.toLowerCase();
+
+            document.querySelectorAll(".card,.feature-card,.tech-card")
+                .forEach(card => {
+
+                    const text = card.textContent.toLowerCase();
+
+                    card.style.display =
+                        text.includes(value) ? "" : "none";
+
+                });
+
+        });
+
+    }
+
+    /* ==================================
+       Print Page Button
+    ================================== */
+
+    const printBtn = document.querySelector(".print-btn");
+
+    printBtn?.addEventListener("click", () => {
+
+        window.print();
+
+    });
+
+    /* ==================================
+       Network Status
+    ================================== */
+
+    const updateStatus = () => {
+
+        console.log(
+            navigator.onLine
+                ? "Internet Connected"
+                : "Internet Disconnected"
+        );
+
+    };
+
+    window.addEventListener("online", updateStatus);
+    window.addEventListener("offline", updateStatus);
+
+    updateStatus();
+
+    /* ==================================
+       Copy Current URL
+    ================================== */
+
+    const shareBtn = document.querySelector(".share-btn");
+
+    shareBtn?.addEventListener("click", async () => {
+
+        try {
+
+            await navigator.clipboard.writeText(location.href);
+
+            alert("Project URL copied.");
+
+        } catch (err) {
+
+            console.error(err);
+
+        }
+
+    });
+
+    /* ==================================
+       Back To Previous Section
+    ================================== */
+
+    const backBtns = document.querySelectorAll(".back-btn");
+
+    backBtns.forEach(btn => {
+
+        btn.addEventListener("click", () => {
+
+            window.history.back();
+
+        });
+
+    });
+
+    /* ==================================
+       Detect Dark Mode Preference
+    ================================== */
+
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+
+        document.body.classList.add("system-dark");
+
+    }
+
+    console.log("Bonus Part 6G Loaded");
+
+});
+.system-dark{
+
+    color-scheme:dark;
+
+}
+
+@media print{
+
+    .navbar,
+    .scroll-top,
+    .menu-btn{
+
+        display:none !important;
+
+    }
+
+    body{
+
+        background:#fff;
+
+        color:#000;
+
+    }
+
+}
+/* =====================================================
+   PART 6H (BONUS)
+   FULLSCREEN • READING TIME • SECTION PROGRESS
+====================================================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* ==========================
+       Fullscreen Toggle
+    ========================== */
+
+    const fullscreenBtn = document.querySelector(".fullscreen-btn");
+
+    fullscreenBtn?.addEventListener("click", async () => {
+
+        if (!document.fullscreenElement) {
+
+            await document.documentElement.requestFullscreen();
+
+        } else {
+
+            await document.exitFullscreen();
+
+        }
+
+    });
+
+    /* ==========================
+       Estimated Reading Time
+    ========================== */
+
+    const readingTime = document.querySelector(".reading-time");
+
+    if (readingTime) {
+
+        const words = document.body.innerText.trim().split(/\s+/).length;
+
+        const minutes = Math.max(1, Math.ceil(words / 200));
+
+        readingTime.textContent = `${minutes} min read`;
+
+    }
+
+    /* ==========================
+       Current Section Indicator
+    ========================== */
+
+    const indicator = document.querySelector(".section-indicator");
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(entries => {
+
+        entries.forEach(entry => {
+
+            if (!entry.isIntersecting || !indicator) return;
+
+            const title =
+                entry.target.dataset.title ||
+                entry.target.id ||
+                "Section";
+
+            indicator.textContent = title;
+
+        });
+
+    }, {
+
+        threshold: 0.5
+
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+    /* ==========================
+       Keyboard Navigation
+    ========================== */
+
+    document.addEventListener("keydown", e => {
+
+        const ids = [...sections].map(s => "#" + s.id);
+
+        const current = ids.findIndex(id => {
+
+            const el = document.querySelector(id);
+
+            return window.scrollY >= el.offsetTop - 120 &&
+                   window.scrollY < el.offsetTop + el.offsetHeight;
+
+        });
+
+        if (e.key === "ArrowDown" && current < ids.length - 1) {
+
+            document.querySelector(ids[current + 1])
+                ?.scrollIntoView({ behavior: "smooth" });
+
+        }
+
+        if (e.key === "ArrowUp" && current > 0) {
+
+            document.querySelector(ids[current - 1])
+                ?.scrollIntoView({ behavior: "smooth" });
+
+        }
+
+    });
+
+    /* ==========================
+       Performance Information
+    ========================== */
+
+    window.addEventListener("load", () => {
+
+        const timing = performance.now().toFixed(0);
+
+        console.log(`Page loaded in ${timing} ms`);
+
+    });
+
+});
+/* Section Indicator */
+
+.section-indicator{
+
+    position:fixed;
+
+    left:20px;
+
+    bottom:20px;
+
+    padding:10px 18px;
+
+    border-radius:30px;
+
+    background:rgba(0,0,0,.55);
+
+    color:#fff;
+
+    backdrop-filter:blur(10px);
+
+    z-index:999;
+
+}
+
+/* Reading Time */
+
+.reading-time{
+
+    color:var(--muted);
+
+    font-size:.9rem;
+
+}
