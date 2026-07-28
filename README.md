@@ -20139,3 +20139,761 @@ transform:translate(-50%,-50%);
 pointer-events:none;
 
 }
+
+_________________DAY57_________________________
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>NutriScope</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://kit.fontawesome.com/6b5b4c4d65.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="sidebar">
+
+<h2>🥗 NutriScope</h2>
+
+<ul>
+
+<li class="active">
+<i class="fas fa-home"></i>
+Dashboard
+</li>
+
+<li>
+<i class="fas fa-search"></i>
+Food Search
+</li>
+
+<li>
+<i class="fas fa-robot"></i>
+AI Insights
+</li>
+
+<li>
+<i class="fas fa-chart-line"></i>
+Nutrition
+</li>
+
+<li>
+<i class="fas fa-heart"></i>
+Favorites
+</li>
+
+<li>
+<i class="fas fa-cog"></i>
+Settings
+</li>
+
+</ul>
+
+</div>
+
+<div class="main">
+
+<header>
+
+<div>
+
+<h1>Good Morning 👋</h1>
+
+<p>Your Nutrition Dashboard</p>
+
+</div>
+
+<button id="theme">
+
+🌙 Theme
+
+</button>
+
+</header>
+
+<section class="cards">
+
+<div class="card">
+
+<h3>Calories</h3>
+
+<h2 id="calories">0</h2>
+
+<p>Today's Intake</p>
+
+</div>
+
+<div class="card">
+
+<h3>Protein</h3>
+
+<h2 id="protein">0g</h2>
+
+<p>Daily Goal</p>
+
+</div>
+
+<div class="card">
+
+<h3>Health Score</h3>
+
+<h2>92%</h2>
+
+<p>Excellent</p>
+
+</div>
+
+<div class="card">
+
+<h3>Water</h3>
+
+<h2>2.5L</h2>
+
+<p>Goal Completed</p>
+
+</div>
+
+</section>
+
+<section class="dashboard">
+
+<div class="chart-box">
+
+<h2>Nutrition Breakdown</h2>
+
+<canvas id="chart"></canvas>
+
+</div>
+
+<div class="insights">
+
+<h2>AI Insight</h2>
+
+<p id="typing"></p>
+
+<button>
+
+Generate Report
+
+</button>
+
+</div>
+
+</section>
+
+<footer>
+
+❤️ Built with Claude as part of the AB Talks 60-Day Claude AI Challenge.
+
+</footer>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+/* ---------- Global ---------- */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
+
+body{
+background:#090b18;
+color:#fff;
+overflow-x:hidden;
+display:flex;
+min-height:100vh;
+}
+
+/* ---------- Animated Background ---------- */
+
+.background{
+position:fixed;
+inset:0;
+z-index:-1;
+background:
+radial-gradient(circle at top left,#7c3aed40,transparent 35%),
+radial-gradient(circle at bottom right,#00d4ff30,transparent 35%),
+linear-gradient(#090b18,#0e1225);
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar{
+
+width:260px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+border-right:1px solid rgba(255,255,255,.08);
+padding:35px 25px;
+display:flex;
+flex-direction:column;
+
+}
+
+.sidebar h2{
+
+margin-bottom:40px;
+font-size:28px;
+font-weight:700;
+
+}
+
+.sidebar ul{
+
+list-style:none;
+
+}
+
+.sidebar li{
+
+padding:16px 18px;
+margin-bottom:12px;
+border-radius:14px;
+cursor:pointer;
+transition:.35s;
+display:flex;
+gap:15px;
+align-items:center;
+font-size:15px;
+
+}
+
+.sidebar li:hover{
+
+background:#6d28d9;
+
+transform:translateX(5px);
+
+}
+
+.sidebar .active{
+
+background:#7c3aed;
+
+}
+
+/* ---------- Main ---------- */
+
+.main{
+
+flex:1;
+padding:40px;
+
+}
+
+/* ---------- Header ---------- */
+
+header{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:35px;
+
+}
+
+header h1{
+
+font-size:40px;
+font-weight:700;
+
+}
+
+header p{
+
+color:#b5bfd8;
+margin-top:8px;
+
+}
+
+#theme{
+
+background:#7c3aed;
+color:white;
+padding:14px 22px;
+border:none;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+#theme:hover{
+
+transform:translateY(-3px);
+
+}
+
+/* ---------- Cards ---------- */
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+margin-bottom:35px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+padding:25px;
+border-radius:22px;
+transition:.35s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+box-shadow:0 18px 40px rgba(124,58,237,.35);
+
+}
+
+.card h3{
+
+font-size:16px;
+color:#b5bfd8;
+
+}
+
+.card h2{
+
+margin:18px 0;
+font-size:34px;
+
+}
+
+.card p{
+
+color:#8b93ab;
+
+}
+
+/* ---------- Dashboard ---------- */
+
+.dashboard{
+
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:25px;
+
+}
+
+.chart-box,
+.insights{
+
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border-radius:24px;
+padding:30px;
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.chart-box{
+
+height:430px;
+
+}
+
+.chart-box h2{
+
+margin-bottom:20px;
+
+}
+
+.insights h2{
+
+margin-bottom:20px;
+
+}
+
+.insights p{
+
+line-height:1.8;
+color:#d7dbea;
+margin-bottom:25px;
+
+}
+
+.insights button{
+
+width:100%;
+padding:16px;
+border:none;
+background:#7c3aed;
+color:#fff;
+font-weight:600;
+border-radius:14px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+.insights button:hover{
+
+background:#8b5cf6;
+
+}
+
+/* ---------- Footer ---------- */
+
+footer{
+
+margin-top:45px;
+padding:20px;
+text-align:center;
+color:#9ba5bf;
+font-size:14px;
+
+}
+
+/* ---------- Scrollbar ---------- */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#7c3aed;
+border-radius:20px;
+
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:1200px){
+
+.cards{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.dashboard{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+@media(max-width:900px){
+
+body{
+
+flex-direction:column;
+
+}
+
+.sidebar{
+
+width:100%;
+border-right:none;
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.main{
+
+padding:25px;
+
+}
+
+header{
+
+flex-direction:column;
+align-items:flex-start;
+gap:20px;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+header h1{
+
+font-size:28px;
+
+}
+
+.chart-box{
+
+height:320px;
+
+}
+
+.sidebar li{
+
+font-size:14px;
+
+}
+
+}
+// =============================
+// NutriScope Day 7 - script.js
+// =============================
+
+// Animated Counters
+function animateValue(id, start, end, duration, suffix = "") {
+  const obj = document.getElementById(id);
+  if (!obj) return;
+
+  let startTimestamp = null;
+
+  function step(timestamp) {
+    if (!startTimestamp) startTimestamp = timestamp;
+
+    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+
+    const value = Math.floor(progress * (end - start) + start);
+
+    obj.textContent = value + suffix;
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  }
+
+  window.requestAnimationFrame(step);
+}
+
+animateValue("calories", 0, 1924, 1800);
+animateValue("protein", 0, 132, 1800, "g");
+
+// =============================
+// Typing Animation
+// =============================
+
+const message =
+  "Your nutrition looks excellent today. Increase water intake slightly and add one serving of fruit to improve your daily health score.";
+
+const typing = document.getElementById("typing");
+
+let i = 0;
+
+function typeWriter() {
+
+  if (i < message.length) {
+
+    typing.textContent += message.charAt(i);
+
+    i++;
+
+    setTimeout(typeWriter, 25);
+
+  }
+
+}
+
+typeWriter();
+
+
+// =============================
+// Theme Toggle
+// =============================
+
+const btn = document.getElementById("theme");
+
+let dark = true;
+
+btn.addEventListener("click", () => {
+
+  dark = !dark;
+
+  if (dark) {
+
+    document.body.style.background = "#090b18";
+
+    document.body.style.color = "#ffffff";
+
+    btn.textContent = "🌙 Theme";
+
+  } else {
+
+    document.body.style.background = "#f5f7fb";
+
+    document.body.style.color = "#111";
+
+    btn.textContent = "☀️ Theme";
+
+  }
+
+});
+
+// =============================
+// Fade-in Cards
+// =============================
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach((card, index) => {
+
+  card.style.opacity = "0";
+
+  card.style.transform = "translateY(40px)";
+
+  setTimeout(() => {
+
+    card.style.transition = ".7s";
+
+    card.style.opacity = "1";
+
+    card.style.transform = "translateY(0)";
+
+  }, index * 180);
+
+});
+
+// =============================
+// Chart.js
+// =============================
+
+const ctx = document.getElementById("chart");
+
+if (ctx) {
+
+new Chart(ctx, {
+
+type: "doughnut",
+
+data: {
+
+labels: [
+
+"Protein",
+
+"Carbs",
+
+"Fat",
+
+"Fiber"
+
+],
+
+datasets: [
+
+{
+
+data: [35, 40, 15, 10],
+
+backgroundColor: [
+
+"#7c3aed",
+
+"#00d4ff",
+
+"#22c55e",
+
+"#f59e0b"
+
+],
+
+borderWidth: 0
+
+}
+
+]
+
+},
+
+options: {
+
+responsive: true,
+
+plugins: {
+
+legend: {
+
+labels: {
+
+color: "#ffffff"
+
+}
+
+}
+
+},
+
+cutout: "70%"
+
+}
+
+});
+
+}
+
+// =============================
+// Button Interaction
+// =============================
+
+document.querySelector(".insights button")
+.addEventListener("click", () => {
+
+alert(
+"AI Report generated successfully!"
+);
+
+});
+
+// =============================
+// Mouse Glow Effect
+// =============================
+
+document.addEventListener("mousemove", (e) => {
+
+document.documentElement.style.setProperty(
+"--mouse-x",
+e.clientX + "px"
+);
+
+document.documentElement.style.setProperty(
+"--mouse-y",
+e.clientY + "px"
+);
+
+});
+
+// =============================
+// Console Message
+// =============================
+
+console.log("✅ NutriScope Day 7 Loaded Successfully");
